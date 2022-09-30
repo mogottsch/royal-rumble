@@ -10,9 +10,23 @@ const LOBBY_CODE_LENGTH = 6
 
 type Lobby struct {
 	gorm.Model
-	UserInLobbies []UserInLobby
-	Code          string `gorm:"uniqueIndex"`
+	UserInLobbies []*UserInLobby `json:"user_in_lobbies,omitempty"`
+	Code          string         `gorm:"uniqueIndex" json:"code"`
 }
+
+// type LobbyResource struct {
+// 	id   uint
+// 	code string
+// }
+
+// func (lobby Lobby) ToResource() gin.H {
+// 	resource := gin.H{
+// 		"id":   lobby.ID,
+// 		"code": lobby.Code,
+// 	}
+// 	return resource
+//
+// }
 
 func NewLobby() Lobby {
 	return Lobby{Code: randSeq(LOBBY_CODE_LENGTH)}

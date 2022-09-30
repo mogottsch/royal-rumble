@@ -6,13 +6,13 @@ import (
 
 type UserInLobby struct {
 	gorm.Model
-	UserID             uint
-	User               User
-	LobbyID            uint
-	Lobby              Lobby
-	WrestlerID         uint
-	Wrestler           Wrestler
-	NextEntranceNumber uint8
+	UserID             uint      `json:"user_id"`
+	User               *User     `json:"user,omitempty"`
+	LobbyID            uint      `json:"lobby_id"`
+	Lobby              *Lobby    `json:"lobby,omitempty"`
+	WrestlerID         uint      `json:"wrestler_id"`
+	Wrestler           *Wrestler `json:"wrestler,omitempty"`
+	NextEntranceNumber uint8     `json:"next_entrance_number"`
 }
 
 func (UserInLobby) TableName() string {

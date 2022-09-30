@@ -8,10 +8,39 @@ import (
 
 type User struct {
 	gorm.Model
-	Name          string
-	SessionID     string
-	UserInLobbies []UserInLobby
+	Name          string         `json:"name"`
+	SessionID     string         `json:"-"`
+	UserInLobbies []*UserInLobby `json:"user_in_lobbies,omitempty"`
 }
+
+// type UserResource struct {
+// 	id   uint
+// 	name string
+// }
+
+// func (user User) ToResource() gin.H {
+// 	resource := gin.H{
+// 		"id":   user.ID,
+// 		"name": user.Name,
+// 	}
+//
+// 	if user.UserInLobbies != nil {
+// 		lobbies := make([]gin.H, 0, len(user.UserInLobbies))
+// 		for _, userInLobby := range user.UserInLobbies {
+// 			if userInLobby.Lobby.ID == 0 {
+// 				continue
+// 			}
+// 			lobbies = append(lobbies, userInLobby.Lobby.ToResource())
+// 		}
+//
+// 		if len(lobbies) > 0 {
+// 			resource["lobbies"] = lobbies
+// 		}
+// 	}
+//
+// 	return resource
+//
+// }
 
 func NewUser(name string, sessionID string) User {
 	return User{Name: name, SessionID: sessionID}
@@ -27,8 +56,8 @@ func NewUserRepo(db *gorm.DB) UserRepo {
 
 func (userRepo UserRepo) AddUserToLobby(user *User, lobby *Lobby) error {
 	userInLobby := &UserInLobby{
-		User:  *user,
-		Lobby: *lobby,
+		User:  user,
+		Lobby: lobby,
 	}
 	result := userRepo.db.Create(userInLobby)
 	if result.Error != nil {
@@ -53,7 +82,8 @@ func (userRepo UserRepo) CreateUser(name string, sessionID string) (User, error)
 
 func (userRepo UserRepo) FindUserBySessionID(sessionID string) (User, error) {
 	var user User
-	result := userRepo.db.Where("session_id = ?", sessionID).First(&user)
+	result := userRepo.db.Preload("UserInLobbies.Lobby").Where("session_id = ?", sessionID).First(&user)
+	// result := userRepo.db.Where("session_id = ?", sessionID).First(&user)
 	if result.Error != nil {
 		return user, result.Error
 	}

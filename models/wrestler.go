@@ -14,7 +14,7 @@ const (
 type Wrestler struct {
 	gorm.Model
 	LobbyID        uint
-	Lobby          Lobby
+	Lobby          *Lobby
 	Status         Status
 	EntranceNumber uint8
 }

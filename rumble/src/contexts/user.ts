@@ -1,16 +1,23 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { User } from "../models";
 
 export type UserContextType = {
-  user: User | null;
-  loading: boolean;
-  error: Error | null;
+  user?: User;
+  isLoading: boolean;
+  error: unknown;
+  refetch: () => void;
 };
 
 export const UserContext = createContext<UserContextType>({
-  user: null,
-  loading: false,
+  isLoading: false,
   error: null,
+  refetch: () => {
+    console.warn("refetch not implemented");
+  },
 });
 
 export const UserContextProvider = UserContext.Provider;
+
+export const useUserContext = () => {
+  return useContext(UserContext);
+};

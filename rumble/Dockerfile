@@ -7,5 +7,3 @@ COPY . .
 RUN yarn install
 
 ENTRYPOINT ["yarn", "dev"]
-
-

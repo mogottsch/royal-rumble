@@ -1,15 +1,22 @@
+/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
+/** @jsxImportSource @emotion/react */
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { Bar } from "../../components/bar";
+import { Outlet } from "react-router-dom";
 
 export function App() {
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Vite.js example
-        </Typography>
-      </Box>
-    </Container>
+    <Box
+      sx={{ height: "100vh", display: "flex", flexDirection: "column", pb: 2 }}
+    >
+      <Bar />
+      <Container
+        maxWidth="sm"
+        sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
+      >
+        <Outlet />
+      </Container>
+    </Box>
   );
 }

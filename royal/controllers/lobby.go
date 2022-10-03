@@ -37,7 +37,7 @@ func (l LobbyController) Create(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	err = l.userRepo.AddUserToLobby(user, lobby)
+	err = l.userRepo.AddUserToLobby(user, lobby, true)
 	if err != nil {
 		panic(err)
 	}
@@ -74,7 +74,11 @@ func (l LobbyController) Join(c *gin.Context) {
 		user = newUser
 	}
 
-	err = l.userRepo.AddUserToLobby(user, lobby)
+	err = l.userRepo.AddUserToLobby(user, lobby, false)
+
+	if err != nil {
+		panic(err)
+	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"lobby": lobby,
@@ -83,26 +87,24 @@ func (l LobbyController) Join(c *gin.Context) {
 }
 
 func (l LobbyController) CreateUserFromRequest(c *gin.Context) (*models.User, bool) {
-	var request LobbyCreateRequest
-	err := c.ShouldBindJSON(&request)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "invalid request",
-		})
-		return nil, false
+	userName := c.Query("user_name")
+
+	if userName == "" {
+		var request LobbyCreateRequest
+		err := c.ShouldBindJSON(&request)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": "invalid request",
+			})
+			return nil, false
+		}
+		userName = request.UserName
 	}
 
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"message": "no user found in session and no new user name provided",
-		})
-		return nil, false
-	}
 	sessionID, exists := middleware.GetSessionID(c)
 	if !exists {
 		panic("no session id found")
 	}
-	userName := request.UserName
 
 	if userName == "" {
 		c.JSON(http.StatusBadRequest, gin.H{

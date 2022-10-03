@@ -54,10 +54,20 @@ func NewUserRepo(db *gorm.DB) UserRepo {
 	return UserRepo{db: db}
 }
 
-func (userRepo UserRepo) AddUserToLobby(user *User, lobby *Lobby) error {
+func (userRepo UserRepo) AddUserToLobby(user *User, lobby *Lobby, asHost bool) error {
+	userRepo.db.Preload("UserInLobbies.Lobby").First(user, user.ID)
+	userRepo.db.Preload("UserInLobbies.User").First(lobby, lobby.ID)
+
+	for _, userInLobby := range user.UserInLobbies {
+		if userInLobby.Lobby.ID == lobby.ID {
+			return nil
+		}
+	}
+
 	userInLobby := &UserInLobby{
-		User:  user,
-		Lobby: lobby,
+		User:   user,
+		Lobby:  lobby,
+		IsHost: asHost,
 	}
 	result := userRepo.db.Create(userInLobby)
 	if result.Error != nil {

@@ -78,28 +78,30 @@ export class Lobby {
 	}
 }
 export class UserInLobby {
-    ID: number;
-    CreatedAt: Time;
-    UpdatedAt: Time;
-    DeletedAt: DeletedAt;
+    id: number;
+    created_at: Time;
+    updated_at: Time;
+    deleted_at: DeletedAt;
     user_id: number;
     user?: User;
     lobby_id: number;
     lobby?: Lobby;
+    is_host: boolean;
     wrestler_id: number;
     wrestler?: Wrestler;
     next_entrance_number: number;
 
     constructor(source: any = {}) {
         if ('string' === typeof source) source = JSON.parse(source);
-        this.ID = source["ID"];
-        this.CreatedAt = this.convertValues(source["CreatedAt"], Time);
-        this.UpdatedAt = this.convertValues(source["UpdatedAt"], Time);
-        this.DeletedAt = this.convertValues(source["DeletedAt"], DeletedAt);
+        this.id = source["id"];
+        this.created_at = this.convertValues(source["created_at"], Time);
+        this.updated_at = this.convertValues(source["updated_at"], Time);
+        this.deleted_at = this.convertValues(source["deleted_at"], DeletedAt);
         this.user_id = source["user_id"];
         this.user = this.convertValues(source["user"], User);
         this.lobby_id = source["lobby_id"];
         this.lobby = this.convertValues(source["lobby"], Lobby);
+        this.is_host = source["is_host"];
         this.wrestler_id = source["wrestler_id"];
         this.wrestler = this.convertValues(source["wrestler"], Wrestler);
         this.next_entrance_number = source["next_entrance_number"];

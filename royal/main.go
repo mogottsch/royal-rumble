@@ -35,8 +35,9 @@ func main() {
 	lobbyController := controllers.NewLobbyController(models.NewLobbyRepo(db), models.NewUserRepo(db))
 
 	r.GET("/user", userController.Retrieve)
-	r.POST("/lobby", lobbyController.Create)
-	r.POST("/lobby/:lobby_code", lobbyController.Join)
+	r.POST("/lobbies", lobbyController.Create)
+	r.POST("/lobbies/:lobby_code", lobbyController.Join)
+	r.GET("/lobbies/:lobby_code", lobbyController.Join)
 
 	err := r.Run()
 

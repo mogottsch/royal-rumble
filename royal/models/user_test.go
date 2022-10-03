@@ -59,7 +59,7 @@ func TestAddUserToLobby(t *testing.T) {
 		t.Errorf("No lobby found")
 	}
 
-	err = userRepo.AddUserToLobby(user, &lobby)
+	err = userRepo.AddUserToLobby(user, &lobby, false)
 
 	if err != nil {
 		t.Errorf("Error adding user to lobby: %v", err)

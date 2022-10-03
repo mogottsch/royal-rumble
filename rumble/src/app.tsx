@@ -14,6 +14,7 @@ import { JoinLobby } from "./routes/join_lobby";
 import { Lobby } from "./routes/lobby";
 import { StateContextProvider, useStateContext } from "./contexts/state";
 import { useEffect, useState } from "react";
+import { CreateLobby } from "./routes/create_lobby";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "lobbies/:lobbyCode/join",
         element: <JoinLobby />,
+      },
+      {
+        path: "lobbies/create",
+        element: <CreateLobby />,
       },
     ],
   },
@@ -60,6 +65,7 @@ export function App() {
     setError((prev) => ({ ...prev, [key]: value }));
   };
   const [isAnyLoading, setIsAnyLoading] = useState(false);
+  console.log({ isLoadingRecord });
 
   useEffect(() => {
     if (!errorUser) {

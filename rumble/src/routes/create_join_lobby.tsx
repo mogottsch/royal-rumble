@@ -39,7 +39,7 @@ export default function CreateJoinLobby() {
         `}
         sx={{ mt: 2 }}
         size="large"
-        href={`/lobby/${lobbyCode}`}
+        href={`/lobbies/${lobbyCode}`}
       >
         JOIN
       </Button>
@@ -50,6 +50,7 @@ export default function CreateJoinLobby() {
         `}
         sx={{ mt: 5 }}
         size="large"
+        href="/lobbies/create"
       >
         CREATE
       </Button>

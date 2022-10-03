@@ -1,15 +1,10 @@
-import {
-  Button,
-  CircularProgress,
-  Divider,
-  LinearProgress,
-  Typography,
-} from "@mui/material";
+import { Button, CircularProgress, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useStateContext } from "../contexts/state";
-import { useLobby } from "../hooks/use_lobby";
+import { useUserContext } from "../contexts/user";
+import { useLobby, USER_NAME_LOCAL_STORAGE_KEY } from "../hooks/use_lobby";
 
 export function Lobby() {
   const { lobbyCode } = useParams<{ lobbyCode: string }>();
@@ -19,9 +14,23 @@ export function Lobby() {
 
   const { setIsLoading } = useStateContext();
   const { lobby, isLoading } = useLobby({ lobbyCode });
+  const { user, isLoading: isLoadingUser } = useUserContext();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      !user &&
+      !isLoadingUser &&
+      !localStorage.getItem(USER_NAME_LOCAL_STORAGE_KEY)
+    ) {
+      navigate(`/lobbies/${lobbyCode}/join`);
+    }
+  }, [user, isLoadingUser]);
 
   useEffect(() => {
     setIsLoading("lobby", isLoading);
+    return () => setIsLoading("lobby", false);
   }, [isLoading]);
 
   if (!lobby) {

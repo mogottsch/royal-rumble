@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  api:
+    build:
+      args:
+        DEV: "true"
+    volumes:
+      - "${PWD}/royal:/app"
+    entrypoint: air
+  frontend:
+    ports:
+      - "5173:5173"
+    volumes:
+      - "${PWD}/rumble:/app"

@@ -94,6 +94,11 @@ func initSeed() {
 }
 
 func generateTSFiles(schema *db.Schema) {
+	if os.Getenv("GENERATE_TS_FILES") != "true" {
+		fmt.Println("skipping ts file generation")
+		return
+	}
+
 	converter := typescriptify.New().WithBackupDir("./ts/backup")
 	// currently broken
 	// for _, model := range schema.Models {
@@ -103,7 +108,7 @@ func generateTSFiles(schema *db.Schema) {
 	converter.Add(models.Action{})
 	converter.Add(models.Match{})
 
-	err := converter.ConvertToFile("ts/models.ts")
+	err := converter.ConvertToFile("../rumble/src/models.ts")
 	if err != nil {
 		panic(err.Error())
 	}

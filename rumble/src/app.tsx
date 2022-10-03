@@ -15,6 +15,8 @@ import { Lobby } from "./routes/lobby";
 import { StateContextProvider, useStateContext } from "./contexts/state";
 import { useEffect, useState } from "react";
 import { CreateLobby } from "./routes/create_lobby";
+import { useStates } from "./hooks/use_states";
+import { useWebsocket } from "./hooks/use_websocket";
 
 const router = createBrowserRouter([
   {
@@ -56,34 +58,16 @@ export function App() {
     error: errorUser,
     refetch,
   } = useUserFetcher();
-  const [isLoadingRecord, setIsLoading] = useState<Record<string, boolean>>({});
-  const [errorRecord, setError] = useState<Record<string, Error>>({});
-  const setKeyLoading = (key: string, value: boolean) => {
-    setIsLoading((prev) => ({ ...prev, [key]: value }));
-  };
-  const setKeyError = (key: string, value: Error) => {
-    setError((prev) => ({ ...prev, [key]: value }));
-  };
-  const [isAnyLoading, setIsAnyLoading] = useState(false);
-  console.log({ isLoadingRecord });
 
-  useEffect(() => {
-    if (!errorUser) {
-      const newErrorObj = { ...errorRecord };
-      delete newErrorObj["user"];
-      setError(newErrorObj);
-    } else {
-      let newError =
-        errorUser instanceof Error ? errorUser : new Error("Unknown error");
-      setError((prev) => ({ ...prev, user: newError }));
-    }
+  const {
+    isLoadingRecord,
+    errorRecord,
+    setKeyLoading,
+    setKeyError,
+    isAnyLoading,
+  } = useStates({ isLoadingUser, errorUser });
 
-    setKeyLoading("user", isLoadingUser);
-  }, [errorUser, isLoadingUser]);
-
-  useEffect(() => {
-    setIsAnyLoading(Object.values(isLoadingRecord).some((v) => v));
-  }, [isLoadingRecord]);
+  useWebsocket();
 
   return (
     <UserContextProvider

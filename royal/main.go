@@ -38,6 +38,9 @@ func main() {
 	r.POST("/lobbies", lobbyController.Create)
 	r.POST("/lobbies/:lobby_code", lobbyController.Join)
 	r.GET("/lobbies/:lobby_code", lobbyController.Join)
+	r.GET("/ws", func(c *gin.Context) {
+		controllers.WSHandler(c.Writer, c.Request)
+	})
 
 	err := r.Run()
 

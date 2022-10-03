@@ -8,6 +8,8 @@ services:
       - "8095:80"
   api:
     build: royal
+    ports:
+      - "8080:8080"
   frontend:
     build: rumble
     ports:

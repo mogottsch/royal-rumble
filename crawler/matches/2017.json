@@ -1,0 +1,420 @@
+{
+    "wrestlers": [
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "604d561f-6198-4e72-84bf-60051c3f357b"
+        },
+        {
+            "name": "Apollo Crews",
+            "cm_id": 11207,
+            "id": "5aef9646-7544-442f-806d-af257f3c063b"
+        },
+        {
+            "name": "Baron Corbin",
+            "cm_id": 12474,
+            "id": "8a5d70d4-d51c-4724-9077-5d10d3990611"
+        },
+        {
+            "name": "Big Cass",
+            "cm_id": 11618,
+            "id": "b08f1348-a50b-401c-b316-4062c9427979"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "00239445-b617-4f08-8035-321c4b55d2b8"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+        },
+        {
+            "name": "Bray Wyatt",
+            "cm_id": 7659,
+            "id": "e81e7066-0c80-436f-af03-a9863692001b"
+        },
+        {
+            "name": "Brock Lesnar",
+            "cm_id": 669,
+            "id": "1408e130-a6af-493f-93c9-8fa0a3b144f6"
+        },
+        {
+            "name": "Cesaro",
+            "cm_id": 257,
+            "id": "79858880-f984-4394-97da-ae8dd550f25d"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "799157b7-9018-42f4-83e6-7fdb2e87ff02"
+        },
+        {
+            "name": "Dean Ambrose",
+            "cm_id": 3940,
+            "id": "dad02b04-4676-4995-bed5-3934a8ddeeee"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "2a17b0ee-849a-49e4-beae-c172edf17793"
+        },
+        {
+            "name": "Enzo Amore",
+            "cm_id": 13212,
+            "id": "4155b7ef-01c1-46d7-846d-d491666956f6"
+        },
+        {
+            "name": "Goldberg",
+            "cm_id": 658,
+            "id": "45c3d630-1b8c-4c20-8706-25e9a4876a9d"
+        },
+        {
+            "name": "Jack Gallagher",
+            "cm_id": 7727,
+            "id": "4e34afef-814a-4215-99c0-a1f10f9054d8"
+        },
+        {
+            "name": "James Ellsworth",
+            "cm_id": 5268,
+            "id": "7b1afafa-5061-46fb-8f59-94c59ee8a8e0"
+        },
+        {
+            "name": "Kalisto",
+            "cm_id": 9526,
+            "id": "cd10332b-ca6c-446f-84ac-c4deb43bad8b"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "03e8aa72-5ec3-44b8-9e6b-f2c6239fc23c"
+        },
+        {
+            "name": "Luke Harper",
+            "cm_id": 5244,
+            "id": "4147b98d-22ad-4ff3-85cd-066297708197"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "471f88c6-3840-44d4-b190-d50a341e0132"
+        },
+        {
+            "name": "Mojo Rawley",
+            "cm_id": 12415,
+            "id": "78e913ca-0858-458e-a5a0-2e5e3212fe0b"
+        },
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "944d712e-23aa-4037-8522-6f9089b9c3a2"
+        },
+        {
+            "name": "Rusev",
+            "cm_id": 10610,
+            "id": "c2d29f4c-dbd8-4e21-ad32-aaafa9948c2e"
+        },
+        {
+            "name": "Sami Zayn",
+            "cm_id": 1523,
+            "id": "d5988278-a0fd-4592-bfb8-c780136bba07"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "f67ea17e-fa11-40b9-adfb-c8ecfc912f9c"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "90066de9-9232-441b-9d02-143493f47ee8"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "3f76d1ae-bce4-4fec-9d84-32a84aab69a0"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "3a0483d8-a265-4a49-97f5-7d1e6dc76e06"
+        },
+        {
+            "name": "Tye Dillinger",
+            "cm_id": 3190,
+            "id": "30c23e2a-3526-4d26-aebf-8f3388738828"
+        },
+        {
+            "name": "Xavier Woods",
+            "cm_id": 4955,
+            "id": "b486246d-3df1-4e6f-bc33-ed40f5dcd9cc"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "471f88c6-3840-44d4-b190-d50a341e0132"
+            ],
+            "victims": [
+                "4e34afef-814a-4215-99c0-a1f10f9054d8"
+            ],
+            "raw": "- Mark Henry eliminates Jack Gallagher",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "78e913ca-0858-458e-a5a0-2e5e3212fe0b"
+            ],
+            "raw": "- Braun Strowman eliminates Mojo Rawley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "b08f1348-a50b-401c-b316-4062c9427979"
+            ],
+            "raw": "- Braun Strowman eliminates Big Cass",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "cd10332b-ca6c-446f-84ac-c4deb43bad8b"
+            ],
+            "raw": "- Braun Strowman eliminates Kalisto",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "471f88c6-3840-44d4-b190-d50a341e0132"
+            ],
+            "raw": "- Braun Strowman eliminates Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "90066de9-9232-441b-9d02-143493f47ee8"
+            ],
+            "raw": "- Braun Strowman eliminates Big Show",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "7b1afafa-5061-46fb-8f59-94c59ee8a8e0"
+            ],
+            "raw": "- Braun Strowman eliminates James Ellsworth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "victims": [
+                "30c23e2a-3526-4d26-aebf-8f3388738828"
+            ],
+            "raw": "- Braun Strowman eliminates Tye Dillinger",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a5d70d4-d51c-4724-9077-5d10d3990611"
+            ],
+            "victims": [
+                "bd5ac35b-0265-4fc2-b3ce-1478eba06ff2"
+            ],
+            "raw": "- Baron Corbin eliminates Braun Strowman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "79858880-f984-4394-97da-ae8dd550f25d",
+                "f67ea17e-fa11-40b9-adfb-c8ecfc912f9c"
+            ],
+            "victims": [
+                "00239445-b617-4f08-8035-321c4b55d2b8",
+                "03e8aa72-5ec3-44b8-9e6b-f2c6239fc23c",
+                "b486246d-3df1-4e6f-bc33-ed40f5dcd9cc"
+            ],
+            "raw": "- Cesaro & Sheamus eliminate The New Day (Kingston, Big E & Woods)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "799157b7-9018-42f4-83e6-7fdb2e87ff02"
+            ],
+            "victims": [
+                "79858880-f984-4394-97da-ae8dd550f25d",
+                "f67ea17e-fa11-40b9-adfb-c8ecfc912f9c"
+            ],
+            "raw": "- Chris Jericho eliminates Cesaro & Sheamus",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4147b98d-22ad-4ff3-85cd-066297708197"
+            ],
+            "victims": [
+                "5aef9646-7544-442f-806d-af257f3c063b"
+            ],
+            "raw": "- Luke Harper eliminates Apollo Crews",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1408e130-a6af-493f-93c9-8fa0a3b144f6"
+            ],
+            "victims": [
+                "dad02b04-4676-4995-bed5-3934a8ddeeee"
+            ],
+            "raw": "- Brock Lesnar eliminates Dean Ambrose",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1408e130-a6af-493f-93c9-8fa0a3b144f6"
+            ],
+            "victims": [
+                "2a17b0ee-849a-49e4-beae-c172edf17793"
+            ],
+            "raw": "- Brock Lesnar eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1408e130-a6af-493f-93c9-8fa0a3b144f6"
+            ],
+            "victims": [
+                "4155b7ef-01c1-46d7-846d-d491666956f6"
+            ],
+            "raw": "- Brock Lesnar eliminates Enzo Amore",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45c3d630-1b8c-4c20-8706-25e9a4876a9d"
+            ],
+            "victims": [
+                "1408e130-a6af-493f-93c9-8fa0a3b144f6"
+            ],
+            "raw": "- Bill Goldberg eliminates Brock Lesnar",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "45c3d630-1b8c-4c20-8706-25e9a4876a9d"
+            ],
+            "victims": [
+                "c2d29f4c-dbd8-4e21-ad32-aaafa9948c2e"
+            ],
+            "raw": "- Bill Goldberg eliminates Rusev",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "3a0483d8-a265-4a49-97f5-7d1e6dc76e06"
+            ],
+            "victims": [
+                "8a5d70d4-d51c-4724-9077-5d10d3990611"
+            ],
+            "raw": "- The Undertaker eliminates Baron Corbin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45c3d630-1b8c-4c20-8706-25e9a4876a9d"
+            ],
+            "victims": [
+                "4147b98d-22ad-4ff3-85cd-066297708197"
+            ],
+            "raw": "- Bill Goldberg eliminates Luke Harper",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "3a0483d8-a265-4a49-97f5-7d1e6dc76e06"
+            ],
+            "victims": [
+                "45c3d630-1b8c-4c20-8706-25e9a4876a9d"
+            ],
+            "raw": "- The Undertaker eliminates Bill Goldberg",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "3a0483d8-a265-4a49-97f5-7d1e6dc76e06"
+            ],
+            "victims": [
+                "3f76d1ae-bce4-4fec-9d84-32a84aab69a0"
+            ],
+            "raw": "- The Undertaker eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3a0483d8-a265-4a49-97f5-7d1e6dc76e06"
+            ],
+            "victims": [
+                "d5988278-a0fd-4592-bfb8-c780136bba07"
+            ],
+            "raw": "- The Undertaker eliminates Sami Zayn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "944d712e-23aa-4037-8522-6f9089b9c3a2"
+            ],
+            "victims": [
+                "3a0483d8-a265-4a49-97f5-7d1e6dc76e06"
+            ],
+            "raw": "- Roman Reigns eliminates The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "944d712e-23aa-4037-8522-6f9089b9c3a2"
+            ],
+            "victims": [
+                "799157b7-9018-42f4-83e6-7fdb2e87ff02"
+            ],
+            "raw": "- Roman Reigns eliminates Chris Jericho",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "944d712e-23aa-4037-8522-6f9089b9c3a2"
+            ],
+            "victims": [
+                "e81e7066-0c80-436f-af03-a9863692001b"
+            ],
+            "raw": "- Roman Reigns eliminates Bray Wyatt",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "604d561f-6198-4e72-84bf-60051c3f357b"
+            ],
+            "victims": [
+                "944d712e-23aa-4037-8522-6f9089b9c3a2"
+            ],
+            "raw": "- Randy Orton eliminates Roman Reigns",
+            "is_valid": true
+        }
+    ]
+}

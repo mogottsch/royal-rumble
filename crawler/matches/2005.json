@@ -1,0 +1,443 @@
+{
+    "wrestlers": [
+        {
+            "name": "Batista",
+            "cm_id": 962,
+            "id": "005723de-5cb5-458c-a838-31dd086d14d6"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "55f797b4-08f4-4e67-ad16-2f1395a8a022"
+        },
+        {
+            "name": "Charlie Haas",
+            "cm_id": 534,
+            "id": "8a3c1c78-e077-402e-becf-d258476c4ca9"
+        },
+        {
+            "name": "Chris Benoit",
+            "cm_id": 574,
+            "id": "2a301b9a-f21d-4aa4-80d0-b779cfc05b76"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "ec317ec9-14c7-41ec-9032-0d8afe993703"
+        },
+        {
+            "name": "Christian",
+            "cm_id": 820,
+            "id": "04b52d4c-b503-4865-bf42-9250913a9c2f"
+        },
+        {
+            "name": "Daniel Puder",
+            "cm_id": 1612,
+            "id": "c76a264a-aa34-42fe-98a8-2f05e5870b50"
+        },
+        {
+            "name": "Eddie Guerrero",
+            "cm_id": 497,
+            "id": "e8369562-6f76-4380-bead-ce0e4b539b64"
+        },
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d"
+        },
+        {
+            "name": "Gene Snitsky",
+            "cm_id": 1168,
+            "id": "4ac0441d-3720-41a9-902a-8260e330958a"
+        },
+        {
+            "name": "Hardcore Holly",
+            "cm_id": 55,
+            "id": "ba2dac51-871b-437b-8075-a8c6e23ae606"
+        },
+        {
+            "name": "John Cena",
+            "cm_id": 691,
+            "id": "f7a3587f-bf80-4f39-a71a-6cd1810c54c3"
+        },
+        {
+            "name": "Jonathan Coachman",
+            "cm_id": 469,
+            "id": "cb249cad-1a56-4af0-af94-bedc3f04c15c"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "4473448c-4c2c-4dc4-8018-0e1847f4a1f1"
+        },
+        {
+            "name": "Kenzo Suzuki",
+            "cm_id": 1105,
+            "id": "38447ad5-da21-41d7-a59c-8a07fbb253f3"
+        },
+        {
+            "name": "Kurt Angle",
+            "cm_id": 540,
+            "id": "3d5a21b0-5822-4cc4-a18f-4da04a970c6b"
+        },
+        {
+            "name": "Luther Reigns",
+            "cm_id": 920,
+            "id": "232ed339-5004-43b3-8329-782c271cc017"
+        },
+        {
+            "name": "Mark Jindrak",
+            "cm_id": 241,
+            "id": "b12fbec6-940f-41bf-adb9-955f3a3d6572"
+        },
+        {
+            "name": "Muhammad Hassan",
+            "cm_id": 299,
+            "id": "3e142855-90e6-425a-af27-b647f2eee1d6"
+        },
+        {
+            "name": "Orlando Jordan",
+            "cm_id": 286,
+            "id": "399d5b3c-de73-4f5f-8450-1635a68ff94b"
+        },
+        {
+            "name": "Paul London",
+            "cm_id": 972,
+            "id": "f8e1e5b6-00b9-40d5-9596-1e4c956174d3"
+        },
+        {
+            "name": "Rene Dupree",
+            "cm_id": 813,
+            "id": "05fdd66e-18bd-4aa4-bd79-6d2977e65b1d"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "c153a5fb-0161-47e9-83b5-3e95c346be5d"
+        },
+        {
+            "name": "Ric Flair",
+            "cm_id": 1091,
+            "id": "0fa32454-1953-4ca6-9ad9-1c86bc1e9de3"
+        },
+        {
+            "name": "Scotty 2 Hotty",
+            "cm_id": 527,
+            "id": "4370d4b4-8450-48f9-b736-7fc7f1ee0cb4"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "b502405b-d3d3-4284-bd4f-779a0114c6f0"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "4042d026-7383-4e17-9de2-ce2ee51b88cc"
+        },
+        {
+            "name": "Simon Dean",
+            "cm_id": 192,
+            "id": "8a3b7b46-0811-4a9c-975d-4baa8576192f"
+        },
+        {
+            "name": "The Hurricane",
+            "cm_id": 464,
+            "id": "962cb153-0d05-455f-b894-45688193ebb8"
+        },
+        {
+            "name": "Viscera",
+            "cm_id": 1077,
+            "id": "614de1c8-dae0-4f9d-a004-a9c0817f9126"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "ba2dac51-871b-437b-8075-a8c6e23ae606"
+            ],
+            "victims": [
+                "c76a264a-aa34-42fe-98a8-2f05e5870b50"
+            ],
+            "raw": "- Hardcore Holly eliminates Daniel Puder",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2a301b9a-f21d-4aa4-80d0-b779cfc05b76",
+                "e8369562-6f76-4380-bead-ce0e4b539b64"
+            ],
+            "victims": [
+                "ba2dac51-871b-437b-8075-a8c6e23ae606"
+            ],
+            "raw": "- Chris Benoit und Eddie Guerrero eliminate Hardcore Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8369562-6f76-4380-bead-ce0e4b539b64"
+            ],
+            "victims": [
+                "962cb153-0d05-455f-b894-45688193ebb8"
+            ],
+            "raw": "- Eddie Guerrero eliminates The Hurricane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c153a5fb-0161-47e9-83b5-3e95c346be5d"
+            ],
+            "victims": [
+                "38447ad5-da21-41d7-a59c-8a07fbb253f3"
+            ],
+            "raw": "- Rey Mysterio eliminates Kenzo Suzuki",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "55f797b4-08f4-4e67-ad16-2f1395a8a022",
+                "2a301b9a-f21d-4aa4-80d0-b779cfc05b76",
+                "ec317ec9-14c7-41ec-9032-0d8afe993703",
+                "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d",
+                "232ed339-5004-43b3-8329-782c271cc017",
+                "4042d026-7383-4e17-9de2-ce2ee51b88cc"
+            ],
+            "victims": [
+                "3e142855-90e6-425a-af27-b647f2eee1d6"
+            ],
+            "raw": "- Booker T, Chris Benoit, Chris Jericho, Edge, Luther Reigns und Shelton Benjamin eliminate Muhammad Hassan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "55f797b4-08f4-4e67-ad16-2f1395a8a022"
+            ],
+            "victims": [
+                "232ed339-5004-43b3-8329-782c271cc017"
+            ],
+            "raw": "- Booker T eliminates Luther Reigns",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "55f797b4-08f4-4e67-ad16-2f1395a8a022"
+            ],
+            "victims": [
+                "399d5b3c-de73-4f5f-8450-1635a68ff94b"
+            ],
+            "raw": "- Booker T eliminates Orlando Jordan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c153a5fb-0161-47e9-83b5-3e95c346be5d"
+            ],
+            "victims": [
+                "55f797b4-08f4-4e67-ad16-2f1395a8a022"
+            ],
+            "raw": "- Rey Mysterio eliminates Booker T",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d"
+            ],
+            "victims": [
+                "4042d026-7383-4e17-9de2-ce2ee51b88cc"
+            ],
+            "raw": "- Edge eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d"
+            ],
+            "victims": [
+                "e8369562-6f76-4380-bead-ce0e4b539b64"
+            ],
+            "raw": "- Edge eliminates Eddie Guerrero",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b502405b-d3d3-4284-bd4f-779a0114c6f0"
+            ],
+            "victims": [
+                "8a3b7b46-0811-4a9c-975d-4baa8576192f"
+            ],
+            "raw": "- Shawn Michaels eliminates Simon Dean",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b502405b-d3d3-4284-bd4f-779a0114c6f0"
+            ],
+            "victims": [
+                "8a3c1c78-e077-402e-becf-d258476c4ca9"
+            ],
+            "raw": "- Shawn Michaels eliminates Charlie Haas",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b502405b-d3d3-4284-bd4f-779a0114c6f0"
+            ],
+            "victims": [
+                "3d5a21b0-5822-4cc4-a18f-4da04a970c6b"
+            ],
+            "raw": "- Shawn Michaels eliminates Kurt Angle",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3d5a21b0-5822-4cc4-a18f-4da04a970c6b"
+            ],
+            "victims": [
+                "b502405b-d3d3-4284-bd4f-779a0114c6f0"
+            ],
+            "raw": "- Kurt Angle eliminates Shawn Michaels",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ec317ec9-14c7-41ec-9032-0d8afe993703"
+            ],
+            "victims": [
+                "05fdd66e-18bd-4aa4-bd79-6d2977e65b1d"
+            ],
+            "raw": "- Chris Jericho eliminates Rene Dupree",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f7a3587f-bf80-4f39-a71a-6cd1810c54c3"
+            ],
+            "victims": [
+                "614de1c8-dae0-4f9d-a004-a9c0817f9126"
+            ],
+            "raw": "- John Cena eliminates Viscera",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4ac0441d-3720-41a9-902a-8260e330958a"
+            ],
+            "victims": [
+                "f8e1e5b6-00b9-40d5-9596-1e4c956174d3"
+            ],
+            "raw": "- Gene Snitsky eliminates Paul London",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4473448c-4c2c-4dc4-8018-0e1847f4a1f1"
+            ],
+            "victims": [
+                "b12fbec6-940f-41bf-adb9-955f3a3d6572"
+            ],
+            "raw": "- Kane eliminates Mark Jindrack",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "005723de-5cb5-458c-a838-31dd086d14d6"
+            ],
+            "victims": [
+                "4ac0441d-3720-41a9-902a-8260e330958a"
+            ],
+            "raw": "- Batista eliminates Gene Snitsky",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "005723de-5cb5-458c-a838-31dd086d14d6"
+            ],
+            "victims": [
+                "ec317ec9-14c7-41ec-9032-0d8afe993703"
+            ],
+            "raw": "- Batista eliminates Chris Jericho",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f7a3587f-bf80-4f39-a71a-6cd1810c54c3"
+            ],
+            "victims": [
+                "4473448c-4c2c-4dc4-8018-0e1847f4a1f1"
+            ],
+            "raw": "- John Cena eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0fa32454-1953-4ca6-9ad9-1c86bc1e9de3"
+            ],
+            "victims": [
+                "cb249cad-1a56-4af0-af94-bedc3f04c15c"
+            ],
+            "raw": "- Ric Flair eliminates Jonathan Coachman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "005723de-5cb5-458c-a838-31dd086d14d6"
+            ],
+            "victims": [
+                "04b52d4c-b503-4865-bf42-9250913a9c2f"
+            ],
+            "raw": "- Batista eliminates Christian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0fa32454-1953-4ca6-9ad9-1c86bc1e9de3"
+            ],
+            "victims": [
+                "2a301b9a-f21d-4aa4-80d0-b779cfc05b76"
+            ],
+            "raw": "- Ric Flair eliminates Chris Benoit",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d"
+            ],
+            "victims": [
+                "0fa32454-1953-4ca6-9ad9-1c86bc1e9de3"
+            ],
+            "raw": "- Edge eliminates Ric Flair",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d"
+            ],
+            "victims": [
+                "c153a5fb-0161-47e9-83b5-3e95c346be5d"
+            ],
+            "raw": "- Edge eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "005723de-5cb5-458c-a838-31dd086d14d6",
+                "f7a3587f-bf80-4f39-a71a-6cd1810c54c3"
+            ],
+            "victims": [
+                "45d5759a-bcf0-44b2-a2d6-c433d3c5a36d"
+            ],
+            "raw": "- Batista und John Cena eliminate Edge",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "005723de-5cb5-458c-a838-31dd086d14d6"
+            ],
+            "victims": [
+                "f7a3587f-bf80-4f39-a71a-6cd1810c54c3"
+            ],
+            "raw": "- Batista eliminates John Cena",
+            "is_valid": true
+        }
+    ]
+}

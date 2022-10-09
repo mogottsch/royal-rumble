@@ -1,0 +1,439 @@
+{
+    "wrestlers": [
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "2c538fe0-2a61-4bfb-88dc-967b0f93f11f"
+        },
+        {
+            "name": "Carlito",
+            "cm_id": 208,
+            "id": "9aa52352-6aa8-400a-b1cd-113e5ea78e34"
+        },
+        {
+            "name": "Chavo Guerrero",
+            "cm_id": 895,
+            "id": "57bd886d-cb20-48ae-8ec1-2295edccfbce"
+        },
+        {
+            "name": "Chris Benoit",
+            "cm_id": 574,
+            "id": "00c9b0ba-8ad6-4c93-be0e-61a5c66d12cd"
+        },
+        {
+            "name": "Chris Masters",
+            "cm_id": 592,
+            "id": "6dc5d7d0-47d1-4642-83a2-e99455f9cb3c"
+        },
+        {
+            "name": "Eugene",
+            "cm_id": 125,
+            "id": "92769d4e-35c0-4553-993f-425faa742d71"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "a82c67c7-03e4-4b5f-ab13-6d1149036713"
+        },
+        {
+            "name": "Jonathan Coachman",
+            "cm_id": 469,
+            "id": "60d738ba-3e01-471d-99fe-06876ec971fe"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "6707bc34-81af-4e60-b5f8-a5c9036c3a51"
+        },
+        {
+            "name": "Lashley",
+            "cm_id": 1194,
+            "id": "20de4828-e857-4361-b5c4-c45a10a14690"
+        },
+        {
+            "name": "Matt Hardy",
+            "cm_id": 99,
+            "id": "0e05f4c5-0716-4e9a-88de-311ed69e4543"
+        },
+        {
+            "name": "Mercury",
+            "cm_id": 340,
+            "id": "7de14218-82e8-4ff7-b4c8-8b0c11b08427"
+        },
+        {
+            "name": "Nitro",
+            "cm_id": 1099,
+            "id": "d25958f2-3f7b-4c83-9a29-89ff78f14b40"
+        },
+        {
+            "name": "Orlando Jordan",
+            "cm_id": 286,
+            "id": "9e8c2071-3b20-4537-a02d-7401de892c2d"
+        },
+        {
+            "name": "Psicosis",
+            "cm_id": 529,
+            "id": "a704dc35-4fd3-42ba-9797-685428227593"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "2fa9ab16-d0ee-4396-9d00-c9cd5a1aad8a"
+        },
+        {
+            "name": "Ric Flair",
+            "cm_id": 1091,
+            "id": "f014dde3-fc20-43be-89b5-aae8fa50ee26"
+        },
+        {
+            "name": "Road Warrior Animal",
+            "cm_id": 509,
+            "id": "9eec0a57-e04b-4b0b-9787-c032ce8df7ff"
+        },
+        {
+            "name": "Rob Van Dam",
+            "cm_id": 866,
+            "id": "984d8d94-5bc9-4b6a-9810-917f5b1515e5"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "9a505ead-6926-4b00-a4e7-f7c7bd86d85d"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "6c96a85f-8427-4e44-86ae-939f770cebd4"
+        },
+        {
+            "name": "Simon Dean",
+            "cm_id": 192,
+            "id": "8bed4176-b4c9-495b-95c6-3a36eb0a4314"
+        },
+        {
+            "name": "Super Crazy",
+            "cm_id": 164,
+            "id": "6f346eb2-4310-4ad6-8e2e-c4dfdeab3347"
+        },
+        {
+            "name": "Sylvan",
+            "cm_id": 82,
+            "id": "d42d7286-67f8-4961-907d-73bf4f968f74"
+        },
+        {
+            "name": "Tatanka",
+            "cm_id": 186,
+            "id": "be752fee-d7bc-4e4c-b16c-bb1e4306d8b2"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "d2d430ce-0bc3-418a-916c-527d7b5be30a"
+        },
+        {
+            "name": "Trevor Murdoch",
+            "cm_id": 692,
+            "id": "c0efce1c-b763-4f1c-bbf6-d76f21005fea"
+        },
+        {
+            "name": "Triple H",
+            "cm_id": 496,
+            "id": "999b72b6-b3d7-48cc-be69-ae7277f1e173"
+        },
+        {
+            "name": "Viscera",
+            "cm_id": 1077,
+            "id": "8a2b9520-f1ac-45fe-b82e-5d61f4dc89ec"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec",
+                "999b72b6-b3d7-48cc-be69-ae7277f1e173"
+            ],
+            "victims": [
+                "8bed4176-b4c9-495b-95c6-3a36eb0a4314"
+            ],
+            "raw": "- Rey Mysterio und Triple H eliminate Simon Dean",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec"
+            ],
+            "victims": [
+                "a704dc35-4fd3-42ba-9797-685428227593"
+            ],
+            "raw": "- Rey Mysterio eliminates Psicosis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "999b72b6-b3d7-48cc-be69-ae7277f1e173"
+            ],
+            "victims": [
+                "f014dde3-fc20-43be-89b5-aae8fa50ee26"
+            ],
+            "raw": "- Triple H eliminates Ric Flair",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d2d430ce-0bc3-418a-916c-527d7b5be30a"
+            ],
+            "victims": [
+                "60d738ba-3e01-471d-99fe-06876ec971fe"
+            ],
+            "raw": "- The Big Show eliminates Jonathan Coachman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "20de4828-e857-4361-b5c4-c45a10a14690"
+            ],
+            "victims": [
+                "d42d7286-67f8-4961-907d-73bf4f968f74"
+            ],
+            "raw": "- Bobby Lashley eliminates Sylvan",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "6707bc34-81af-4e60-b5f8-a5c9036c3a51",
+                "d2d430ce-0bc3-418a-916c-527d7b5be30a"
+            ],
+            "victims": [
+                "20de4828-e857-4361-b5c4-c45a10a14690"
+            ],
+            "raw": "- Kane und The Big Show eliminate Bobby Lashley",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "999b72b6-b3d7-48cc-be69-ae7277f1e173"
+            ],
+            "victims": [
+                "6707bc34-81af-4e60-b5f8-a5c9036c3a51",
+                "d2d430ce-0bc3-418a-916c-527d7b5be30a"
+            ],
+            "raw": "- Triple H eliminates Kane und The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "00c9b0ba-8ad6-4c93-be0e-61a5c66d12cd"
+            ],
+            "victims": [
+                "2c538fe0-2a61-4bfb-88dc-967b0f93f11f"
+            ],
+            "raw": "- Chris Benoit eliminates Booker T",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "984d8d94-5bc9-4b6a-9810-917f5b1515e5"
+            ],
+            "victims": [
+                "9eec0a57-e04b-4b0b-9787-c032ce8df7ff"
+            ],
+            "raw": "- Rob Van Dam eliminates Road Warrior Animal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "999b72b6-b3d7-48cc-be69-ae7277f1e173"
+            ],
+            "victims": [
+                "57bd886d-cb20-48ae-8ec1-2295edccfbce"
+            ],
+            "raw": "- Triple H eliminates Chavo Guerrero",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7de14218-82e8-4ff7-b4c8-8b0c11b08427",
+                "d25958f2-3f7b-4c83-9a29-89ff78f14b40"
+            ],
+            "victims": [
+                "be752fee-d7bc-4e4c-b16c-bb1e4306d8b2"
+            ],
+            "raw": "- Mercury & Nitro eliminate Tatanka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9a505ead-6926-4b00-a4e7-f7c7bd86d85d"
+            ],
+            "victims": [
+                "c0efce1c-b763-4f1c-bbf6-d76f21005fea"
+            ],
+            "raw": "- Shawn Michaels eliminates Trevor Murdoch",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a2b9520-f1ac-45fe-b82e-5d61f4dc89ec"
+            ],
+            "victims": [
+                "0e05f4c5-0716-4e9a-88de-311ed69e4543"
+            ],
+            "raw": "- Viscera eliminates Matt Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "00c9b0ba-8ad6-4c93-be0e-61a5c66d12cd"
+            ],
+            "victims": [
+                "92769d4e-35c0-4553-993f-425faa742d71"
+            ],
+            "raw": "- Chris Benoit eliminates Eugene",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec"
+            ],
+            "victims": [
+                "6f346eb2-4310-4ad6-8e2e-c4dfdeab3347"
+            ],
+            "raw": "- Rey Mysterio eliminates Super Crazy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2fa9ab16-d0ee-4396-9d00-c9cd5a1aad8a"
+            ],
+            "victims": [
+                "00c9b0ba-8ad6-4c93-be0e-61a5c66d12cd"
+            ],
+            "raw": "- Randy Orton eliminates Chris Benoit",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9aa52352-6aa8-400a-b1cd-113e5ea78e34",
+                "6dc5d7d0-47d1-4642-83a2-e99455f9cb3c"
+            ],
+            "victims": [
+                "8a2b9520-f1ac-45fe-b82e-5d61f4dc89ec"
+            ],
+            "raw": "- Carlito und Chris Masters eliminate Viscera",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9aa52352-6aa8-400a-b1cd-113e5ea78e34"
+            ],
+            "victims": [
+                "6dc5d7d0-47d1-4642-83a2-e99455f9cb3c"
+            ],
+            "raw": "- Carlito eliminates Chris Masters",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "984d8d94-5bc9-4b6a-9810-917f5b1515e5"
+            ],
+            "victims": [
+                "a82c67c7-03e4-4b5f-ab13-6d1149036713"
+            ],
+            "raw": "- Rob Van Dam eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2fa9ab16-d0ee-4396-9d00-c9cd5a1aad8a"
+            ],
+            "victims": [
+                "9e8c2071-3b20-4537-a02d-7401de892c2d"
+            ],
+            "raw": "- Randy Orton eliminates Orlando Jordan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d25958f2-3f7b-4c83-9a29-89ff78f14b40"
+            ],
+            "victims": [
+                "7de14218-82e8-4ff7-b4c8-8b0c11b08427"
+            ],
+            "raw": "- Nitro eliminates Mercury",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9a505ead-6926-4b00-a4e7-f7c7bd86d85d"
+            ],
+            "victims": [
+                "d25958f2-3f7b-4c83-9a29-89ff78f14b40"
+            ],
+            "raw": "- Shawn Michaels eliminates Nitro",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9a505ead-6926-4b00-a4e7-f7c7bd86d85d"
+            ],
+            "victims": [
+                "6c96a85f-8427-4e44-86ae-939f770cebd4"
+            ],
+            "raw": "- Shawn Michaels eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "9a505ead-6926-4b00-a4e7-f7c7bd86d85d"
+            ],
+            "raw": "- Shane McMahon (kein Teilnehmer) eliminates Shawn Michaels",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "984d8d94-5bc9-4b6a-9810-917f5b1515e5"
+            ],
+            "victims": [
+                "9aa52352-6aa8-400a-b1cd-113e5ea78e34"
+            ],
+            "raw": "- Rob Van Dam eliminates Carlito",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec"
+            ],
+            "victims": [
+                "984d8d94-5bc9-4b6a-9810-917f5b1515e5"
+            ],
+            "raw": "- Rey Mysterio eliminates Rob Van Dam",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec"
+            ],
+            "victims": [
+                "999b72b6-b3d7-48cc-be69-ae7277f1e173"
+            ],
+            "raw": "- Rey Mysterio eliminates Triple H",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd514034-c9b5-4dd9-8ad7-2ed5d71a8fec"
+            ],
+            "victims": [
+                "2fa9ab16-d0ee-4396-9d00-c9cd5a1aad8a"
+            ],
+            "raw": "- Rey Mysterio eliminates Randy Orton",
+            "is_valid": true
+        }
+    ]
+}

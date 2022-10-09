@@ -1,0 +1,438 @@
+{
+    "wrestlers": [
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "320602e5-7a58-4187-ab38-238f4a53b829"
+        },
+        {
+            "name": "Aldo Montoya",
+            "cm_id": 896,
+            "id": "3c4bd25d-b4cb-4a35-b57d-7cad557139bb"
+        },
+        {
+            "name": "Barry Horowitz",
+            "cm_id": 444,
+            "id": "09de1526-3ca7-4b23-8ace-81637f68f300"
+        },
+        {
+            "name": "Bob Backlund",
+            "cm_id": 959,
+            "id": "f04b6d8f-1971-4fee-839a-e91b33b7d03e"
+        },
+        {
+            "name": "Bob Holly",
+            "cm_id": 55,
+            "id": "af27a6f3-6ad4-4c18-bb43-fe64ec0aabbd"
+        },
+        {
+            "name": "Diesel",
+            "cm_id": 429,
+            "id": "40feb424-1a7e-451e-a36a-40669b05b783"
+        },
+        {
+            "name": "Dory Funk Jr.",
+            "cm_id": 181,
+            "id": "6b74c99c-dc53-4e36-a035-a50d51bdad88"
+        },
+        {
+            "name": "Doug Gilbert",
+            "cm_id": 68,
+            "id": "308df05a-aca5-435d-a6ac-5a7d35104981"
+        },
+        {
+            "name": "Duke Droese",
+            "cm_id": 344,
+            "id": "6bbe0ba0-de3d-4f33-b29c-a5d3988ac9a7"
+        },
+        {
+            "name": "Fatu",
+            "cm_id": 303,
+            "id": "813a31f0-2ce9-4f5d-b4e8-871c35392676"
+        },
+        {
+            "name": "Hakushi",
+            "cm_id": 362,
+            "id": "5cf582f9-d067-473f-85fd-3136bdf4a72a"
+        },
+        {
+            "name": "Henry O. Godwinn",
+            "cm_id": 945,
+            "id": "ae9e74a0-dc01-4a51-a2c8-9411220b3e94"
+        },
+        {
+            "name": "Hunter Hearst Helmsley",
+            "cm_id": 496,
+            "id": "d1b3bb0d-a7c5-4e0e-a112-8bc385cd09f2"
+        },
+        {
+            "name": "Isaac Yankem DDS",
+            "cm_id": 379,
+            "id": "5e2ab419-e05c-47e8-994e-29cb99be7c31"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "268f54ac-b013-427a-8b2b-0693a3441643"
+        },
+        {
+            "name": "Jerry Lawler",
+            "cm_id": 937,
+            "id": "675bd6ab-a52a-4f9b-a23e-74eb7781801f"
+        },
+        {
+            "name": "Kama",
+            "cm_id": 901,
+            "id": "0e3c822a-b161-4b59-87da-f23cf32193c9"
+        },
+        {
+            "name": "King Mabel",
+            "cm_id": 1077,
+            "id": "acb1ff04-7798-4c5a-bce1-01cf6fcb62be"
+        },
+        {
+            "name": "Marty Jannetty",
+            "cm_id": 988,
+            "id": "024e27c1-fb72-4db6-a040-0c9d4ca608a5"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "08a4eb2d-2627-4bc5-97ed-e1a6d7e3d0a2"
+        },
+        {
+            "name": "Savio Vega",
+            "cm_id": 224,
+            "id": "2697894c-7157-4f07-9cd6-2457186713d6"
+        },
+        {
+            "name": "Squat Team 1",
+            "cm_id": 1389,
+            "id": "17ea2106-2d9f-4815-9d57-f0602f89b7c1"
+        },
+        {
+            "name": "Squat Team 2",
+            "cm_id": 1390,
+            "id": "a18f08cb-ee72-4205-ad4b-668f5d7e2ea5"
+        },
+        {
+            "name": "Takao Omori",
+            "cm_id": 581,
+            "id": "61042248-1867-4057-a9bf-18fcce370f70"
+        },
+        {
+            "name": "Tatanka",
+            "cm_id": 186,
+            "id": "0383d1e8-2e50-4098-af66-8675e4cb7e38"
+        },
+        {
+            "name": "The 1-2-3 Kid",
+            "cm_id": 1063,
+            "id": "7db00508-837c-4ca2-8bd0-4553414ae13f"
+        },
+        {
+            "name": "The British Bulldog",
+            "cm_id": 862,
+            "id": "ce4675b9-f820-421c-aff1-4925476a6d2a"
+        },
+        {
+            "name": "The Ringmaster",
+            "cm_id": 635,
+            "id": "4cefa51d-d4de-4ae0-9a1b-2eecef65f144"
+        },
+        {
+            "name": "Vader",
+            "cm_id": 132,
+            "id": "c70a304d-4492-4b03-a8f0-625993a8645e"
+        },
+        {
+            "name": "Yokozuna",
+            "cm_id": 846,
+            "id": "f96281b7-3b77-471a-8020-77c6d1f0cec6"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "f96281b7-3b77-471a-8020-77c6d1f0cec6"
+            ],
+            "victims": [
+                "f04b6d8f-1971-4fee-839a-e91b33b7d03e"
+            ],
+            "raw": "- Yokozuna eliminates Bob Backlund",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "268f54ac-b013-427a-8b2b-0693a3441643"
+            ],
+            "victims": [
+                "ae9e74a0-dc01-4a51-a2c8-9411220b3e94"
+            ],
+            "raw": "- Jake Roberts eliminates Henry O. Godwinn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f96281b7-3b77-471a-8020-77c6d1f0cec6"
+            ],
+            "victims": [
+                "acb1ff04-7798-4c5a-bce1-01cf6fcb62be"
+            ],
+            "raw": "- Yokozuna eliminates King Mabel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "268f54ac-b013-427a-8b2b-0693a3441643"
+            ],
+            "victims": [
+                "61042248-1867-4057-a9bf-18fcce370f70"
+            ],
+            "raw": "- Jake Roberts eliminates Takao Omori",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2697894c-7157-4f07-9cd6-2457186713d6"
+            ],
+            "victims": [
+                "6b74c99c-dc53-4e36-a035-a50d51bdad88"
+            ],
+            "raw": "- Savio Vega eliminates Dory Funk Jr.",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c70a304d-4492-4b03-a8f0-625993a8645e"
+            ],
+            "victims": [
+                "268f54ac-b013-427a-8b2b-0693a3441643"
+            ],
+            "raw": "- Vader eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c70a304d-4492-4b03-a8f0-625993a8645e"
+            ],
+            "victims": [
+                "308df05a-aca5-435d-a6ac-5a7d35104981"
+            ],
+            "raw": "- Vader eliminates Doug Gilbert",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c70a304d-4492-4b03-a8f0-625993a8645e"
+            ],
+            "victims": [
+                "17ea2106-2d9f-4815-9d57-f0602f89b7c1"
+            ],
+            "raw": "- Vader eliminates Squat Team 1",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f96281b7-3b77-471a-8020-77c6d1f0cec6"
+            ],
+            "victims": [
+                "a18f08cb-ee72-4205-ad4b-668f5d7e2ea5"
+            ],
+            "raw": "- Yokozuna eliminates Squat Team 2",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c70a304d-4492-4b03-a8f0-625993a8645e"
+            ],
+            "victims": [
+                "2697894c-7157-4f07-9cd6-2457186713d6"
+            ],
+            "raw": "- Vader eliminates Savio Vega",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "320602e5-7a58-4187-ab38-238f4a53b829"
+            ],
+            "victims": [
+                "c70a304d-4492-4b03-a8f0-625993a8645e",
+                "f96281b7-3b77-471a-8020-77c6d1f0cec6"
+            ],
+            "raw": "- Shawn Michaels eliminates Vader und Yokozuna",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "320602e5-7a58-4187-ab38-238f4a53b829"
+            ],
+            "victims": [
+                "7db00508-837c-4ca2-8bd0-4553414ae13f"
+            ],
+            "raw": "- Shawn Michaels eliminates The 1-2-3 Kid",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "08a4eb2d-2627-4bc5-97ed-e1a6d7e3d0a2"
+            ],
+            "victims": [
+                "5cf582f9-d067-473f-85fd-3136bdf4a72a"
+            ],
+            "raw": "- Owen Hart eliminates Hakushi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0383d1e8-2e50-4098-af66-8675e4cb7e38"
+            ],
+            "victims": [
+                "3c4bd25d-b4cb-4a35-b57d-7cad557139bb"
+            ],
+            "raw": "- Tatanka eliminates Aldo Montoya",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "320602e5-7a58-4187-ab38-238f4a53b829"
+            ],
+            "victims": [
+                "675bd6ab-a52a-4f9b-a23e-74eb7781801f"
+            ],
+            "raw": "- Shawn Michaels eliminates Jerry Lawler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40feb424-1a7e-451e-a36a-40669b05b783"
+            ],
+            "victims": [
+                "0383d1e8-2e50-4098-af66-8675e4cb7e38"
+            ],
+            "raw": "- Diesel eliminates Tatanka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4cefa51d-d4de-4ae0-9a1b-2eecef65f144"
+            ],
+            "victims": [
+                "af27a6f3-6ad4-4c18-bb43-fe64ec0aabbd"
+            ],
+            "raw": "- The Ringmaster eliminates Bob Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40feb424-1a7e-451e-a36a-40669b05b783"
+            ],
+            "victims": [
+                "d1b3bb0d-a7c5-4e0e-a112-8bc385cd09f2"
+            ],
+            "raw": "- Diesel eliminates Hunter Hearst Helmsley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "08a4eb2d-2627-4bc5-97ed-e1a6d7e3d0a2"
+            ],
+            "victims": [
+                "09de1526-3ca7-4b23-8ace-81637f68f300"
+            ],
+            "raw": "- Owen Hart eliminates Barry Horowitz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40feb424-1a7e-451e-a36a-40669b05b783"
+            ],
+            "victims": [
+                "08a4eb2d-2627-4bc5-97ed-e1a6d7e3d0a2"
+            ],
+            "raw": "- Diesel eliminates Owen Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ce4675b9-f820-421c-aff1-4925476a6d2a"
+            ],
+            "victims": [
+                "024e27c1-fb72-4db6-a040-0c9d4ca608a5"
+            ],
+            "raw": "- The British Bulldog eliminates Marty Jannetty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "813a31f0-2ce9-4f5d-b4e8-871c35392676"
+            ],
+            "victims": [
+                "4cefa51d-d4de-4ae0-9a1b-2eecef65f144"
+            ],
+            "raw": "- Fatu eliminates The Ringmaster",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5e2ab419-e05c-47e8-994e-29cb99be7c31"
+            ],
+            "victims": [
+                "813a31f0-2ce9-4f5d-b4e8-871c35392676"
+            ],
+            "raw": "- Isaac Yankem DDS eliminates Fatu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "320602e5-7a58-4187-ab38-238f4a53b829"
+            ],
+            "victims": [
+                "5e2ab419-e05c-47e8-994e-29cb99be7c31"
+            ],
+            "raw": "- Shawn Michaels eliminates Isaac Yankem DDS",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40feb424-1a7e-451e-a36a-40669b05b783",
+                "0e3c822a-b161-4b59-87da-f23cf32193c9"
+            ],
+            "victims": [
+                "6bbe0ba0-de3d-4f33-b29c-a5d3988ac9a7"
+            ],
+            "raw": "- Diesel und Kama eliminate Duke Droese",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "320602e5-7a58-4187-ab38-238f4a53b829"
+            ],
+            "victims": [
+                "ce4675b9-f820-421c-aff1-4925476a6d2a"
+            ],
+            "raw": "- Shawn Michaels eliminates The British Bulldog",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40feb424-1a7e-451e-a36a-40669b05b783"
+            ],
+            "victims": [
+                "0e3c822a-b161-4b59-87da-f23cf32193c9"
+            ],
+            "raw": "- Diesel eliminates Kama",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "320602e5-7a58-4187-ab38-238f4a53b829"
+            ],
+            "victims": [
+                "40feb424-1a7e-451e-a36a-40669b05b783"
+            ],
+            "raw": "- Shawn Michaels eliminates Diesel",
+            "is_valid": true
+        }
+    ]
+}

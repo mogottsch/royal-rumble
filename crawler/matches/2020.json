@@ -1,0 +1,457 @@
+{
+    "wrestlers": [
+        {
+            "name": "Drew McIntyre",
+            "cm_id": 2879,
+            "id": "857c495f-3c9f-436c-b443-0556bfa166d7"
+        },
+        {
+            "name": "AJ Styles",
+            "cm_id": 801,
+            "id": "0f7f3f9b-c912-49d6-a2c8-b0672af409d6"
+        },
+        {
+            "name": "Aleister Black",
+            "cm_id": 1700,
+            "id": "b92213e5-ac69-416c-ba3d-a205b5da5f5a"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "ec6660a2-39e6-4f1c-bc96-e27ec42e92c8"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "bdc9d4f1-40b4-446e-91df-46b75c796f8f"
+        },
+        {
+            "name": "Brock Lesnar",
+            "cm_id": 669,
+            "id": "51aa7f2c-afe9-4d87-94ca-75680771436a"
+        },
+        {
+            "name": "Paul Heyman",
+            "cm_id": 664,
+            "id": "9ca4781e-b7ee-4528-a9fe-5d031ce2651b"
+        },
+        {
+            "name": "Cesaro",
+            "cm_id": 257,
+            "id": "df833615-9281-4bc0-a1e8-242b95e0e3db"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "e33042b2-c620-4e53-aa51-a02442ff1ecf"
+        },
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "45519806-f688-4d8d-ac3b-93b5b4950bdc"
+        },
+        {
+            "name": "Elias",
+            "cm_id": 7461,
+            "id": "698d2510-dded-42f7-82f8-311619f64385"
+        },
+        {
+            "name": "Erick Rowan",
+            "cm_id": 9368,
+            "id": "349a12ac-3574-4c39-9538-decddcfe711f"
+        },
+        {
+            "name": "John Morrison",
+            "cm_id": 1099,
+            "id": "c0998aeb-0b5d-42d3-b75f-9bcd432d3a84"
+        },
+        {
+            "name": "Karl Anderson",
+            "cm_id": 2571,
+            "id": "2d5fab58-ae0c-492a-96c5-36f9185af683"
+        },
+        {
+            "name": "Keith Lee",
+            "cm_id": 13732,
+            "id": "5ff31fb3-180e-4710-a26f-1e1d2d4014c5"
+        },
+        {
+            "name": "Kevin Owens",
+            "cm_id": 1499,
+            "id": "0e64c3e6-ab36-4996-80aa-96ad2fed8c85"
+        },
+        {
+            "name": "King Corbin",
+            "cm_id": 12474,
+            "id": "f570b3a5-e39c-4be1-aa74-df5c33bf8abf"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "2ea89238-b10e-4987-9740-02739df007c5"
+        },
+        {
+            "name": "Luke Gallows",
+            "cm_id": 2049,
+            "id": "6bd4c7c3-8d9d-4f35-baf8-7a412f170be0"
+        },
+        {
+            "name": "Matt Riddle",
+            "cm_id": 16686,
+            "id": "28d5c68d-143b-49d9-b122-695854ca2001"
+        },
+        {
+            "name": "MVP",
+            "cm_id": 561,
+            "id": "4ecdaa20-02ab-4dab-8dd0-329a73566570"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "6161f74b-918b-45ae-82a5-d7bdc145c658"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "5bfe7f51-e72f-4609-a929-0d34cdcda623"
+        },
+        {
+            "name": "Ricochet",
+            "cm_id": 3827,
+            "id": "84122770-1498-4369-89b4-306f80dbae43"
+        },
+        {
+            "name": "Robert Roode",
+            "cm_id": 880,
+            "id": "1d13371b-77de-4644-a9e8-fc430c5703c7"
+        },
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "68646b24-97ee-4670-a3ef-013abb788129"
+        },
+        {
+            "name": "Samoa Joe",
+            "cm_id": 676,
+            "id": "70a8065c-f192-4a46-bfae-bcd4d5be946b"
+        },
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "ac7c9b20-6c4e-435b-a2d8-b14b68f09fce"
+        },
+        {
+            "name": "Akam",
+            "cm_id": 17499,
+            "id": "4bf9684f-0188-4033-9906-c1a52024953f"
+        },
+        {
+            "name": "Buddy Murphy",
+            "cm_id": 13088,
+            "id": "0d17b86a-1139-4f19-b0bc-c36ff3a74efc"
+        },
+        {
+            "name": "Rezar",
+            "cm_id": 17239,
+            "id": "5eff7304-4227-48d6-ab24-9901dbe26591"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "fe3255bc-03f6-4e21-8ddf-ebd86685f0e9"
+        },
+        {
+            "name": "Shinsuke Nakamura",
+            "cm_id": 56,
+            "id": "ab783a4a-01de-4ab3-b00c-f42d1857a160"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "02ebca7f-73fc-49f1-b34a-25c9fd6c7b27"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "698d2510-dded-42f7-82f8-311619f64385"
+            ],
+            "raw": "- Brock Lesnar eliminates Elias",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "349a12ac-3574-4c39-9538-decddcfe711f"
+            ],
+            "raw": "- Brock Lesnar eliminates Erick Rowan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "1d13371b-77de-4644-a9e8-fc430c5703c7"
+            ],
+            "raw": "- Brock Lesnar eliminates Robert Roode",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "c0998aeb-0b5d-42d3-b75f-9bcd432d3a84"
+            ],
+            "raw": "- Brock Lesnar eliminates John Morrison",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "5bfe7f51-e72f-4609-a929-0d34cdcda623"
+            ],
+            "raw": "- Brock Lesnar eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "ec6660a2-39e6-4f1c-bc96-e27ec42e92c8"
+            ],
+            "raw": "- Brock Lesnar eliminates Big E",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "2ea89238-b10e-4987-9740-02739df007c5"
+            ],
+            "raw": "- Brock Lesnar eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "df833615-9281-4bc0-a1e8-242b95e0e3db"
+            ],
+            "raw": "- Brock Lesnar eliminates Cesaro",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "fe3255bc-03f6-4e21-8ddf-ebd86685f0e9"
+            ],
+            "raw": "- Brock Lesnar eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "ab783a4a-01de-4ab3-b00c-f42d1857a160"
+            ],
+            "raw": "- Brock Lesnar eliminates Shinsuke Nakamura",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "4ecdaa20-02ab-4dab-8dd0-329a73566570"
+            ],
+            "raw": "- Brock Lesnar eliminates MVP",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "victims": [
+                "bdc9d4f1-40b4-446e-91df-46b75c796f8f",
+                "5ff31fb3-180e-4710-a26f-1e1d2d4014c5"
+            ],
+            "raw": "- Brock Lesnar eliminates Keith Lee und Braun Strowman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "857c495f-3c9f-436c-b443-0556bfa166d7"
+            ],
+            "victims": [
+                "51aa7f2c-afe9-4d87-94ca-75680771436a"
+            ],
+            "raw": "- Drew McIntyre eliminates Brock Lesnar",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "857c495f-3c9f-436c-b443-0556bfa166d7"
+            ],
+            "victims": [
+                "84122770-1498-4369-89b4-306f80dbae43"
+            ],
+            "raw": "- Drew McIntyre eliminates Ricochet",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "857c495f-3c9f-436c-b443-0556bfa166d7"
+            ],
+            "victims": [
+                "02ebca7f-73fc-49f1-b34a-25c9fd6c7b27"
+            ],
+            "raw": "- Drew McIntyre eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45519806-f688-4d8d-ac3b-93b5b4950bdc"
+            ],
+            "victims": [
+                "0f7f3f9b-c912-49d6-a2c8-b0672af409d6"
+            ],
+            "raw": "- Edge eliminates AJ Styles",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f570b3a5-e39c-4be1-aa74-df5c33bf8abf"
+            ],
+            "victims": [
+                "28d5c68d-143b-49d9-b122-695854ca2001"
+            ],
+            "raw": "- King Corbin eliminates Matt Riddle",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "857c495f-3c9f-436c-b443-0556bfa166d7"
+            ],
+            "victims": [
+                "f570b3a5-e39c-4be1-aa74-df5c33bf8abf"
+            ],
+            "raw": "- Drew McIntyre eliminates King Corbin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45519806-f688-4d8d-ac3b-93b5b4950bdc"
+            ],
+            "victims": [
+                "6bd4c7c3-8d9d-4f35-baf8-7a412f170be0"
+            ],
+            "raw": "- Edge eliminates Luke Gallows",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6161f74b-918b-45ae-82a5-d7bdc145c658"
+            ],
+            "victims": [
+                "2d5fab58-ae0c-492a-96c5-36f9185af683"
+            ],
+            "raw": "- Randy Orton eliminates Karl Anderson",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "68646b24-97ee-4670-a3ef-013abb788129"
+            ],
+            "victims": [
+                "e33042b2-c620-4e53-aa51-a02442ff1ecf"
+            ],
+            "raw": "- Roman Reigns eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ac7c9b20-6c4e-435b-a2d8-b14b68f09fce"
+            ],
+            "victims": [
+                "b92213e5-ac69-416c-ba3d-a205b5da5f5a"
+            ],
+            "raw": "- Seth Rollins eliminates Aleister Black",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ac7c9b20-6c4e-435b-a2d8-b14b68f09fce"
+            ],
+            "victims": [
+                "0e64c3e6-ab36-4996-80aa-96ad2fed8c85"
+            ],
+            "raw": "- Seth Rollins eliminates Kevin Owens",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ac7c9b20-6c4e-435b-a2d8-b14b68f09fce"
+            ],
+            "victims": [
+                "70a8065c-f192-4a46-bfae-bcd4d5be946b"
+            ],
+            "raw": "- Seth Rollins eliminates Samoa Joe",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "857c495f-3c9f-436c-b443-0556bfa166d7"
+            ],
+            "victims": [
+                "ac7c9b20-6c4e-435b-a2d8-b14b68f09fce"
+            ],
+            "raw": "- Drew McIntyre eliminates Seth Rollins",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "45519806-f688-4d8d-ac3b-93b5b4950bdc"
+            ],
+            "victims": [
+                "6161f74b-918b-45ae-82a5-d7bdc145c658"
+            ],
+            "raw": "- Edge eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "68646b24-97ee-4670-a3ef-013abb788129"
+            ],
+            "victims": [
+                "45519806-f688-4d8d-ac3b-93b5b4950bdc"
+            ],
+            "raw": "- Roman Reigns eliminates Edge",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "857c495f-3c9f-436c-b443-0556bfa166d7"
+            ],
+            "victims": [
+                "68646b24-97ee-4670-a3ef-013abb788129"
+            ],
+            "raw": "- Drew McIntyre eliminates Roman Reigns",
+            "is_valid": true
+        }
+    ]
+}

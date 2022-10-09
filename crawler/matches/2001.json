@@ -1,0 +1,449 @@
+{
+    "wrestlers": [
+        {
+            "name": "Steve Austin",
+            "cm_id": 635,
+            "id": "87218bb9-08d7-41a2-b727-a1a07c99b9b5"
+        },
+        {
+            "name": "Albert",
+            "cm_id": 580,
+            "id": "663360e1-2b88-4414-aa8e-b4da47018ebf"
+        },
+        {
+            "name": "Al Snow",
+            "cm_id": 179,
+            "id": "b904dc1d-27f9-41d5-83a6-87e24ce0a2f1"
+        },
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "b3a3da7a-c1bd-4d01-8a33-1cb33980bb2d"
+        },
+        {
+            "name": "Bradshaw",
+            "cm_id": 193,
+            "id": "dc7d919f-c3a0-4b42-bc2c-268859f923b5"
+        },
+        {
+            "name": "Bull Buchanan",
+            "cm_id": 137,
+            "id": "5b525d63-1b82-4c58-904a-ba5a86ad7123"
+        },
+        {
+            "name": "Crash",
+            "cm_id": 157,
+            "id": "c485d664-af27-4543-8640-26ab41a5eb9d"
+        },
+        {
+            "name": "Drew Carey",
+            "cm_id": 10407,
+            "id": "90e217e4-4a4c-4767-bb91-c99ed0b5e00a"
+        },
+        {
+            "name": "Faarooq",
+            "cm_id": 715,
+            "id": "db7f8864-95db-488e-bbd0-9309f79e02e8"
+        },
+        {
+            "name": "Grandmaster Sexay",
+            "cm_id": 1037,
+            "id": "e41de0a5-62e3-46a2-b6d1-c2837e621f9d"
+        },
+        {
+            "name": "Haku",
+            "cm_id": 694,
+            "id": "b9ce6a09-cbef-49a7-ba0f-866eae8b8f0c"
+        },
+        {
+            "name": "Hardcore Holly",
+            "cm_id": 55,
+            "id": "0528ed24-ef6e-4816-b9ed-bb0b22f13fe6"
+        },
+        {
+            "name": "Jeff Hardy",
+            "cm_id": 891,
+            "id": "2f8d236e-1bb4-427c-9953-e1a941fe0c79"
+        },
+        {
+            "name": "K-Kwik",
+            "cm_id": 200,
+            "id": "7c6f89c2-17da-47b0-871b-cc57022e9582"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "02d0e9b6-f355-4847-9b8a-2759346e3658"
+        },
+        {
+            "name": "Matt Hardy",
+            "cm_id": 99,
+            "id": "7d25e7db-e69f-476b-bb3f-9968c0b563fd"
+        },
+        {
+            "name": "Perry Saturn",
+            "cm_id": 430,
+            "id": "2e5a6b10-46a6-4d37-b28c-5f9a28584432"
+        },
+        {
+            "name": "Raven",
+            "cm_id": 570,
+            "id": "9d01aa1e-0cb1-4292-a6a8-7a2a6b2ef034"
+        },
+        {
+            "name": "Rikishi",
+            "cm_id": 303,
+            "id": "3c70a470-0578-4c4d-aa77-71eba05e0159"
+        },
+        {
+            "name": "Scotty 2 Hotty",
+            "cm_id": 527,
+            "id": "9f34a198-2920-4107-84ba-2eac2d1c81b9"
+        },
+        {
+            "name": "Steve Blackman",
+            "cm_id": 537,
+            "id": "bd878b86-03cb-4c73-9bfa-020008a2bbf5"
+        },
+        {
+            "name": "Tazz",
+            "cm_id": 446,
+            "id": "f9766cac-d286-4ade-b478-07786efcf750"
+        },
+        {
+            "name": "Test",
+            "cm_id": 1047,
+            "id": "de497d75-ce91-4c92-9b74-5b1feb58d8bd"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "a03da275-57c8-478a-90af-ee92e9c51574"
+        },
+        {
+            "name": "The Goodfather",
+            "cm_id": 901,
+            "id": "7dea6177-05e7-4742-bf35-9f4d0a92e504"
+        },
+        {
+            "name": "The Honky Tonk Man",
+            "cm_id": 156,
+            "id": "2034a58c-8fb7-47fb-ad25-64239a3ee742"
+        },
+        {
+            "name": "The Rock",
+            "cm_id": 960,
+            "id": "e88312b1-541e-4e76-b166-dfc689db69e1"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "8a1369c3-7568-49d3-8c99-e7a76b965a4b"
+        },
+        {
+            "name": "Val Venis",
+            "cm_id": 588,
+            "id": "30c1acaf-f3fe-400b-ac78-8e26848ee683"
+        },
+        {
+            "name": "William Regal",
+            "cm_id": 594,
+            "id": "8ac5bb49-a7c6-4bca-a83e-ee19f12307b0"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "2f8d236e-1bb4-427c-9953-e1a941fe0c79",
+                "7d25e7db-e69f-476b-bb3f-9968c0b563fd"
+            ],
+            "victims": [
+                "5b525d63-1b82-4c58-904a-ba5a86ad7123"
+            ],
+            "raw": "- Jeff Hardy & Matt Hardy eliminate Bull Buchanan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2f8d236e-1bb4-427c-9953-e1a941fe0c79",
+                "7d25e7db-e69f-476b-bb3f-9968c0b563fd"
+            ],
+            "victims": [
+                "db7f8864-95db-488e-bbd0-9309f79e02e8"
+            ],
+            "raw": "- Jeff Hardy & Matt Hardy eliminate Faarooq",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2f8d236e-1bb4-427c-9953-e1a941fe0c79"
+            ],
+            "victims": [
+                "7d25e7db-e69f-476b-bb3f-9968c0b563fd"
+            ],
+            "raw": "- Jeff Hardy eliminates Matt Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2f8d236e-1bb4-427c-9953-e1a941fe0c79"
+            ],
+            "victims": [
+                "2f8d236e-1bb4-427c-9953-e1a941fe0c79"
+            ],
+            "raw": "- Jeff Hardy eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "90e217e4-4a4c-4767-bb91-c99ed0b5e00a"
+            ],
+            "victims": [
+                "90e217e4-4a4c-4767-bb91-c99ed0b5e00a"
+            ],
+            "raw": "- Drew Carey eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "e41de0a5-62e3-46a2-b6d1-c2837e621f9d"
+            ],
+            "raw": "- Kane eliminates Grandmaster Sexay",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "bd878b86-03cb-4c73-9bfa-020008a2bbf5"
+            ],
+            "raw": "- Kane eliminates Steve Blackman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "b904dc1d-27f9-41d5-83a6-87e24ce0a2f1"
+            ],
+            "raw": "- Kane eliminates Al Snow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "9d01aa1e-0cb1-4292-a6a8-7a2a6b2ef034"
+            ],
+            "raw": "- Kane eliminates Raven",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "2e5a6b10-46a6-4d37-b28c-5f9a28584432"
+            ],
+            "raw": "- Kane eliminates Perry Saturn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "2034a58c-8fb7-47fb-ad25-64239a3ee742"
+            ],
+            "raw": "- Kane eliminates The Honky Tonk Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e88312b1-541e-4e76-b166-dfc689db69e1"
+            ],
+            "victims": [
+                "7dea6177-05e7-4742-bf35-9f4d0a92e504"
+            ],
+            "raw": "- The Rock eliminates The Goodfather",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "f9766cac-d286-4ade-b478-07786efcf750"
+            ],
+            "raw": "- Kane eliminates Tazz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "de497d75-ce91-4c92-9b74-5b1feb58d8bd"
+            ],
+            "victims": [
+                "8ac5bb49-a7c6-4bca-a83e-ee19f12307b0"
+            ],
+            "raw": "- Test eliminates William Regal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a03da275-57c8-478a-90af-ee92e9c51574"
+            ],
+            "victims": [
+                "de497d75-ce91-4c92-9b74-5b1feb58d8bd"
+            ],
+            "raw": "- The Big Show eliminates Test",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a03da275-57c8-478a-90af-ee92e9c51574"
+            ],
+            "victims": [
+                "7c6f89c2-17da-47b0-871b-cc57022e9582"
+            ],
+            "raw": "- The Big Show eliminates K-Kwik",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e88312b1-541e-4e76-b166-dfc689db69e1"
+            ],
+            "victims": [
+                "a03da275-57c8-478a-90af-ee92e9c51574"
+            ],
+            "raw": "- The Rock eliminates The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a1369c3-7568-49d3-8c99-e7a76b965a4b"
+            ],
+            "victims": [
+                "dc7d919f-c3a0-4b42-bc2c-268859f923b5"
+            ],
+            "raw": "- The Undertaker eliminates Bradshaw",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "c485d664-af27-4543-8640-26ab41a5eb9d"
+            ],
+            "raw": "- Kane eliminates Crash Holly",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "663360e1-2b88-4414-aa8e-b4da47018ebf"
+            ],
+            "raw": "- Kane eliminates Albert",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a1369c3-7568-49d3-8c99-e7a76b965a4b"
+            ],
+            "victims": [
+                "0528ed24-ef6e-4816-b9ed-bb0b22f13fe6"
+            ],
+            "raw": "- The Undertaker eliminates Hardcore Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a1369c3-7568-49d3-8c99-e7a76b965a4b"
+            ],
+            "victims": [
+                "30c1acaf-f3fe-400b-ac78-8e26848ee683"
+            ],
+            "raw": "- The Undertaker eliminates Val Venis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658",
+                "8a1369c3-7568-49d3-8c99-e7a76b965a4b"
+            ],
+            "victims": [
+                "9f34a198-2920-4107-84ba-2eac2d1c81b9"
+            ],
+            "raw": "- Kane und The Undertaker eliminate Scotty 2 Hotty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "87218bb9-08d7-41a2-b727-a1a07c99b9b5"
+            ],
+            "victims": [
+                "b9ce6a09-cbef-49a7-ba0f-866eae8b8f0c"
+            ],
+            "raw": "- Steve Austin eliminates Haku",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3c70a470-0578-4c4d-aa77-71eba05e0159"
+            ],
+            "victims": [
+                "8a1369c3-7568-49d3-8c99-e7a76b965a4b"
+            ],
+            "raw": "- Rikishi eliminates The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e88312b1-541e-4e76-b166-dfc689db69e1"
+            ],
+            "victims": [
+                "3c70a470-0578-4c4d-aa77-71eba05e0159"
+            ],
+            "raw": "- The Rock eliminates Rikishi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "87218bb9-08d7-41a2-b727-a1a07c99b9b5"
+            ],
+            "victims": [
+                "b3a3da7a-c1bd-4d01-8a33-1cb33980bb2d"
+            ],
+            "raw": "- Steve Austin eliminates Billy Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "victims": [
+                "e88312b1-541e-4e76-b166-dfc689db69e1"
+            ],
+            "raw": "- Kane eliminates The Rock",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "87218bb9-08d7-41a2-b727-a1a07c99b9b5"
+            ],
+            "victims": [
+                "02d0e9b6-f355-4847-9b8a-2759346e3658"
+            ],
+            "raw": "- Steve Austin eliminates Kane",
+            "is_valid": true
+        }
+    ]
+}

@@ -1,0 +1,429 @@
+{
+    "wrestlers": [
+        {
+            "name": "Steve Austin",
+            "cm_id": 635,
+            "id": "59710981-29f2-4bd4-8045-50a106e0647c"
+        },
+        {
+            "name": "Ahmed Johnson",
+            "cm_id": 618,
+            "id": "aced17fb-57a5-4f16-a867-a0db863e5c66"
+        },
+        {
+            "name": "Bart Gunn",
+            "cm_id": 654,
+            "id": "b7812b3d-782a-43a8-ac74-f0fdd9619dbb"
+        },
+        {
+            "name": "Bret Hart",
+            "cm_id": 565,
+            "id": "f48f9051-d2aa-42b0-8abe-80c922ff5771"
+        },
+        {
+            "name": "Cibernetico",
+            "cm_id": 432,
+            "id": "6a7cfe57-3897-4c87-8de0-1dbf116b25c9"
+        },
+        {
+            "name": "Crush",
+            "cm_id": 536,
+            "id": "6848cf71-ebea-45b1-995d-0e93441ac5cf"
+        },
+        {
+            "name": "Diesel",
+            "cm_id": 379,
+            "id": "e9e8e4cd-d031-4908-8ce1-097eb2faa3b8"
+        },
+        {
+            "name": "Faarooq",
+            "cm_id": 715,
+            "id": "104f8955-238b-4309-9f77-14cecb3ab533"
+        },
+        {
+            "name": "Flash Funk",
+            "cm_id": 649,
+            "id": "370a7148-a725-4f14-ac83-f18f86d892d9"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "ffc97464-1dfd-44c7-a870-3398835c34aa"
+        },
+        {
+            "name": "Henry O. Godwinn",
+            "cm_id": 945,
+            "id": "586f5bb4-2900-4306-bae2-bd41ae98d702"
+        },
+        {
+            "name": "Hunter Hearst Helmsley",
+            "cm_id": 496,
+            "id": "747f0d92-1176-43c1-8d4b-2ad926742679"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "a5a315b9-6924-4fb2-a955-9eec3107e0fa"
+        },
+        {
+            "name": "Jerry Lawler",
+            "cm_id": 937,
+            "id": "50ba5796-d5ef-416c-9286-e84edda2ba9a"
+        },
+        {
+            "name": "Jesse Jammes",
+            "cm_id": 760,
+            "id": "e03aa59b-a303-4eba-afe0-7a47473a258b"
+        },
+        {
+            "name": "Latin Lover",
+            "cm_id": 1082,
+            "id": "633b3cf8-68dc-4e4c-ad4e-efa0382552bc"
+        },
+        {
+            "name": "Mankind",
+            "cm_id": 6,
+            "id": "aa4f0e91-51c6-4a60-ae6c-6b595d9ce815"
+        },
+        {
+            "name": "Marc Mero",
+            "cm_id": 147,
+            "id": "c9ea6014-6d40-4040-9068-6952e25cfb90"
+        },
+        {
+            "name": "Mil Mascaras",
+            "cm_id": 126,
+            "id": "a30e9b02-4447-4232-9403-0e350fc8e02d"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "f01f5b48-6d45-41f4-8cd5-7f860dcc942f"
+        },
+        {
+            "name": "Phineas I. Godwinn",
+            "cm_id": 81,
+            "id": "296b9f4c-3a4a-49ab-b289-aa5b5a53ff27"
+        },
+        {
+            "name": "Pierroth",
+            "cm_id": 1431,
+            "id": "7d68709c-a2e9-406e-85b3-38e1dc7f262d"
+        },
+        {
+            "name": "Razor Ramon",
+            "cm_id": 811,
+            "id": "b15bd66b-0c94-4678-a477-30eb9eeeb0a0"
+        },
+        {
+            "name": "Rocky Maivia",
+            "cm_id": 960,
+            "id": "f8c4ce97-c442-45bd-8255-48a8871af5de"
+        },
+        {
+            "name": "Savio Vega",
+            "cm_id": 224,
+            "id": "0265e415-4a20-4b56-802a-14b0f5d3d681"
+        },
+        {
+            "name": "Terry Funk",
+            "cm_id": 501,
+            "id": "9961a73e-133f-4f83-add6-2bb59765c7c8"
+        },
+        {
+            "name": "The British Bulldog",
+            "cm_id": 862,
+            "id": "40134acd-7c12-498b-b9e3-9ae49d83b4d7"
+        },
+        {
+            "name": "The Sultan",
+            "cm_id": 303,
+            "id": "62f2d0fe-1abc-437d-981d-14e7bb0d0c90"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "8b6018cc-1de7-4ea7-bd5a-50e9903525cf"
+        },
+        {
+            "name": "Vader",
+            "cm_id": 132,
+            "id": "ac7538f3-87a1-4cc5-a972-d885dba16ed6"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "aced17fb-57a5-4f16-a867-a0db863e5c66"
+            ],
+            "victims": [
+                "b15bd66b-0c94-4678-a477-30eb9eeeb0a0"
+            ],
+            "raw": "- Ahmed Johnson eliminates Razor Ramon",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "aced17fb-57a5-4f16-a867-a0db863e5c66"
+            ],
+            "victims": [
+                "aced17fb-57a5-4f16-a867-a0db863e5c66"
+            ],
+            "raw": "- Ahmed Johnson eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "296b9f4c-3a4a-49ab-b289-aa5b5a53ff27"
+            ],
+            "victims": [
+                "6848cf71-ebea-45b1-995d-0e93441ac5cf"
+            ],
+            "raw": "- Phineas I. Godwinn eliminates Crush",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "296b9f4c-3a4a-49ab-b289-aa5b5a53ff27"
+            ],
+            "raw": "- Steve Austin eliminates Phineas I. Godwinn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "b7812b3d-782a-43a8-ac74-f0fdd9619dbb"
+            ],
+            "raw": "- Steve Austin eliminates Bart Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "a5a315b9-6924-4fb2-a955-9eec3107e0fa"
+            ],
+            "raw": "- Steve Austin eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40134acd-7c12-498b-b9e3-9ae49d83b4d7"
+            ],
+            "victims": [
+                "62f2d0fe-1abc-437d-981d-14e7bb0d0c90"
+            ],
+            "raw": "- The British Bulldog eliminates The Sultan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f01f5b48-6d45-41f4-8cd5-7f860dcc942f"
+            ],
+            "victims": [
+                "40134acd-7c12-498b-b9e3-9ae49d83b4d7"
+            ],
+            "raw": "- Owen Hart eliminates The British Bulldog",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a30e9b02-4447-4232-9403-0e350fc8e02d",
+                "7d68709c-a2e9-406e-85b3-38e1dc7f262d"
+            ],
+            "victims": [
+                "6a7cfe57-3897-4c87-8de0-1dbf116b25c9"
+            ],
+            "raw": "- Mil Mascaras und Pierroth eliminate Cibernetico",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a30e9b02-4447-4232-9403-0e350fc8e02d"
+            ],
+            "victims": [
+                "7d68709c-a2e9-406e-85b3-38e1dc7f262d"
+            ],
+            "raw": "- Mil Mascaras eliminates Pierroth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a30e9b02-4447-4232-9403-0e350fc8e02d"
+            ],
+            "victims": [
+                "a30e9b02-4447-4232-9403-0e350fc8e02d"
+            ],
+            "raw": "- Mil Mascaras eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ffc97464-1dfd-44c7-a870-3398835c34aa"
+            ],
+            "victims": [
+                "747f0d92-1176-43c1-8d4b-2ad926742679"
+            ],
+            "raw": "- Goldust eliminates Hunter Hearst Helmsley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f01f5b48-6d45-41f4-8cd5-7f860dcc942f"
+            ],
+            "victims": [
+                "ffc97464-1dfd-44c7-a870-3398835c34aa"
+            ],
+            "raw": "- Owen Hart eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "104f8955-238b-4309-9f77-14cecb3ab533"
+            ],
+            "victims": [
+                "633b3cf8-68dc-4e4c-ad4e-efa0382552bc"
+            ],
+            "raw": "- Faarooq eliminates Latin Lover",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "104f8955-238b-4309-9f77-14cecb3ab533"
+            ],
+            "victims": [
+                "104f8955-238b-4309-9f77-14cecb3ab533"
+            ],
+            "raw": "- Faarooq eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "c9ea6014-6d40-4040-9068-6952e25cfb90",
+                "f01f5b48-6d45-41f4-8cd5-7f860dcc942f"
+            ],
+            "raw": "- Steve Austin eliminates Marc Mero und Owen Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "0265e415-4a20-4b56-802a-14b0f5d3d681"
+            ],
+            "raw": "- Steve Austin eliminates Savio Vega",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "e03aa59b-a303-4eba-afe0-7a47473a258b"
+            ],
+            "raw": "- Steve Austin eliminates Jesse Jammes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f48f9051-d2aa-42b0-8abe-80c922ff5771"
+            ],
+            "victims": [
+                "50ba5796-d5ef-416c-9286-e84edda2ba9a"
+            ],
+            "raw": "- Bret Hart eliminates Jerry Lawler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ac7538f3-87a1-4cc5-a972-d885dba16ed6"
+            ],
+            "victims": [
+                "370a7148-a725-4f14-ac83-f18f86d892d9"
+            ],
+            "raw": "- Vader eliminates Flash Funk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8b6018cc-1de7-4ea7-bd5a-50e9903525cf"
+            ],
+            "victims": [
+                "586f5bb4-2900-4306-bae2-bd41ae98d702"
+            ],
+            "raw": "- The Undertaker eliminates Henry O. Godwinn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "aa4f0e91-51c6-4a60-ae6c-6b595d9ce815"
+            ],
+            "victims": [
+                "f8c4ce97-c442-45bd-8255-48a8871af5de"
+            ],
+            "raw": "- Mankind eliminates Rocky Maivia",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "aa4f0e91-51c6-4a60-ae6c-6b595d9ce815"
+            ],
+            "victims": [
+                "9961a73e-133f-4f83-add6-2bb59765c7c8"
+            ],
+            "raw": "- Mankind eliminates Terry Funk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8b6018cc-1de7-4ea7-bd5a-50e9903525cf"
+            ],
+            "victims": [
+                "aa4f0e91-51c6-4a60-ae6c-6b595d9ce815"
+            ],
+            "raw": "- The Undertaker eliminates Mankind",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "8b6018cc-1de7-4ea7-bd5a-50e9903525cf",
+                "ac7538f3-87a1-4cc5-a972-d885dba16ed6"
+            ],
+            "raw": "- Steve Austin eliminates The Undertaker und Vader",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f48f9051-d2aa-42b0-8abe-80c922ff5771"
+            ],
+            "victims": [
+                "e9e8e4cd-d031-4908-8ce1-097eb2faa3b8"
+            ],
+            "raw": "- Bret Hart eliminates Diesel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "59710981-29f2-4bd4-8045-50a106e0647c"
+            ],
+            "victims": [
+                "f48f9051-d2aa-42b0-8abe-80c922ff5771"
+            ],
+            "raw": "- Steve Austin eliminates Bret Hart",
+            "is_valid": true
+        }
+    ]
+}

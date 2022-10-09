@@ -1,0 +1,435 @@
+{
+    "wrestlers": [
+        {
+            "name": "John Cena",
+            "cm_id": 691,
+            "id": "c1d8e631-c7e1-4a77-8b1b-1d006c780fa0"
+        },
+        {
+            "name": "Batista",
+            "cm_id": 962,
+            "id": "54880d4f-db4b-4100-bb4d-ca4d6ab64a08"
+        },
+        {
+            "name": "Big Daddy V",
+            "cm_id": 1077,
+            "id": "7fd5ccb9-38d2-4c38-b808-6ecebcd1506a"
+        },
+        {
+            "name": "Carlito",
+            "cm_id": 208,
+            "id": "6d655432-a0d9-419e-8da7-6f4d7098aceb"
+        },
+        {
+            "name": "Chavo Guerrero",
+            "cm_id": 895,
+            "id": "205eaeed-0efd-4cec-ac73-a0670b21c65b"
+        },
+        {
+            "name": "Chuck Palumbo",
+            "cm_id": 74,
+            "id": "083e2b6a-a08c-42d3-b6d6-b429fb94e1c1"
+        },
+        {
+            "name": "CM Punk",
+            "cm_id": 80,
+            "id": "eaeb96a8-5367-4b0d-adc8-65b22658665c"
+        },
+        {
+            "name": "Cody Rhodes",
+            "cm_id": 3686,
+            "id": "108d5533-7323-49d3-a523-c75a28ea47d8"
+        },
+        {
+            "name": "Elijah Burke",
+            "cm_id": 1179,
+            "id": "74f8a543-f80f-42fb-8b51-912725a96b4c"
+        },
+        {
+            "name": "Finlay",
+            "cm_id": 154,
+            "id": "39928d50-1f2b-4f51-b186-4710f3f3d788"
+        },
+        {
+            "name": "Hardcore Holly",
+            "cm_id": 55,
+            "id": "3b8ab719-879e-4d6d-9087-b278c73dd8ec"
+        },
+        {
+            "name": "Hornswoggle",
+            "cm_id": 3586,
+            "id": "1991a62a-6ef7-420c-94e1-69c935e04195"
+        },
+        {
+            "name": "Jamie Noble",
+            "cm_id": 729,
+            "id": "698dc5f1-3090-4a6a-b510-219a489cf194"
+        },
+        {
+            "name": "Jimmy Snuka",
+            "cm_id": 461,
+            "id": "99e8bb59-4d2d-4ec7-ac37-4e4ab67741a9"
+        },
+        {
+            "name": "John Morrison",
+            "cm_id": 1099,
+            "id": "07f9baff-7cfb-4791-b610-8e4d75398dde"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "27ffd314-19b1-462b-8a1b-ef779bdaa4c0"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "2e776578-46e0-441a-ac42-f95245a0c150"
+        },
+        {
+            "name": "Mick Foley",
+            "cm_id": 6,
+            "id": "30f1212e-44d3-4a72-9e82-fa624006945c"
+        },
+        {
+            "name": "Mr. Kennedy",
+            "cm_id": 704,
+            "id": "67a5cd84-812c-4a47-af29-b562f8914459"
+        },
+        {
+            "name": "Roddy Piper",
+            "cm_id": 51,
+            "id": "92e3185c-7bb2-402a-8728-d628e20459f0"
+        },
+        {
+            "name": "Santino Marella",
+            "cm_id": 3689,
+            "id": "058372ab-ca78-4786-a22c-2d9a9c4240c3"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "22ff099d-3f45-47d5-a349-abda61dda879"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "c56ea559-9675-4da7-b6e1-59fba4193017"
+        },
+        {
+            "name": "Snitsky",
+            "cm_id": 1168,
+            "id": "15f6f05d-5e75-48f3-a70e-429f2d08f6d7"
+        },
+        {
+            "name": "The Great Khali",
+            "cm_id": 2011,
+            "id": "e5e06a4d-8cfd-468d-a7fe-6cb79a734521"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "28a4e755-9a26-4ab7-994c-383d92b1c313"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "73440e5b-5071-42df-8106-23033141cc97"
+        },
+        {
+            "name": "Tommy Dreamer",
+            "cm_id": 487,
+            "id": "a41b05ab-9269-4042-92cb-d889759f653e"
+        },
+        {
+            "name": "Triple H",
+            "cm_id": 496,
+            "id": "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+        },
+        {
+            "name": "Umaga",
+            "cm_id": 1087,
+            "id": "3e70fcdd-0f41-469c-8e51-f44462053b71"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "73440e5b-5071-42df-8106-23033141cc97"
+            ],
+            "victims": [
+                "058372ab-ca78-4786-a22c-2d9a9c4240c3"
+            ],
+            "raw": "- The Undertaker eliminates Santino Marella",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "73440e5b-5071-42df-8106-23033141cc97"
+            ],
+            "victims": [
+                "e5e06a4d-8cfd-468d-a7fe-6cb79a734521"
+            ],
+            "raw": "- The Undertaker eliminates The Great Khali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "54880d4f-db4b-4100-bb4d-ca4d6ab64a08"
+            ],
+            "victims": [
+                "a41b05ab-9269-4042-92cb-d889759f653e"
+            ],
+            "raw": "- Batista eliminates Tommy Dreamer",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "083e2b6a-a08c-42d3-b6d6-b429fb94e1c1"
+            ],
+            "victims": [
+                "698dc5f1-3090-4a6a-b510-219a489cf194"
+            ],
+            "raw": "- Chuck Palumbo eliminates Jamie Noble",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "eaeb96a8-5367-4b0d-adc8-65b22658665c"
+            ],
+            "victims": [
+                "083e2b6a-a08c-42d3-b6d6-b429fb94e1c1"
+            ],
+            "raw": "- CM Punk eliminates Chuck Palumbo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3e70fcdd-0f41-469c-8e51-f44462053b71"
+            ],
+            "victims": [
+                "3b8ab719-879e-4d6d-9087-b278c73dd8ec"
+            ],
+            "raw": "- Umaga eliminates Hardcore Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "22ff099d-3f45-47d5-a349-abda61dda879"
+            ],
+            "victims": [
+                "c56ea559-9675-4da7-b6e1-59fba4193017"
+            ],
+            "raw": "- Shawn Michaels eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "27ffd314-19b1-462b-8a1b-ef779bdaa4c0"
+            ],
+            "victims": [
+                "92e3185c-7bb2-402a-8728-d628e20459f0"
+            ],
+            "raw": "- Kane eliminates Roddy Piper",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "27ffd314-19b1-462b-8a1b-ef779bdaa4c0"
+            ],
+            "victims": [
+                "99e8bb59-4d2d-4ec7-ac37-4e4ab67741a9"
+            ],
+            "raw": "- Kane eliminates Jimmy Snuka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "73440e5b-5071-42df-8106-23033141cc97"
+            ],
+            "victims": [
+                "15f6f05d-5e75-48f3-a70e-429f2d08f6d7"
+            ],
+            "raw": "- The Undertaker eliminates Snitsky",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "22ff099d-3f45-47d5-a349-abda61dda879"
+            ],
+            "victims": [
+                "73440e5b-5071-42df-8106-23033141cc97"
+            ],
+            "raw": "- Shawn Michaels eliminates The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "67a5cd84-812c-4a47-af29-b562f8914459"
+            ],
+            "victims": [
+                "22ff099d-3f45-47d5-a349-abda61dda879"
+            ],
+            "raw": "- Mr. Kennedy eliminates Shawn Michaels",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1991a62a-6ef7-420c-94e1-69c935e04195"
+            ],
+            "victims": [
+                "28a4e755-9a26-4ab7-994c-383d92b1c313"
+            ],
+            "raw": "- Hornswoggle eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "27ffd314-19b1-462b-8a1b-ef779bdaa4c0"
+            ],
+            "victims": [
+                "07f9baff-7cfb-4791-b610-8e4d75398dde"
+            ],
+            "raw": "- Kane eliminates John Morrison",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "39928d50-1f2b-4f51-b186-4710f3f3d788"
+            ],
+            "raw": "- Finlay wird f\u00fcr den Einsatz des Shillelagh disqualifiziert",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "205eaeed-0efd-4cec-ac73-a0670b21c65b"
+            ],
+            "victims": [
+                "eaeb96a8-5367-4b0d-adc8-65b22658665c"
+            ],
+            "raw": "- Chavo Guerrero eliminates CM Punk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "victims": [
+                "108d5533-7323-49d3-a523-c75a28ea47d8"
+            ],
+            "raw": "- Triple H eliminates Cody Rhodes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "victims": [
+                "7fd5ccb9-38d2-4c38-b808-6ecebcd1506a"
+            ],
+            "raw": "- Triple H eliminates Big Daddy V",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "victims": [
+                "30f1212e-44d3-4a72-9e82-fa624006945c"
+            ],
+            "raw": "- Triple H eliminates Mick Foley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "victims": [
+                "74f8a543-f80f-42fb-8b51-912725a96b4c"
+            ],
+            "raw": "- Triple H eliminates Elijah Burke",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c1d8e631-c7e1-4a77-8b1b-1d006c780fa0"
+            ],
+            "victims": [
+                "6d655432-a0d9-419e-8da7-6f4d7098aceb"
+            ],
+            "raw": "- John Cena eliminates Carlito",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c1d8e631-c7e1-4a77-8b1b-1d006c780fa0"
+            ],
+            "victims": [
+                "205eaeed-0efd-4cec-ac73-a0670b21c65b"
+            ],
+            "raw": "- John Cena eliminates Chavo Guerrero",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c1d8e631-c7e1-4a77-8b1b-1d006c780fa0"
+            ],
+            "victims": [
+                "2e776578-46e0-441a-ac42-f95245a0c150"
+            ],
+            "raw": "- John Cena eliminates Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "54880d4f-db4b-4100-bb4d-ca4d6ab64a08"
+            ],
+            "victims": [
+                "67a5cd84-812c-4a47-af29-b562f8914459"
+            ],
+            "raw": "- Batista eliminates Mr. Kennedy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "54880d4f-db4b-4100-bb4d-ca4d6ab64a08"
+            ],
+            "victims": [
+                "3e70fcdd-0f41-469c-8e51-f44462053b71"
+            ],
+            "raw": "- Batista eliminates Umaga",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "54880d4f-db4b-4100-bb4d-ca4d6ab64a08",
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "victims": [
+                "27ffd314-19b1-462b-8a1b-ef779bdaa4c0"
+            ],
+            "raw": "- Batista & Triple H eliminate Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "victims": [
+                "54880d4f-db4b-4100-bb4d-ca4d6ab64a08"
+            ],
+            "raw": "- Triple H eliminates Batista",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c1d8e631-c7e1-4a77-8b1b-1d006c780fa0"
+            ],
+            "victims": [
+                "18a5a08a-30bd-471a-851d-3a5acb538ae4"
+            ],
+            "raw": "- John Cena eliminates Triple H",
+            "is_valid": true
+        }
+    ]
+}

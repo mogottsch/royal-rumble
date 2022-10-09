@@ -1,0 +1,451 @@
+{
+    "wrestlers": [
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "d0e6606e-9a28-474f-8c9e-025126eadd89"
+        },
+        {
+            "name": "Alex Riley",
+            "cm_id": 5662,
+            "id": "7678585d-95b0-43c3-be7e-59cd5722040e"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "60b4d514-3e4f-4591-a8b2-c59407926e60"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "8264ce90-7019-40d0-9cab-af717cece762"
+        },
+        {
+            "name": "Cody Rhodes",
+            "cm_id": 3686,
+            "id": "c56347bb-02e2-4a34-9d72-25817e311c1b"
+        },
+        {
+            "name": "David Otunga",
+            "cm_id": 8000,
+            "id": "776921c8-5425-4a8b-948b-fc99554d723d"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "810d999f-6fca-432c-bb24-acd2e3f3f1ab"
+        },
+        {
+            "name": "Epico",
+            "cm_id": 4441,
+            "id": "c5a76547-2321-46dc-ae5b-0cef60300467"
+        },
+        {
+            "name": "Ezekiel Jackson",
+            "cm_id": 4710,
+            "id": "246535b7-f021-4586-a48d-ff64b5dd6bed"
+        },
+        {
+            "name": "Hunico",
+            "cm_id": 3669,
+            "id": "7f326f65-543e-4ba7-83be-fe41803dd9c7"
+        },
+        {
+            "name": "Jack Swagger",
+            "cm_id": 4071,
+            "id": "6b984c74-4411-465f-9a73-044fb69171f2"
+        },
+        {
+            "name": "Jerry Lawler",
+            "cm_id": 937,
+            "id": "8249f3ca-d181-4868-bcfb-74c4c69fb9ed"
+        },
+        {
+            "name": "Jey Uso",
+            "cm_id": 7350,
+            "id": "8b7f4e77-a7c1-4a69-b8da-1d1d43a127be"
+        },
+        {
+            "name": "Jim Duggan",
+            "cm_id": 1107,
+            "id": "2f3c9e26-4d8f-4a0a-b9ea-f16b8bb2d67a"
+        },
+        {
+            "name": "Jinder Mahal",
+            "cm_id": 6171,
+            "id": "16f27d95-058f-49ac-9058-328e9d30f001"
+        },
+        {
+            "name": "Justin Gabriel",
+            "cm_id": 8016,
+            "id": "37d6f6e8-ad9f-4bcf-9206-b1d7860971b9"
+        },
+        {
+            "name": "Kharma",
+            "cm_id": 3643,
+            "id": "373f20f1-d070-4f8a-8cd0-52a37f31a7e2"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "a3dcf705-4025-494c-a991-90f11f65b92d"
+        },
+        {
+            "name": "Michael Cole",
+            "cm_id": 1125,
+            "id": "db5e642c-93f7-485f-90ea-bccf0ae42191"
+        },
+        {
+            "name": "Mick Foley",
+            "cm_id": 6,
+            "id": "0f812b24-e73c-4d98-a7a8-c3d336e3ffde"
+        },
+        {
+            "name": "Primo",
+            "cm_id": 1860,
+            "id": "a4507f40-0f1f-46eb-8589-28316a701ff9"
+        },
+        {
+            "name": "R-Truth",
+            "cm_id": 200,
+            "id": "330164d4-3c30-4f8e-952f-a71d8724283d"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "f7c54050-d988-4d41-ae05-2173e1336e35"
+        },
+        {
+            "name": "Ricardo Rodriguez",
+            "cm_id": 5368,
+            "id": "c8b9ce2c-9799-4b71-b081-c914c593f3d3"
+        },
+        {
+            "name": "Santino Marella",
+            "cm_id": 3689,
+            "id": "3d592847-4ed2-4150-8801-109323e12173"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "a954b3e7-7e39-4743-85cd-f017a0a7dfce"
+        },
+        {
+            "name": "The Great Khali",
+            "cm_id": 2011,
+            "id": "5d7d4808-54a4-414d-ab72-95301bb36381"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "609ec42d-5b0c-4cc5-94e3-a2469cdeb7f3"
+        },
+        {
+            "name": "The Road Dogg",
+            "cm_id": 760,
+            "id": "e9ad5277-2402-412c-a488-9c9e45cd7e12"
+        },
+        {
+            "name": "Wade Barrett",
+            "cm_id": 2849,
+            "id": "0f7bccca-9349-417f-9031-e7644cd70d58"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "609ec42d-5b0c-4cc5-94e3-a2469cdeb7f3"
+            ],
+            "victims": [
+                "7678585d-95b0-43c3-be7e-59cd5722040e"
+            ],
+            "raw": "- The Miz eliminates Alex Riley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "609ec42d-5b0c-4cc5-94e3-a2469cdeb7f3"
+            ],
+            "victims": [
+                "330164d4-3c30-4f8e-952f-a71d8724283d"
+            ],
+            "raw": "- The Miz eliminates R-Truth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0f812b24-e73c-4d98-a7a8-c3d336e3ffde"
+            ],
+            "victims": [
+                "a4507f40-0f1f-46eb-8589-28316a701ff9"
+            ],
+            "raw": "- Mick Foley eliminates Primo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0f812b24-e73c-4d98-a7a8-c3d336e3ffde",
+                "c8b9ce2c-9799-4b71-b081-c914c593f3d3"
+            ],
+            "victims": [
+                "37d6f6e8-ad9f-4bcf-9206-b1d7860971b9"
+            ],
+            "raw": "- Ricardo Rodriguez & Mick Foley eliminate Justin Gabriel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3d592847-4ed2-4150-8801-109323e12173"
+            ],
+            "victims": [
+                "c8b9ce2c-9799-4b71-b081-c914c593f3d3"
+            ],
+            "raw": "- Santino Marella eliminates Ricardo Rodriguez",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b"
+            ],
+            "victims": [
+                "3d592847-4ed2-4150-8801-109323e12173"
+            ],
+            "raw": "- Cody Rhodes eliminates Santino Marella",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0f812b24-e73c-4d98-a7a8-c3d336e3ffde"
+            ],
+            "victims": [
+                "c5a76547-2321-46dc-ae5b-0cef60300467"
+            ],
+            "raw": "- Mick Foley eliminates Epico",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b"
+            ],
+            "victims": [
+                "0f812b24-e73c-4d98-a7a8-c3d336e3ffde"
+            ],
+            "raw": "- Cody Rhodes eliminates Mick Foley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b",
+                "609ec42d-5b0c-4cc5-94e3-a2469cdeb7f3"
+            ],
+            "victims": [
+                "8249f3ca-d181-4868-bcfb-74c4c69fb9ed"
+            ],
+            "raw": "- The Miz & Cody Rhodes eliminate Jerry Lawler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5d7d4808-54a4-414d-ab72-95301bb36381"
+            ],
+            "victims": [
+                "16f27d95-058f-49ac-9058-328e9d30f001"
+            ],
+            "raw": "- The Great Khali eliminates Jinder Mahal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a3dcf705-4025-494c-a991-90f11f65b92d"
+            ],
+            "victims": [
+                "246535b7-f021-4586-a48d-ff64b5dd6bed"
+            ],
+            "raw": "- Kofi Kingston eliminates Ezekiel Jackson",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b"
+            ],
+            "victims": [
+                "2f3c9e26-4d8f-4a0a-b9ea-f16b8bb2d67a"
+            ],
+            "raw": "- Cody Rhodes eliminates Jim Duggan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b",
+                "810d999f-6fca-432c-bb24-acd2e3f3f1ab"
+            ],
+            "victims": [
+                "60b4d514-3e4f-4591-a8b2-c59407926e60"
+            ],
+            "raw": "- Cody Rhodes & Dolph Ziggler eliminate Booker T",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b",
+                "810d999f-6fca-432c-bb24-acd2e3f3f1ab"
+            ],
+            "victims": [
+                "5d7d4808-54a4-414d-ab72-95301bb36381"
+            ],
+            "raw": "- Cody Rhodes & Dolph Ziggler eliminate The Great Khali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "60b4d514-3e4f-4591-a8b2-c59407926e60",
+                "8249f3ca-d181-4868-bcfb-74c4c69fb9ed"
+            ],
+            "victims": [
+                "db5e642c-93f7-485f-90ea-bccf0ae42191"
+            ],
+            "raw": "- Jerry Lawler & Booker T eliminate Michael Cole",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "373f20f1-d070-4f8a-8cd0-52a37f31a7e2"
+            ],
+            "victims": [
+                "7f326f65-543e-4ba7-83be-fe41803dd9c7"
+            ],
+            "raw": "- Kharma eliminates Hunico",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "810d999f-6fca-432c-bb24-acd2e3f3f1ab"
+            ],
+            "victims": [
+                "373f20f1-d070-4f8a-8cd0-52a37f31a7e2"
+            ],
+            "raw": "- Dolph Ziggler eliminates Kharma",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0e6606e-9a28-474f-8c9e-025126eadd89"
+            ],
+            "victims": [
+                "a3dcf705-4025-494c-a991-90f11f65b92d"
+            ],
+            "raw": "- Sheamus eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0f7bccca-9349-417f-9031-e7644cd70d58"
+            ],
+            "victims": [
+                "e9ad5277-2402-412c-a488-9c9e45cd7e12"
+            ],
+            "raw": "- Wade Barrett eliminates The Road Dogg",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f7c54050-d988-4d41-ae05-2173e1336e35"
+            ],
+            "victims": [
+                "8b7f4e77-a7c1-4a69-b8da-1d1d43a127be"
+            ],
+            "raw": "- Randy Orton eliminates Jey Uso",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f7c54050-d988-4d41-ae05-2173e1336e35"
+            ],
+            "victims": [
+                "0f7bccca-9349-417f-9031-e7644cd70d58"
+            ],
+            "raw": "- Randy Orton eliminates Wade Barrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8264ce90-7019-40d0-9cab-af717cece762"
+            ],
+            "victims": [
+                "776921c8-5425-4a8b-948b-fc99554d723d"
+            ],
+            "raw": "- Chris Jericho eliminates David Otunga",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a954b3e7-7e39-4743-85cd-f017a0a7dfce"
+            ],
+            "victims": [
+                "6b984c74-4411-465f-9a73-044fb69171f2"
+            ],
+            "raw": "- The Big Show eliminates Jack Swagger",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a954b3e7-7e39-4743-85cd-f017a0a7dfce"
+            ],
+            "victims": [
+                "c56347bb-02e2-4a34-9d72-25817e311c1b"
+            ],
+            "raw": "- The Big Show eliminates Cody Rhodes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a954b3e7-7e39-4743-85cd-f017a0a7dfce"
+            ],
+            "victims": [
+                "609ec42d-5b0c-4cc5-94e3-a2469cdeb7f3"
+            ],
+            "raw": "- The Big Show eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a954b3e7-7e39-4743-85cd-f017a0a7dfce"
+            ],
+            "victims": [
+                "810d999f-6fca-432c-bb24-acd2e3f3f1ab"
+            ],
+            "raw": "- The Big Show eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f7c54050-d988-4d41-ae05-2173e1336e35"
+            ],
+            "victims": [
+                "a954b3e7-7e39-4743-85cd-f017a0a7dfce"
+            ],
+            "raw": "- Randy Orton eliminates The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8264ce90-7019-40d0-9cab-af717cece762"
+            ],
+            "victims": [
+                "f7c54050-d988-4d41-ae05-2173e1336e35"
+            ],
+            "raw": "- Chris Jericho eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0e6606e-9a28-474f-8c9e-025126eadd89"
+            ],
+            "victims": [
+                "8264ce90-7019-40d0-9cab-af717cece762"
+            ],
+            "raw": "- Sheamus eliminates Chris Jericho",
+            "is_valid": true
+        }
+    ]
+}

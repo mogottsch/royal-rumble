@@ -1,0 +1,422 @@
+{
+    "wrestlers": [
+        {
+            "name": "Ric Flair",
+            "cm_id": 1091,
+            "id": "8bbe4de3-b5ad-4dae-b8bf-917902359546"
+        },
+        {
+            "name": "Col. Mustafa",
+            "cm_id": 858,
+            "id": "b2f684e4-8b5e-4b01-9086-e3d9a848bb3e"
+        },
+        {
+            "name": "El Matador",
+            "cm_id": 93,
+            "id": "41170425-1370-4e2e-beb2-1a77fff66fd8"
+        },
+        {
+            "name": "Greg Valentine",
+            "cm_id": 104,
+            "id": "7b22d7bd-f8a7-4783-bdbc-f72231980f65"
+        },
+        {
+            "name": "Haku",
+            "cm_id": 694,
+            "id": "40c5bb85-4403-4f73-9bc0-150f4a2dac30"
+        },
+        {
+            "name": "Hercules",
+            "cm_id": 1500,
+            "id": "6623e05a-18a2-4608-9e52-0afbe0927fda"
+        },
+        {
+            "name": "Hulk Hogan",
+            "cm_id": 504,
+            "id": "7a05bf8e-bb52-4a4d-af17-b4211546ef84"
+        },
+        {
+            "name": "Irwin R. Schyster",
+            "cm_id": 893,
+            "id": "b80131ec-bac1-4297-891a-4768f408d12d"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "559bfe42-87e6-4644-adfc-c81588da1b92"
+        },
+        {
+            "name": "Jerry Sags",
+            "cm_id": 558,
+            "id": "2897dccd-baa3-4aa6-b66e-a4d7eec7ec9a"
+        },
+        {
+            "name": "Jim Duggan",
+            "cm_id": 1107,
+            "id": "f89c9dfe-ee7a-4d31-84ad-d9ab1bacded7"
+        },
+        {
+            "name": "Jimmy Snuka",
+            "cm_id": 461,
+            "id": "4c145313-060b-4d98-b883-33c6e89bd3ac"
+        },
+        {
+            "name": "Nikolai Volkoff",
+            "cm_id": 1097,
+            "id": "282c8842-06d1-4a55-b0f4-116fa0ad3ca7"
+        },
+        {
+            "name": "Randy Savage",
+            "cm_id": 640,
+            "id": "301bae3f-a1f5-4ad1-a4cd-3533a6e80019"
+        },
+        {
+            "name": "Repo Man",
+            "cm_id": 1069,
+            "id": "b264e60b-44ae-466c-bae0-1124680ce45a"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "df909edb-b1ca-4aab-b6d1-9b156caa0a21"
+        },
+        {
+            "name": "Roddy Piper",
+            "cm_id": 51,
+            "id": "36d661d6-196d-46a1-9281-b0509669e6b3"
+        },
+        {
+            "name": "Sgt. Slaughter",
+            "cm_id": 587,
+            "id": "e950343d-3eae-4086-98a7-8770174bc51a"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "0d61aee9-21d0-4060-94d4-ce8ae40ffd25"
+        },
+        {
+            "name": "Sid Justice",
+            "cm_id": 1016,
+            "id": "91b46eee-c71a-4093-8561-9be695a0db15"
+        },
+        {
+            "name": "Skinner",
+            "cm_id": 247,
+            "id": "173f3274-9ab3-4e58-81a3-5ef6a9cd8cc0"
+        },
+        {
+            "name": "Ted DiBiase",
+            "cm_id": 1034,
+            "id": "618ae57c-afad-4a31-ae24-5b1f8b75c701"
+        },
+        {
+            "name": "The Barbarian",
+            "cm_id": 413,
+            "id": "65d3d874-8bfe-4eee-944e-e5d346af7c7d"
+        },
+        {
+            "name": "The Berzerker",
+            "cm_id": 1532,
+            "id": "99f7c047-013b-43c8-8d3d-e7c7c89caba5"
+        },
+        {
+            "name": "The Big Boss Man",
+            "cm_id": 690,
+            "id": "9961d25c-e36e-4f21-a821-5316a125c17b"
+        },
+        {
+            "name": "The British Bulldog",
+            "cm_id": 862,
+            "id": "9498fb11-b933-4166-a6ec-9f36af60aaae"
+        },
+        {
+            "name": "The Texas Tornado",
+            "cm_id": 1039,
+            "id": "15b1020e-263f-4ef4-85f9-e35f55b6e1d3"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "48a876db-3538-4f6f-9bf0-4f428ab494c2"
+        },
+        {
+            "name": "The Warlord",
+            "cm_id": 1480,
+            "id": "2c18a99e-74dd-4af8-a9dc-4176b96e306c"
+        },
+        {
+            "name": "Virgil",
+            "cm_id": 456,
+            "id": "e5caf552-b793-4a5e-bde9-d7fb4ea8d9c1"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "9498fb11-b933-4166-a6ec-9f36af60aaae"
+            ],
+            "victims": [
+                "618ae57c-afad-4a31-ae24-5b1f8b75c701"
+            ],
+            "raw": "- The British Bulldog eliminates Ted DiBiase",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9498fb11-b933-4166-a6ec-9f36af60aaae"
+            ],
+            "victims": [
+                "2897dccd-baa3-4aa6-b66e-a4d7eec7ec9a"
+            ],
+            "raw": "- The British Bulldog eliminates Jerry Sags",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9498fb11-b933-4166-a6ec-9f36af60aaae"
+            ],
+            "victims": [
+                "40c5bb85-4403-4f73-9bc0-150f4a2dac30"
+            ],
+            "raw": "- The British Bulldog eliminates Haku",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b264e60b-44ae-466c-bae0-1124680ce45a"
+            ],
+            "victims": [
+                "282c8842-06d1-4a55-b0f4-116fa0ad3ca7"
+            ],
+            "raw": "- Repo Man eliminates Nikolai Volkoff",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b264e60b-44ae-466c-bae0-1124680ce45a"
+            ],
+            "victims": [
+                "7b22d7bd-f8a7-4783-bdbc-f72231980f65"
+            ],
+            "raw": "- Repo Man eliminates Greg Valentine",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9961d25c-e36e-4f21-a821-5316a125c17b"
+            ],
+            "victims": [
+                "b264e60b-44ae-466c-bae0-1124680ce45a"
+            ],
+            "raw": "- The Big Boss Man eliminates Repo Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8bbe4de3-b5ad-4dae-b8bf-917902359546"
+            ],
+            "victims": [
+                "9498fb11-b933-4166-a6ec-9f36af60aaae"
+            ],
+            "raw": "- Ric Flair eliminates The British Bulldog",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8bbe4de3-b5ad-4dae-b8bf-917902359546"
+            ],
+            "victims": [
+                "15b1020e-263f-4ef4-85f9-e35f55b6e1d3"
+            ],
+            "raw": "- Ric Flair eliminates The Texas Tornado",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "41170425-1370-4e2e-beb2-1a77fff66fd8",
+                "0d61aee9-21d0-4060-94d4-ce8ae40ffd25"
+            ],
+            "victims": [
+                "41170425-1370-4e2e-beb2-1a77fff66fd8",
+                "0d61aee9-21d0-4060-94d4-ce8ae40ffd25"
+            ],
+            "raw": "- El Matador und Shawn Michaels eliminate sich gegenseitig",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6623e05a-18a2-4608-9e52-0afbe0927fda"
+            ],
+            "victims": [
+                "65d3d874-8bfe-4eee-944e-e5d346af7c7d"
+            ],
+            "raw": "- Hercules eliminates The Barbarian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9961d25c-e36e-4f21-a821-5316a125c17b"
+            ],
+            "victims": [
+                "6623e05a-18a2-4608-9e52-0afbe0927fda"
+            ],
+            "raw": "- The Big Boss Man eliminates Hercules",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8bbe4de3-b5ad-4dae-b8bf-917902359546"
+            ],
+            "victims": [
+                "9961d25c-e36e-4f21-a821-5316a125c17b"
+            ],
+            "raw": "- Ric Flair eliminates The Big Boss Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "48a876db-3538-4f6f-9bf0-4f428ab494c2"
+            ],
+            "victims": [
+                "4c145313-060b-4d98-b883-33c6e89bd3ac"
+            ],
+            "raw": "- The Undertaker eliminates Jimmy Snuka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "301bae3f-a1f5-4ad1-a4cd-3533a6e80019"
+            ],
+            "victims": [
+                "559bfe42-87e6-4644-adfc-c81588da1b92"
+            ],
+            "raw": "- Randy Savage eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "301bae3f-a1f5-4ad1-a4cd-3533a6e80019"
+            ],
+            "victims": [
+                "b2f684e4-8b5e-4b01-9086-e3d9a848bb3e"
+            ],
+            "raw": "- Randy Savage eliminates Col. Mustafa",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7a05bf8e-bb52-4a4d-af17-b4211546ef84"
+            ],
+            "victims": [
+                "48a876db-3538-4f6f-9bf0-4f428ab494c2"
+            ],
+            "raw": "- Hulk Hogan eliminates The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7a05bf8e-bb52-4a4d-af17-b4211546ef84"
+            ],
+            "victims": [
+                "99f7c047-013b-43c8-8d3d-e7c7c89caba5"
+            ],
+            "raw": "- Hulk Hogan eliminates The Berzerker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f89c9dfe-ee7a-4d31-84ad-d9ab1bacded7",
+                "e5caf552-b793-4a5e-bde9-d7fb4ea8d9c1"
+            ],
+            "victims": [
+                "f89c9dfe-ee7a-4d31-84ad-d9ab1bacded7",
+                "e5caf552-b793-4a5e-bde9-d7fb4ea8d9c1"
+            ],
+            "raw": "- Jim Duggan und Virgil eliminate sich gegenseitig",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "df909edb-b1ca-4aab-b6d1-9b156caa0a21"
+            ],
+            "victims": [
+                "173f3274-9ab3-4e58-81a3-5ef6a9cd8cc0"
+            ],
+            "raw": "- Rick Martel eliminates Skinner",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "91b46eee-c71a-4093-8561-9be695a0db15"
+            ],
+            "victims": [
+                "e950343d-3eae-4086-98a7-8770174bc51a"
+            ],
+            "raw": "- Sid Justice eliminates Sgt. Slaughter",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "36d661d6-196d-46a1-9281-b0509669e6b3"
+            ],
+            "victims": [
+                "b80131ec-bac1-4297-891a-4768f408d12d"
+            ],
+            "raw": "- Roddy Piper eliminates Irwin R. Schyster",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7a05bf8e-bb52-4a4d-af17-b4211546ef84",
+                "91b46eee-c71a-4093-8561-9be695a0db15"
+            ],
+            "victims": [
+                "2c18a99e-74dd-4af8-a9dc-4176b96e306c"
+            ],
+            "raw": "- Hulk Hogan und Sid Justice eliminate The Warlord",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "91b46eee-c71a-4093-8561-9be695a0db15"
+            ],
+            "victims": [
+                "df909edb-b1ca-4aab-b6d1-9b156caa0a21",
+                "36d661d6-196d-46a1-9281-b0509669e6b3"
+            ],
+            "raw": "- Sid Justice eliminates Rick Martel und Roddy Piper",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8bbe4de3-b5ad-4dae-b8bf-917902359546"
+            ],
+            "victims": [
+                "301bae3f-a1f5-4ad1-a4cd-3533a6e80019"
+            ],
+            "raw": "- Ric Flair eliminates Randy Savage",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "91b46eee-c71a-4093-8561-9be695a0db15"
+            ],
+            "victims": [
+                "7a05bf8e-bb52-4a4d-af17-b4211546ef84"
+            ],
+            "raw": "- Sid Justice eliminates Hulk Hogan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8bbe4de3-b5ad-4dae-b8bf-917902359546"
+            ],
+            "victims": [
+                "91b46eee-c71a-4093-8561-9be695a0db15"
+            ],
+            "raw": "- Ric Flair eliminates Sid Justice",
+            "is_valid": true
+        }
+    ]
+}

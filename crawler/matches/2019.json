@@ -1,0 +1,461 @@
+{
+    "wrestlers": [
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "4b6bd3bf-322c-4e97-95af-f1b39758cc44"
+        },
+        {
+            "name": "Aleister Black",
+            "cm_id": 1700,
+            "id": "179f93d2-e717-41ec-9086-c9878f02ce63"
+        },
+        {
+            "name": "Andrade",
+            "cm_id": 5596,
+            "id": "ff507a2d-2097-43bf-b3ed-175c2f728817"
+        },
+        {
+            "name": "Apollo Crews",
+            "cm_id": 11207,
+            "id": "0192a798-781f-4364-87b3-5dea8a5b1125"
+        },
+        {
+            "name": "Baron Corbin",
+            "cm_id": 12474,
+            "id": "6e01c1c8-7b07-4fcb-9421-e75744b11f37"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "8ba20544-3694-464b-bd7c-730038896266"
+        },
+        {
+            "name": "Bobby Lashley",
+            "cm_id": 1194,
+            "id": "6b685bb3-31e4-4fec-9d36-1fc84a846524"
+        },
+        {
+            "name": "Lio Rush",
+            "cm_id": 16322,
+            "id": "ab5551fa-08b8-43d6-b925-ec8cde97f802"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "19854b38-810b-4201-b68d-d6ca39361880"
+        },
+        {
+            "name": "Curt Hawkins",
+            "cm_id": 2749,
+            "id": "1a545a0a-406f-4ccd-8927-17eac44faec2"
+        },
+        {
+            "name": "Dean Ambrose",
+            "cm_id": 3940,
+            "id": "f7ce81e4-13a1-411a-bcd6-55fcc40709e9"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "b3f464fd-b8f8-4d71-a099-e83494a2864f"
+        },
+        {
+            "name": "Drew McIntyre",
+            "cm_id": 2879,
+            "id": "544a135a-ee08-4afe-86bd-867c174df90c"
+        },
+        {
+            "name": "Elias",
+            "cm_id": 7461,
+            "id": "5bdb0e7a-7557-4a42-bb57-f6c8f5cf1e64"
+        },
+        {
+            "name": "Jeff Hardy",
+            "cm_id": 891,
+            "id": "30d9cb68-f83a-4f58-a4cb-436aa39c2453"
+        },
+        {
+            "name": "Jeff Jarrett",
+            "cm_id": 564,
+            "id": "9174fc5d-c7bf-42f1-9cbb-2220f9ba272c"
+        },
+        {
+            "name": "Jinder Mahal",
+            "cm_id": 6171,
+            "id": "7a6c9b6f-84de-484c-814b-f485d1cb82f9"
+        },
+        {
+            "name": "Samir Singh",
+            "cm_id": 6304,
+            "id": "ed51dc68-c558-4bbd-a4dc-32d0ef6367df"
+        },
+        {
+            "name": "Sunil Singh",
+            "cm_id": 6303,
+            "id": "af8916ba-817d-4428-816a-9d70278ab54e"
+        },
+        {
+            "name": "Johnny Gargano",
+            "cm_id": 4129,
+            "id": "d7a22aa5-d0c3-4b24-997b-20870e4803b1"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "afdaeb6f-1dc2-4da3-9ab7-57e7b00a885e"
+        },
+        {
+            "name": "Kurt Angle",
+            "cm_id": 540,
+            "id": "c0157319-74e1-40fe-acc1-44619c4ccd25"
+        },
+        {
+            "name": "Mustafa Ali",
+            "cm_id": 7145,
+            "id": "e4e3dc20-ef30-46fc-b18e-5465c74c7c57"
+        },
+        {
+            "name": "Nia Jax",
+            "cm_id": 14763,
+            "id": "8e3c9398-596c-44df-b33d-feed013d90cd"
+        },
+        {
+            "name": "No Way Jose",
+            "cm_id": 15247,
+            "id": "03e9824c-0457-4044-971a-e633444d3a21"
+        },
+        {
+            "name": "Pete Dunne",
+            "cm_id": 10529,
+            "id": "ea6330a2-8c67-4b7a-a5b3-2bcb59e870ed"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "9a3313b3-a6dd-4cda-a1a7-db81b58ccdb4"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "5e7df29f-7ee4-41e9-b6ad-10d9003c00d6"
+        },
+        {
+            "name": "Samoa Joe",
+            "cm_id": 676,
+            "id": "da26ee6b-15d2-4e98-92a5-41eac7435fb2"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "b6f2af8c-2bc2-488f-9157-a1f925d3f494"
+        },
+        {
+            "name": "Shinsuke Nakamura",
+            "cm_id": 56,
+            "id": "cac9a597-ff72-4ad2-958b-fb58ac5088c8"
+        },
+        {
+            "name": "Titus O'Neil",
+            "cm_id": 8881,
+            "id": "2e2ac051-97a6-4cae-88f1-6492f6b92b6f"
+        },
+        {
+            "name": "Xavier Woods",
+            "cm_id": 4955,
+            "id": "293432e2-6145-4ed5-95de-57ad9df5a182"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "5bdb0e7a-7557-4a42-bb57-f6c8f5cf1e64"
+            ],
+            "victims": [
+                "9174fc5d-c7bf-42f1-9cbb-2220f9ba272c"
+            ],
+            "raw": "- Elias eliminates Jeff Jarrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "cac9a597-ff72-4ad2-958b-fb58ac5088c8"
+            ],
+            "victims": [
+                "c0157319-74e1-40fe-acc1-44619c4ccd25"
+            ],
+            "raw": "- Shinsuke Nakamura eliminates Kurt Angle",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d7a22aa5-d0c3-4b24-997b-20870e4803b1"
+            ],
+            "victims": [
+                "7a6c9b6f-84de-484c-814b-f485d1cb82f9"
+            ],
+            "raw": "- Johnny Gargano eliminates Jinder Mahal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "da26ee6b-15d2-4e98-92a5-41eac7435fb2"
+            ],
+            "victims": [
+                "8ba20544-3694-464b-bd7c-730038896266"
+            ],
+            "raw": "- Samoa Joe eliminates Big E",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4b6bd3bf-322c-4e97-95af-f1b39758cc44"
+            ],
+            "victims": [
+                "5bdb0e7a-7557-4a42-bb57-f6c8f5cf1e64"
+            ],
+            "raw": "- Seth Rollins eliminates Elias",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1a545a0a-406f-4ccd-8927-17eac44faec2"
+            ],
+            "victims": [
+                "2e2ac051-97a6-4cae-88f1-6492f6b92b6f"
+            ],
+            "raw": "- Curt Hawkins eliminates Titus O'Neil",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "da26ee6b-15d2-4e98-92a5-41eac7435fb2"
+            ],
+            "victims": [
+                "1a545a0a-406f-4ccd-8927-17eac44faec2"
+            ],
+            "raw": "- Samoa Joe eliminates Curt Hawkins",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e4e3dc20-ef30-46fc-b18e-5465c74c7c57"
+            ],
+            "victims": [
+                "cac9a597-ff72-4ad2-958b-fb58ac5088c8"
+            ],
+            "raw": "- Mustafa Ali eliminates Shinsuke Nakamura",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f7ce81e4-13a1-411a-bcd6-55fcc40709e9"
+            ],
+            "victims": [
+                "d7a22aa5-d0c3-4b24-997b-20870e4803b1"
+            ],
+            "raw": "- Dean Ambrose eliminates Johnny Gargano",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "da26ee6b-15d2-4e98-92a5-41eac7435fb2"
+            ],
+            "victims": [
+                "03e9824c-0457-4044-971a-e633444d3a21"
+            ],
+            "raw": "- Samoa Joe eliminates No Way Jose",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "544a135a-ee08-4afe-86bd-867c174df90c"
+            ],
+            "victims": [
+                "293432e2-6145-4ed5-95de-57ad9df5a182"
+            ],
+            "raw": "- Drew McIntyre eliminates Xavier Woods",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "544a135a-ee08-4afe-86bd-867c174df90c"
+            ],
+            "victims": [
+                "afdaeb6f-1dc2-4da3-9ab7-57e7b00a885e"
+            ],
+            "raw": "- Drew McIntyre eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "179f93d2-e717-41ec-9086-c9878f02ce63"
+            ],
+            "victims": [
+                "f7ce81e4-13a1-411a-bcd6-55fcc40709e9"
+            ],
+            "raw": "- Aleister Black eliminates Dean Ambrose",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e4e3dc20-ef30-46fc-b18e-5465c74c7c57"
+            ],
+            "victims": [
+                "da26ee6b-15d2-4e98-92a5-41eac7435fb2"
+            ],
+            "raw": "- Mustafa Ali eliminates Samoa Joe",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6e01c1c8-7b07-4fcb-9421-e75744b11f37"
+            ],
+            "victims": [
+                "0192a798-781f-4364-87b3-5dea8a5b1125"
+            ],
+            "raw": "- Baron Corbin eliminates Apollo Crews",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6e01c1c8-7b07-4fcb-9421-e75744b11f37"
+            ],
+            "victims": [
+                "179f93d2-e717-41ec-9086-c9878f02ce63"
+            ],
+            "raw": "- Baron Corbin eliminates Aleister Black",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "544a135a-ee08-4afe-86bd-867c174df90c"
+            ],
+            "victims": [
+                "ea6330a2-8c67-4b7a-a5b3-2bcb59e870ed"
+            ],
+            "raw": "- Drew McIntyre eliminates Pete Dunne",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4b6bd3bf-322c-4e97-95af-f1b39758cc44"
+            ],
+            "victims": [
+                "6b685bb3-31e4-4fec-9d36-1fc84a846524"
+            ],
+            "raw": "- Seth Rollins eliminates Bobby Lashley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "19854b38-810b-4201-b68d-d6ca39361880"
+            ],
+            "victims": [
+                "6e01c1c8-7b07-4fcb-9421-e75744b11f37"
+            ],
+            "raw": "- Braun Strowman eliminates Baron Corbin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "19854b38-810b-4201-b68d-d6ca39361880"
+            ],
+            "victims": [
+                "b6f2af8c-2bc2-488f-9157-a1f925d3f494"
+            ],
+            "raw": "- Braun Strowman eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "19854b38-810b-4201-b68d-d6ca39361880"
+            ],
+            "victims": [
+                "30d9cb68-f83a-4f58-a4cb-436aa39c2453"
+            ],
+            "raw": "- Braun Strowman eliminates Jeff Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b3f464fd-b8f8-4d71-a099-e83494a2864f"
+            ],
+            "victims": [
+                "544a135a-ee08-4afe-86bd-867c174df90c"
+            ],
+            "raw": "- Dolph Ziggler eliminates Drew McIntyre",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8e3c9398-596c-44df-b33d-feed013d90cd"
+            ],
+            "victims": [
+                "e4e3dc20-ef30-46fc-b18e-5465c74c7c57"
+            ],
+            "raw": "- Nia Jax eliminates Mustafa Ali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5e7df29f-7ee4-41e9-b6ad-10d9003c00d6"
+            ],
+            "victims": [
+                "8e3c9398-596c-44df-b33d-feed013d90cd"
+            ],
+            "raw": "- Rey Mysterio eliminates Nia Jax",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9a3313b3-a6dd-4cda-a1a7-db81b58ccdb4"
+            ],
+            "victims": [
+                "5e7df29f-7ee4-41e9-b6ad-10d9003c00d6"
+            ],
+            "raw": "- Randy Orton eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ff507a2d-2097-43bf-b3ed-175c2f728817"
+            ],
+            "victims": [
+                "9a3313b3-a6dd-4cda-a1a7-db81b58ccdb4"
+            ],
+            "raw": "- Andrade eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "19854b38-810b-4201-b68d-d6ca39361880"
+            ],
+            "victims": [
+                "ff507a2d-2097-43bf-b3ed-175c2f728817"
+            ],
+            "raw": "- Braun Strowman eliminates Andrade",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "19854b38-810b-4201-b68d-d6ca39361880"
+            ],
+            "victims": [
+                "b3f464fd-b8f8-4d71-a099-e83494a2864f"
+            ],
+            "raw": "- Braun Strowman eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4b6bd3bf-322c-4e97-95af-f1b39758cc44"
+            ],
+            "victims": [
+                "19854b38-810b-4201-b68d-d6ca39361880"
+            ],
+            "raw": "- Seth Rollins eliminates Braun Strowman",
+            "is_valid": true
+        }
+    ]
+}

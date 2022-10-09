@@ -1,0 +1,453 @@
+{
+    "wrestlers": [
+        {
+            "name": "Brock Lesnar",
+            "cm_id": 669,
+            "id": "a3d0e1ef-a00f-4cef-a41d-0514ba7e8110"
+        },
+        {
+            "name": "AJ Styles",
+            "cm_id": 801,
+            "id": "dfa20790-bfea-48dd-812b-b03baa1baf34"
+        },
+        {
+            "name": "Angelo Dawkins",
+            "cm_id": 12894,
+            "id": "e55d8cc4-1a8d-4bde-8f82-2927700f34c6"
+        },
+        {
+            "name": "Austin Theory",
+            "cm_id": 18855,
+            "id": "a4733fde-7ca7-4806-b14b-b6a4ce3c2e22"
+        },
+        {
+            "name": "Bad Bunny",
+            "cm_id": 23694,
+            "id": "0564488e-18db-4383-a78f-f7ca9d4530cc"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "09215e0b-61e4-421b-9c16-17ea979a9219"
+        },
+        {
+            "name": "Chad Gable",
+            "cm_id": 15197,
+            "id": "2e745d0a-cf0d-4d70-b1d5-9c82c5194233"
+        },
+        {
+            "name": "Damian Priest",
+            "cm_id": 16337,
+            "id": "84f9f4a6-3f74-43b7-a57a-aeab39f3502a"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "a45f44c5-8a79-459b-8c9d-42e993a76cb0"
+        },
+        {
+            "name": "Dominik Mysterio",
+            "cm_id": 22500,
+            "id": "63bb02c2-452c-44ee-a95a-a6f80a461025"
+        },
+        {
+            "name": "Drew McIntyre",
+            "cm_id": 2879,
+            "id": "9f0e6433-3539-4594-a020-7e092396d39f"
+        },
+        {
+            "name": "Happy Corbin",
+            "cm_id": 12474,
+            "id": "147b2efd-0f08-4fe6-9bf6-4061bb9c2f1e"
+        },
+        {
+            "name": "Kevin Owens",
+            "cm_id": 1499,
+            "id": "7dc06f20-867f-4b39-916b-f69d2be2b2dc"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "97d9674a-ad47-4b22-89c1-13ac2641d708"
+        },
+        {
+            "name": "Madcap Moss",
+            "cm_id": 15858,
+            "id": "f182ab18-fe1c-4323-9950-d191432ef958"
+        },
+        {
+            "name": "Montez Ford",
+            "cm_id": 17720,
+            "id": "5234f774-9fcd-4af8-8214-3bcbf228afe2"
+        },
+        {
+            "name": "Omos",
+            "cm_id": 21239,
+            "id": "a5302e7d-2f72-4d96-aaf3-dab13d4157fe"
+        },
+        {
+            "name": "Otis",
+            "cm_id": 17854,
+            "id": "6e5a7d7d-96a7-499d-a24d-c1c424abea37"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "b440b11a-446a-425f-9388-e1579ff6c144"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "8cc53bed-e400-4268-a1c4-d0ba2f770111"
+        },
+        {
+            "name": "Rick Boogs",
+            "cm_id": 20380,
+            "id": "13dbd035-2704-439f-8258-d4f62dd6faaa"
+        },
+        {
+            "name": "Ricochet",
+            "cm_id": 3827,
+            "id": "7d3ab0a6-1268-46ff-8ca0-60b269c7a022"
+        },
+        {
+            "name": "Riddle",
+            "cm_id": 16686,
+            "id": "9408c539-704a-42f8-bd17-82964c4de4f3"
+        },
+        {
+            "name": "Ridge Holland",
+            "cm_id": 20037,
+            "id": "1019dbcb-7895-42b2-aa9a-f794cb0d844d"
+        },
+        {
+            "name": "Robert Roode",
+            "cm_id": 880,
+            "id": "723ff25b-7f72-4618-b9de-7b3b85c0874b"
+        },
+        {
+            "name": "Sami Zayn",
+            "cm_id": 1523,
+            "id": "546dc769-96c8-4cbe-8cba-05a03ccc93eb"
+        },
+        {
+            "name": "Shane McMahon",
+            "cm_id": 548,
+            "id": "f42f81bb-91cb-43e7-9585-35a7125866ae"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "75038586-788a-4d5c-9a15-745e454fd99f"
+        },
+        {
+            "name": "Shinsuke Nakamura",
+            "cm_id": 56,
+            "id": "79a25f04-fbab-4ea0-9ddd-210f8016b018"
+        },
+        {
+            "name": "Johnny Knoxville",
+            "cm_id": null,
+            "id": "726ad0ea-a562-4033-a944-c87243b7797e"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34"
+            ],
+            "victims": [
+                "723ff25b-7f72-4618-b9de-7b3b85c0874b"
+            ],
+            "raw": "- AJ Styles eliminates Robert Roode (4:29)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34"
+            ],
+            "victims": [
+                "79a25f04-fbab-4ea0-9ddd-210f8016b018"
+            ],
+            "raw": "- AJ Styles eliminates Shinsuke Nakamura (5:52)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "546dc769-96c8-4cbe-8cba-05a03ccc93eb"
+            ],
+            "victims": [
+                "726ad0ea-a562-4033-a944-c87243b7797e"
+            ],
+            "raw": "- Sami Zayn eliminates Johnny Knoxville (13:15)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34"
+            ],
+            "victims": [
+                "546dc769-96c8-4cbe-8cba-05a03ccc93eb"
+            ],
+            "raw": "- AJ Styles eliminates Sami Zayn (13:26)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a5302e7d-2f72-4d96-aaf3-dab13d4157fe"
+            ],
+            "victims": [
+                "e55d8cc4-1a8d-4bde-8f82-2927700f34c6"
+            ],
+            "raw": "- Omos eliminates Angelo Dawkins (16:08)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a5302e7d-2f72-4d96-aaf3-dab13d4157fe"
+            ],
+            "victims": [
+                "5234f774-9fcd-4af8-8214-3bcbf228afe2"
+            ],
+            "raw": "- Omos eliminates Montez Ford (16:22)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a5302e7d-2f72-4d96-aaf3-dab13d4157fe"
+            ],
+            "victims": [
+                "84f9f4a6-3f74-43b7-a57a-aeab39f3502a"
+            ],
+            "raw": "- Omos eliminates Damian Priest (19:37)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34",
+                "a4733fde-7ca7-4806-b14b-b6a4ce3c2e22",
+                "2e745d0a-cf0d-4d70-b1d5-9c82c5194233",
+                "63bb02c2-452c-44ee-a95a-a6f80a461025",
+                "7d3ab0a6-1268-46ff-8ca0-60b269c7a022",
+                "1019dbcb-7895-42b2-aa9a-f794cb0d844d"
+            ],
+            "victims": [
+                "a5302e7d-2f72-4d96-aaf3-dab13d4157fe"
+            ],
+            "raw": "- AJ Styles, Austin Theory, Chad Gable, Dominik Mysterio, Ricochet & Ridge Holland eliminate Omos (20:16)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "147b2efd-0f08-4fe6-9bf6-4061bb9c2f1e"
+            ],
+            "victims": [
+                "7d3ab0a6-1268-46ff-8ca0-60b269c7a022"
+            ],
+            "raw": "- Happy Corbin eliminates Ricochet (22:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "147b2efd-0f08-4fe6-9bf6-4061bb9c2f1e"
+            ],
+            "victims": [
+                "63bb02c2-452c-44ee-a95a-a6f80a461025"
+            ],
+            "raw": "- Happy Corbin eliminates Dominik Mysterio (23:51)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34"
+            ],
+            "victims": [
+                "a4733fde-7ca7-4806-b14b-b6a4ce3c2e22"
+            ],
+            "raw": "- AJ Styles eliminates Austin Theory (24:11)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34"
+            ],
+            "victims": [
+                "1019dbcb-7895-42b2-aa9a-f794cb0d844d"
+            ],
+            "raw": "- AJ Styles eliminates Ridge Holland (24:51)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "13dbd035-2704-439f-8258-d4f62dd6faaa"
+            ],
+            "victims": [
+                "2e745d0a-cf0d-4d70-b1d5-9c82c5194233"
+            ],
+            "raw": "- Rick Boogs eliminates Chad Gable (27:08)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f182ab18-fe1c-4323-9950-d191432ef958"
+            ],
+            "victims": [
+                "dfa20790-bfea-48dd-812b-b03baa1baf34"
+            ],
+            "raw": "- Madcap Moss eliminates AJ Styles (29:05)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "147b2efd-0f08-4fe6-9bf6-4061bb9c2f1e"
+            ],
+            "victims": [
+                "13dbd035-2704-439f-8258-d4f62dd6faaa"
+            ],
+            "raw": "- Happy Corbin eliminates Rick Boogs (30:43)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9f0e6433-3539-4594-a020-7e092396d39f"
+            ],
+            "victims": [
+                "f182ab18-fe1c-4323-9950-d191432ef958"
+            ],
+            "raw": "- Drew McIntyre eliminates Madcap Moss (32:16)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9f0e6433-3539-4594-a020-7e092396d39f"
+            ],
+            "victims": [
+                "147b2efd-0f08-4fe6-9bf6-4061bb9c2f1e"
+            ],
+            "raw": "- Drew McIntyre eliminates Happy Corbin (32:20)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7dc06f20-867f-4b39-916b-f69d2be2b2dc"
+            ],
+            "victims": [
+                "97d9674a-ad47-4b22-89c1-13ac2641d708"
+            ],
+            "raw": "- Kevin Owens eliminates Kofi Kingston (37:08)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0564488e-18db-4383-a78f-f7ca9d4530cc"
+            ],
+            "victims": [
+                "75038586-788a-4d5c-9a15-745e454fd99f"
+            ],
+            "raw": "- Bad Bunny eliminates Sheamus (42:57)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0564488e-18db-4383-a78f-f7ca9d4530cc"
+            ],
+            "victims": [
+                "a45f44c5-8a79-459b-8c9d-42e993a76cb0"
+            ],
+            "raw": "- Bad Bunny eliminates Dolph Ziggler (43:51)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6e5a7d7d-96a7-499d-a24d-c1c424abea37"
+            ],
+            "victims": [
+                "8cc53bed-e400-4268-a1c4-d0ba2f770111"
+            ],
+            "raw": "- Otis eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f42f81bb-91cb-43e7-9585-35a7125866ae"
+            ],
+            "victims": [
+                "7dc06f20-867f-4b39-916b-f69d2be2b2dc"
+            ],
+            "raw": "- Shane McMahon eliminates Kevin Owens (45:05)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b440b11a-446a-425f-9388-e1579ff6c144",
+                "9408c539-704a-42f8-bd17-82964c4de4f3"
+            ],
+            "victims": [
+                "09215e0b-61e4-421b-9c16-17ea979a9219"
+            ],
+            "raw": "- Randy Orton & Riddle eliminate Big E (46:59)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b440b11a-446a-425f-9388-e1579ff6c144",
+                "9408c539-704a-42f8-bd17-82964c4de4f3"
+            ],
+            "victims": [
+                "6e5a7d7d-96a7-499d-a24d-c1c424abea37"
+            ],
+            "raw": "- Randy Orton & Riddle eliminate Otis (47:26)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a3d0e1ef-a00f-4cef-a41d-0514ba7e8110"
+            ],
+            "victims": [
+                "b440b11a-446a-425f-9388-e1579ff6c144"
+            ],
+            "raw": "- Brock Lesnar eliminates Randy Orton (49:09)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a3d0e1ef-a00f-4cef-a41d-0514ba7e8110"
+            ],
+            "victims": [
+                "0564488e-18db-4383-a78f-f7ca9d4530cc"
+            ],
+            "raw": "- Brock Lesnar eliminates Bad Bunny (49:42)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a3d0e1ef-a00f-4cef-a41d-0514ba7e8110"
+            ],
+            "victims": [
+                "9408c539-704a-42f8-bd17-82964c4de4f3"
+            ],
+            "raw": "- Brock Lesnar eliminates Riddle (49:50)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a3d0e1ef-a00f-4cef-a41d-0514ba7e8110"
+            ],
+            "victims": [
+                "f42f81bb-91cb-43e7-9585-35a7125866ae"
+            ],
+            "raw": "- Brock Lesnar eliminates Shane McMahon (50:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a3d0e1ef-a00f-4cef-a41d-0514ba7e8110"
+            ],
+            "victims": [
+                "9f0e6433-3539-4594-a020-7e092396d39f"
+            ],
+            "raw": "- Brock Lesnar eliminates Drew McIntyre",
+            "is_valid": true
+        }
+    ]
+}

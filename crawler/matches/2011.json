@@ -1,0 +1,602 @@
+{
+    "wrestlers": [
+        {
+            "name": "Alberto Del Rio",
+            "cm_id": 1407,
+            "id": "5bd18f6c-589a-4e87-a7db-ccaf3a3ea01c"
+        },
+        {
+            "name": "Alex Riley",
+            "cm_id": 5662,
+            "id": "36b08071-5935-4e85-8035-a1f7de3dacb8"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "80a8aed2-f2b4-4ae7-a948-7c78ae7c542c"
+        },
+        {
+            "name": "Chavo Guerrero",
+            "cm_id": 895,
+            "id": "0301479c-216d-4813-adac-22315192c4be"
+        },
+        {
+            "name": "Chris Masters",
+            "cm_id": 592,
+            "id": "792354c2-cbad-439f-9591-a225ba77b35e"
+        },
+        {
+            "name": "CM Punk",
+            "cm_id": 80,
+            "id": "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+        },
+        {
+            "name": "Daniel Bryan",
+            "cm_id": 86,
+            "id": "d32506f6-ea54-4b4c-8edd-21b040795361"
+        },
+        {
+            "name": "David Otunga",
+            "cm_id": 8000,
+            "id": "ac501745-9630-4127-aac9-82a353f0df65"
+        },
+        {
+            "name": "Diesel",
+            "cm_id": 429,
+            "id": "ca2a6d80-0798-4674-8e25-d4e6c61d0199"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "27c1848d-49e6-40d9-b6d9-be6a6cf540c7"
+        },
+        {
+            "name": "Drew McIntyre",
+            "cm_id": 2879,
+            "id": "6a902dc5-689e-4aa6-9d2d-7f5faff1d9be"
+        },
+        {
+            "name": "Ezekiel Jackson",
+            "cm_id": 4710,
+            "id": "3c0e8e7c-c043-4064-8d97-59a174457c8b"
+        },
+        {
+            "name": "Heath Slater",
+            "cm_id": 3296,
+            "id": "02866509-c74e-4b50-8b64-9622eb0daaea"
+        },
+        {
+            "name": "Hornswoggle",
+            "cm_id": 3586,
+            "id": "0aa65c94-782d-4c1e-83b8-793fca5bf56e"
+        },
+        {
+            "name": "Husky Harris",
+            "cm_id": 7659,
+            "id": "caf19be5-1b45-459b-a77a-756fabcc7f17"
+        },
+        {
+            "name": "Jack Swagger",
+            "cm_id": 4071,
+            "id": "cf7b00f8-91b6-4fd1-8004-907fa6b2f425"
+        },
+        {
+            "name": "John Cena",
+            "cm_id": 691,
+            "id": "d0b0c326-0011-4021-a624-62a0305bf23d"
+        },
+        {
+            "name": "John Morrison",
+            "cm_id": 1099,
+            "id": "8273ff36-be25-4afc-8cc3-9d5dd4895059"
+        },
+        {
+            "name": "JTG",
+            "cm_id": 2717,
+            "id": "a98067bb-149b-4e94-84a2-88df59ed613b"
+        },
+        {
+            "name": "Justin Gabriel",
+            "cm_id": 8016,
+            "id": "3dc0ec3f-8cdc-46c2-8abe-6e2b2d7dc4bd"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "ae613331-6435-4462-b9b6-64f51f064616"
+        },
+        {
+            "name": "King Sheamus",
+            "cm_id": 2641,
+            "id": "729e244d-7602-4d70-8773-a142e76a184d"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "96f4c776-5e5d-4106-a5d3-7023261e8fc4"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "9b1b249a-cbfc-43e9-a7e7-643072eef7c4"
+        },
+        {
+            "name": "Mason Ryan",
+            "cm_id": 5127,
+            "id": "46e597ca-8c1d-427b-81a8-3064dd34554e"
+        },
+        {
+            "name": "Michael McGillicutty",
+            "cm_id": 5271,
+            "id": "1267e03f-0145-4d4a-b704-a2d56f470183"
+        },
+        {
+            "name": "R-Truth",
+            "cm_id": 200,
+            "id": "ff580ae0-8fa5-4ba5-a299-e2703597ec65"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "f02e5a2a-1065-4024-a2cb-75810561d41e"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "df04851e-d563-4b4f-872f-75df38c79a6a"
+        },
+        {
+            "name": "Santino Marella",
+            "cm_id": 3689,
+            "id": "cdd81407-dc7b-4e8a-a4a2-412e0f6d2893"
+        },
+        {
+            "name": "Ted DiBiase",
+            "cm_id": 4247,
+            "id": "70d42831-c2e3-4c3e-a5b1-be0ba0606765"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "b3508710-7cd1-4368-b04d-ab85f47fc7e7"
+        },
+        {
+            "name": "The Great Khali",
+            "cm_id": 2011,
+            "id": "96725283-6dab-4797-b216-1dcc1f61b187"
+        },
+        {
+            "name": "Tyler Reks",
+            "cm_id": 6086,
+            "id": "67ae33fe-13db-4193-ab8f-70282c815009"
+        },
+        {
+            "name": "Tyson Kidd",
+            "cm_id": 817,
+            "id": "cb0c8c96-49fe-452a-825e-f8e06b89a7c5"
+        },
+        {
+            "name": "Vladimir Kozlov",
+            "cm_id": 2817,
+            "id": "6629b12c-a0c3-4019-bd06-66e5041c87fc"
+        },
+        {
+            "name": "Wade Barrett",
+            "cm_id": 2849,
+            "id": "edad4d02-8bdb-4206-a0f8-93e78cd5490c"
+        },
+        {
+            "name": "William Regal",
+            "cm_id": 594,
+            "id": "a15d164c-b1ac-4413-98c9-f09594af678f"
+        },
+        {
+            "name": "Yoshi Tatsu",
+            "cm_id": 1300,
+            "id": "cea89540-bb4c-4a7c-86c6-e1bfed5749a4"
+        },
+        {
+            "name": "Zack Ryder",
+            "cm_id": 2750,
+            "id": "4c5ea6f7-cb9c-4d62-b509-5e66444d28c3"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "d32506f6-ea54-4b4c-8edd-21b040795361"
+            ],
+            "victims": [
+                "3dc0ec3f-8cdc-46c2-8abe-6e2b2d7dc4bd"
+            ],
+            "raw": "- Daniel Bryan eliminates Justin Gabriel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d32506f6-ea54-4b4c-8edd-21b040795361"
+            ],
+            "victims": [
+                "4c5ea6f7-cb9c-4d62-b509-5e66444d28c3"
+            ],
+            "raw": "- Daniel Bryan eliminates Zack Ryder",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "70d42831-c2e3-4c3e-a5b1-be0ba0606765"
+            ],
+            "victims": [
+                "a15d164c-b1ac-4413-98c9-f09594af678f"
+            ],
+            "raw": "- Ted DiBiase eliminates William Regal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9b1b249a-cbfc-43e9-a7e7-643072eef7c4"
+            ],
+            "victims": [
+                "0301479c-216d-4813-adac-22315192c4be"
+            ],
+            "raw": "- Mark Henry eliminates Chavo Guerrero",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9b1b249a-cbfc-43e9-a7e7-643072eef7c4"
+            ],
+            "victims": [
+                "cea89540-bb4c-4a7c-86c6-e1bfed5749a4"
+            ],
+            "raw": "- Mark Henry eliminates Yoshi Tatsu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1267e03f-0145-4d4a-b704-a2d56f470183"
+            ],
+            "victims": [
+                "a98067bb-149b-4e94-84a2-88df59ed613b"
+            ],
+            "raw": "- Michael McGillicutty eliminates JTG",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "caf19be5-1b45-459b-a77a-756fabcc7f17",
+                "1267e03f-0145-4d4a-b704-a2d56f470183"
+            ],
+            "victims": [
+                "70d42831-c2e3-4c3e-a5b1-be0ba0606765"
+            ],
+            "raw": "- Michael McGillicutty & Husky Harris eliminate Ted DiBiase",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+            ],
+            "victims": [
+                "d32506f6-ea54-4b4c-8edd-21b040795361"
+            ],
+            "raw": "- CM Punk eliminates Daniel Bryan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+            ],
+            "victims": [
+                "792354c2-cbad-439f-9591-a225ba77b35e"
+            ],
+            "raw": "- CM Punk eliminates Chris Masters",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5",
+                "ac501745-9630-4127-aac9-82a353f0df65",
+                "caf19be5-1b45-459b-a77a-756fabcc7f17",
+                "1267e03f-0145-4d4a-b704-a2d56f470183"
+            ],
+            "victims": [
+                "8273ff36-be25-4afc-8cc3-9d5dd4895059"
+            ],
+            "raw": "- CM Punk, Husky Harris, Michael McGillicutty & David Otunga eliminate John Morrison",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5",
+                "ac501745-9630-4127-aac9-82a353f0df65",
+                "caf19be5-1b45-459b-a77a-756fabcc7f17",
+                "1267e03f-0145-4d4a-b704-a2d56f470183"
+            ],
+            "victims": [
+                "9b1b249a-cbfc-43e9-a7e7-643072eef7c4"
+            ],
+            "raw": "- CM Punk, Husky Harris, Michael McGillicutty & David Otunga eliminate Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+            ],
+            "victims": [
+                "67ae33fe-13db-4193-ab8f-70282c815009"
+            ],
+            "raw": "- CM Punk eliminates Tyler Reks",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+            ],
+            "victims": [
+                "6629b12c-a0c3-4019-bd06-66e5041c87fc"
+            ],
+            "raw": "- CM Punk eliminates Vladimir Kozlov",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+            ],
+            "victims": [
+                "ff580ae0-8fa5-4ba5-a299-e2703597ec65"
+            ],
+            "raw": "- CM Punk eliminates R-Truth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "96725283-6dab-4797-b216-1dcc1f61b187"
+            ],
+            "victims": [
+                "caf19be5-1b45-459b-a77a-756fabcc7f17"
+            ],
+            "raw": "- The Great Khali eliminates Husky Harris",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "46e597ca-8c1d-427b-81a8-3064dd34554e"
+            ],
+            "victims": [
+                "96725283-6dab-4797-b216-1dcc1f61b187"
+            ],
+            "raw": "- Mason Ryan eliminates The Great Khali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "46e597ca-8c1d-427b-81a8-3064dd34554e"
+            ],
+            "victims": [
+                "80a8aed2-f2b4-4ae7-a948-7c78ae7c542c"
+            ],
+            "raw": "- Mason Ryan eliminates Booker T",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "victims": [
+                "46e597ca-8c1d-427b-81a8-3064dd34554e"
+            ],
+            "raw": "- John Cena eliminates Mason Ryan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "victims": [
+                "1267e03f-0145-4d4a-b704-a2d56f470183"
+            ],
+            "raw": "- John Cena eliminates Michael McGillicutty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "victims": [
+                "ac501745-9630-4127-aac9-82a353f0df65"
+            ],
+            "raw": "- John Cena eliminates David Otunga",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "victims": [
+                "3289f5f7-feed-45ca-ba95-67d9e0e30ed5"
+            ],
+            "raw": "- John Cena eliminates CM Punk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "victims": [
+                "cb0c8c96-49fe-452a-825e-f8e06b89a7c5"
+            ],
+            "raw": "- John Cena eliminates Tyson Kidd",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "victims": [
+                "02866509-c74e-4b50-8b64-9622eb0daaea"
+            ],
+            "raw": "- John Cena eliminates Heath Slater",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "729e244d-7602-4d70-8773-a142e76a184d"
+            ],
+            "victims": [
+                "0aa65c94-782d-4c1e-83b8-793fca5bf56e"
+            ],
+            "raw": "- Sheamus eliminates Hornswoggle",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "df04851e-d563-4b4f-872f-75df38c79a6a"
+            ],
+            "victims": [
+                "cf7b00f8-91b6-4fd1-8004-907fa6b2f425"
+            ],
+            "raw": "- Rey Mysterio eliminates Jack Swagger",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "edad4d02-8bdb-4206-a0f8-93e78cd5490c"
+            ],
+            "victims": [
+                "ca2a6d80-0798-4674-8e25-d4e6c61d0199"
+            ],
+            "raw": "- Wade Barrett eliminates Diesel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b3508710-7cd1-4368-b04d-ab85f47fc7e7"
+            ],
+            "victims": [
+                "27c1848d-49e6-40d9-b6d9-be6a6cf540c7"
+            ],
+            "raw": "- The Big Show eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d",
+                "96f4c776-5e5d-4106-a5d3-7023261e8fc4"
+            ],
+            "victims": [
+                "36b08071-5935-4e85-8035-a1f7de3dacb8"
+            ],
+            "raw": "- John Cena & Kofi Kingston eliminate Alex Riley",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b3508710-7cd1-4368-b04d-ab85f47fc7e7"
+            ],
+            "victims": [
+                "6a902dc5-689e-4aa6-9d2d-7f5faff1d9be"
+            ],
+            "raw": "- The Big Show eliminates Drew McIntyre",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3c0e8e7c-c043-4064-8d97-59a174457c8b"
+            ],
+            "victims": [
+                "b3508710-7cd1-4368-b04d-ab85f47fc7e7"
+            ],
+            "raw": "- Ezekiel Jackson eliminates The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f02e5a2a-1065-4024-a2cb-75810561d41e"
+            ],
+            "victims": [
+                "96f4c776-5e5d-4106-a5d3-7023261e8fc4"
+            ],
+            "raw": "- Randy Orton eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f02e5a2a-1065-4024-a2cb-75810561d41e"
+            ],
+            "victims": [
+                "729e244d-7602-4d70-8773-a142e76a184d"
+            ],
+            "raw": "- Randy Orton eliminates Sheamus",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "ae613331-6435-4462-b9b6-64f51f064616"
+            ],
+            "victims": [
+                "3c0e8e7c-c043-4064-8d97-59a174457c8b"
+            ],
+            "raw": "- Kane eliminates Ezekiel Jackson",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "df04851e-d563-4b4f-872f-75df38c79a6a"
+            ],
+            "victims": [
+                "ae613331-6435-4462-b9b6-64f51f064616"
+            ],
+            "raw": "- Rey Mysterio eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "edad4d02-8bdb-4206-a0f8-93e78cd5490c"
+            ],
+            "victims": [
+                "df04851e-d563-4b4f-872f-75df38c79a6a"
+            ],
+            "raw": "- Wade Barrett eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "d0b0c326-0011-4021-a624-62a0305bf23d"
+            ],
+            "raw": "- The Miz eliminates John Cena",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "f02e5a2a-1065-4024-a2cb-75810561d41e"
+            ],
+            "victims": [
+                "edad4d02-8bdb-4206-a0f8-93e78cd5490c"
+            ],
+            "raw": "- Randy Orton eliminates Wade Barrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5bd18f6c-589a-4e87-a7db-ccaf3a3ea01c"
+            ],
+            "victims": [
+                "f02e5a2a-1065-4024-a2cb-75810561d41e"
+            ],
+            "raw": "- Alberto Del Rio eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5bd18f6c-589a-4e87-a7db-ccaf3a3ea01c"
+            ],
+            "victims": [
+                "cdd81407-dc7b-4e8a-a4a2-412e0f6d2893"
+            ],
+            "raw": "- Alberto Del Rio eliminates Santino Marella",
+            "is_valid": true
+        }
+    ]
+}

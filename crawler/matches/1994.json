@@ -1,0 +1,443 @@
+{
+    "wrestlers": [
+        {
+            "name": "Bret Hart",
+            "cm_id": 565,
+            "id": "1d2e79cb-fdc1-473f-acd2-4ba13de90890"
+        },
+        {
+            "name": "Lex Luger",
+            "cm_id": 679,
+            "id": "f5349744-839a-4bb0-b842-f60782f6307f"
+        },
+        {
+            "name": "Adam Bomb",
+            "cm_id": 41,
+            "id": "a8d6324a-f150-425f-9d0d-cbf515d399b8"
+        },
+        {
+            "name": "Bam Bam Bigelow",
+            "cm_id": 38,
+            "id": "e3f4e1b9-8ca8-4da7-a82d-a3c3b3f4cf53"
+        },
+        {
+            "name": "Bart Gunn",
+            "cm_id": 654,
+            "id": "ce1abb58-f686-4e1e-b6d2-f4c3cf85b5f0"
+        },
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "c292ccb1-bb0d-4a57-ac19-23d667cc1148"
+        },
+        {
+            "name": "Bob Backlund",
+            "cm_id": 959,
+            "id": "acf7d938-d78e-4dc4-9101-2ed5c5499a2a"
+        },
+        {
+            "name": "Crush",
+            "cm_id": 536,
+            "id": "b81a7520-625b-436f-a4a7-e43789651a81"
+        },
+        {
+            "name": "Diesel",
+            "cm_id": 429,
+            "id": "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+        },
+        {
+            "name": "Doink",
+            "cm_id": 598,
+            "id": "6d92470f-88bf-4141-b3f7-c409551424ac"
+        },
+        {
+            "name": "Fatu",
+            "cm_id": 303,
+            "id": "89a7e736-9c22-40e5-8283-d1ab37415d1d"
+        },
+        {
+            "name": "Greg Valentine",
+            "cm_id": 104,
+            "id": "aee73640-f589-4d7b-a6cb-28e9c9958428"
+        },
+        {
+            "name": "Jeff Jarrett",
+            "cm_id": 564,
+            "id": "2514b685-60c0-44cd-aec9-5734880e93f9"
+        },
+        {
+            "name": "Kwang",
+            "cm_id": 224,
+            "id": "beb4ebec-ef16-4a6a-8329-71dede0fd134"
+        },
+        {
+            "name": "Mabel",
+            "cm_id": 1077,
+            "id": "f79b436b-a955-4be9-8116-8583c7dcbba2"
+        },
+        {
+            "name": "Marty Jannetty",
+            "cm_id": 988,
+            "id": "dcda10ae-0c8e-4213-8ba6-3f7071914fe9"
+        },
+        {
+            "name": "Mo",
+            "cm_id": 2236,
+            "id": "82cba99c-bf5e-44d0-8860-7c7f02633f56"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "b5c2ea4d-3533-44ef-b0b3-b5f72430ba95"
+        },
+        {
+            "name": "Randy Savage",
+            "cm_id": 640,
+            "id": "32d11026-e171-4efd-940a-f9b58361ae09"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "5cbafeeb-2f84-4ce8-a7e2-d9e6bca7d72d"
+        },
+        {
+            "name": "Rick Steiner",
+            "cm_id": 201,
+            "id": "19c1d1b4-0c61-413c-8005-d4883dd0f684"
+        },
+        {
+            "name": "Samu",
+            "cm_id": 1094,
+            "id": "f2836b61-05d3-4842-85dd-8070c325a76f"
+        },
+        {
+            "name": "Scott Steiner",
+            "cm_id": 844,
+            "id": "aff810c1-152b-4644-b531-0b2f0f98971c"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "50a68bee-6aca-4894-a7bd-7b89d7bec2bc"
+        },
+        {
+            "name": "Tatanka",
+            "cm_id": 186,
+            "id": "262ec1e6-629a-4dd5-8bb3-e658b944d588"
+        },
+        {
+            "name": "Tenryu",
+            "cm_id": 748,
+            "id": "dbb283dd-dfde-482e-97a5-1f912354c420"
+        },
+        {
+            "name": "The Great Kabuki",
+            "cm_id": 1445,
+            "id": "a342af7b-72cb-43aa-b2e1-cda21df1e656"
+        },
+        {
+            "name": "Thurman Sparky Plugg",
+            "cm_id": 55,
+            "id": "05093153-60b9-45ce-aa70-5fefce6799e6"
+        },
+        {
+            "name": "Virgil",
+            "cm_id": 456,
+            "id": "f5af44d0-7865-4583-a193-ba2907d5ff23"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "aff810c1-152b-4644-b531-0b2f0f98971c"
+            ],
+            "victims": [
+                "f2836b61-05d3-4842-85dd-8070c325a76f"
+            ],
+            "raw": "- Scott Steiner eliminates Samu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b5c2ea4d-3533-44ef-b0b3-b5f72430ba95"
+            ],
+            "victims": [
+                "19c1d1b4-0c61-413c-8005-d4883dd0f684"
+            ],
+            "raw": "- Owen Hart eliminates Rick Steiner",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "ce1abb58-f686-4e1e-b6d2-f4c3cf85b5f0"
+            ],
+            "raw": "- Diesel eliminates Bart Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "aff810c1-152b-4644-b531-0b2f0f98971c"
+            ],
+            "raw": "- Diesel eliminates Scott Steiner",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "b5c2ea4d-3533-44ef-b0b3-b5f72430ba95"
+            ],
+            "raw": "- Diesel eliminates Owen Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "beb4ebec-ef16-4a6a-8329-71dede0fd134"
+            ],
+            "raw": "- Diesel eliminates Kwang",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "acf7d938-d78e-4dc4-9101-2ed5c5499a2a"
+            ],
+            "raw": "- Diesel eliminates Bob Backlund",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "c292ccb1-bb0d-4a57-ac19-23d667cc1148"
+            ],
+            "raw": "- Diesel eliminates Billy Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "victims": [
+                "f5af44d0-7865-4583-a193-ba2907d5ff23"
+            ],
+            "raw": "- Diesel eliminates Virgil",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "32d11026-e171-4efd-940a-f9b58361ae09"
+            ],
+            "victims": [
+                "2514b685-60c0-44cd-aec9-5734880e93f9"
+            ],
+            "raw": "- Randy Savage eliminates Jeff Jarrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b81a7520-625b-436f-a4a7-e43789651a81"
+            ],
+            "victims": [
+                "32d11026-e171-4efd-940a-f9b58361ae09"
+            ],
+            "raw": "- Crush eliminates Randy Savage",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3f4e1b9-8ca8-4da7-a82d-a3c3b3f4cf53"
+            ],
+            "victims": [
+                "6d92470f-88bf-4141-b3f7-c409551424ac"
+            ],
+            "raw": "- Bam Bam Bigelow eliminates Doink   ",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3f4e1b9-8ca8-4da7-a82d-a3c3b3f4cf53",
+                "b81a7520-625b-436f-a4a7-e43789651a81",
+                "f79b436b-a955-4be9-8116-8583c7dcbba2",
+                "05093153-60b9-45ce-aa70-5fefce6799e6"
+            ],
+            "victims": [
+                "f159d138-5265-4df7-8fa1-4349d2c95dd1"
+            ],
+            "raw": "- Bam Bam Bigelow, Crush, Mabel und Thurman Sparky Plugg eliminate Diesel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3f4e1b9-8ca8-4da7-a82d-a3c3b3f4cf53",
+                "b81a7520-625b-436f-a4a7-e43789651a81",
+                "aee73640-f589-4d7b-a6cb-28e9c9958428",
+                "50a68bee-6aca-4894-a7bd-7b89d7bec2bc",
+                "262ec1e6-629a-4dd5-8bb3-e658b944d588",
+                "a342af7b-72cb-43aa-b2e1-cda21df1e656",
+                "05093153-60b9-45ce-aa70-5fefce6799e6"
+            ],
+            "victims": [
+                "f79b436b-a955-4be9-8116-8583c7dcbba2"
+            ],
+            "raw": "- Bam Bam Bigelow, Crush, Greg Valentine, Shawn Michaels, Tatanka, The Great Kabuki und Thurman Sparky Plugg eliminate Mabel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "a342af7b-72cb-43aa-b2e1-cda21df1e656"
+            ],
+            "raw": "- Lex Luger eliminates The Great Kabuki",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "b81a7520-625b-436f-a4a7-e43789651a81"
+            ],
+            "raw": "- Lex Luger eliminates Crush",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d2e79cb-fdc1-473f-acd2-4ba13de90890"
+            ],
+            "victims": [
+                "05093153-60b9-45ce-aa70-5fefce6799e6"
+            ],
+            "raw": "- Bret Hart eliminates Thurman Sparky Plugg",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5cbafeeb-2f84-4ce8-a7e2-d9e6bca7d72d"
+            ],
+            "victims": [
+                "aee73640-f589-4d7b-a6cb-28e9c9958428"
+            ],
+            "raw": "- Rick Martel eliminates Greg Valentine",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "262ec1e6-629a-4dd5-8bb3-e658b944d588"
+            ],
+            "victims": [
+                "5cbafeeb-2f84-4ce8-a7e2-d9e6bca7d72d"
+            ],
+            "raw": "- Tatanka eliminates Rick Martel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "a8d6324a-f150-425f-9d0d-cbf515d399b8"
+            ],
+            "raw": "- Lex Luger eliminates Adam Bomb",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "89a7e736-9c22-40e5-8283-d1ab37415d1d"
+            ],
+            "victims": [
+                "82cba99c-bf5e-44d0-8860-7c7f02633f56"
+            ],
+            "raw": "- Fatu eliminates Mo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3f4e1b9-8ca8-4da7-a82d-a3c3b3f4cf53"
+            ],
+            "victims": [
+                "262ec1e6-629a-4dd5-8bb3-e658b944d588"
+            ],
+            "raw": "- Bam Bam Bigelow eliminates Tatanka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "e3f4e1b9-8ca8-4da7-a82d-a3c3b3f4cf53"
+            ],
+            "raw": "- Lex Luger eliminates Bam Bam Bigelow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "50a68bee-6aca-4894-a7bd-7b89d7bec2bc"
+            ],
+            "victims": [
+                "dcda10ae-0c8e-4213-8ba6-3f7071914fe9"
+            ],
+            "raw": "- Shawn Michaels eliminates Marty Jannetty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d2e79cb-fdc1-473f-acd2-4ba13de90890",
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "dbb283dd-dfde-482e-97a5-1f912354c420"
+            ],
+            "raw": "- Bret Hart und Lex Luger eliminate Tenryu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d2e79cb-fdc1-473f-acd2-4ba13de90890"
+            ],
+            "victims": [
+                "89a7e736-9c22-40e5-8283-d1ab37415d1d"
+            ],
+            "raw": "- Bret Hart eliminates Fatu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "50a68bee-6aca-4894-a7bd-7b89d7bec2bc"
+            ],
+            "raw": "- Lex Luger eliminates Shawn Michaels",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d2e79cb-fdc1-473f-acd2-4ba13de90890",
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "victims": [
+                "1d2e79cb-fdc1-473f-acd2-4ba13de90890",
+                "f5349744-839a-4bb0-b842-f60782f6307f"
+            ],
+            "raw": "- Bret Hart und Lex Luger eliminate sich gegenseitig",
+            "is_valid": true
+        }
+    ]
+}

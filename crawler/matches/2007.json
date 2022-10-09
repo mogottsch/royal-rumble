@@ -1,0 +1,447 @@
+{
+    "wrestlers": [
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "30b82d21-21c1-4956-a474-7541646dea04"
+        },
+        {
+            "name": "Carlito",
+            "cm_id": 208,
+            "id": "0d751b84-2fc0-4920-9876-5977284204b4"
+        },
+        {
+            "name": "Chavo Guerrero",
+            "cm_id": 895,
+            "id": "50d783b2-c8a9-467c-a90b-3833d5516592"
+        },
+        {
+            "name": "Chris Benoit",
+            "cm_id": 574,
+            "id": "1fcb9021-19a9-4869-8234-c216ee72a9da"
+        },
+        {
+            "name": "Chris Masters",
+            "cm_id": 592,
+            "id": "7957be45-2da2-41df-9170-8c009878fee4"
+        },
+        {
+            "name": "CM Punk",
+            "cm_id": 80,
+            "id": "cf224d69-fbb1-40ce-9c75-6fac99c3c2a6"
+        },
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "773824c4-f955-4c8f-81b2-28a912601fbf"
+        },
+        {
+            "name": "Finlay",
+            "cm_id": 154,
+            "id": "ed276667-4c9a-4cf0-9ff0-21f3cf3cb450"
+        },
+        {
+            "name": "Gregory Helms",
+            "cm_id": 464,
+            "id": "2e807aa6-ffd5-499f-830f-f7a337fe7492"
+        },
+        {
+            "name": "Hardcore Holly",
+            "cm_id": 55,
+            "id": "0c6759cb-6bc5-45b8-89c3-f476e666bebe"
+        },
+        {
+            "name": "Jeff Hardy",
+            "cm_id": 891,
+            "id": "5103837b-1dfd-4675-9b72-60cf45354053"
+        },
+        {
+            "name": "Johnny Nitro",
+            "cm_id": 1099,
+            "id": "c79a4658-f8ac-475e-b902-1fef323126fe"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "8ac49cb6-e513-4e26-a47e-09ee47cd049c"
+        },
+        {
+            "name": "Kenny Dykstra",
+            "cm_id": 1195,
+            "id": "6b32fb14-cdc3-4832-aa31-2efeea7d710e"
+        },
+        {
+            "name": "Kevin Thorn",
+            "cm_id": 1080,
+            "id": "ba1fc9ae-314a-4752-8b92-ecfcfe6db7d4"
+        },
+        {
+            "name": "King Booker",
+            "cm_id": 642,
+            "id": "7b8c4240-7f0a-41dd-b74d-1f759bc0b19e"
+        },
+        {
+            "name": "Matt Hardy",
+            "cm_id": 99,
+            "id": "6cc6ceec-f517-45b4-ae2d-c657e763e220"
+        },
+        {
+            "name": "Montel Vontavious Porter",
+            "cm_id": 561,
+            "id": "da285a47-f8ef-4c09-a62f-418176529b03"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "5569cbce-77ce-4a3f-a0d3-d6167c8b5654"
+        },
+        {
+            "name": "Ric Flair",
+            "cm_id": 1091,
+            "id": "dd0d34f1-d2b7-4ef1-9f32-e27521094572"
+        },
+        {
+            "name": "Rob Van Dam",
+            "cm_id": 866,
+            "id": "957bd17a-41e6-44d5-a1ee-ca33063e956c"
+        },
+        {
+            "name": "Sabu",
+            "cm_id": 271,
+            "id": "dbd756e0-485e-43ee-befd-3c608273c117"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "c8158fd8-237d-4e26-afdc-171719e6fde8"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "d10a5e37-cad6-4264-9dac-7f27b3e4487a"
+        },
+        {
+            "name": "Super Crazy",
+            "cm_id": 164,
+            "id": "a9552985-b743-4213-9736-a75eb5cd358f"
+        },
+        {
+            "name": "The Great Khali",
+            "cm_id": 2011,
+            "id": "99006cc4-505a-44fa-974b-dd7c78449a1c"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "40023e43-8f6d-4dd9-84a4-ccbd9929361c"
+        },
+        {
+            "name": "The Sandman",
+            "cm_id": 69,
+            "id": "04bfef9a-d49e-4264-91f8-a9852a64a58a"
+        },
+        {
+            "name": "Tommy Dreamer",
+            "cm_id": 487,
+            "id": "41a1cd29-59c7-462f-95cf-198a0fea2d25"
+        },
+        {
+            "name": "Viscera",
+            "cm_id": 1077,
+            "id": "35fd4095-0d8f-4bdc-a382-040d6a3472cd"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "773824c4-f955-4c8f-81b2-28a912601fbf",
+                "6b32fb14-cdc3-4832-aa31-2efeea7d710e"
+            ],
+            "victims": [
+                "dd0d34f1-d2b7-4ef1-9f32-e27521094572"
+            ],
+            "raw": "- Kenny Dykstra & Edge eliminate Ric Flair",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "773824c4-f955-4c8f-81b2-28a912601fbf"
+            ],
+            "victims": [
+                "6b32fb14-cdc3-4832-aa31-2efeea7d710e"
+            ],
+            "raw": "- Edge eliminates Kenny Dykstra",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8ac49cb6-e513-4e26-a47e-09ee47cd049c"
+            ],
+            "victims": [
+                "41a1cd29-59c7-462f-95cf-198a0fea2d25"
+            ],
+            "raw": "- Kane eliminates Tommy Dreamer",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8ac49cb6-e513-4e26-a47e-09ee47cd049c"
+            ],
+            "victims": [
+                "dbd756e0-485e-43ee-befd-3c608273c117"
+            ],
+            "raw": "- Kane eliminates Sabu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7b8c4240-7f0a-41dd-b74d-1f759bc0b19e"
+            ],
+            "victims": [
+                "2e807aa6-ffd5-499f-830f-f7a337fe7492"
+            ],
+            "raw": "- King Booker eliminates Gregory Helms",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7b8c4240-7f0a-41dd-b74d-1f759bc0b19e"
+            ],
+            "victims": [
+                "04bfef9a-d49e-4264-91f8-a9852a64a58a"
+            ],
+            "raw": "- King Booker eliminates The Sandman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5569cbce-77ce-4a3f-a0d3-d6167c8b5654"
+            ],
+            "victims": [
+                "a9552985-b743-4213-9736-a75eb5cd358f"
+            ],
+            "raw": "- Randy Orton eliminates Super Crazy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "773824c4-f955-4c8f-81b2-28a912601fbf",
+                "5569cbce-77ce-4a3f-a0d3-d6167c8b5654"
+            ],
+            "victims": [
+                "5103837b-1dfd-4675-9b72-60cf45354053"
+            ],
+            "raw": "- Randy Orton & Edge eliminate Jeff Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "773824c4-f955-4c8f-81b2-28a912601fbf",
+                "5569cbce-77ce-4a3f-a0d3-d6167c8b5654"
+            ],
+            "victims": [
+                "6cc6ceec-f517-45b4-ae2d-c657e763e220"
+            ],
+            "raw": "- Randy Orton & Edge eliminate Matt Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8ac49cb6-e513-4e26-a47e-09ee47cd049c"
+            ],
+            "victims": [
+                "7b8c4240-7f0a-41dd-b74d-1f759bc0b19e"
+            ],
+            "raw": "- Kane eliminates King Booker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7b8c4240-7f0a-41dd-b74d-1f759bc0b19e"
+            ],
+            "victims": [
+                "8ac49cb6-e513-4e26-a47e-09ee47cd049c"
+            ],
+            "raw": "- King Booker eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c8158fd8-237d-4e26-afdc-171719e6fde8"
+            ],
+            "victims": [
+                "ed276667-4c9a-4cf0-9ff0-21f3cf3cb450"
+            ],
+            "raw": "- Shawn Michaels eliminates Finlay",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "35fd4095-0d8f-4bdc-a382-040d6a3472cd"
+            ],
+            "raw": "- Viscera wird von allen Verbliebenen eliminiert",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "c8158fd8-237d-4e26-afdc-171719e6fde8"
+            ],
+            "victims": [
+                "d10a5e37-cad6-4264-9dac-7f27b3e4487a"
+            ],
+            "raw": "- Shawn Michaels eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1fcb9021-19a9-4869-8234-c216ee72a9da"
+            ],
+            "victims": [
+                "c79a4658-f8ac-475e-b902-1fef323126fe"
+            ],
+            "raw": "- Chris Benoit eliminates Johnny Nitro",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1fcb9021-19a9-4869-8234-c216ee72a9da"
+            ],
+            "victims": [
+                "ba1fc9ae-314a-4752-8b92-ecfcfe6db7d4"
+            ],
+            "raw": "- Chris Benoit eliminates Kevin Thorn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "957bd17a-41e6-44d5-a1ee-ca33063e956c"
+            ],
+            "victims": [
+                "7957be45-2da2-41df-9170-8c009878fee4"
+            ],
+            "raw": "- Rob Van Dam eliminates Chris Masters",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "0c6759cb-6bc5-45b8-89c3-f476e666bebe"
+            ],
+            "raw": "- The Great Khali eliminates Hardcore Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "1fcb9021-19a9-4869-8234-c216ee72a9da"
+            ],
+            "raw": "- The Great Khali eliminates Chris Benoit",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "40023e43-8f6d-4dd9-84a4-ccbd9929361c"
+            ],
+            "raw": "- The Great Khali eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "957bd17a-41e6-44d5-a1ee-ca33063e956c"
+            ],
+            "raw": "- The Great Khali eliminates Rob Van Dam",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "cf224d69-fbb1-40ce-9c75-6fac99c3c2a6"
+            ],
+            "raw": "- The Great Khali eliminates CM Punk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "0d751b84-2fc0-4920-9876-5977284204b4"
+            ],
+            "raw": "- The Great Khali eliminates Carlito",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "victims": [
+                "50d783b2-c8a9-467c-a90b-3833d5516592"
+            ],
+            "raw": "- The Great Khali eliminates Chavo Guerrero",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "30b82d21-21c1-4956-a474-7541646dea04"
+            ],
+            "victims": [
+                "99006cc4-505a-44fa-974b-dd7c78449a1c"
+            ],
+            "raw": "- The Undertaker eliminates The Great Khali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "30b82d21-21c1-4956-a474-7541646dea04"
+            ],
+            "victims": [
+                "da285a47-f8ef-4c09-a62f-418176529b03"
+            ],
+            "raw": "- The Undertaker eliminates Montell Vontavious Porter",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "c8158fd8-237d-4e26-afdc-171719e6fde8"
+            ],
+            "victims": [
+                "5569cbce-77ce-4a3f-a0d3-d6167c8b5654"
+            ],
+            "raw": "- Shawn Michaels eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c8158fd8-237d-4e26-afdc-171719e6fde8"
+            ],
+            "victims": [
+                "773824c4-f955-4c8f-81b2-28a912601fbf"
+            ],
+            "raw": "- Shawn Michaels eliminates Edge",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "30b82d21-21c1-4956-a474-7541646dea04"
+            ],
+            "victims": [
+                "c8158fd8-237d-4e26-afdc-171719e6fde8"
+            ],
+            "raw": "- The Undertaker eliminates Shawn Michaels",
+            "is_valid": true
+        }
+    ]
+}

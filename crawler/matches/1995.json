@@ -1,0 +1,429 @@
+{
+    "wrestlers": [
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "f3969e82-207d-4ca1-9352-972bb1594beb"
+        },
+        {
+            "name": "Adam Bomb",
+            "cm_id": 41,
+            "id": "4ef27e8e-5c15-45c3-b0bb-7f20f1de75df"
+        },
+        {
+            "name": "Aldo Montoya",
+            "cm_id": 896,
+            "id": "5a2fba66-7f76-4d53-837b-a2c56828045b"
+        },
+        {
+            "name": "Bart Gunn",
+            "cm_id": 654,
+            "id": "83425841-91cb-46d8-ad07-2900c3c0e8b2"
+        },
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "125dc053-37e3-48dd-9882-5f8baa1e75be"
+        },
+        {
+            "name": "Bob Backlund",
+            "cm_id": 959,
+            "id": "61ba1977-cdcb-439c-ae94-b9d7dbbaf67c"
+        },
+        {
+            "name": "Butch",
+            "cm_id": 1032,
+            "id": "2cd6ccf4-b51a-4330-a696-824af5f36fd4"
+        },
+        {
+            "name": "Crush",
+            "cm_id": 536,
+            "id": "e8378a74-4eae-4ad9-8aa4-de12aae177a7"
+        },
+        {
+            "name": "Dick Murdoch",
+            "cm_id": 2050,
+            "id": "d1f7cc5c-ccbc-48bf-9fc1-ab04f7ff8f95"
+        },
+        {
+            "name": "Doink",
+            "cm_id": 598,
+            "id": "a17f0130-e984-4964-8f4a-d4a12d67e84a"
+        },
+        {
+            "name": "Duke Droese",
+            "cm_id": 344,
+            "id": "58a4d0a5-1ebe-42b5-b3b2-5c81be833189"
+        },
+        {
+            "name": "Eli Blu",
+            "cm_id": 856,
+            "id": "d83336df-4c89-4e75-a915-d362c0c90796"
+        },
+        {
+            "name": "Fatu",
+            "cm_id": 303,
+            "id": "d2d135e1-84e0-4f92-b427-b950864a39c0"
+        },
+        {
+            "name": "Henry O. Godwinn",
+            "cm_id": 945,
+            "id": "7c608e73-1b92-4187-9851-1f719ec600a5"
+        },
+        {
+            "name": "Jacob Blu",
+            "cm_id": 936,
+            "id": "b3974367-0073-4ab4-b561-c45cfdfe9635"
+        },
+        {
+            "name": "Jimmy del Ray",
+            "cm_id": 639,
+            "id": "4962a2f6-808d-443b-9b0a-b7aa74097abf"
+        },
+        {
+            "name": "King Kong Bundy",
+            "cm_id": 596,
+            "id": "8bb0a591-2991-4828-9270-d5e034393fa7"
+        },
+        {
+            "name": "Kwang",
+            "cm_id": 224,
+            "id": "a7c47dcd-119e-453e-9d5d-5c479ce29b9c"
+        },
+        {
+            "name": "Lex Luger",
+            "cm_id": 679,
+            "id": "351251fe-f14d-49c0-b8f7-d19bd89f5edc"
+        },
+        {
+            "name": "Luke",
+            "cm_id": 88,
+            "id": "4be7d0ca-4072-4f43-b275-248784904eea"
+        },
+        {
+            "name": "Mabel",
+            "cm_id": 1077,
+            "id": "b171aea7-4d40-4cd1-a363-633514ac62f9"
+        },
+        {
+            "name": "Mantaur",
+            "cm_id": 771,
+            "id": "2345ed19-3334-4fb4-b914-4f8f93f7ae99"
+        },
+        {
+            "name": "Mo",
+            "cm_id": 2236,
+            "id": "7218ab5e-09ea-4c31-abfe-126e9844efbf"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "0faf3d0a-6bc4-4983-8954-b46a395c659f"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "6d4a747d-83db-4143-9357-d851070c14bb"
+        },
+        {
+            "name": "Sionne",
+            "cm_id": 413,
+            "id": "cdbdeba7-d6d7-4611-9baf-1ffc133ed1b0"
+        },
+        {
+            "name": "Steven Dunn",
+            "cm_id": 1543,
+            "id": "341804e1-201e-4b50-adca-ca72ea5aedd2"
+        },
+        {
+            "name": "The British Bulldog",
+            "cm_id": 862,
+            "id": "7e1fafb7-72bf-4f28-bb00-ec75c68f8723"
+        },
+        {
+            "name": "Timothy Well",
+            "cm_id": 1958,
+            "id": "5f3f95c5-1be5-4dad-9856-4b4814fc9c41"
+        },
+        {
+            "name": "Tom Prichard",
+            "cm_id": 380,
+            "id": "b9bcda1a-c8c3-40ca-98f6-7afa9ecaa3c4"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "7e1fafb7-72bf-4f28-bb00-ec75c68f8723"
+            ],
+            "victims": [
+                "4962a2f6-808d-443b-9b0a-b7aa74097abf"
+            ],
+            "raw": "- The British Bulldog eliminates Jimmy del Ray",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7e1fafb7-72bf-4f28-bb00-ec75c68f8723"
+            ],
+            "victims": [
+                "0faf3d0a-6bc4-4983-8954-b46a395c659f"
+            ],
+            "raw": "- The British Bulldog eliminates Owen Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "58a4d0a5-1ebe-42b5-b3b2-5c81be833189"
+            ],
+            "raw": "- Shawn Michaels eliminates Duke Droese",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7e1fafb7-72bf-4f28-bb00-ec75c68f8723"
+            ],
+            "victims": [
+                "5f3f95c5-1be5-4dad-9856-4b4814fc9c41"
+            ],
+            "raw": "- The British Bulldog eliminates Timothy Well",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "cdbdeba7-d6d7-4611-9baf-1ffc133ed1b0"
+            ],
+            "victims": [
+                "6d4a747d-83db-4143-9357-d851070c14bb"
+            ],
+            "raw": "- Sionne eliminates Rick Martel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "b9bcda1a-c8c3-40ca-98f6-7afa9ecaa3c4"
+            ],
+            "raw": "- Shawn Michaels eliminates Tom Prichard",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a7c47dcd-119e-453e-9d5d-5c479ce29b9c"
+            ],
+            "victims": [
+                "a17f0130-e984-4964-8f4a-d4a12d67e84a"
+            ],
+            "raw": "- Kwang eliminates Doink",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "cdbdeba7-d6d7-4611-9baf-1ffc133ed1b0"
+            ],
+            "victims": [
+                "a7c47dcd-119e-453e-9d5d-5c479ce29b9c"
+            ],
+            "raw": "- Sionne eliminates Kwang",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d83336df-4c89-4e75-a915-d362c0c90796",
+                "cdbdeba7-d6d7-4611-9baf-1ffc133ed1b0"
+            ],
+            "victims": [
+                "d83336df-4c89-4e75-a915-d362c0c90796",
+                "cdbdeba7-d6d7-4611-9baf-1ffc133ed1b0"
+            ],
+            "raw": "- Eli Blu und Sionne eliminate sich gegenseitig",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "4be7d0ca-4072-4f43-b275-248784904eea"
+            ],
+            "raw": "- Shawn Michaels eliminates Luke",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "b3974367-0073-4ab4-b561-c45cfdfe9635"
+            ],
+            "raw": "- Shawn Michaels eliminates Jacob Blu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8bb0a591-2991-4828-9270-d5e034393fa7"
+            ],
+            "victims": [
+                "7218ab5e-09ea-4c31-abfe-126e9844efbf"
+            ],
+            "raw": "- King Kong Bundy eliminates Mo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b171aea7-4d40-4cd1-a363-633514ac62f9"
+            ],
+            "victims": [
+                "8bb0a591-2991-4828-9270-d5e034393fa7"
+            ],
+            "raw": "- Mabel eliminates King Kong Bundy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "2cd6ccf4-b51a-4330-a696-824af5f36fd4"
+            ],
+            "raw": "- Shawn Michaels eliminates Butch",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "351251fe-f14d-49c0-b8f7-d19bd89f5edc"
+            ],
+            "victims": [
+                "b171aea7-4d40-4cd1-a363-633514ac62f9"
+            ],
+            "raw": "- Lex Luger eliminates Mabel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "351251fe-f14d-49c0-b8f7-d19bd89f5edc"
+            ],
+            "victims": [
+                "61ba1977-cdcb-439c-ae94-b9d7dbbaf67c"
+            ],
+            "raw": "- Lex Luger eliminates Bob Backlund",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "351251fe-f14d-49c0-b8f7-d19bd89f5edc"
+            ],
+            "victims": [
+                "2345ed19-3334-4fb4-b914-4f8f93f7ae99"
+            ],
+            "raw": "- Lex Luger eliminates Mantaur",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8378a74-4eae-4ad9-8aa4-de12aae177a7"
+            ],
+            "victims": [
+                "83425841-91cb-46d8-ad07-2900c3c0e8b2",
+                "125dc053-37e3-48dd-9882-5f8baa1e75be"
+            ],
+            "raw": "- Crush eliminates Bart Gunn und Billy Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5a2fba66-7f76-4d53-837b-a2c56828045b"
+            ],
+            "victims": [
+                "341804e1-201e-4b50-adca-ca72ea5aedd2"
+            ],
+            "raw": "- Aldo Montoya eliminates Steven Dunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8378a74-4eae-4ad9-8aa4-de12aae177a7"
+            ],
+            "victims": [
+                "4ef27e8e-5c15-45c3-b0bb-7f20f1de75df"
+            ],
+            "raw": "- Crush eliminates Adam Bomb",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "5a2fba66-7f76-4d53-837b-a2c56828045b"
+            ],
+            "raw": "- Shawn Michaels eliminates Aldo Montoya",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8378a74-4eae-4ad9-8aa4-de12aae177a7"
+            ],
+            "victims": [
+                "d2d135e1-84e0-4f92-b427-b950864a39c0"
+            ],
+            "raw": "- Crush eliminates Fatu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7c608e73-1b92-4187-9851-1f719ec600a5"
+            ],
+            "victims": [
+                "d1f7cc5c-ccbc-48bf-9fc1-ab04f7ff8f95"
+            ],
+            "raw": "- Henry O. Godwinn eliminates Dick Murdoch",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "351251fe-f14d-49c0-b8f7-d19bd89f5edc"
+            ],
+            "victims": [
+                "7c608e73-1b92-4187-9851-1f719ec600a5"
+            ],
+            "raw": "- Lex Luger eliminates Henry O. Godwinn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8378a74-4eae-4ad9-8aa4-de12aae177a7"
+            ],
+            "victims": [
+                "351251fe-f14d-49c0-b8f7-d19bd89f5edc"
+            ],
+            "raw": "- Crush eliminates Lex Luger",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7e1fafb7-72bf-4f28-bb00-ec75c68f8723"
+            ],
+            "victims": [
+                "e8378a74-4eae-4ad9-8aa4-de12aae177a7"
+            ],
+            "raw": "- The British Bulldog eliminates Crush",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3969e82-207d-4ca1-9352-972bb1594beb"
+            ],
+            "victims": [
+                "7e1fafb7-72bf-4f28-bb00-ec75c68f8723"
+            ],
+            "raw": "- Shawn Michaels eliminates The British Bulldog",
+            "is_valid": true
+        }
+    ]
+}

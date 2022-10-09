@@ -1,0 +1,454 @@
+{
+    "wrestlers": [
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "87ba9733-d81a-4109-b7fb-c3177a5cbe2c"
+        },
+        {
+            "name": "The Rock",
+            "cm_id": 960,
+            "id": "5d3f9bb5-aa30-446b-ab18-8a99a40f7626"
+        },
+        {
+            "name": "Albert",
+            "cm_id": 580,
+            "id": "3103d98c-1eca-4a5a-b66e-a4a118941fbb"
+        },
+        {
+            "name": "Al Snow",
+            "cm_id": 179,
+            "id": "a0642d80-4061-462a-8f98-4869f8997330"
+        },
+        {
+            "name": "Bob Backlund",
+            "cm_id": 959,
+            "id": "80c2380b-fb45-41f3-8d48-aafe9bd94541"
+        },
+        {
+            "name": "Bradshaw",
+            "cm_id": 193,
+            "id": "afd88490-a538-4603-a241-cb7a1ab08f05"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "c2b63eef-388b-4ca9-9ea7-c702fa09682d"
+        },
+        {
+            "name": "Christian",
+            "cm_id": 820,
+            "id": "8a9af0f2-02da-4531-b6e9-9c3ef769b7dc"
+        },
+        {
+            "name": "Chyna",
+            "cm_id": 641,
+            "id": "a512daae-7320-452b-895f-75803d8e68da"
+        },
+        {
+            "name": "Crash Holly",
+            "cm_id": 157,
+            "id": "bd904625-6160-4fcc-acbf-0c59ddd984a8"
+        },
+        {
+            "name": "D-Lo Brown",
+            "cm_id": 422,
+            "id": "2f20a7c0-b141-4240-8a3b-e0967258b405"
+        },
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "ca23e898-a68f-4665-b834-67f8d3eebceb"
+        },
+        {
+            "name": "Faarooq",
+            "cm_id": 715,
+            "id": "5cae28fb-3ffe-42a4-9f84-f24a3716c30e"
+        },
+        {
+            "name": "Gangrel",
+            "cm_id": 282,
+            "id": "0965cd52-8803-4531-82a1-05d05fb55499"
+        },
+        {
+            "name": "Grandmaster Sexay",
+            "cm_id": 1037,
+            "id": "e2f88ae1-60a7-45d9-8094-1f6a8752fc29"
+        },
+        {
+            "name": "Hardcore Holly",
+            "cm_id": 55,
+            "id": "773773a3-7fb9-4eca-9cfc-45477610c29f"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "e3e67340-1f9c-4850-957a-50d26b478ef1"
+        },
+        {
+            "name": "Tori",
+            "cm_id": 264,
+            "id": "3574aad9-cf1c-447b-9e3f-979cc1f6e753"
+        },
+        {
+            "name": "Mosh",
+            "cm_id": 389,
+            "id": "e485a5d8-5319-49a3-b130-d05579dda3a2"
+        },
+        {
+            "name": "Mr. Ass",
+            "cm_id": 1081,
+            "id": "ed3bc8ef-44bb-48fe-895b-a2ad87599fa3"
+        },
+        {
+            "name": "Rikishi",
+            "cm_id": 303,
+            "id": "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+        },
+        {
+            "name": "Scotty 2 Hotty",
+            "cm_id": 527,
+            "id": "0ed67438-80c5-4b96-bf4e-7084f1ddd23d"
+        },
+        {
+            "name": "Steve Blackman",
+            "cm_id": 537,
+            "id": "ec0a6033-f46a-4ca4-9862-8d5378c8cd04"
+        },
+        {
+            "name": "Test",
+            "cm_id": 1047,
+            "id": "2e10bcf5-9ba9-4700-8dab-72dc6eb3f67a"
+        },
+        {
+            "name": "The Big Bossman",
+            "cm_id": 690,
+            "id": "b9e8ec55-a222-4366-bada-b32467835ef7"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "2e897f8d-b32c-4861-b973-affd09ab499d"
+        },
+        {
+            "name": "The British Bulldog",
+            "cm_id": 862,
+            "id": "5b8c9988-0500-4db3-b2e8-f36ecb20251b"
+        },
+        {
+            "name": "The Godfather",
+            "cm_id": 901,
+            "id": "d4694356-88bb-48b5-9026-3bba167f7538"
+        },
+        {
+            "name": "The Road Dogg",
+            "cm_id": 760,
+            "id": "d35146c9-daaa-41a6-b105-e3006e34deb7"
+        },
+        {
+            "name": "Val Venis",
+            "cm_id": 588,
+            "id": "c222146e-6f7d-4b35-9294-a22e6628e589"
+        },
+        {
+            "name": "Viscera",
+            "cm_id": 1077,
+            "id": "948a895a-7bc8-446c-94c6-61b82f03b6c1"
+        },
+        {
+            "name": "X-Pac",
+            "cm_id": 1063,
+            "id": "1c84c24e-c35e-4821-a405-4c4e08905f05"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "victims": [
+                "e485a5d8-5319-49a3-b130-d05579dda3a2"
+            ],
+            "raw": "- Rikishi eliminates Mosh",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "victims": [
+                "8a9af0f2-02da-4531-b6e9-9c3ef769b7dc"
+            ],
+            "raw": "- Rikishi eliminates Christian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "victims": [
+                "2f20a7c0-b141-4240-8a3b-e0967258b405"
+            ],
+            "raw": "- Rikishi eliminates D-Lo Brown",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "victims": [
+                "e2f88ae1-60a7-45d9-8094-1f6a8752fc29",
+                "0ed67438-80c5-4b96-bf4e-7084f1ddd23d"
+            ],
+            "raw": "- Rikishi eliminates Grandmaster Sexay und Scotty 2 Hotty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "victims": [
+                "ec0a6033-f46a-4ca4-9862-8d5378c8cd04"
+            ],
+            "raw": "- Rikishi eliminates Steve Blackman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "victims": [
+                "948a895a-7bc8-446c-94c6-61b82f03b6c1"
+            ],
+            "raw": "- Rikishi eliminates Viscera",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "80c2380b-fb45-41f3-8d48-aafe9bd94541",
+                "ca23e898-a68f-4665-b834-67f8d3eebceb",
+                "0965cd52-8803-4531-82a1-05d05fb55499",
+                "2e10bcf5-9ba9-4700-8dab-72dc6eb3f67a",
+                "b9e8ec55-a222-4366-bada-b32467835ef7",
+                "5b8c9988-0500-4db3-b2e8-f36ecb20251b"
+            ],
+            "victims": [
+                "5018ffe7-9330-464e-8f21-f5e35eaaecb3"
+            ],
+            "raw": "- Bob Backlund, Edge, Gangrel, Test, The Big Bossman und The British Bulldog eliminate Rikishi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c2b63eef-388b-4ca9-9ea7-c702fa09682d"
+            ],
+            "victims": [
+                "80c2380b-fb45-41f3-8d48-aafe9bd94541"
+            ],
+            "raw": "- Chris Jericho eliminates Bob Backlund",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a512daae-7320-452b-895f-75803d8e68da"
+            ],
+            "victims": [
+                "c2b63eef-388b-4ca9-9ea7-c702fa09682d"
+            ],
+            "raw": "- Chyna eliminates Chris Jericho",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b9e8ec55-a222-4366-bada-b32467835ef7"
+            ],
+            "victims": [
+                "a512daae-7320-452b-895f-75803d8e68da"
+            ],
+            "raw": "- The Big Bossman eliminates Chyna",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b9e8ec55-a222-4366-bada-b32467835ef7"
+            ],
+            "victims": [
+                "5cae28fb-3ffe-42a4-9f84-f24a3716c30e"
+            ],
+            "raw": "- The Big Bossman eliminates Faarooq",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d35146c9-daaa-41a6-b105-e3006e34deb7"
+            ],
+            "victims": [
+                "5b8c9988-0500-4db3-b2e8-f36ecb20251b"
+            ],
+            "raw": "- The Road Dogg eliminates The British Bulldog",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a0642d80-4061-462a-8f98-4869f8997330",
+                "c222146e-6f7d-4b35-9294-a22e6628e589"
+            ],
+            "victims": [
+                "ca23e898-a68f-4665-b834-67f8d3eebceb"
+            ],
+            "raw": "- Al Snow und Val Venis eliminate Edge",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5d3f9bb5-aa30-446b-ab18-8a99a40f7626"
+            ],
+            "victims": [
+                "b9e8ec55-a222-4366-bada-b32467835ef7"
+            ],
+            "raw": "- The Rock eliminates The Big Bossman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5d3f9bb5-aa30-446b-ab18-8a99a40f7626"
+            ],
+            "victims": [
+                "bd904625-6160-4fcc-acbf-0c59ddd984a8"
+            ],
+            "raw": "- The Rock eliminates Crash Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2e897f8d-b32c-4861-b973-affd09ab499d"
+            ],
+            "victims": [
+                "2e10bcf5-9ba9-4700-8dab-72dc6eb3f67a"
+            ],
+            "raw": "- The Big Show eliminates Test",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2e897f8d-b32c-4861-b973-affd09ab499d"
+            ],
+            "victims": [
+                "0965cd52-8803-4531-82a1-05d05fb55499"
+            ],
+            "raw": "- The Big Show eliminates Gangrel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d35146c9-daaa-41a6-b105-e3006e34deb7",
+                "87ba9733-d81a-4109-b7fb-c3177a5cbe2c"
+            ],
+            "victims": [
+                "afd88490-a538-4603-a241-cb7a1ab08f05"
+            ],
+            "raw": "- Billy Gunn und The Road Dogg eliminate Bradshaw",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "e3e67340-1f9c-4850-957a-50d26b478ef1"
+            ],
+            "victims": [
+                "c222146e-6f7d-4b35-9294-a22e6628e589"
+            ],
+            "raw": "- Kane eliminates Val Venis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3e67340-1f9c-4850-957a-50d26b478ef1"
+            ],
+            "victims": [
+                "3103d98c-1eca-4a5a-b66e-a4a118941fbb"
+            ],
+            "raw": "- Kane eliminates Albert",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a0642d80-4061-462a-8f98-4869f8997330"
+            ],
+            "victims": [
+                "773773a3-7fb9-4eca-9cfc-45477610c29f"
+            ],
+            "raw": "- Al Snow eliminates Hardcore Holly",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2e897f8d-b32c-4861-b973-affd09ab499d"
+            ],
+            "victims": [
+                "d4694356-88bb-48b5-9026-3bba167f7538"
+            ],
+            "raw": "- The Big Show eliminates The Godfather",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5d3f9bb5-aa30-446b-ab18-8a99a40f7626"
+            ],
+            "victims": [
+                "a0642d80-4061-462a-8f98-4869f8997330"
+            ],
+            "raw": "- The Rock eliminates Al Snow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "87ba9733-d81a-4109-b7fb-c3177a5cbe2c"
+            ],
+            "victims": [
+                "d35146c9-daaa-41a6-b105-e3006e34deb7"
+            ],
+            "raw": "- Billy Gunn eliminates The Road Dogg",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "e3e67340-1f9c-4850-957a-50d26b478ef1"
+            ],
+            "victims": [
+                "87ba9733-d81a-4109-b7fb-c3177a5cbe2c"
+            ],
+            "raw": "- Kane eliminates Billy Gunn",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "1c84c24e-c35e-4821-a405-4c4e08905f05"
+            ],
+            "victims": [
+                "e3e67340-1f9c-4850-957a-50d26b478ef1"
+            ],
+            "raw": "- X-Pac eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2e897f8d-b32c-4861-b973-affd09ab499d"
+            ],
+            "victims": [
+                "1c84c24e-c35e-4821-a405-4c4e08905f05"
+            ],
+            "raw": "- The Big Show eliminates X-Pac",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5d3f9bb5-aa30-446b-ab18-8a99a40f7626"
+            ],
+            "victims": [
+                "2e897f8d-b32c-4861-b973-affd09ab499d"
+            ],
+            "raw": "- The Rock eliminates The Big Show",
+            "is_valid": true
+        }
+    ]
+}

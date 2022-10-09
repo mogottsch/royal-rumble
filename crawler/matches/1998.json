@@ -1,0 +1,437 @@
+{
+    "wrestlers": [
+        {
+            "name": "Steve Austin",
+            "cm_id": 635,
+            "id": "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+        },
+        {
+            "name": "8-Ball",
+            "cm_id": 856,
+            "id": "ca533a10-7d2d-44d7-b432-bd9dc694ecd6"
+        },
+        {
+            "name": "Ahmed Johnson",
+            "cm_id": 618,
+            "id": "64ecc190-dc6a-4ed2-9c7b-1cd3467ad972"
+        },
+        {
+            "name": "Blackjack Bradshaw",
+            "cm_id": 193,
+            "id": "23193431-9b17-4848-b92e-2cae6b295bbd"
+        },
+        {
+            "name": "Cactus Jack",
+            "cm_id": 6,
+            "id": "710153f9-0c7d-4c23-9968-10fb6a2b0d1f"
+        },
+        {
+            "name": "Chainsaw Charlie",
+            "cm_id": 501,
+            "id": "3b2073fa-5571-41f2-99ab-807817f54982"
+        },
+        {
+            "name": "Chainz",
+            "cm_id": 348,
+            "id": "c2700650-bca9-4b1e-852b-236083731fb7"
+        },
+        {
+            "name": "D-Lo Brown",
+            "cm_id": 422,
+            "id": "0bc265c3-3007-44f9-acf4-a6d599881499"
+        },
+        {
+            "name": "Dude Love",
+            "cm_id": 6,
+            "id": "d19d4afa-e771-4c6e-9a4b-2c8c9861fb45"
+        },
+        {
+            "name": "Faarooq",
+            "cm_id": 715,
+            "id": "d27c3cb9-4dff-4d91-8685-bdfd5cff40e3"
+        },
+        {
+            "name": "Henry O. Godwinn",
+            "cm_id": 945,
+            "id": "92cf08d3-673d-4ea2-b541-02e33e649535"
+        },
+        {
+            "name": "Jeff Jarrett",
+            "cm_id": 564,
+            "id": "7fe509bd-21f5-42e9-a3f4-4ce5798d8e6c"
+        },
+        {
+            "name": "Kama",
+            "cm_id": 901,
+            "id": "4b708b28-6889-464f-9d7a-3faa1a1f5ebd"
+        },
+        {
+            "name": "Ken Shamrock",
+            "cm_id": 149,
+            "id": "5da43abd-d621-47c7-9629-972372bc771a"
+        },
+        {
+            "name": "Kurrgan",
+            "cm_id": 489,
+            "id": "ea6830af-eb1d-4d03-909f-1f037ede6874"
+        },
+        {
+            "name": "Mankind",
+            "cm_id": 6,
+            "id": "f371e989-8048-4e20-af30-fa705af01999"
+        },
+        {
+            "name": "Marc Mero",
+            "cm_id": 147,
+            "id": "b537467b-f3e9-4092-afcc-96915eeecf9c"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "e76d78ec-79fc-44a1-a540-966b15402d1d"
+        },
+        {
+            "name": "Mosh",
+            "cm_id": 389,
+            "id": "9439663e-587d-4806-a959-13359ab28d80"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "161c82e4-30f2-412c-a5a8-08bbf5f184b3"
+        },
+        {
+            "name": "Phineas I. Godwinn",
+            "cm_id": 81,
+            "id": "7b71b8ce-dc69-4f3c-ba23-8ea89ee3b560"
+        },
+        {
+            "name": "Savio Vega",
+            "cm_id": 224,
+            "id": "b24362b6-08ed-401c-a82c-fa441a833282"
+        },
+        {
+            "name": "Steve Blackman",
+            "cm_id": 537,
+            "id": "ad670a5a-a638-4588-a91f-1edcc361863c"
+        },
+        {
+            "name": "TAFKA Goldust",
+            "cm_id": 917,
+            "id": "9c4b3cb0-65f5-4ae5-b253-fff97c4bd4a1"
+        },
+        {
+            "name": "The Honky Tonk Man",
+            "cm_id": 156,
+            "id": "23c4b4ab-38fd-4fa4-b54f-a6ab450a3dbc"
+        },
+        {
+            "name": "The Rock",
+            "cm_id": 960,
+            "id": "86ee7bcb-d03e-46b2-9f67-3e14a25599d0"
+        },
+        {
+            "name": "Thrasher",
+            "cm_id": 975,
+            "id": "39f8c065-32fd-4d5c-9a1b-9da66dc76c12"
+        },
+        {
+            "name": "Tom Brandi",
+            "cm_id": 142,
+            "id": "f018e8d1-a8f1-4b44-8d4b-125c94473675"
+        },
+        {
+            "name": "Vader",
+            "cm_id": 132,
+            "id": "e77589d8-c96c-4f97-a62b-4b454037b3c6"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "710153f9-0c7d-4c23-9968-10fb6a2b0d1f",
+                "3b2073fa-5571-41f2-99ab-807817f54982"
+            ],
+            "victims": [
+                "f018e8d1-a8f1-4b44-8d4b-125c94473675"
+            ],
+            "raw": "- Cactus Jack und Chainsaw Charlie eliminate Tom Brandi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b2073fa-5571-41f2-99ab-807817f54982"
+            ],
+            "victims": [
+                "710153f9-0c7d-4c23-9968-10fb6a2b0d1f"
+            ],
+            "raw": "- Chainsaw Charlie eliminates Cactus Jack",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ea6830af-eb1d-4d03-909f-1f037ede6874"
+            ],
+            "victims": [
+                "9439663e-587d-4806-a959-13359ab28d80"
+            ],
+            "raw": "- Kurrgan eliminates Mosh",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ea6830af-eb1d-4d03-909f-1f037ede6874"
+            ],
+            "victims": [
+                "ad670a5a-a638-4588-a91f-1edcc361863c"
+            ],
+            "raw": "- Kurrgan eliminates Steve Blackman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ca533a10-7d2d-44d7-b432-bd9dc694ecd6",
+                "23193431-9b17-4848-b92e-2cae6b295bbd",
+                "5da43abd-d621-47c7-9629-972372bc771a",
+                "7b71b8ce-dc69-4f3c-ba23-8ea89ee3b560",
+                "86ee7bcb-d03e-46b2-9f67-3e14a25599d0"
+            ],
+            "victims": [
+                "ea6830af-eb1d-4d03-909f-1f037ede6874"
+            ],
+            "raw": "- 8- Ball, Blackjack Bradshaw, Ken Shamrock, Phineas I. Godwinn und The Rock eliminate Kurrgan",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "f371e989-8048-4e20-af30-fa705af01999"
+            ],
+            "victims": [
+                "3b2073fa-5571-41f2-99ab-807817f54982"
+            ],
+            "raw": "- Mankind eliminates Chainsaw Charlie",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9c4b3cb0-65f5-4ae5-b253-fff97c4bd4a1"
+            ],
+            "victims": [
+                "f371e989-8048-4e20-af30-fa705af01999"
+            ],
+            "raw": "- TAFKA Goldust eliminates Mankind",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "161c82e4-30f2-412c-a5a8-08bbf5f184b3"
+            ],
+            "victims": [
+                "7fe509bd-21f5-42e9-a3f4-4ce5798d8e6c"
+            ],
+            "raw": "- Owen Hart eliminates Jeff Jarrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "86ee7bcb-d03e-46b2-9f67-3e14a25599d0"
+            ],
+            "victims": [
+                "5da43abd-d621-47c7-9629-972372bc771a"
+            ],
+            "raw": "- The Rock eliminates Ken Shamrock",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "161c82e4-30f2-412c-a5a8-08bbf5f184b3"
+            ],
+            "victims": [
+                "161c82e4-30f2-412c-a5a8-08bbf5f184b3"
+            ],
+            "raw": "- Owen Hart eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0bc265c3-3007-44f9-acf4-a6d599881499",
+                "e76d78ec-79fc-44a1-a540-966b15402d1d"
+            ],
+            "victims": [
+                "64ecc190-dc6a-4ed2-9c7b-1cd3467ad972"
+            ],
+            "raw": "- D-Lo Brown und Mark Henry eliminate Ahmed Johnson",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e76d78ec-79fc-44a1-a540-966b15402d1d"
+            ],
+            "victims": [
+                "7b71b8ce-dc69-4f3c-ba23-8ea89ee3b560"
+            ],
+            "raw": "- Mark Henry eliminates Phineas I. Godwinn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "b537467b-f3e9-4092-afcc-96915eeecf9c"
+            ],
+            "raw": "- Steve Austin eliminates Marc Mero",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "ca533a10-7d2d-44d7-b432-bd9dc694ecd6"
+            ],
+            "raw": "- Steve Austin eliminates 8-Ball",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d19d4afa-e771-4c6e-9a4b-2c8c9861fb45"
+            ],
+            "victims": [
+                "23193431-9b17-4848-b92e-2cae6b295bbd"
+            ],
+            "raw": "- Dude Love eliminates Blackjack Bradshaw",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d27c3cb9-4dff-4d91-8685-bdfd5cff40e3"
+            ],
+            "victims": [
+                "0bc265c3-3007-44f9-acf4-a6d599881499"
+            ],
+            "raw": "- Faarooq eliminates D-Lo Brown",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e77589d8-c96c-4f97-a62b-4b454037b3c6"
+            ],
+            "victims": [
+                "23c4b4ab-38fd-4fa4-b54f-a6ab450a3dbc"
+            ],
+            "raw": "- Vader eliminates The Honky Tonk Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "39f8c065-32fd-4d5c-9a1b-9da66dc76c12"
+            ],
+            "raw": "- Steve Austin eliminates Thrasher",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "4b708b28-6889-464f-9d7a-3faa1a1f5ebd"
+            ],
+            "raw": "- Steve Austin eliminates Kama",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "b24362b6-08ed-401c-a82c-fa441a833282"
+            ],
+            "raw": "- Steve Austin eliminates Savio Vega",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9c4b3cb0-65f5-4ae5-b253-fff97c4bd4a1"
+            ],
+            "victims": [
+                "e77589d8-c96c-4f97-a62b-4b454037b3c6"
+            ],
+            "raw": "- Goldust eliminates Vader",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "d19d4afa-e771-4c6e-9a4b-2c8c9861fb45"
+            ],
+            "victims": [
+                "92cf08d3-673d-4ea2-b541-02e33e649535"
+            ],
+            "raw": "- Dude Love eliminates Henry O. Godwinn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c2700650-bca9-4b1e-852b-236083731fb7"
+            ],
+            "victims": [
+                "9c4b3cb0-65f5-4ae5-b253-fff97c4bd4a1"
+            ],
+            "raw": "- Chainz eliminates Goldust",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "c2700650-bca9-4b1e-852b-236083731fb7"
+            ],
+            "raw": "- Steve Austin eliminates Chainz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d27c3cb9-4dff-4d91-8685-bdfd5cff40e3"
+            ],
+            "victims": [
+                "e76d78ec-79fc-44a1-a540-966b15402d1d"
+            ],
+            "raw": "- Faarooq eliminates Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d27c3cb9-4dff-4d91-8685-bdfd5cff40e3"
+            ],
+            "victims": [
+                "d19d4afa-e771-4c6e-9a4b-2c8c9861fb45"
+            ],
+            "raw": "- Faarooq eliminates Dude Love",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "86ee7bcb-d03e-46b2-9f67-3e14a25599d0"
+            ],
+            "victims": [
+                "d27c3cb9-4dff-4d91-8685-bdfd5cff40e3"
+            ],
+            "raw": "- The Rock eliminates Faarooq",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5652b34f-4517-4ad6-bba1-fb7162dfed98"
+            ],
+            "victims": [
+                "86ee7bcb-d03e-46b2-9f67-3e14a25599d0"
+            ],
+            "raw": "- Steve Austin eliminates The Rock",
+            "is_valid": true
+        }
+    ]
+}

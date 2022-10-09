@@ -1,0 +1,425 @@
+{
+    "wrestlers": [
+        {
+            "name": "Big John Studd",
+            "cm_id": 310,
+            "id": "d36ff6d7-8a57-47ae-9ffa-7a27ab9e0911"
+        },
+        {
+            "name": "Akeem",
+            "cm_id": 522,
+            "id": "3892db46-1699-48fd-bb4f-29cbefb466a8"
+        },
+        {
+            "name": "Andre The Giant",
+            "cm_id": 926,
+            "id": "379ead88-7a2d-498b-b55f-bbd3da9e7bcd"
+        },
+        {
+            "name": "Arn Anderson",
+            "cm_id": 479,
+            "id": "20911d63-c020-45d0-a7d6-c3b273f8aebb"
+        },
+        {
+            "name": "Ax",
+            "cm_id": 806,
+            "id": "9ce61758-a757-4e7c-abd1-29960c03e001"
+        },
+        {
+            "name": "Bad News Brown",
+            "cm_id": 528,
+            "id": "3e2961fe-f588-4ac9-ad2b-55cb1ef2c0c5"
+        },
+        {
+            "name": "Brutus Beefcake",
+            "cm_id": 689,
+            "id": "084cf5ed-4b1b-4976-90c6-4246cfc5144b"
+        },
+        {
+            "name": "Butch",
+            "cm_id": 1032,
+            "id": "dc7ca336-bc24-4997-8436-c3426c47038d"
+        },
+        {
+            "name": "Greg Valentine",
+            "cm_id": 104,
+            "id": "bd0a4e98-14a5-4dda-9024-92e349429ef8"
+        },
+        {
+            "name": "Hercules",
+            "cm_id": 1500,
+            "id": "760d3714-a817-44cf-8743-cdd268b296ff"
+        },
+        {
+            "name": "Hulk Hogan",
+            "cm_id": 504,
+            "id": "e47feed2-7320-4593-b919-18c70abef92e"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "c89ac4cb-3352-472d-8b69-b9b9cd870476"
+        },
+        {
+            "name": "Koko B. Ware",
+            "cm_id": 57,
+            "id": "fe26263f-0a96-4157-9ff4-a12b09b0e6e2"
+        },
+        {
+            "name": "Luke",
+            "cm_id": 88,
+            "id": "5c6640d0-de3f-4284-acc7-36b8f4935a7a"
+        },
+        {
+            "name": "Marty Jannetty",
+            "cm_id": 988,
+            "id": "e1f1767a-96d4-4059-811b-2ebd538c097e"
+        },
+        {
+            "name": "Mr. Perfect",
+            "cm_id": 1015,
+            "id": "0b9528d0-c465-41bd-b56d-833a6d6106e0"
+        },
+        {
+            "name": "Randy Savage",
+            "cm_id": 640,
+            "id": "d51f32b0-752d-467a-8fb2-6a6bcb2d4c79"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "7f5a65d0-6aa3-4a7d-aa04-809546fece97"
+        },
+        {
+            "name": "Ron Bass",
+            "cm_id": 1031,
+            "id": "41d131d3-6646-48f8-88c1-d1a7ee28a74f"
+        },
+        {
+            "name": "Ronnie Garvin",
+            "cm_id": 1017,
+            "id": "9cdb318e-48c8-4a73-b34b-524c5c4519a1"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "b505cfad-9b6f-4b91-83af-5a1487626d98"
+        },
+        {
+            "name": "Smash",
+            "cm_id": 1069,
+            "id": "57d86458-5e7b-4d45-8c23-335c3bc6cd56"
+        },
+        {
+            "name": "Ted DiBiase",
+            "cm_id": 1034,
+            "id": "543fc4ca-c53b-4915-a8d8-07e2e7783c41"
+        },
+        {
+            "name": "The Barbarian",
+            "cm_id": 413,
+            "id": "d6f55c56-195e-4d2f-bb3a-2bca599daf86"
+        },
+        {
+            "name": "The Big Boss Man",
+            "cm_id": 690,
+            "id": "b0c39052-ff08-42da-85f2-c567550e88bb"
+        },
+        {
+            "name": "The Honky Tonk Man",
+            "cm_id": 156,
+            "id": "81df0e49-077b-439e-9817-07bb1ffcaaf2"
+        },
+        {
+            "name": "The Red Rooster",
+            "cm_id": 1058,
+            "id": "0422e177-538b-4ef3-806f-eca4646be122"
+        },
+        {
+            "name": "The Warlord",
+            "cm_id": 1480,
+            "id": "4d15bc5f-5816-4c36-b68d-67187ddbfa00"
+        },
+        {
+            "name": "Tito Santana",
+            "cm_id": 93,
+            "id": "62db1281-8f0c-4a6f-a1d6-009750643ac8"
+        },
+        {
+            "name": "Tully Blanchard",
+            "cm_id": 378,
+            "id": "35a31721-314e-45ae-b829-ee3b271822a6"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "379ead88-7a2d-498b-b55f-bbd3da9e7bcd"
+            ],
+            "victims": [
+                "57d86458-5e7b-4d45-8c23-335c3bc6cd56"
+            ],
+            "raw": "- Andre The Giant eliminates Smash",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "379ead88-7a2d-498b-b55f-bbd3da9e7bcd"
+            ],
+            "victims": [
+                "9cdb318e-48c8-4a73-b34b-524c5c4519a1"
+            ],
+            "raw": "- Andre The Giant eliminates Ronnie Garvin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "379ead88-7a2d-498b-b55f-bbd3da9e7bcd"
+            ],
+            "victims": [
+                "c89ac4cb-3352-472d-8b69-b9b9cd870476"
+            ],
+            "raw": "- Andre The Giant eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0b9528d0-c465-41bd-b56d-833a6d6106e0"
+            ],
+            "victims": [
+                "9ce61758-a757-4e7c-abd1-29960c03e001"
+            ],
+            "raw": "- Mr. Perfect eliminates Ax",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "379ead88-7a2d-498b-b55f-bbd3da9e7bcd"
+            ],
+            "victims": [
+                "379ead88-7a2d-498b-b55f-bbd3da9e7bcd"
+            ],
+            "raw": "- Andre The Giant eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dc7ca336-bc24-4997-8436-c3426c47038d",
+                "62db1281-8f0c-4a6f-a1d6-009750643ac8"
+            ],
+            "victims": [
+                "81df0e49-077b-439e-9817-07bb1ffcaaf2"
+            ],
+            "raw": "- Butch und Tito Santana eliminate The Honky Tonk Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e1f1767a-96d4-4059-811b-2ebd538c097e",
+                "b505cfad-9b6f-4b91-83af-5a1487626d98"
+            ],
+            "victims": [
+                "41d131d3-6646-48f8-88c1-d1a7ee28a74f"
+            ],
+            "raw": "- Marty Jannetty und Shawn Michaels eliminate Ron Bass",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d51f32b0-752d-467a-8fb2-6a6bcb2d4c79"
+            ],
+            "victims": [
+                "bd0a4e98-14a5-4dda-9024-92e349429ef8"
+            ],
+            "raw": "- Randy Savage eliminates Greg Valentine",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "20911d63-c020-45d0-a7d6-c3b273f8aebb",
+                "d51f32b0-752d-467a-8fb2-6a6bcb2d4c79"
+            ],
+            "victims": [
+                "b505cfad-9b6f-4b91-83af-5a1487626d98"
+            ],
+            "raw": "- Arn Anderson und Randy Savage eliminate Shawn Michaels",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "35a31721-314e-45ae-b829-ee3b271822a6"
+            ],
+            "victims": [
+                "e1f1767a-96d4-4059-811b-2ebd538c097e"
+            ],
+            "raw": "- Tully Blanchard eliminates Marty Jannetty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "0b9528d0-c465-41bd-b56d-833a6d6106e0"
+            ],
+            "raw": "- Hulk Hogan eliminates Mr. Perfect",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "20911d63-c020-45d0-a7d6-c3b273f8aebb",
+                "d51f32b0-752d-467a-8fb2-6a6bcb2d4c79"
+            ],
+            "victims": [
+                "62db1281-8f0c-4a6f-a1d6-009750643ac8"
+            ],
+            "raw": "- Arn Anderson und Randy Savage eliminate Tito Santana",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3e2961fe-f588-4ac9-ad2b-55cb1ef2c0c5"
+            ],
+            "victims": [
+                "dc7ca336-bc24-4997-8436-c3426c47038d"
+            ],
+            "raw": "- Bad News Brown eliminates Butch",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "fe26263f-0a96-4157-9ff4-a12b09b0e6e2"
+            ],
+            "raw": "- Hulk Hogan eliminates Koko B. Ware",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "5c6640d0-de3f-4284-acc7-36b8f4935a7a"
+            ],
+            "raw": "- Hulk Hogan eliminates Luke",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "20911d63-c020-45d0-a7d6-c3b273f8aebb",
+                "35a31721-314e-45ae-b829-ee3b271822a6"
+            ],
+            "raw": "- Hulk Hogan eliminates Arn Anderson und Tully Blanchard",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "4d15bc5f-5816-4c36-b68d-67187ddbfa00"
+            ],
+            "raw": "- Hulk Hogan eliminates The Warlord",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "3e2961fe-f588-4ac9-ad2b-55cb1ef2c0c5",
+                "d51f32b0-752d-467a-8fb2-6a6bcb2d4c79"
+            ],
+            "raw": "- Hulk Hogan eliminates Bad News Brown und Randy Savage",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3892db46-1699-48fd-bb4f-29cbefb466a8",
+                "b0c39052-ff08-42da-85f2-c567550e88bb"
+            ],
+            "victims": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "raw": "- Akeem und The Big Boss Man eliminate Hulk Hogan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47feed2-7320-4593-b919-18c70abef92e"
+            ],
+            "victims": [
+                "b0c39052-ff08-42da-85f2-c567550e88bb"
+            ],
+            "raw": "- Hulk Hogan eliminates The Big Boss Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "543fc4ca-c53b-4915-a8d8-07e2e7783c41"
+            ],
+            "victims": [
+                "0422e177-538b-4ef3-806f-eca4646be122"
+            ],
+            "raw": "- Ted DiBiase eliminates The Red Rooster",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "543fc4ca-c53b-4915-a8d8-07e2e7783c41",
+                "d6f55c56-195e-4d2f-bb3a-2bca599daf86"
+            ],
+            "victims": [
+                "084cf5ed-4b1b-4976-90c6-4246cfc5144b",
+                "760d3714-a817-44cf-8743-cdd268b296ff"
+            ],
+            "raw": "- Ted DiBiase und The Barbarian eliminate Brutus Beefcake und Hercules",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7f5a65d0-6aa3-4a7d-aa04-809546fece97"
+            ],
+            "victims": [
+                "d6f55c56-195e-4d2f-bb3a-2bca599daf86"
+            ],
+            "raw": "- Rick Martel eliminates The Barbarian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3892db46-1699-48fd-bb4f-29cbefb466a8"
+            ],
+            "victims": [
+                "7f5a65d0-6aa3-4a7d-aa04-809546fece97"
+            ],
+            "raw": "- Akeem eliminates Rick Martel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d36ff6d7-8a57-47ae-9ffa-7a27ab9e0911"
+            ],
+            "victims": [
+                "3892db46-1699-48fd-bb4f-29cbefb466a8"
+            ],
+            "raw": "- Big John Studd eliminates Akeem",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d36ff6d7-8a57-47ae-9ffa-7a27ab9e0911"
+            ],
+            "victims": [
+                "543fc4ca-c53b-4915-a8d8-07e2e7783c41"
+            ],
+            "raw": "- Big John Studd eliminates Ted DiBiase ",
+            "is_valid": true
+        }
+    ]
+}

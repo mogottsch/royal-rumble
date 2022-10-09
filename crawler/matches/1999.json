@@ -1,0 +1,452 @@
+{
+    "wrestlers": [
+        {
+            "name": "Vince McMahon",
+            "cm_id": 784,
+            "id": "e44ed1f7-8a70-480c-8fb7-3565912d5cfd"
+        },
+        {
+            "name": "Al Snow",
+            "cm_id": 179,
+            "id": "d7c3d5f8-69b8-48b3-9ed1-3a72e8828522"
+        },
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "e0679a5f-3a75-4b59-8393-00ac2d6ef2ac"
+        },
+        {
+            "name": "Chyna",
+            "cm_id": 641,
+            "id": "891d0b3e-161b-4ee7-b47c-c0aff363179a"
+        },
+        {
+            "name": "D-Lo Brown",
+            "cm_id": 422,
+            "id": "5fb53e14-8e90-4465-88d3-c53f55c9b3b4"
+        },
+        {
+            "name": "Jacqueline",
+            "cm_id": 273,
+            "id": "58addb31-b7aa-4382-9c21-3c6714289ccd"
+        },
+        {
+            "name": "Terri Runnels",
+            "cm_id": 261,
+            "id": "9c5e9f78-4cc6-479d-affe-c8270ed75d94"
+        },
+        {
+            "name": "Dan Severn",
+            "cm_id": 542,
+            "id": "52e28ad6-a885-4729-bf43-344feaed3b19"
+        },
+        {
+            "name": "Droz",
+            "cm_id": 427,
+            "id": "978e1306-3840-4fd7-a6a0-77f0d8e0dd7d"
+        },
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "a850ff56-a70b-4f88-8de9-551de12c4990"
+        },
+        {
+            "name": "Gangrel",
+            "cm_id": 282,
+            "id": "13b0c003-1d54-44dc-a57a-041703c1be0c"
+        },
+        {
+            "name": "Gillberg",
+            "cm_id": 663,
+            "id": "fe972a51-d294-4c22-8399-bf788379a2e2"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "e288db1b-b944-4f88-a4d5-1fa1aeb47463"
+        },
+        {
+            "name": "Golga",
+            "cm_id": 339,
+            "id": "5a96f260-fd71-4518-8de0-ff8e771a943d"
+        },
+        {
+            "name": "Jeff Jarrett",
+            "cm_id": 564,
+            "id": "d5f420b3-2af1-4574-96b8-99ba8199faed"
+        },
+        {
+            "name": "Debra",
+            "cm_id": 1320,
+            "id": "021bfd86-7b6a-4ba1-82c6-7eaa3bc597d2"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "3b213745-e3d0-4029-8a89-67678362eac7"
+        },
+        {
+            "name": "Ken Shamrock",
+            "cm_id": 149,
+            "id": "04886414-37a3-4bc2-9721-a3cd98bd0fe1"
+        },
+        {
+            "name": "Kurrgan",
+            "cm_id": 489,
+            "id": "fc123b07-2181-4971-8c8a-f4dcaec2680d"
+        },
+        {
+            "name": "Mabel",
+            "cm_id": 1077,
+            "id": "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "8ee3a735-854f-43e7-8021-790d2a8ad777"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "4ad124c3-9835-4d9b-999c-0d972e788ec8"
+        },
+        {
+            "name": "Steve Austin",
+            "cm_id": 635,
+            "id": "a83beb92-a959-4ba9-811d-c0476bada64e"
+        },
+        {
+            "name": "Steve Blackman",
+            "cm_id": 537,
+            "id": "0f7fcd24-c677-4622-93d8-907c23c41209"
+        },
+        {
+            "name": "Test",
+            "cm_id": 1047,
+            "id": "102d842d-cb05-436e-a090-c4059c0b230c"
+        },
+        {
+            "name": "The Big Bossman",
+            "cm_id": 690,
+            "id": "d3435277-c528-4e34-8150-6441fb454f5d"
+        },
+        {
+            "name": "The Blue Meanie",
+            "cm_id": 435,
+            "id": "170aef31-f701-432a-a7fe-934c9361a5e0"
+        },
+        {
+            "name": "The Godfather",
+            "cm_id": 901,
+            "id": "74675f2b-f067-4eb3-92ad-5f0bbedeb0b6"
+        },
+        {
+            "name": "The Road Dogg",
+            "cm_id": 760,
+            "id": "b08d5eb8-673d-44b0-a0f5-a33028917fd6"
+        },
+        {
+            "name": "Tiger Ali Singh",
+            "cm_id": 551,
+            "id": "71e0edea-d785-4b78-830b-d9f7fe764eec"
+        },
+        {
+            "name": "Triple H",
+            "cm_id": 496,
+            "id": "2a14b852-04e0-4fee-ac1d-1bfb56feb740"
+        },
+        {
+            "name": "Val Venis",
+            "cm_id": 588,
+            "id": "93aecc47-0e20-4ff4-9e2b-d1d62c556af6"
+        },
+        {
+            "name": "X-Pac",
+            "cm_id": 1063,
+            "id": "7773f940-af41-473a-aceb-7ba8be50e26f"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "5a96f260-fd71-4518-8de0-ff8e771a943d"
+            ],
+            "raw": "- Steve Austin eliminates Golga",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a850ff56-a70b-4f88-8de9-551de12c4990"
+            ],
+            "victims": [
+                "fe972a51-d294-4c22-8399-bf788379a2e2"
+            ],
+            "raw": "- Edge eliminates Gillberg",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+            ],
+            "victims": [
+                "52e28ad6-a885-4729-bf43-344feaed3b19",
+                "0f7fcd24-c677-4622-93d8-907c23c41209"
+            ],
+            "raw": "- Mabel eliminates Dan Severn und Steve Blackman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+            ],
+            "victims": [
+                "71e0edea-d785-4b78-830b-d9f7fe764eec"
+            ],
+            "raw": "- Mabel eliminates Tiger Ali Singh",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+            ],
+            "victims": [
+                "170aef31-f701-432a-a7fe-934c9361a5e0"
+            ],
+            "raw": "- Mabel eliminates The Blue Meanie",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+            ],
+            "victims": [
+                "978e1306-3840-4fd7-a6a0-77f0d8e0dd7d"
+            ],
+            "raw": "- Mabel eliminates Droz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b08d5eb8-673d-44b0-a0f5-a33028917fd6"
+            ],
+            "victims": [
+                "a850ff56-a70b-4f88-8de9-551de12c4990"
+            ],
+            "raw": "- The Road Dogg eliminates Edge",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+            ],
+            "victims": [
+                "5ce64034-01a6-4bdd-b5a0-6f9b5c407e60"
+            ],
+            "raw": "- Mabel eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b08d5eb8-673d-44b0-a0f5-a33028917fd6"
+            ],
+            "victims": [
+                "13b0c003-1d54-44dc-a57a-041703c1be0c"
+            ],
+            "raw": "- The Road Dogg eliminates Gangrel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b08d5eb8-673d-44b0-a0f5-a33028917fd6"
+            ],
+            "victims": [
+                "d7c3d5f8-69b8-48b3-9ed1-3a72e8828522"
+            ],
+            "raw": "- The Road Dogg eliminates Al Snow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b213745-e3d0-4029-8a89-67678362eac7"
+            ],
+            "victims": [
+                "b08d5eb8-673d-44b0-a0f5-a33028917fd6"
+            ],
+            "raw": "- Kane eliminates The Road Dogg",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b213745-e3d0-4029-8a89-67678362eac7"
+            ],
+            "victims": [
+                "fc123b07-2181-4971-8c8a-f4dcaec2680d"
+            ],
+            "raw": "- Kane eliminates Kurrgan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b213745-e3d0-4029-8a89-67678362eac7"
+            ],
+            "victims": [
+                "74675f2b-f067-4eb3-92ad-5f0bbedeb0b6"
+            ],
+            "raw": "- Kane eliminates The Godfather",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b213745-e3d0-4029-8a89-67678362eac7"
+            ],
+            "victims": [
+                "e288db1b-b944-4f88-a4d5-1fa1aeb47463"
+            ],
+            "raw": "- Kane eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b213745-e3d0-4029-8a89-67678362eac7"
+            ],
+            "victims": [
+                "3b213745-e3d0-4029-8a89-67678362eac7"
+            ],
+            "raw": "- Kane eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "04886414-37a3-4bc2-9721-a3cd98bd0fe1"
+            ],
+            "raw": "- Steve Austin eliminates Ken Shamrock",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "e0679a5f-3a75-4b59-8393-00ac2d6ef2ac"
+            ],
+            "raw": "- Steve Austin eliminates Billy Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "102d842d-cb05-436e-a090-c4059c0b230c"
+            ],
+            "raw": "- Steve Austin eliminates Test",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d3435277-c528-4e34-8150-6441fb454f5d"
+            ],
+            "victims": [
+                "7773f940-af41-473a-aceb-7ba8be50e26f"
+            ],
+            "raw": "- The Big Bossman eliminates X-Pac",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2a14b852-04e0-4fee-ac1d-1bfb56feb740"
+            ],
+            "victims": [
+                "d5f420b3-2af1-4574-96b8-99ba8199faed"
+            ],
+            "raw": "- Triple H eliminates Jeff Jarrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "891d0b3e-161b-4ee7-b47c-c0aff363179a"
+            ],
+            "victims": [
+                "8ee3a735-854f-43e7-8021-790d2a8ad777"
+            ],
+            "raw": "- Chyna eliminates Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "891d0b3e-161b-4ee7-b47c-c0aff363179a"
+            ],
+            "raw": "- Steve Austin eliminates Chyna",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2a14b852-04e0-4fee-ac1d-1bfb56feb740"
+            ],
+            "victims": [
+                "93aecc47-0e20-4ff4-9e2b-d1d62c556af6"
+            ],
+            "raw": "- Triple H eliminates Val Venis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "2a14b852-04e0-4fee-ac1d-1bfb56feb740"
+            ],
+            "raw": "- Steve Austin eliminates Triple H",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "4ad124c3-9835-4d9b-999c-0d972e788ec8"
+            ],
+            "raw": "- Steve Austin eliminates Owen Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d3435277-c528-4e34-8150-6441fb454f5d"
+            ],
+            "victims": [
+                "5fb53e14-8e90-4465-88d3-c53f55c9b3b4"
+            ],
+            "raw": "- The Big Bossman eliminates D-Lo Brown",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "victims": [
+                "d3435277-c528-4e34-8150-6441fb454f5d"
+            ],
+            "raw": "- Steve Austin eliminates The Big Bossman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e44ed1f7-8a70-480c-8fb7-3565912d5cfd"
+            ],
+            "victims": [
+                "a83beb92-a959-4ba9-811d-c0476bada64e"
+            ],
+            "raw": "- Vince McMahon eliminates Steve Austin",
+            "is_valid": true
+        }
+    ]
+}

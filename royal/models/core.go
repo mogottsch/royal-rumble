@@ -23,13 +23,15 @@ func GetSchema() *db.Schema {
 		&UserInLobby{},
 		&Wrestler{},
 		&Action{},
-		&Match{},
 	})
 }
 
 func Stringify(v interface{}) string {
 	asJson, _ := json.Marshal(v)
 	var out bytes.Buffer
-	json.Indent(&out, asJson, "=", "\t")
-	return string(out.Bytes())
+	err := json.Indent(&out, asJson, "=", "\t")
+	if err != nil {
+		panic(err)
+	}
+	return out.String()
 }

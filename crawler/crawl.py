@@ -26,14 +26,3 @@ for year in years:
 
     store_match_json(wrestlers, eliminations, path)
     print(f"Stored {year}.json")
-
-# for elimination in eliminations:
-#     if not elimination.is_valid:
-#         print(elimination)
-
-# profile = extract_wrestler_profile(
-#     build_wrestler_profile_soup(
-#         "https://www.cagematch.net/?id=2&nr=2467&name=Becky+Lynch"
-#     )
-# )
-# print(profile)

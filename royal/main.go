@@ -16,6 +16,7 @@ import (
 	"github.com/mogottsch/royal/db"
 	"github.com/mogottsch/royal/middleware"
 	"github.com/mogottsch/royal/models"
+	"github.com/mogottsch/royal/services"
 	"github.com/tkrajina/typescriptify-golang-structs/typescriptify"
 	"gorm.io/gorm"
 )
@@ -31,8 +32,10 @@ func main() {
 		})
 	})
 
+	matchService := services.NewMatchService()
 	userController := controllers.NewUserController(models.NewUserRepo(db))
 	lobbyController := controllers.NewLobbyController(models.NewLobbyRepo(db), models.NewUserRepo(db))
+	matchController := controllers.NewMatchController(matchService)
 
 	r.GET("/user", userController.Retrieve)
 	r.POST("/lobbies", lobbyController.Create)
@@ -41,6 +44,7 @@ func main() {
 	r.GET("/ws", func(c *gin.Context) {
 		controllers.WSHandler(c.Writer, c.Request)
 	})
+	r.GET("/matches", matchController.List)
 
 	err := r.Run()
 
@@ -110,7 +114,7 @@ func generateTSFiles(schema *db.Schema) {
 	// }
 	converter.Add(models.User{})
 	converter.Add(models.Action{})
-	converter.Add(models.Match{})
+	converter.Add(services.Match{})
 
 	err := converter.ConvertToFile("../rumble/src/models.ts")
 	if err != nil {

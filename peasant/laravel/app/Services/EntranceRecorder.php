@@ -44,7 +44,7 @@ class EntranceRecorder
             $this->lobby
         );
 
-        $rumbler->save();
+        $this->lobby->rumblers()->save($rumbler);
 
         $this->lobby = $this->lobby->fresh("rumblers");
 
@@ -60,9 +60,10 @@ class EntranceRecorder
         Lobby $lobby,
         Rumbler $rumbler
     ): void {
+        assert($rumbler->entrance_number > 0);
         $participant = $lobby
             ->participants()
-            ->where("entrance_number", $rumbler->entranceNumber)
+            ->where("entrance_number", $rumbler->entrance_number)
             ->first();
 
         if (!$participant) {

@@ -143,7 +143,7 @@ class EntranceNumberAssigner
 
     public function getNextRumblerEntranceNumber(Lobby $lobby): int
     {
-        $nRumblers = $lobby->rumblers->count();
+        $nRumblers = $lobby->fresh("rumblers")->rumblers->count();
 
         return $nRumblers + 1;
     }
@@ -151,7 +151,7 @@ class EntranceNumberAssigner
     public function getNextParticipantEntranceNumber(Lobby $lobby)
     {
         $nextParticipantEntranceNumber =
-            $lobby->participants->max("entrance_number") + 1;
+            ($lobby->participants->max("entrance_number") ?? 0) + 1;
         $nextRumblerEntranceNumber = $this->getNextRumblerEntranceNumber(
             $lobby
         );

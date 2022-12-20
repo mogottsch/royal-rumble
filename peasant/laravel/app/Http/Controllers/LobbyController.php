@@ -6,25 +6,19 @@ use App\Exceptions\EntranceNumberAssignerException;
 use App\Http\Requests\AssignEntranceNumbersRequest;
 use App\Http\Requests\StoreLobbyRequest;
 use App\Models\Lobby;
-use App\Models\Participant;
 use App\Services\EntranceNumberAssigner;
-use Illuminate\Http\Request;
+use App\Services\LobbyCreator;
 use Illuminate\Http\Response;
-use Tests\Feature\Http\AssignEntranceNumbers;
 
 class LobbyController extends Controller
 {
-    public function store(StoreLobbyRequest $request)
-    {
-        $lobby = Lobby::create();
-        foreach ($request->participants as $participantName) {
-            $participant = new Participant();
-            $participant->name = $participantName;
-            $participant->lobby()->associate($lobby);
-            $participant->save();
-        }
-
-        $lobby->load("participants");
+    public function store(
+        StoreLobbyRequest $request,
+        LobbyCreator $lobbyCreator
+    ) {
+        $lobby = $lobbyCreator->createWithParticipants(
+            collect($request->get("participants"))
+        );
         return response()->json(
             ["data" => ["lobby" => $lobby]],
             Response::HTTP_CREATED

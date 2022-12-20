@@ -75,6 +75,14 @@ class EntranceNumberAssigner
                 EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_SEQUENTIAL
             );
         }
+
+        if (
+            !$this->entranceNumbersStartWithOne($participantsEntranceNumbersMap)
+        ) {
+            throw new EntranceNumberAssignerException(
+                EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE
+            );
+        }
     }
 
     private function correctNumberOfParticipants(
@@ -125,5 +133,28 @@ class EntranceNumberAssigner
             count($participantsEntranceNumbersMap)
         );
         return $sortedEntranceNumbers === $expectedEntranceNumbers;
+    }
+
+    private function entranceNumbersStartWithOne(
+        array $participantsEntranceNumbersMap
+    ) {
+        return min($participantsEntranceNumbersMap) === 1;
+    }
+
+    public function getNextRumblerEntranceNumber(Lobby $lobby): int
+    {
+        $nRumblers = $lobby->rumblers->count();
+
+        return $nRumblers + 1;
+    }
+
+    public function getNextParticipantEntranceNumber(Lobby $lobby)
+    {
+        $nextParticipantEntranceNumber =
+            $lobby->participants->max("entrance_number") + 1;
+        $nextRumblerEntranceNumber = $this->getNextRumblerEntranceNumber(
+            $lobby
+        );
+        return max($nextParticipantEntranceNumber, $nextRumblerEntranceNumber);
     }
 }

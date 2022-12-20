@@ -27,6 +27,8 @@ class EntranceNumberAssignerException extends Exception
                 => "Entrance numbers have to go from 1 to the number of participants.",
             EntranceNumberAssignerErrorCode::UNEXPECTED_NUMBER_OF_PARTICIPANTS
                 => "The number of participants in the lobby is not equal to the number of entrance numbers given.",
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE
+                => "Entrance numbers have to start with 1.",
             default => "Unknown error.",
         };
     }
@@ -39,4 +41,5 @@ enum EntranceNumberAssignerErrorCode
     case ENTRANCE_NUMBERS_ARE_NOT_POSITIVE;
     case ENTRANCE_NUMBERS_ARE_NOT_SEQUENTIAL;
     case UNEXPECTED_NUMBER_OF_PARTICIPANTS;
+    case ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE;
 }

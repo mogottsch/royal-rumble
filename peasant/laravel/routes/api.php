@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LobbyController;
+use App\Http\Controllers\LobbyRumbleController;
+use App\Http\Controllers\RumblerController;
 use App\Http\Controllers\WrestlerController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +29,14 @@ Route::put("/lobbies/{lobby}/entrance-numbers", [
     LobbyController::class,
     "assignEntranceNumbers",
 ])->name("lobbies.assignEntranceNumbers");
+
+Route::post("/lobbies/{lobby}/entrance", [
+    LobbyRumbleController::class,
+    "entrance",
+])->name("lobbies.entrance");
+
+Route::post("/lobbies/{lobby}/elimination", [
+    LobbyRumbleController::class,
+    "elimination",
+])->name("lobbies.elimination");
 // });

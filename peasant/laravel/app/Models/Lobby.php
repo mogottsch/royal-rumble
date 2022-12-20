@@ -10,11 +10,6 @@ class Lobby extends Model
 {
     use HasFactory;
 
-    public function participants()
-    {
-        return $this->hasMany(Participant::class);
-    }
-
     public static function make()
     {
         $lobby = new Lobby();
@@ -33,5 +28,27 @@ class Lobby extends Model
         $lobby = self::make();
         $lobby->save();
         return $lobby;
+    }
+
+    public function participants()
+    {
+        return $this->hasMany(Participant::class);
+    }
+
+    public function rumblers()
+    {
+        return $this->hasMany(Rumbler::class);
+    }
+
+    public function actions()
+    {
+        return $this->hasMany(Action::class);
+    }
+
+    public function latestAction()
+    {
+        return $this->hasMany(Action::class)
+            ->latest()
+            ->first();
     }
 }

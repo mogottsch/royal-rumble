@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Participant extends Model
+class Elimination extends Model
 {
     use HasFactory;
 
@@ -14,8 +14,13 @@ class Participant extends Model
         return $this->belongsTo(Lobby::class);
     }
 
-    public function rumbler()
+    public function rumblerVictims()
     {
-        return $this->belongsTo(Rumbler::class);
+        return $this->belongsToMany(Rumbler::class, "victims");
+    }
+
+    public function rumblerOffenders()
+    {
+        return $this->belongsToMany(Rumbler::class, "offenders");
     }
 }

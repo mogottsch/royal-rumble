@@ -8,7 +8,7 @@ export type StateContextType = {
   isAnyLoading: boolean;
 };
 
-export const StateContext = createContext<StateContextType>({
+export const LoadingAndErrorStateContext = createContext<StateContextType>({
   isLoadingRecord: {},
   setIsLoading: () => {},
   errorRecord: {},
@@ -16,8 +16,8 @@ export const StateContext = createContext<StateContextType>({
   isAnyLoading: false,
 });
 
-export const StateContextProvider = StateContext.Provider;
+export const LoadingAndErrorStateContextProvider = LoadingAndErrorStateContext.Provider;
 
-export const useStateContext = () => {
-  return useContext(StateContext);
+export const useLoadingAndErrorStateContext = () => {
+  return useContext(LoadingAndErrorStateContext);
 };

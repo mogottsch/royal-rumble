@@ -4,19 +4,21 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateJoinLobby from "./routes/create_join_lobby";
-import ErrorPage from "./error-page";
+import ErrorPage from "./error_page";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Landing } from "./routes/layout/landing";
 import { App as AppLayout } from "./routes/layout/app";
-import { useUserFetcher } from "./hooks/use_user_fetcher";
-import { UserContextProvider } from "./contexts/user";
-import { JoinLobby } from "./routes/join_lobby";
-import { Lobby } from "./routes/lobby";
-import { StateContextProvider, useStateContext } from "./contexts/state";
-import { useEffect, useState } from "react";
+import { useLoadingAndErrorStates } from "./hooks/use_loading_and_error_states";
+// contexts
+import { LoadingAndErrorStateContextProvider } from "./contexts/loading_and_error_states";
+
+// routes
 import { CreateLobby } from "./routes/create_lobby";
-import { useStates } from "./hooks/use_states";
-import { useWebsocket } from "./hooks/use_websocket";
+import { AssignEntranceNumbers } from "./routes/assign_entrance_numbers";
+import { ViewGame } from "./routes/view_game";
+import { AddEntrance } from "./routes/add_entrance";
+import { AddElimination } from "./routes/add_elimination";
+import { LobbyLayout } from "./routes/layout/lobby";
 
 const router = createBrowserRouter([
   {
@@ -28,14 +30,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <CreateJoinLobby />,
       },
-      {
-        path: "lobbies/:lobbyCode/join",
-        element: <JoinLobby />,
-      },
-      {
-        path: "lobbies/create",
-        element: <CreateLobby />,
-      },
+      // {
+      //   path: "lobbies/:lobbyCode/join",
+      //   element: <JoinLobby />,
+      // },
     ],
   },
   {
@@ -44,8 +42,31 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "lobbies/:lobbyCode",
-        element: <Lobby />,
+        path: "lobbies/create",
+        element: <CreateLobby />,
+      },
+    ],
+  },
+  {
+    path: "/lobbies/:lobbyCode",
+    element: <LobbyLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "assign-entrance-numbers",
+        element: <AssignEntranceNumbers />,
+      },
+      {
+        path: "view-game",
+        element: <ViewGame />,
+      },
+      {
+        path: "add-entrance",
+        element: <AddEntrance />,
+      },
+      {
+        path: "add-elimination",
+        element: <AddElimination />,
       },
     ],
   },
@@ -53,38 +74,27 @@ const router = createBrowserRouter([
 
 export function App() {
   const {
-    user,
-    isLoading: isLoadingUser,
-    error: errorUser,
-    refetch,
-  } = useUserFetcher();
-
-  const {
     isLoadingRecord,
     errorRecord,
     setKeyLoading,
     setKeyError,
     isAnyLoading,
-  } = useStates({ isLoadingUser, errorUser });
+  } = useLoadingAndErrorStates();
 
-  useWebsocket();
+  // useWebsocket();
 
   return (
-    <UserContextProvider
-      value={{ user, isLoading: isLoadingUser, error: errorUser, refetch }}
+    <LoadingAndErrorStateContextProvider
+      value={{
+        isLoadingRecord,
+        setIsLoading: setKeyLoading,
+        errorRecord,
+        setError: setKeyError,
+        isAnyLoading,
+      }}
     >
-      <StateContextProvider
-        value={{
-          isLoadingRecord,
-          setIsLoading: setKeyLoading,
-          errorRecord,
-          setError: setKeyError,
-          isAnyLoading,
-        }}
-      >
-        <CssBaseline />
-        <RouterProvider router={router} />
-      </StateContextProvider>
-    </UserContextProvider>
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </LoadingAndErrorStateContextProvider>
   );
 }

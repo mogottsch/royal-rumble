@@ -19,8 +19,8 @@ export function Landing() {
       >
         <img
           src={logo}
-          className="logo react"
-          alt="React logo"
+          className="logo royal rumble"
+          alt="logo royal rumble"
           css={css`
             width: 100%;
           `}

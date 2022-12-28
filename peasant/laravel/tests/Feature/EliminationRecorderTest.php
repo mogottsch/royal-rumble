@@ -8,6 +8,7 @@ use App\Models\Action;
 use App\Models\Lobby;
 use App\Models\Wrestler;
 use App\Services\EliminationRecorder;
+use App\Services\EntranceNumberAssigner;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -16,6 +17,7 @@ class EliminationRecorderTest extends TestCase
 {
     private Lobby $lobby;
     private EliminationRecorder $eliminationRecorder;
+    private EntranceNumberAssigner $entranceNumberAssigner;
 
     const FIRST_RUMBLER = 0; // eliminated
     const SECOND_RUMBLER = 1;
@@ -34,6 +36,7 @@ class EliminationRecorderTest extends TestCase
         $this->lobby = Lobby::all()->last();
 
         $this->eliminationRecorder = app(EliminationRecorder::class);
+        $this->entranceNumberAssigner = app(EntranceNumberAssigner::class);
     }
 
     public function test_record_1o1_elimination()
@@ -44,6 +47,11 @@ class EliminationRecorderTest extends TestCase
         $offenders = new Collection([$rumblers[self::SECOND_RUMBLER]]);
 
         $nActionsBefore = $this->lobby->actions->count();
+        $victimParticipant = $victims->first()->participant;
+        $entranceNumberBefore = $victimParticipant->entrance_number;
+        $expectedEntranceNumberAfter = $this->entranceNumberAssigner->getNextParticipantEntranceNumber(
+            $this->lobby
+        );
 
         $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
 
@@ -52,6 +60,8 @@ class EliminationRecorderTest extends TestCase
         $elimination = $latestAction->elimination;
         $eliminationOffenders = $elimination->rumblerOffenders;
         $eliminationVictims = $elimination->rumblerVictims;
+        $victimParticipantAfter = $victimParticipant->fresh();
+        $entranceNumberAfter = $victimParticipantAfter->entrance_number;
 
         $this->assertEquals($nActionsBefore + 1, $nActionsAfter);
         $this->assertEquals($latestAction->getType(), Action::TYPE_ELIMINATION);
@@ -61,6 +71,8 @@ class EliminationRecorderTest extends TestCase
 
         $this->assertEquals($eliminationVictims->count(), 1);
         $this->assertEquals($eliminationVictims[0]->id, $victims[0]->id);
+        $this->assertGreaterThan($entranceNumberBefore, $entranceNumberAfter);
+        $this->assertEquals($entranceNumberAfter, $expectedEntranceNumberAfter);
     }
 
     public function test_record_1o2_elimination()

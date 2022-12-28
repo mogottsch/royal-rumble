@@ -5,9 +5,12 @@ namespace App\Services;
 use App\Exceptions\EntranceNumberAssignerErrorCode;
 use App\Exceptions\EntranceNumberAssignerException;
 use App\Models\Lobby;
+use App\Models\Participant;
 
 class EntranceNumberAssigner
 {
+    const NEXT_OFFSET = 1;
+
     public function assignEntranceNumbers(
         Lobby $lobby,
         array $participantsEntranceNumbersMap
@@ -145,16 +148,35 @@ class EntranceNumberAssigner
     {
         $nRumblers = $lobby->fresh("rumblers")->rumblers->count();
 
-        return $nRumblers + 1;
+        return $nRumblers + self::NEXT_OFFSET;
     }
 
     public function getNextParticipantEntranceNumber(Lobby $lobby)
     {
         $nextParticipantEntranceNumber =
-            ($lobby->participants->max("entrance_number") ?? 0) + 1;
+            $this->getHighestParticipantEntranceNumber($lobby) +
+            self::NEXT_OFFSET;
+
         $nextRumblerEntranceNumber = $this->getNextRumblerEntranceNumber(
             $lobby
         );
         return max($nextParticipantEntranceNumber, $nextRumblerEntranceNumber);
+    }
+
+    private function getHighestParticipantEntranceNumber(Lobby $lobby)
+    {
+        return $lobby
+            ->fresh("participants")
+            ->participants->max("entrance_number");
+    }
+
+    public function assignParticipantNextEntranceNumber(
+        Lobby $lobby,
+        Participant $participant
+    ) {
+        $participant->entrance_number = $this->getNextParticipantEntranceNumber(
+            $lobby
+        );
+        $participant->save();
     }
 }

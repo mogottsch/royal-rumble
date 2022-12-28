@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::middleware('auth:sanctum')->group(function () {
+Route::get("/lobbies/{lobby:code}", [LobbyController::class, "get"])->name(
+    "lobbies.get"
+);
 Route::post("/lobbies", [LobbyController::class, "store"])->name(
     "lobbies.store"
 );

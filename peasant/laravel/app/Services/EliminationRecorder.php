@@ -14,8 +14,10 @@ use InvalidArgumentException;
 
 class EliminationRecorder
 {
-    public function __construct(private ActionRecorder $actionRecorder)
-    {
+    public function __construct(
+        private ActionRecorder $actionRecorder,
+        private EntranceNumberAssigner $entranceNumberAssigner
+    ) {
     }
 
     public function record(
@@ -26,6 +28,8 @@ class EliminationRecorder
         $this->validateRumblers($lobby, $offenders, $victims);
 
         $elimination = $this->createElimination($offenders, $victims);
+
+        $this->assignNewEntranceNumbers($lobby, $victims);
 
         $this->actionRecorder->recordElimination($lobby, $elimination);
 
@@ -162,5 +166,19 @@ class EliminationRecorder
         $victim->save();
 
         return $victim;
+    }
+
+    private function assignNewEntranceNumbers(Lobby $lobby, Collection $victims)
+    {
+        foreach ($victims as $rumbler) {
+            if (!$rumbler->participant) {
+                continue;
+            }
+
+            $this->entranceNumberAssigner->assignParticipantNextEntranceNumber(
+                $lobby,
+                $rumbler->participant
+            );
+        }
     }
 }

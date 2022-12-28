@@ -12,6 +12,15 @@ use Illuminate\Http\Response;
 
 class LobbyController extends Controller
 {
+    public function get(Lobby $lobby)
+    {
+        $lobby->load(["participants", "rumblers", "actions"]);
+        return response()->json(
+            ["data" => ["lobby" => $lobby]],
+            Response::HTTP_CREATED
+        );
+    }
+
     public function store(
         StoreLobbyRequest $request,
         LobbyCreator $lobbyCreator

@@ -6,7 +6,8 @@ import FormControl from "@mui/material/FormControl";
 import { Box, InputLabel } from "@mui/material";
 import { css } from "@emotion/react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { InputField } from "../components/form";
+import { PrimaryButton } from "../components/buttons";
 
 export default function CreateJoinLobby() {
   const [lobbyCode, setLobbyCode] = useState("");
@@ -20,40 +21,31 @@ export default function CreateJoinLobby() {
         justifyContent: "center",
       }}
     >
-      <FormControl
-        css={css`
-          width: 100%;
-        `}
-      >
-        <InputLabel htmlFor="lobby-code">LOBBY CODE</InputLabel>
-        <Input
-          id="lobby-code"
-          value={lobbyCode}
-          onChange={(e) => setLobbyCode(e.target.value)}
-        />
-      </FormControl>
-      <Button
-        variant="outlined"
-        css={css`
-          width: 100%;
-        `}
+      <InputField
+        label="Lobby code"
+        htmlFor="lobby-code"
+        id="lobby-code"
+        value={lobbyCode}
+        onChange={setLobbyCode}
+      />
+      <PrimaryButton
         sx={{ mt: 2 }}
-        size="large"
         href={`/lobbies/${lobbyCode}`}
+        css={css`
+          width: 100%;
+        `}
       >
         JOIN
-      </Button>
-      <Button
-        variant="outlined"
+      </PrimaryButton>
+      <PrimaryButton
         css={css`
           width: 100%;
         `}
         sx={{ mt: 5 }}
-        size="large"
         href="/lobbies/create"
       >
         CREATE
-      </Button>
+      </PrimaryButton>
     </Box>
   );
 }

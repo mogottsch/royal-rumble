@@ -26,6 +26,7 @@ class LobbySeeder extends Seeder
             ->create();
 
         $this->updateParticipantEntranceNumbers($lobbies);
+        $this->updateRumblersEntranceNumbers($lobbies);
         $this->assignRumblersToParticipants($lobbies);
     }
 
@@ -45,6 +46,22 @@ class LobbySeeder extends Seeder
         });
     }
 
+    private function updateRumblersEntranceNumbers($lobbies)
+    {
+        foreach ($lobbies as $lobby) {
+            $this->updateRumblersEntranceNumbersIn($lobby);
+        }
+    }
+
+    private function updateRumblersEntranceNumbersIn(Lobby $lobby)
+    {
+        $rumblers = $lobby->rumblers;
+        $rumblers->each(function ($rumbler, $index) {
+            $rumbler->entrance_number = $index + 1;
+            $rumbler->save();
+        });
+    }
+
     private function assignRumblersToParticipants($lobbies)
     {
         foreach ($lobbies as $lobby) {
@@ -57,12 +74,14 @@ class LobbySeeder extends Seeder
         $participants = $lobby->participants;
         $rumblers = $lobby->rumblers;
         foreach ($rumblers as $rumbler) {
-            $participant = $participants->random();
-            if ($participant->rumbler_id) {
+            $participant = $participants->firstWhere(
+                "entrance_number",
+                $rumbler->entrance_number
+            );
+            if (!$participant) {
                 continue;
             }
-            $participant->rumbler_id = $rumbler->id;
-            $rumbler->entrance_number = $participant->entrance_number;
+            $participant->rumbler()->associate($rumbler);
             $participant->save();
         }
     }

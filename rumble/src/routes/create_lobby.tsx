@@ -43,7 +43,7 @@ export function CreateLobby() {
     }
     setErrorMessages([]);
     const lobby = await postCreateLobby(participantNames);
-    navigate(`/lobbies/${lobby.code}`);
+    navigate(`/lobbies/${lobby.code}/assign-entrance-numbers`);
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

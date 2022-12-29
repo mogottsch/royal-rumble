@@ -28,7 +28,7 @@ Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
     "wrestlers.search"
 );
 
-Route::put("/lobbies/{lobby}/entrance-numbers", [
+Route::put("/lobbies/{lobby:code}/entrance-numbers", [
     LobbyController::class,
     "assignEntranceNumbers",
 ])->name("lobbies.assignEntranceNumbers");
@@ -43,3 +43,7 @@ Route::post("/lobbies/{lobby}/elimination", [
     "elimination",
 ])->name("lobbies.elimination");
 // });
+//
+Route::get("/test/", function () {
+    return env("PUSHER_HOST");
+});

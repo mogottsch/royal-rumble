@@ -5,8 +5,10 @@ import { Box } from "@mui/material";
 import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { useNavigate } from "react-router-dom";
 
 export function AssignEntranceNumbers() {
+  const navigate = useNavigate();
   const { lobby } = useLobbyContext();
   const [selectedParticipantId, setSelectedParticipantId] = useState<number>();
   const toggleParticipant = (participantId: number) => {
@@ -77,11 +79,27 @@ export function AssignEntranceNumbers() {
     toggleParticipant(participantId);
   };
 
+  const allAssigned = assignedEntranceNumbers.length === nParticipants;
+
+  const assignEntranceNumbers = async () => {
+    if (participantEntranceNumber === undefined || !allAssigned) {
+      console.error("Not all participants have been assigned entrance numbers");
+      alert("Not all participants have been assigned entrance numbers");
+      return;
+    }
+    const updatedLobby = await putEntranceNumbers(
+      lobby.code,
+      participantEntranceNumber
+    );
+    navigate(`/lobbies/${lobby.code}/view-game`);
+  };
+
   return (
     <>
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           height: "100%",
           justifyContent: "center",
         }}
@@ -100,9 +118,10 @@ export function AssignEntranceNumbers() {
                 : "outlined"
             }
             css={css`
-              width: 50px;
+              width: 100px;
+              height: 60px;
             `}
-            sx={{ mt: 2 }}
+            sx={{ my: 1, mx: 1 }}
             size="large"
             onClick={() => toggleEntranceNumber(entranceNumber)}
           >
@@ -115,7 +134,7 @@ export function AssignEntranceNumbers() {
           display: "flex",
           flexDirection: "column",
           height: "100%",
-          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         {lobby.participants.map((participant, i) => {
@@ -133,9 +152,9 @@ export function AssignEntranceNumbers() {
                   : "outlined"
               }
               css={css`
-                width: 80%;
+                width: 308px;
               `}
-              sx={{ mt: 2 }}
+              sx={{ my: 1 }}
               size="large"
               onClick={() => handleParticipantClick(participant.id)}
             >
@@ -160,11 +179,34 @@ export function AssignEntranceNumbers() {
           `}
           sx={{ mt: 5 }}
           size="large"
-          href={`/lobbies/${lobby?.code}/entrance-numbers`} // request
+          onClick={assignEntranceNumbers}
         >
           START ROYAL RUMBLE
         </Button>
       </Box>
     </>
   );
+}
+
+async function putEntranceNumbers(
+  lobbyCode: string,
+  entranceNumbers: Record<number, number>
+) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const body = JSON.stringify({ participantEntranceNumbers: entranceNumbers });
+  const url = new URL(`api/lobbies/${lobbyCode}/entrance-numbers`, BACKEND_URL);
+  const response = await fetch(url.toString(), {
+    method: "PUT",
+    body,
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to post entrance numbers: ${response.statusText}`);
+  }
+  const data = await response.json();
+  return data.data.lobby;
 }

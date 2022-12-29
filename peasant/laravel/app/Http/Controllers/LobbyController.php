@@ -14,7 +14,7 @@ class LobbyController extends Controller
 {
     public function get(Lobby $lobby)
     {
-        $lobby->load(["participants", "rumblers", "actions"]);
+        $lobby->load(["participants", "rumblers", "rumblers.wrestler", "actions"]);
         return response()->json(
             ["data" => ["lobby" => $lobby]],
             Response::HTTP_CREATED

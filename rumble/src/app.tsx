@@ -19,6 +19,8 @@ import { ViewGame } from "./routes/view_game";
 import { AddEntrance } from "./routes/add_entrance";
 import { AddElimination } from "./routes/add_elimination";
 import { LobbyLayout } from "./routes/layout/lobby";
+import { useEcho } from "./hooks/use_echo";
+import { EchoContextProvider } from "./contexts/echo_context";
 
 const router = createBrowserRouter([
   {
@@ -81,7 +83,7 @@ export function App() {
     isAnyLoading,
   } = useLoadingAndErrorStates();
 
-  // useWebsocket();
+  const echo = useEcho();
 
   return (
     <LoadingAndErrorStateContextProvider
@@ -93,8 +95,10 @@ export function App() {
         isAnyLoading,
       }}
     >
-      <CssBaseline />
-      <RouterProvider router={router} />
+      <EchoContextProvider value={{ echo }}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </EchoContextProvider>
     </LoadingAndErrorStateContextProvider>
   );
 }

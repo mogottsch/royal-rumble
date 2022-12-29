@@ -4,13 +4,40 @@ import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { useEffect, useState } from "react";
+
+interface Row {
+  participantName: string;
+  wrestlerName: string;
+}
 
 export function ViewGame() {
   const { lobby } = useLobbyContext();
 
+  const [rows, setRows] = useState<Row[]>();
+  useEffect(() => {
+    const currentRows: Row[] = [];
+    lobby?.participants.forEach((participant) => {
+      currentRows.push({
+        participantName: participant.name,
+        wrestlerName:
+          lobby.rumblers[participant.rumbler_id] == null
+            ? `Awaiting #${participant.entrance_number}`
+            : lobby.rumblers[participant.rumbler_id].wrestler.name,
+      });
+    });
+    lobby?.rumblers.forEach((rumbler) => {
+      if(currentRows.filter(row => row.wrestlerName == rumbler.wrestler.name).length === 0) {
+        currentRows.push({participantName: "NPC", wrestlerName: rumbler.wrestler.name});
+      }
+    });
+    setRows(currentRows);
+  }, [lobby]);
+
   if (!lobby) return null;
 
-  return <>
+  return (
+    <>
       <Box
         sx={{
           display: "flex",
@@ -18,27 +45,30 @@ export function ViewGame() {
           justifyContent: "center",
         }}
       >
-        {lobby.participants.map((participant, i) => {
+        {rows?.map((row, i) => {
           return (
             <>
               <Box
                 sx={{
-                  width: "50%",
+                  width: "150px",
+                  margin: "5px",
                   justifyContent: "center",
                 }}
               >
-                {participant.name}
+                {row.participantName}
               </Box>
               <Box
                 sx={{
-                  width: "50%",
+                  width: "150px",
+                  margin: "5px",
                   justifyContent: "center",
                 }}
               >
-                {participant.name} // participant.wrestler.name
+                {row.wrestlerName}
               </Box>
             </>
-          )})}
+          );
+        })}
       </Box>
       <Box
         sx={{
@@ -57,7 +87,7 @@ export function ViewGame() {
           size="large"
           href={`/lobbies/${lobby.code}/add-entrance`}
         >
-          ADD ENTRANCE
+          NEXT ENTRANCE
         </Button>
         <Button
           variant="outlined"
@@ -68,8 +98,9 @@ export function ViewGame() {
           size="large"
           href={`/lobbies/${lobby.code}/add-elimination`}
         >
-          ADD ELIMINATATION
+          NEXT ELIMINATATION
         </Button>
       </Box>
     </>
+  );
 }

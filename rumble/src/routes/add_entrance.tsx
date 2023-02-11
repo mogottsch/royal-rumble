@@ -7,23 +7,30 @@ import { useLobbyContext } from "../contexts/lobby_context";
 import { useEffect, useState } from "react";
 import { InputField } from "../components/form";
 import { useNavigate } from "react-router-dom";
+import { Lobby, Wrestler } from "../hooks/use_lobby";
 
 export function AddEntrance() {
   const navigate = useNavigate();
   const { lobby } = useLobbyContext();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [wrestler, setWrestler] = useState<Wrestler | undefined>();
 
   if (!lobby) return null;
 
+  const searchWrestler = async () => {
+    const wrestlers = await getSearchWrestlers(searchTerm);
+    if (wrestlers.length === 0) {
+      return;
+    }
+    const firstWrestler = wrestlers[0];
+    setWrestler(firstWrestler);
+    setSearchTerm(firstWrestler.name);
+  };
+
   const addEntrance = async () => {
-    // if (participantEntranceNumber === undefined || !allAssigned) {
-    //   console.error("Not all participants have been assigned entrance numbers");
-    //   alert("Not all participants have been assigned entrance numbers");
-    //   return;
-    // }
-    // const updatedLobby = await putEntranceNumbers(
-    //   lobby.code,
-    //   participantEntranceNumber
-    // );
+    if (wrestler === undefined) return;
+    await postEntrance(lobby.code, wrestler.id);
+    console.log("added entrance");
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
 
@@ -31,20 +38,25 @@ export function AddEntrance() {
     <>
       <Box
         sx={{
-          display: "flex",
           height: "100%",
-          justifyContent: "center",
         }}
       >
-        <InputField label="Lobby code" htmlFor="lobby-code" id="wrestlerName" />
+        <InputField
+          label="Wrestler name"
+          htmlFor="wrestler-name"
+          id="wrestlerName"
+          value={searchTerm}
+          onChange={(value) => setSearchTerm(value)}
+        />
         <Button
           variant="outlined"
           css={css`
-            width: 50%;
+            width: 100%;
+            height: 50px;
           `}
           sx={{ mt: 5 }}
           size="large"
-          onClick={addEntrance}
+          onClick={searchWrestler}
         >
           FIND
         </Button>
@@ -60,18 +72,19 @@ export function AddEntrance() {
         <Button
           variant="outlined"
           css={css`
-            width: 50%;
+            width: 100%;
           `}
           sx={{ mt: 5 }}
           size="large"
           onClick={addEntrance}
+          disabled={wrestler === undefined}
         >
           ADD ENTRANCE
         </Button>
         <Button
           variant="outlined"
           css={css`
-            width: 50%;
+            width: 100%;
           `}
           sx={{ mt: 5 }}
           size="large"
@@ -82,4 +95,45 @@ export function AddEntrance() {
       </Box>
     </>
   );
+}
+
+async function getSearchWrestlers(wrestlerName: string): Promise<Wrestler[]> {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const url = new URL("api/wrestlers/search", BACKEND_URL);
+
+  const queryParams = new URLSearchParams();
+  queryParams.append("search", wrestlerName);
+  url.search = queryParams.toString();
+
+  console.log(url.toString());
+  const response = await fetch(url.toString(), {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to get search wrestlers: ${response.statusText}`);
+  }
+  const data = await response.json();
+  return data.data;
+}
+
+async function postEntrance(lobbyCode: string, wrestlerId: number) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const body = JSON.stringify({ wrestler_id: wrestlerId });
+  const url = new URL(`api/lobbies/${lobbyCode}/entrance`, BACKEND_URL);
+  const response = await fetch(url.toString(), {
+    method: "POST",
+    body,
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to post entrance: ${response.statusText}`);
+  }
 }

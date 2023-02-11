@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\LobbyUpdated;
 use App\Models\Action;
 use App\Models\Elimination;
 use App\Models\Lobby;
@@ -34,6 +35,8 @@ class ActionRecorder
         $action->index = $this->getNextActionIndex($lobby);
 
         $action->save();
+
+        LobbyUpdated::dispatch($lobby);
 
         return $action;
     }

@@ -28,17 +28,17 @@ Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
     "wrestlers.search"
 );
 
-Route::put("/lobbies/{lobby:code}/entrance-numbers", [
-    LobbyController::class,
-    "assignEntranceNumbers",
-])->name("lobbies.assignEntranceNumbers");
-
-Route::post("/lobbies/{lobby}/entrance", [
+Route::post("/lobbies/{lobby:code}/entrance", [
     LobbyRumbleController::class,
     "entrance",
 ])->name("lobbies.entrance");
 
-Route::post("/lobbies/{lobby}/elimination", [
+Route::post("/lobbies/{lobby:code}/entrance-numbers", [
+    LobbyController::class,
+    "assignEntranceNumbers",
+])->name("lobbies.assignEntranceNumbers");
+
+Route::post("/lobbies/{lobby:code}/elimination", [
     LobbyRumbleController::class,
     "elimination",
 ])->name("lobbies.elimination");

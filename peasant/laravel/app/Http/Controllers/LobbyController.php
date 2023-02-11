@@ -14,10 +14,10 @@ class LobbyController extends Controller
 {
     public function get(Lobby $lobby)
     {
-        $lobby->load(["participants", "rumblers", "rumblers.wrestler", "actions"]);
+        $lobby->loadFrontendEssentials();
         return response()->json(
             ["data" => ["lobby" => $lobby]],
-            Response::HTTP_CREATED
+            Response::HTTP_OK
         );
     }
 

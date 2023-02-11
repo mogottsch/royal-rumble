@@ -6,10 +6,12 @@ import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNavigate } from "react-router-dom";
+import { useEchoContext } from "../contexts/echo_context";
 
 export function AssignEntranceNumbers() {
   const navigate = useNavigate();
   const { lobby } = useLobbyContext();
+
   const [selectedParticipantId, setSelectedParticipantId] = useState<number>();
   const toggleParticipant = (participantId: number) => {
     if (selectedParticipantId === participantId) {
@@ -196,7 +198,7 @@ async function putEntranceNumbers(
   const body = JSON.stringify({ participantEntranceNumbers: entranceNumbers });
   const url = new URL(`api/lobbies/${lobbyCode}/entrance-numbers`, BACKEND_URL);
   const response = await fetch(url.toString(), {
-    method: "PUT",
+    method: "POST",
     body,
     headers: {
       accept: "application/json",

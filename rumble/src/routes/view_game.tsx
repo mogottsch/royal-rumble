@@ -27,8 +27,14 @@ export function ViewGame() {
       });
     });
     lobby?.rumblers.forEach((rumbler) => {
-      if(currentRows.filter(row => row.wrestlerName == rumbler.wrestler.name).length === 0) {
-        currentRows.push({participantName: "NPC", wrestlerName: rumbler.wrestler.name});
+      if (
+        currentRows.filter((row) => row.wrestlerName == rumbler.wrestler.name)
+          .length === 0
+      ) {
+        currentRows.push({
+          participantName: "NPC",
+          wrestlerName: rumbler.wrestler.name,
+        });
       }
     });
     setRows(currentRows);
@@ -41,32 +47,45 @@ export function ViewGame() {
       <Box
         sx={{
           display: "flex",
+          flexDirection: "column",
           height: "100%",
           justifyContent: "center",
         }}
       >
         {rows?.map((row, i) => {
           return (
-            <>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+                margin: "5px",
+              }}
+              key={i}
+            >
               <Box
                 sx={{
-                  width: "150px",
+                  width: "180px",
                   margin: "5px",
+                  padding: "7px",
                   justifyContent: "center",
+                  border: "1px solid #90caf9",
                 }}
               >
                 {row.participantName}
               </Box>
               <Box
                 sx={{
-                  width: "150px",
+                  width: "180px",
                   margin: "5px",
+                  padding: "7px",
                   justifyContent: "center",
+                  border: "1px solid #90caf9",
                 }}
               >
                 {row.wrestlerName}
               </Box>
-            </>
+            </Box>
           );
         })}
       </Box>
@@ -81,7 +100,7 @@ export function ViewGame() {
         <Button
           variant="outlined"
           css={css`
-            width: 50%;
+            width: 100%;
           `}
           sx={{ mt: 5 }}
           size="large"
@@ -92,7 +111,7 @@ export function ViewGame() {
         <Button
           variant="outlined"
           css={css`
-            width: 50%;
+            width: 100%;
           `}
           sx={{ mt: 5 }}
           size="large"

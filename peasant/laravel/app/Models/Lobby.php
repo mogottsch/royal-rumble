@@ -51,4 +51,14 @@ class Lobby extends Model
             ->latest()
             ->first();
     }
+
+    public function loadFrontendEssentials()
+    {
+        $this->load([
+            "participants",
+            "rumblers",
+            "rumblers.wrestler",
+            "actions",
+        ]);
+    }
 }

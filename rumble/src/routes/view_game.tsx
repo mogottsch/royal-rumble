@@ -5,39 +5,46 @@ import { Box } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useEffect, useState } from "react";
+import { Participant, Rumbler } from "../hooks/use_lobby";
 
 interface Row {
-  participantName: string;
-  wrestlerName: string;
+  participant?: Participant;
+  rumbler?: Rumbler;
 }
 
 export function ViewGame() {
   const { lobby } = useLobbyContext();
 
   const [rows, setRows] = useState<Row[]>();
+  const foundRumblers = new Set<number>();
   useEffect(() => {
-    const currentRows: Row[] = [];
-    lobby?.participants.forEach((participant) => {
-      currentRows.push({
-        participantName: participant.name,
-        wrestlerName:
-          lobby.rumblers[participant.rumbler_id] == null
-            ? `Awaiting #${participant.entrance_number}`
-            : lobby.rumblers[participant.rumbler_id].wrestler.name,
-      });
-    });
-    lobby?.rumblers.forEach((rumbler) => {
-      if (
-        currentRows.filter((row) => row.wrestlerName == rumbler.wrestler.name)
-          .length === 0
-      ) {
-        currentRows.push({
-          participantName: "NPC",
-          wrestlerName: rumbler.wrestler.name,
-        });
+    const rumblers = lobby?.rumblers || [];
+    const participants = lobby?.participants || [];
+    const participantRumblerTuple: Row[] = [];
+    for (const participant of participants) {
+      const rumbler = rumblers.find(
+        (rumbler) => rumbler.id === participant.rumbler_id
+      );
+      if (rumbler) {
+        foundRumblers.add(rumbler.id);
       }
-    });
-    setRows(currentRows);
+      const row: Row = {
+        participant,
+        rumbler,
+      };
+      participantRumblerTuple.push(row);
+    }
+
+    for (const rumbler of rumblers) {
+      if (!foundRumblers.has(rumbler.id)) {
+        const row: Row = {
+          rumbler,
+        };
+        participantRumblerTuple.push(row);
+      }
+    }
+
+    setRows(participantRumblerTuple);
   }, [lobby]);
 
   if (!lobby) return null;
@@ -72,7 +79,7 @@ export function ViewGame() {
                   border: "1px solid #90caf9",
                 }}
               >
-                {row.participantName}
+                {row.participant?.name ?? "NPC"}
               </Box>
               <Box
                 sx={{
@@ -83,7 +90,8 @@ export function ViewGame() {
                   border: "1px solid #90caf9",
                 }}
               >
-                {row.wrestlerName}
+                {row.rumbler?.wrestler.name ??
+                  `Awaiting #${row.participant?.entrance_number}`}
               </Box>
             </Box>
           );

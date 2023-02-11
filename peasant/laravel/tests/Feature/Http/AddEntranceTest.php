@@ -4,13 +4,13 @@ namespace Tests\Feature\Http;
 
 use App\Models\Lobby;
 use App\Models\Wrestler;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 
 class AddEntranceTest extends TestCase
 {
+    private Lobby $lobby;
+
     public function setUp(): void
     {
         parent::setUp();

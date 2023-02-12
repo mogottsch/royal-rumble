@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-export WWWUSER=${UID}
-export WWWGROUP=${GID}
+export WWWUSER=${UID:-1000}
+export WWWGROUP=${GID:-1000}
 
-./peasant/laravel/vendor/laravel/sail/bin/sail build && docker compose up -d
+docker compose build && docker compose up -d
 
 docker compose exec api php artisan cache:clear
 docker compose exec api php artisan config:cache

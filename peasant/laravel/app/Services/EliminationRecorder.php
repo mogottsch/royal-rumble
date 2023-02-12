@@ -22,8 +22,8 @@ class EliminationRecorder
 
     public function record(
         Lobby $lobby,
-        Collection $offenders,
-        Collection $victims
+        Collection $victims,
+        Collection $offenders
     ) {
         $this->validateRumblers($lobby, $offenders, $victims);
 

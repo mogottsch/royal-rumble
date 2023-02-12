@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Http\Resources\LobbyResource;
 use App\Models\Lobby;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -15,14 +16,15 @@ class LobbyUpdated implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public LobbyResource $lobby;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(public Lobby $lobby)
+    public function __construct(private Lobby $lobbyModel)
     {
-        $lobby->loadFrontendEssentials();
+        $this->lobby = new LobbyResource($this->lobbyModel);
     }
 
     /**

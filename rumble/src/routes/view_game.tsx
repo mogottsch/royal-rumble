@@ -18,7 +18,9 @@ export function ViewGame() {
   const [rows, setRows] = useState<Row[]>();
   const foundRumblers = new Set<number>();
   useEffect(() => {
-    const rumblers = lobby?.rumblers || [];
+    const rumblers = (lobby?.rumblers || []).filter(
+      (rumbler) => !rumbler.is_eliminated
+    );
     const participants = lobby?.participants || [];
     const participantRumblerTuple: Row[] = [];
     for (const participant of participants) {

@@ -54,7 +54,7 @@ class Lobby extends Model
 
     public function loadFrontendEssentials()
     {
-        $this->load([
+        $this->loadMissing([
             "participants",
             "rumblers",
             "rumblers.wrestler",

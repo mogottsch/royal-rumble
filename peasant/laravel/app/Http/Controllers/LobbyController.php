@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\EntranceNumberAssignerException;
 use App\Http\Requests\AssignEntranceNumbersRequest;
 use App\Http\Requests\StoreLobbyRequest;
+use App\Http\Resources\LobbyResource;
 use App\Models\Lobby;
 use App\Services\EntranceNumberAssigner;
 use App\Services\LobbyCreator;
@@ -14,9 +15,8 @@ class LobbyController extends Controller
 {
     public function get(Lobby $lobby)
     {
-        $lobby->loadFrontendEssentials();
         return response()->json(
-            ["data" => ["lobby" => $lobby]],
+            ["data" => ["lobby" => new LobbyResource($lobby)]],
             Response::HTTP_OK
         );
     }

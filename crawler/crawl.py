@@ -8,7 +8,7 @@ from royal_rumble_match_page import (
     store_match_json,
 )
 
-years = range(1988, 2023)
+years = range(1988, 2024)
 
 for year in years:
     path = f"matches/{year}.json"

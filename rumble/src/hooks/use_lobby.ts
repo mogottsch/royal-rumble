@@ -30,6 +30,7 @@ export interface Rumbler {
   lobby_id: number;
   wrestler_id: number;
   wrestler: Wrestler;
+  is_eliminated: boolean;
 }
 
 export interface Wrestler {
@@ -59,6 +60,7 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
     const callback = (e: any) => {
       if ("lobby" in e) {
         setLobby(e.lobby);
+        console.info("ws updated lobby", e.lobby);
         return;
       }
       console.log("Unknown event", e);

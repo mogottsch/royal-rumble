@@ -36,7 +36,7 @@ class ActionRecorder
 
         $action->save();
 
-        LobbyUpdated::dispatch($lobby);
+        LobbyUpdated::dispatch($lobby->fresh());
 
         return $action;
     }

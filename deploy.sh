@@ -6,7 +6,7 @@ export WWWGROUP=${GID:-1000}
 
 docker compose build && docker compose up -d
 
-docker-compose exec phpfpm composer install
+docker compose exec phpfpm composer install
 
 docker compose exec api php artisan cache:clear
 docker compose exec api php artisan config:cache

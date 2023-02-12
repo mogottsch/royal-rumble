@@ -4,6 +4,9 @@ set -e
 export WWWUSER=${UID:-1000}
 export WWWGROUP=${GID:-1000}
 
+cp .env ./peasant/laravel/.env
+cp .env ./rumble/.env
+
 docker compose build && docker compose up -d
 
 docker compose exec api composer install

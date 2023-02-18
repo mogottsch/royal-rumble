@@ -55,6 +55,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "",
+        element: <ViewGame />,
+      },
+      {
         path: "assign-entrance-numbers",
         element: <AssignEntranceNumbers />,
       },

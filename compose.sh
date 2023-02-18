@@ -19,9 +19,9 @@ cp .env ./rumble/.env
 cp .env ./peasant/laravel/.env
 
 if [[ ${ENV} == "dev" ]]; then
-    docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml ${COMMAND} 
+    docker compose -f docker-compose.yaml -f docker-compose.dev.yaml ${COMMAND} 
 else
-    docker-compose -f docker-compose.yaml ${COMMAND}
+    docker compose -f docker-compose.yaml ${COMMAND}
 fi
 
 rm .env

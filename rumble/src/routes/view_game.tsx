@@ -1,19 +1,39 @@
 /* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
 /** @jsxImportSource @emotion/react */
 import Button from "@mui/material/Button";
-import { Box } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useEffect, useState } from "react";
 import { Participant, Rumbler } from "../hooks/use_lobby";
+import { useQRCode } from "next-qrcode";
+import { CopyToClipboardButton } from "../components/buttons";
 
 interface Row {
   participant?: Participant;
   rumbler?: Rumbler;
 }
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  display: "flex",
+  flexDirection: "column" as "column",
+  alignItems: "center" as "center",
+};
 
 export function ViewGame() {
   const { lobby } = useLobbyContext();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const { Canvas } = useQRCode();
 
   const [rows, setRows] = useState<Row[]>();
   const foundRumblers = new Set<number>();
@@ -112,7 +132,7 @@ export function ViewGame() {
           css={css`
             width: 100%;
           `}
-          sx={{ mt: 5 }}
+          sx={{ mt: 1 }}
           size="large"
           href={`/lobbies/${lobby.code}/add-entrance`}
         >
@@ -123,13 +143,35 @@ export function ViewGame() {
           css={css`
             width: 100%;
           `}
-          sx={{ mt: 5 }}
+          sx={{ mt: 1 }}
           size="large"
           href={`/lobbies/${lobby.code}/add-elimination`}
         >
           NEXT ELIMINATATION
         </Button>
+        <Button
+          variant="outlined"
+          css={css`
+            width: 100%;
+          `}
+          sx={{ mt: 5 }}
+          size="large"
+          onClick={handleOpen}
+        >
+          SHARE
+        </Button>
       </Box>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Canvas text={document.location.href} />
+          <CopyToClipboardButton />
+        </Box>
+      </Modal>
     </>
   );
 }

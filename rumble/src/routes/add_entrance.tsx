@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Wrestler } from "../hooks/use_lobby";
 import { useWrestlers } from "../hooks/use_wrestlers";
+import { useNotificationContext } from "../contexts/notification_context";
 
 export function AddEntrance() {
   const navigate = useNavigate();
@@ -19,12 +20,23 @@ export function AddEntrance() {
   const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
     searchTerm,
   });
+  const { notify } = useNotificationContext();
 
   if (!lobby) return <div>loading...</div>;
 
   const addEntrance = async () => {
-    if (selectedWrestler === null) return;
-    await postEntrance(lobby.code, selectedWrestler.id);
+    if (selectedWrestler === null) {
+      notify("Please select a wrestler", "error");
+      return;
+    }
+
+    try {
+      await postEntrance(lobby.code, selectedWrestler.id);
+    } catch (e) {
+      const error = e as Error;
+      notify(error.message, "error");
+      return;
+    }
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
 
@@ -78,7 +90,7 @@ export function AddEntrance() {
           sx={{ mt: 5 }}
           size="large"
           onClick={addEntrance}
-          disabled={selectedWrestler === undefined}
+          disabled={selectedWrestler === null}
         >
           ADD ENTRANCE
         </Button>
@@ -98,28 +110,6 @@ export function AddEntrance() {
   );
 }
 
-async function getSearchWrestlers(wrestlerName: string): Promise<Wrestler[]> {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const url = new URL("api/wrestlers/search", BACKEND_URL);
-
-  const queryParams = new URLSearchParams();
-  queryParams.append("search", wrestlerName);
-  url.search = queryParams.toString();
-
-  const response = await fetch(url.toString(), {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to get search wrestlers: ${response.statusText}`);
-  }
-  const data = await response.json();
-  return data.data;
-}
-
 async function postEntrance(lobbyCode: string, wrestlerId: number) {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const body = JSON.stringify({ wrestler_id: wrestlerId });
@@ -134,6 +124,8 @@ async function postEntrance(lobbyCode: string, wrestlerId: number) {
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to post entrance: ${response.statusText}`);
+    const error = await response.json();
+    const message = error.message || response.statusText;
+    throw new Error(message);
   }
 }

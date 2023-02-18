@@ -21,6 +21,9 @@ import { AddElimination } from "./routes/add_elimination";
 import { LobbyLayout } from "./routes/layout/lobby";
 import { useEcho } from "./hooks/use_echo";
 import { EchoContextProvider } from "./contexts/echo_context";
+import { NotificationContextProvider } from "./contexts/notification_context";
+import { useNotifications } from "./hooks/use_notifications";
+import { NotificationDisplayer } from "./components/notification";
 
 const router = createBrowserRouter([
   {
@@ -88,21 +91,25 @@ export function App() {
   } = useLoadingAndErrorStates();
 
   const echo = useEcho();
+  const notificationData = useNotifications();
 
   return (
-    <LoadingAndErrorStateContextProvider
-      value={{
-        isLoadingRecord,
-        setIsLoading: setKeyLoading,
-        errorRecord,
-        setError: setKeyError,
-        isAnyLoading,
-      }}
-    >
-      <EchoContextProvider value={{ echo }}>
-        <CssBaseline />
-        <RouterProvider router={router} />
-      </EchoContextProvider>
-    </LoadingAndErrorStateContextProvider>
+    <NotificationContextProvider value={notificationData}>
+      <NotificationDisplayer notificationData={notificationData} />
+      <LoadingAndErrorStateContextProvider
+        value={{
+          isLoadingRecord,
+          setIsLoading: setKeyLoading,
+          errorRecord,
+          setError: setKeyError,
+          isAnyLoading,
+        }}
+      >
+        <EchoContextProvider value={{ echo }}>
+          <CssBaseline />
+          <RouterProvider router={router} />
+        </EchoContextProvider>
+      </LoadingAndErrorStateContextProvider>
+    </NotificationContextProvider>
   );
 }

@@ -6,5 +6,5 @@ export function JoinLobby() {
     throw new Error("lobbyCode is undefined");
   }
 
-  return <Navigate to={`/lobbies/${lobbyCode}`} />;
+  return <Navigate to={`/lobbies/${lobbyCode}/view-game`} />;
 }

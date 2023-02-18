@@ -4,6 +4,7 @@ set -e
 export WWWUSER=${UID:-1000}
 export WWWGROUP=${GID:-1000}
 
+cp .prod.env .env
 cp .env ./peasant/laravel/.env
 cp .env ./rumble/.env
 

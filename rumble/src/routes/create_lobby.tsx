@@ -1,9 +1,4 @@
-import {
-  Button,
-  Divider,
-  FormControl,
-  Typography,
-} from "@mui/material";
+import { Button, Divider, FormControl, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";

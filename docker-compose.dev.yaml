@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  frontend:
+    entrypoint: ["yarn", "dev"]
+    volumes:
+      - "./rumble:/app"
+    ports:
+      - "5173:5173"
+
+  api:
+    environment:
+      LARAVEL_SAIL: 1
+      XDEBUG_MODE: "${SAIL_XDEBUG_MODE:-off}"
+      XDEBUG_CONFIG: "${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}"
+    volumes:
+      - "./peasant/laravel:/var/www/html"
+
+  phpmyadmin:
+    image: "phpmyadmin/phpmyadmin"
+    ports:
+      - "${FORWARD_PMA_PORT:-8080}:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: "root"
+      PMA_PASSWORD: "${DB_PASSWORD}"
+      PMA_ARBITRARY: 1
+    networks:
+      - sail
+    depends_on:
+      - mysql

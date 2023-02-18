@@ -6,11 +6,10 @@ import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNavigate } from "react-router-dom";
-import { useEchoContext } from "../contexts/echo_context";
 
 export function AssignEntranceNumbers() {
   const navigate = useNavigate();
-  const { lobby } = useLobbyContext();
+  const { lobby, lobbyQuery } = useLobbyContext();
 
   const [selectedParticipantId, setSelectedParticipantId] = useState<number>();
   const toggleParticipant = (participantId: number) => {
@@ -89,10 +88,8 @@ export function AssignEntranceNumbers() {
       alert("Not all participants have been assigned entrance numbers");
       return;
     }
-    const updatedLobby = await putEntranceNumbers(
-      lobby.code,
-      participantEntranceNumber
-    );
+    await putEntranceNumbers(lobby.code, participantEntranceNumber);
+    await lobbyQuery?.refetch();
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
 

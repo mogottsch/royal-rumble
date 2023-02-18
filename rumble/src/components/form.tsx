@@ -45,8 +45,8 @@ export function InputField<T>({
 function ErrorMessages({ errorMessages }: { errorMessages: string[] }) {
   return (
     <ul>
-      {errorMessages.map((message) => (
-        <li>{message}</li>
+      {errorMessages.map((message, i) => (
+        <li key={i}>{message}</li>
       ))}
     </ul>
   );

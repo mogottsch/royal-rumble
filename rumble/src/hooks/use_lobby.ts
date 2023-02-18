@@ -63,7 +63,7 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
         console.info("ws updated lobby", e.lobby);
         return;
       }
-      console.log("Unknown event", e);
+      console.info("Unknown event", e);
     };
 
     const eventName = ".lobby-updated";
@@ -79,6 +79,7 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
     isLoading: query.isLoading,
     isError: query.isError,
     error: query.error,
+    query,
   };
 }
 

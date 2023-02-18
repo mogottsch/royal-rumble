@@ -7,4 +7,4 @@ COPY . .
 RUN yarn install
 RUN yarn build
 
-ENTRYPOINT ["yarn", "preview"]
+ENTRYPOINT ["yarn", "preview", "5173"]

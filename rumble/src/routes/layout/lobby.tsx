@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom";
 import { App } from "./app";
 import { useLobby } from "../../hooks/use_lobby";
 import { LobbyContextProvider } from "../../contexts/lobby_context";
+import { useWrestlers } from "../../hooks/use_wrestlers";
 
 export function LobbyLayout() {
   const { lobbyCode } = useParams<{ lobbyCode: string }>();
-  const { lobby } = useLobby({ lobbyCode });
+  const { lobby, query: lobbyQuery } = useLobby({ lobbyCode });
   return (
-    <LobbyContextProvider value={{ lobby }}>
+    <LobbyContextProvider value={{ lobby, lobbyQuery }}>
       <App />
     </LobbyContextProvider>
   );

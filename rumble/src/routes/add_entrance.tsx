@@ -1,36 +1,30 @@
 /* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
 /** @jsxImportSource @emotion/react */
 import Button from "@mui/material/Button";
-import { Box } from "@mui/material";
+import { Autocomplete, Box, TextField } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
-import { useEffect, useState } from "react";
-import { InputField } from "../components/form";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Lobby, Wrestler } from "../hooks/use_lobby";
+import { Wrestler } from "../hooks/use_lobby";
+import { useWrestlers } from "../hooks/use_wrestlers";
 
 export function AddEntrance() {
   const navigate = useNavigate();
   const { lobby } = useLobbyContext();
   const [searchTerm, setSearchTerm] = useState("");
-  const [wrestler, setWrestler] = useState<Wrestler | undefined>();
+  const [selectedWrestler, setSelectedWrestler] = useState<Wrestler | null>(
+    null
+  );
+  const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
+    searchTerm,
+  });
 
-  if (!lobby) return null;
-
-  const searchWrestler = async () => {
-    const wrestlers = await getSearchWrestlers(searchTerm);
-    if (wrestlers.length === 0) {
-      return;
-    }
-    const firstWrestler = wrestlers[0];
-    setWrestler(firstWrestler);
-    setSearchTerm(firstWrestler.name);
-  };
+  if (!lobby) return <div>loading...</div>;
 
   const addEntrance = async () => {
-    if (wrestler === undefined) return;
-    await postEntrance(lobby.code, wrestler.id);
-    console.log("added entrance");
+    if (selectedWrestler === null) return;
+    await postEntrance(lobby.code, selectedWrestler.id);
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
 
@@ -41,25 +35,32 @@ export function AddEntrance() {
           height: "100%",
         }}
       >
-        <InputField
-          label="Wrestler name"
-          htmlFor="wrestler-name"
-          id="wrestlerName"
-          value={searchTerm}
-          onChange={(value) => setSearchTerm(value)}
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={searchedWrestlers}
+          getOptionLabel={(option) => option.name}
+          isOptionEqualToValue={(option, value) => option.id === value.id}
+          filterOptions={(options) => options}
+          inputValue={searchTerm}
+          onInputChange={(_, newInputValue) => {
+            setSearchTerm(newInputValue);
+          }}
+          value={selectedWrestler}
+          onChange={(_, newValue) => {
+            if (newValue === null) {
+              setSelectedWrestler(null);
+              return;
+            }
+
+            setSelectedWrestler(newValue);
+          }}
+          loading={isLoading}
+          renderInput={(params) => <TextField {...params} label="Wrestler" />}
+          noOptionsText={
+            searchTerm === "" ? "Search for a wrestler" : "No results"
+          }
         />
-        <Button
-          variant="outlined"
-          css={css`
-            width: 100%;
-            height: 50px;
-          `}
-          sx={{ mt: 5 }}
-          size="large"
-          onClick={searchWrestler}
-        >
-          FIND
-        </Button>
       </Box>
       <Box
         sx={{
@@ -77,7 +78,7 @@ export function AddEntrance() {
           sx={{ mt: 5 }}
           size="large"
           onClick={addEntrance}
-          disabled={wrestler === undefined}
+          disabled={selectedWrestler === undefined}
         >
           ADD ENTRANCE
         </Button>
@@ -105,7 +106,6 @@ async function getSearchWrestlers(wrestlerName: string): Promise<Wrestler[]> {
   queryParams.append("search", wrestlerName);
   url.search = queryParams.toString();
 
-  console.log(url.toString());
   const response = await fetch(url.toString(), {
     method: "GET",
     headers: {

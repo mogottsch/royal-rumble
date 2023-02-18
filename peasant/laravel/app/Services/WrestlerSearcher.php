@@ -9,7 +9,10 @@ class WrestlerSearcher
 {
     public function search(string $search): Collection
     {
-        $wrestlers = Wrestler::where("name", "like", "%{$search}%")->get();
+        $wrestlers = Wrestler::whereFuzzy("name", $search)
+            ->orderByFuzzy("name")
+            ->limit(10)
+            ->get();
         return $wrestlers;
     }
 }

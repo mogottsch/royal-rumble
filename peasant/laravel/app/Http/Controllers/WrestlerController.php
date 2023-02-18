@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Wrestler;
 use App\Services\WrestlerSearcher;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -18,6 +19,12 @@ class WrestlerController extends Controller
             );
         }
         $wrestlers = $wrestlerSearcher->search($search);
+        return ["data" => $wrestlers];
+    }
+
+    public function index()
+    {
+        $wrestlers = Wrestler::all();
         return ["data" => $wrestlers];
     }
 }

@@ -20,11 +20,7 @@ cp .env ./peasant/laravel/.env
 
 cp ./nginx/nginx.$ENV.conf ./nginx/nginx.conf
 
-if [[ ${ENV} == "dev" ]]; then
-    docker compose -f docker-compose.yaml -f docker-compose.dev.yaml ${COMMAND} 
-else
-    docker compose -f docker-compose.yaml ${COMMAND}
-fi
+docker compose -f docker-compose.yaml -f docker-compose.$ENV.yaml ${COMMAND} 
 
 # rm .env
 # rm ./rumble/.env

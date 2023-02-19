@@ -69,14 +69,28 @@ export function ViewGame() {
 
   if (!lobby) return null;
 
+  const isEntranceNumbersAssigned = checkEntranceNumbersAssigned(
+    lobby.participants
+  );
+
+  if (!isEntranceNumbersAssigned) {
+    return <div>Wait while the host assigns entrance numbers</div>;
+  }
+
   return (
-    <>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateRows: "1fr auto",
+        height: "100%",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          overflowY: "scroll",
         }}
       >
         {rows?.map((row, i) => {
@@ -84,9 +98,9 @@ export function ViewGame() {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
                 width: "100%",
-                margin: "5px",
+                justifyContent: "flex-start",
+                padding: "5px",
               }}
               key={i}
             >
@@ -121,7 +135,6 @@ export function ViewGame() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
           justifyContent: "center",
         }}
       >
@@ -153,26 +166,32 @@ export function ViewGame() {
           css={css`
             width: 100%;
           `}
-          sx={{ mt: 5 }}
+          sx={{ mt: 2, mb: 1 }}
           size="large"
           onClick={handleOpen}
         >
           SHARE
         </Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div style={{ background: "white", padding: "16px" }}>
+              <QRCode value={document.location.href} />
+            </div>
+            <CopyToClipboardButton />
+          </Box>
+        </Modal>
       </Box>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div style={{ background: "white", padding: "16px" }}>
-            <QRCode value={document.location.href} />
-          </div>
-          <CopyToClipboardButton />
-        </Box>
-      </Modal>
-    </>
+    </Box>
+  );
+}
+
+function checkEntranceNumbersAssigned(participants: Participant[]) {
+  return participants.every(
+    (participant) => participant.entrance_number !== null
   );
 }

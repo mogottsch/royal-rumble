@@ -39,15 +39,18 @@ export function AddEntrance() {
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          height: "100%",
-        }}
-      >
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "space-between",
+      }}
+    >
+      <Box sx={{ mt: 2 }}>
         <Autocomplete
           disablePortal
-          id="combo-box-demo"
+          id="wrestler-search"
           options={searchedWrestlers}
           getOptionLabel={(option) => option.name}
           isOptionEqualToValue={(option, value) => option.id === value.id}
@@ -72,39 +75,39 @@ export function AddEntrance() {
           }
         />
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "center",
-        }}
-      >
-        <Button
-          variant="outlined"
-          css={css`
-            width: 100%;
-          `}
-          sx={{ mt: 5 }}
-          size="large"
-          onClick={addEntrance}
-          disabled={selectedWrestler === null}
+      <Box sx={{ mb: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
         >
-          ADD ENTRANCE
-        </Button>
-        <Button
-          variant="outlined"
-          css={css`
-            width: 100%;
-          `}
-          sx={{ mt: 5 }}
-          size="large"
-          href={`/lobbies/${lobby.code}/view-game`}
-        >
-          BACK
-        </Button>
+          <Button
+            variant="outlined"
+            css={css`
+              width: 100%;
+            `}
+            size="large"
+            onClick={addEntrance}
+            disabled={selectedWrestler === null}
+          >
+            ADD ENTRANCE
+          </Button>
+          <Button
+            variant="outlined"
+            css={css`
+              width: 100%;
+            `}
+            sx={{ mt: 2 }}
+            size="large"
+            href={`/lobbies/${lobby.code}/view-game`}
+          >
+            BACK
+          </Button>
+        </Box>
       </Box>
-    </>
+    </Box>
   );
 }
 

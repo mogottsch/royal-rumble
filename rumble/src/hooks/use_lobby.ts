@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useEchoContext } from "../contexts/echo_context";
+import { useNotificationContext } from "../contexts/notification_context";
 
 export interface Lobby {
   id: number;
@@ -43,6 +45,8 @@ export interface Wrestler {
 export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
   const [lobby, setLobby] = useState<Lobby | undefined>(undefined);
   const query = useLobbyQuery(lobbyCode);
+  const { notify } = useNotificationContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (query.data) {
@@ -60,7 +64,6 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
     const callback = (e: any) => {
       if ("lobby" in e) {
         setLobby(e.lobby);
-        console.info("ws updated lobby", e.lobby);
         return;
       }
       console.info("Unknown event", e);
@@ -74,6 +77,15 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
     };
   }, [lobby, echo]);
 
+  useEffect(() => {
+    if (query.isError) {
+      setLobby(undefined);
+      const error = query.error as Error;
+      notify(error.message, "error");
+      navigate("/");
+    }
+  }, [query.isError]);
+
   return {
     lobby,
     isLoading: query.isLoading,
@@ -85,7 +97,7 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
 
 function useLobbyQuery(lobbyCode?: string) {
   const queryKey = ["lobby", lobbyCode];
-  return useQuery<Lobby, any>(queryKey, fetchLobby);
+  return useQuery<Lobby, any>({ queryKey, queryFn: fetchLobby, retry: false });
 }
 
 async function fetchLobby({ queryKey }: any): Promise<Lobby> {
@@ -94,7 +106,17 @@ async function fetchLobby({ queryKey }: any): Promise<Lobby> {
   if (!lobbyCode) {
     throw new Error("No lobby code provided");
   }
-  const response = await fetch(BACKEND_URL + "/api/lobbies/" + lobbyCode);
+  const response = await fetch(BACKEND_URL + "/api/lobbies/" + lobbyCode, {
+    headers: {
+      accept: "application/json",
+    },
+  });
+  if (response.status === 404) {
+    throw new Error("Lobby not found");
+  }
+  if (!response.ok) {
+    throw new Error("Failed to fetch lobby");
+  }
   const data = await response.json();
   return data.data.lobby;
 }

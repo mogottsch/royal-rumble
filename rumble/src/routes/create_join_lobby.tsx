@@ -7,6 +7,10 @@ import { PrimaryButton } from "../components/buttons";
 export default function CreateJoinLobby() {
   const [lobbyCode, setLobbyCode] = useState("");
 
+  const updateLobbyCode = (value: string) => {
+    setLobbyCode(value.toUpperCase());
+  };
+
   return (
     <Box
       sx={{
@@ -21,7 +25,7 @@ export default function CreateJoinLobby() {
         htmlFor="lobby-code"
         id="lobby-code"
         value={lobbyCode}
-        onChange={setLobbyCode}
+        onChange={updateLobbyCode}
       />
       <PrimaryButton
         sx={{ mt: 2 }}

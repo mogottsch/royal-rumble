@@ -6,13 +6,14 @@ import { Outlet } from "react-router-dom";
 export function App() {
   return (
     <Box
-      sx={{ height: "100vh", display: "flex", flexDirection: "column", pb: 2 }}
+      sx={{
+        height: "100vh",
+        display: "grid",
+        gridTemplateRows: "auto 1fr",
+      }}
     >
       <Bar />
-      <Container
-        maxWidth="sm"
-        sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
-      >
+      <Container maxWidth="sm" sx={{ overflow: "hidden" }}>
         <Outlet />
       </Container>
     </Box>

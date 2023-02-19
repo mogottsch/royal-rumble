@@ -41,75 +41,70 @@ export function AddElimination() {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
+        display: "grid",
+        gridTemplateRows: "1fr auto",
         height: "100%",
-        justifyContent: "center",
       }}
     >
-      <h2>ELIMINATION</h2>
-      <Divider>WHO IS/ARE THE ELIMINATOR(S)?</Divider>
-      <Grid container spacing={2} gridTemplateRows="repeat(3, 1fr)">
-        {activeRumblers.map((rumbler) => (
-          <Grid
-            key={rumbler.id}
-            item
-            xs={6}
-            sm={3}
-            onClick={() => toggleOffender(rumbler)}
+      <Box sx={{ mt: 2, overflowY: "scroll", mb: 2 }}>
+        <Box sx={{ mb: 4 }}>
+          <Divider sx={{ mb: 1 }}>WHO IS/ARE THE ELIMINATOR(S)?</Divider>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+              gap: 1,
+            }}
           >
-            <Button
-              variant="outlined"
-              color={offenders.includes(rumbler) ? "secondary" : "primary"}
-            >
-              {rumbler.wrestler.name}
-            </Button>
-          </Grid>
-        ))}
-      </Grid>
-      <Divider>WHO IS/ARE THE VICTIM(S)?</Divider>
-      <Grid container spacing={2}>
-        {activeRumblers.map((rumbler) => (
-          <Grid
-            key={rumbler.id}
-            item
-            xs={6}
-            sm={3}
-            onClick={() => toggleVictim(rumbler)}
-          >
+            {activeRumblers.map((rumbler) => (
+              <Button
+                variant="outlined"
+                color={offenders.includes(rumbler) ? "secondary" : "primary"}
+                onClick={() => toggleOffender(rumbler)}
+              >
+                {rumbler.wrestler.name}
+              </Button>
+            ))}
+          </Box>
+        </Box>
+        <Divider sx={{ mb: 1 }}>WHO IS/ARE THE VICTIM(S)?</Divider>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+            gap: 1,
+          }}
+        >
+          {activeRumblers.map((rumbler) => (
             <Button
               variant="outlined"
               color={victims.includes(rumbler) ? "secondary" : "primary"}
+              onClick={() => toggleVictim(rumbler)}
             >
               {rumbler.wrestler.name}
             </Button>
-          </Grid>
-        ))}
-      </Grid>
+          ))}
+        </Box>
+      </Box>
 
-      <Button
-        variant="outlined"
-        css={css`
-          width: 100%;
-        `}
-        sx={{ mt: 5 }}
-        size="large"
-        onClick={addElimination}
-        disabled={victims.length === 0 || offenders.length === 0}
-      >
-        ADD ELIMINATION
-      </Button>
-      <Button
-        variant="outlined"
-        css={css`
-          width: 100%;
-        `}
-        sx={{ mt: 5 }}
-        size="large"
-        href={`/lobbies/${lobby.code}/view-game`}
-      >
-        BACK
-      </Button>
+      <Box sx={{ display: "flex", flexDirection: "column", mb: 2 }}>
+        <Button
+          variant="outlined"
+          size="large"
+          onClick={addElimination}
+          disabled={victims.length === 0 || offenders.length === 0}
+        >
+          ADD ELIMINATION
+        </Button>
+        <Button
+          variant="outlined"
+          sx={{ mt: 2 }}
+          size="large"
+          href={`/lobbies/${lobby.code}/view-game`}
+        >
+          BACK
+        </Button>
+      </Box>
     </Box>
   );
 }

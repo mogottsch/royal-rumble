@@ -1,6 +1,5 @@
 import Button from "@mui/material/Button";
-import { Box } from "@mui/material";
-import { css } from "@emotion/react";
+import { Box, Divider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNavigate } from "react-router-dom";
@@ -18,18 +17,32 @@ export function AssignEntranceNumbers() {
     }
   };
 
+  const [participantEntranceNumber, setParticipantEntranceNumber] = useState<
+    Record<number, number>
+  >({});
+
   const [selectedEntranceNumber, setSelectedEntranceNumber] =
     useState<number>();
+
   const toggleEntranceNumber = (entranceNumber: number) => {
+    const assignedEntranceNumbers = Object.values(participantEntranceNumber);
+    if (assignedEntranceNumbers.includes(entranceNumber)) {
+      const newParticipantEntranceNumber = { ...participantEntranceNumber };
+      const participantId = Object.keys(participantEntranceNumber).find(
+        (id) => participantEntranceNumber[parseInt(id)] === entranceNumber
+      );
+      if (participantId) {
+        delete newParticipantEntranceNumber[parseInt(participantId)];
+      }
+      setParticipantEntranceNumber(newParticipantEntranceNumber);
+      return;
+    }
     if (selectedEntranceNumber === entranceNumber) {
       setSelectedEntranceNumber(undefined);
     } else {
       setSelectedEntranceNumber(entranceNumber);
     }
   };
-
-  const [participantEntranceNumber, setParticipantEntranceNumber] =
-    useState<Record<number, number>>();
 
   function updateParticipantEntranceNumbers() {
     if (selectedParticipantId === undefined) return null;
@@ -92,96 +105,89 @@ export function AssignEntranceNumbers() {
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          height: "100%",
-          justifyContent: "center",
-        }}
-      >
-        {entranceNumbers.map((entranceNumber) => (
-          <Button
-            key={entranceNumber}
-            color={
-              assignedEntranceNumbers.includes(entranceNumber)
-                ? "secondary"
-                : "primary"
-            }
-            variant={
-              selectedEntranceNumber === entranceNumber
-                ? "contained"
-                : "outlined"
-            }
-            css={css`
-              width: 100px;
-              height: 60px;
-            `}
-            sx={{ my: 1, mx: 1 }}
-            size="large"
-            onClick={() => toggleEntranceNumber(entranceNumber)}
-          >
-            {entranceNumber}
-          </Button>
-        ))}
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          alignItems: "center",
-        }}
-      >
-        {lobby.participants.map((participant, i) => {
-          return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "space-between",
+      }}
+    >
+      <Box>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+          }}
+        >
+          {entranceNumbers.map((entranceNumber) => (
             <Button
-              key={i}
+              key={entranceNumber}
               color={
-                assignedParticipantIds.includes(participant.id)
+                assignedEntranceNumbers.includes(entranceNumber)
                   ? "secondary"
                   : "primary"
               }
               variant={
-                selectedParticipantId === participant.id
+                selectedEntranceNumber === entranceNumber
                   ? "contained"
                   : "outlined"
               }
-              css={css`
-                width: 308px;
-              `}
-              sx={{ my: 1 }}
+              sx={{ my: 1, mx: 1 }}
               size="large"
-              onClick={() => handleParticipantClick(participant.id)}
+              onClick={() => toggleEntranceNumber(entranceNumber)}
             >
-              {participant.name}{" "}
-              {participantEntranceNumber?.[participant.id] ?? ""}
+              {entranceNumber}
             </Button>
-          );
-        })}
+          ))}
+        </Box>
+        <Divider sx={{ my: 2 }} />
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+          }}
+        >
+          {lobby.participants.map((participant, i) => {
+            return (
+              <Button
+                key={i}
+                color={
+                  assignedParticipantIds.includes(participant.id)
+                    ? "secondary"
+                    : "primary"
+                }
+                variant={
+                  selectedParticipantId === participant.id
+                    ? "contained"
+                    : "outlined"
+                }
+                sx={{ my: 1, mx: 1 }}
+                size="large"
+                onClick={() => handleParticipantClick(participant.id)}
+              >
+                {participant.name}{" "}
+                {participantEntranceNumber?.[participant.id] ?? ""}
+              </Button>
+            );
+          })}
+        </Box>
       </Box>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "center",
+          width: "100%",
         }}
       >
         <Button
           variant="outlined"
-          css={css`
-            width: 100%;
-          `}
-          sx={{ mt: 5 }}
+          sx={{ width: "100%" }}
           size="large"
           onClick={assignEntranceNumbers}
         >
           START ROYAL RUMBLE
         </Button>
       </Box>
-    </>
+    </Box>
   );
 }
 

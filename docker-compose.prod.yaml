@@ -1,8 +1,5 @@
 version: "3.9"
 services:
   soketi:
-    environment:
-      SOKETI_SSL_CERT: "/app/certs/suffroyale.com.cer"
-      SOKETI_SSL_KEY: "/app/certs/suffroyale.com.key"
     volumes:
       - "./nginx/certs:/app/certs"

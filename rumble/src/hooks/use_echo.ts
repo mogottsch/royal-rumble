@@ -17,7 +17,7 @@ export function useEcho() {
       forceTLS: false,
       encrypted: true,
       disableStats: true,
-      enabledTransports: ["ws", "wss"],
+      enabledTransports: ["ws"],
     });
     setEcho(laravelEcho);
   }, []);

@@ -13,14 +13,18 @@ import { useState } from "react";
 import QRCode from "react-qr-code";
 import { CopyToClipboardButton } from "./buttons";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { History } from "./history";
 
 export function Bar() {
   const { isAnyLoading } = useLoadingAndErrorStateContext();
   const { lobby } = useLobbyContext();
-  const [open, setOpen] = useState(false);
+  const [openShare, setOpenShare] = useState(false);
+  const [openHistory, setOpenHistory] = useState(false);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpenShare = () => setOpenShare(true);
+  const handleCloseShare = () => setOpenShare(false);
+  const handleOpenHistory = () => setOpenHistory(true);
+  const handleCloseHistory = () => setOpenHistory(false);
 
   const baseUrl = window.location.origin;
   const shareLink = `${baseUrl}/lobbies/${lobby?.code}`;
@@ -30,21 +34,26 @@ export function Bar() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton size="large" edge="start">
+          <IconButton size="large" edge="start" onClick={handleOpenHistory}>
             <MenuIcon />
           </IconButton>
           <Box sx={{ flexGrow: 1 }} />
           {lobbyExists && (
-            <IconButton size="large" edge="end">
-              <ShareIcon onClick={handleOpen} />
+            <IconButton size="large" edge="end" onClick={handleOpenShare}>
+              <ShareIcon />
             </IconButton>
           )}
         </Toolbar>
         {isAnyLoading ? <LinearProgress /> : <Box sx={{ height: "4px" }} />}
       </AppBar>
 
-      <Modal open={open} onClose={handleClose}>
-        <Box sx={style}>
+      <Modal open={openHistory} onClose={handleCloseHistory}>
+        <Box sx={historyModalStyle} onClick={handleCloseHistory}>
+          <History lobby={lobby} />
+        </Box>
+      </Modal>
+      <Modal open={openShare} onClose={handleCloseShare}>
+        <Box sx={shareModalStyle}>
           <div style={{ background: "white", padding: "16px" }}>
             <QRCode value={document.location.href} />
           </div>
@@ -55,7 +64,7 @@ export function Bar() {
   );
 }
 
-const style = {
+const modalStyle = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
@@ -63,8 +72,18 @@ const style = {
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
   display: "flex",
   flexDirection: "column" as "column",
   alignItems: "center" as "center",
+};
+const shareModalStyle = {
+  ...modalStyle,
+  p: 4,
+};
+
+const historyModalStyle = {
+  ...modalStyle,
+  p: 2,
+  height: "90vh",
+  width: "90vw",
 };

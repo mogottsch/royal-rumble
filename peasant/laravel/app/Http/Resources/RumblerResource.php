@@ -8,13 +8,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class RumblerResource extends JsonResource
 {
     private Rumbler $rumbler;
-    // id: number;
-    // created_at: string;
-    // updated_at: string;
-    // entrance_number: number;
-    // lobby_id: number;
-    // wrestler_id: number;
-    // wrestler: Wrestler;
     public function toArray($request)
     {
         if ($this->resource instanceof Rumbler) {

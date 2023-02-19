@@ -12,8 +12,22 @@ export interface Lobby {
   code: string;
   participants: Participant[];
   rumblers: Rumbler[];
-  actions: any[];
+  actions: Action[];
   nextEntranceNumber: number;
+}
+
+export interface Action {
+  id: number;
+  lobby_id: number;
+  type: "entrance" | "elimination";
+  rumbler?: Rumbler;
+  elimination?: Elimination;
+}
+
+export interface Elimination {
+  id: number;
+  rumbler_offenders: Rumbler[];
+  rumbler_victims: Rumbler[];
 }
 
 export interface Participant {

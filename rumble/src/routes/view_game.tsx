@@ -1,10 +1,9 @@
 import Button from "@mui/material/Button";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useEffect, useState } from "react";
 import { Participant, Rumbler } from "../hooks/use_lobby";
-import { CopyToClipboardButton } from "../components/buttons";
 
 interface Row {
   participant?: Participant;
@@ -72,6 +71,9 @@ export function ViewGame() {
           flexDirection: "column",
           justifyContent: "flex-start",
           overflowY: "auto",
+          mt: 1,
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))",
         }}
       >
         {rows?.map((row, i) => {
@@ -81,26 +83,27 @@ export function ViewGame() {
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 width: "100%",
-                padding: "5px",
+                padding: "5px 5px",
+                gridColumnGap: "5px",
               }}
               key={i}
             >
               <Box
                 sx={{
-                  margin: "5px",
-                  padding: "7px",
+                  padding: "5px",
                   justifyContent: "center",
                   border: "1px solid #90caf9",
+                  backgroundColor: "#121212",
                 }}
               >
                 {row.participant?.name ?? "NPC"}
               </Box>
               <Box
                 sx={{
-                  margin: "5px",
-                  padding: "7px",
+                  padding: "5px",
                   justifyContent: "center",
                   border: "1px solid #90caf9",
+                  backgroundColor: "#121212",
                 }}
               >
                 {row.rumbler?.wrestler.name ??
@@ -110,30 +113,45 @@ export function ViewGame() {
           );
         })}
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          mb: 2,
-        }}
-      >
-        <Button
-          variant="outlined"
-          size="large"
-          href={`/lobbies/${lobby.code}/add-entrance`}
-        >
-          NEXT ENTRANCE
-        </Button>
-        <Button
-          variant="outlined"
-          sx={{ mt: 1 }}
-          size="large"
-          href={`/lobbies/${lobby.code}/add-elimination`}
-          disabled={lobby.rumblers.length === 0}
-        >
-          NEXT ELIMINATATION
-        </Button>
+      <Box>
+        {lobby.nextEntranceNumber && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "10px",
+              fontSize: "17px",
+              fontWeight: 200,
+            }}
+          >
+            Next: #{lobby.nextEntranceNumber}
+          </Box>
+        )}
+
+        <Grid container spacing={1} sx={{ mb: 2 }}>
+          <Grid item xs={12} sm={6}>
+            <Button
+              variant="outlined"
+              size="large"
+              href={`/lobbies/${lobby.code}/add-entrance`}
+              sx={{ width: "100%" }}
+            >
+              NEXT ENTRANCE
+            </Button>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <Button
+              variant="outlined"
+              sx={{ width: "100%" }}
+              size="large"
+              href={`/lobbies/${lobby.code}/add-elimination`}
+              disabled={lobby.rumblers.length === 0}
+            >
+              NEXT ELIMINATATION
+            </Button>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );

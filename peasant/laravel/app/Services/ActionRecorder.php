@@ -17,6 +17,7 @@ class ActionRecorder
         $action->rumbler()->associate($rumbler);
 
         $action->save();
+        LobbyUpdated::dispatch($lobby->fresh());
     }
 
     public function recordElimination(Lobby $lobby, Elimination $elimination)
@@ -26,6 +27,7 @@ class ActionRecorder
         $action->elimination()->associate($elimination);
 
         $action->save();
+        LobbyUpdated::dispatch($lobby->fresh());
     }
 
     private function createAction(Lobby $lobby)
@@ -35,8 +37,6 @@ class ActionRecorder
         $action->index = $this->getNextActionIndex($lobby);
 
         $action->save();
-
-        LobbyUpdated::dispatch($lobby->fresh());
 
         return $action;
     }

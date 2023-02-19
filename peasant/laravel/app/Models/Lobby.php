@@ -59,6 +59,9 @@ class Lobby extends Model
             "rumblers",
             "rumblers.wrestler",
             "actions",
+            "actions.rumbler.wrestler",
+            "actions.elimination.rumblerVictims.wrestler",
+            "actions.elimination.rumblerOffenders.wrestler",
         ]);
     }
 }

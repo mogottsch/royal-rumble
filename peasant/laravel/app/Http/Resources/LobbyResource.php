@@ -38,6 +38,7 @@ class LobbyResource extends JsonResource
             "nextEntranceNumber" => $this->entranceNumberAssigner->getNextRumblerEntranceNumber(
                 $this->lobby
             ),
+            "actions" => ActionResource::collection($this->lobby->actions),
         ];
     }
 }

@@ -86,10 +86,11 @@ services:
   #     - mysql
 
   soketi:
-    image: "quay.io/soketi/soketi:latest-16-alpine"
+    image: "quay.io/soketi/soketi:54dc28870fbc6d68edb661f7dc46e0c9472bb8ac-16-debian"
     environment:
       SOKETI_DEBUG: "1"
       SOKETI_METRICS_SERVER_PORT: "9601"
+    restart: unless-stopped
     ports:
       - "${SOKETI_PORT:-6001}:6001"
       - "${SOKETI_METRICS_SERVER_PORT:-9601}:9601"

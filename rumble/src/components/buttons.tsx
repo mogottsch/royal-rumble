@@ -25,9 +25,9 @@ export function SecondaryButton(props: ButtonProps) {
   );
 }
 
-export function CopyToClipboardButton() {
+export function CopyToClipboardButton({ text }: { text: string }) {
   const handleClick = () => {
-    navigator.clipboard.writeText(window.location.toString());
+    navigator.clipboard.writeText(text);
     notify("Copied to clipboard", "success");
   };
   const { notify } = useNotificationContext();

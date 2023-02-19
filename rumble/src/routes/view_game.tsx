@@ -1,37 +1,18 @@
 import Button from "@mui/material/Button";
-import { Box, Modal } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useEffect, useState } from "react";
 import { Participant, Rumbler } from "../hooks/use_lobby";
-import QRCode from "react-qr-code";
 import { CopyToClipboardButton } from "../components/buttons";
 
 interface Row {
   participant?: Participant;
   rumbler?: Rumbler;
 }
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  display: "flex",
-  flexDirection: "column" as "column",
-  alignItems: "center" as "center",
-};
 
 export function ViewGame() {
   const { lobby } = useLobbyContext();
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  // const { Canvas } = useQRCode();
 
   const [rows, setRows] = useState<Row[]>();
   const foundRumblers = new Set<number>();
@@ -90,23 +71,22 @@ export function ViewGame() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
-          overflowY: "scroll",
+          overflowY: "auto",
         }}
       >
         {rows?.map((row, i) => {
           return (
             <Box
               sx={{
-                display: "flex",
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
                 width: "100%",
-                justifyContent: "flex-start",
                 padding: "5px",
               }}
               key={i}
             >
               <Box
                 sx={{
-                  width: "180px",
                   margin: "5px",
                   padding: "7px",
                   justifyContent: "center",
@@ -117,7 +97,6 @@ export function ViewGame() {
               </Box>
               <Box
                 sx={{
-                  width: "180px",
                   margin: "5px",
                   padding: "7px",
                   justifyContent: "center",
@@ -136,14 +115,11 @@ export function ViewGame() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          mb: 2,
         }}
       >
         <Button
           variant="outlined"
-          css={css`
-            width: 100%;
-          `}
-          sx={{ mt: 1 }}
           size="large"
           href={`/lobbies/${lobby.code}/add-entrance`}
         >
@@ -151,9 +127,6 @@ export function ViewGame() {
         </Button>
         <Button
           variant="outlined"
-          css={css`
-            width: 100%;
-          `}
           sx={{ mt: 1 }}
           size="large"
           href={`/lobbies/${lobby.code}/add-elimination`}
@@ -161,30 +134,6 @@ export function ViewGame() {
         >
           NEXT ELIMINATATION
         </Button>
-        <Button
-          variant="outlined"
-          css={css`
-            width: 100%;
-          `}
-          sx={{ mt: 2, mb: 1 }}
-          size="large"
-          onClick={handleOpen}
-        >
-          SHARE
-        </Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <div style={{ background: "white", padding: "16px" }}>
-              <QRCode value={document.location.href} />
-            </div>
-            <CopyToClipboardButton />
-          </Box>
-        </Modal>
       </Box>
     </Box>
   );

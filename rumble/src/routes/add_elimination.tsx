@@ -1,8 +1,9 @@
-import { css } from "@emotion/react";
-import { Box, Button, Divider, Grid } from "@mui/material";
+import { Box, Button, Divider } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchApi } from "../api/fetcher";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import { Rumbler } from "../hooks/use_lobby";
 
 export function AddElimination() {
@@ -10,6 +11,7 @@ export function AddElimination() {
   const navigate = useNavigate();
   const [victims, setVictims] = useState<Rumbler[]>([]);
   const [offenders, setOffenders] = useState<Rumbler[]>([]);
+  const { setKeyLoading } = useLoadingAndErrorStates();
 
   if (!lobby) return null;
 
@@ -34,7 +36,9 @@ export function AddElimination() {
 
   const addElimination = async () => {
     if (victims.length === 0 || offenders.length === 0) return;
+    setKeyLoading("addElimination", true);
     await postElimination(lobby.code, offenders, victims);
+    setKeyLoading("addElimination", false);
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
 
@@ -61,6 +65,7 @@ export function AddElimination() {
                 variant="outlined"
                 color={offenders.includes(rumbler) ? "secondary" : "primary"}
                 onClick={() => toggleOffender(rumbler)}
+                key={rumbler.id}
               >
                 {rumbler.wrestler.name}
               </Button>
@@ -80,6 +85,7 @@ export function AddElimination() {
               variant="outlined"
               color={victims.includes(rumbler) ? "secondary" : "primary"}
               onClick={() => toggleVictim(rumbler)}
+              key={rumbler.id}
             >
               {rumbler.wrestler.name}
             </Button>
@@ -114,13 +120,11 @@ async function postElimination(
   offenders: Rumbler[],
   victims: Rumbler[]
 ) {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const body = JSON.stringify({
     victim_ids: victims.map((rumbler) => rumbler.id),
     offender_ids: offenders.map((rumbler) => rumbler.id),
   });
-  const url = new URL(`api/lobbies/${lobbyCode}/elimination`, BACKEND_URL);
-  const response = await fetch(url.toString(), {
+  const response = await fetchApi(`lobbies/${lobbyCode}/elimination`, {
     method: "POST",
     body,
     headers: {

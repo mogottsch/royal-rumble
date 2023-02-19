@@ -2,14 +2,18 @@ import { Button, Divider, FormControl, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
+import { fetchApi } from "../api/fetcher";
+import { getApiUrl } from "../api/routes";
 import { PrimaryButton } from "../components/buttons";
 import { InputField } from "../components/form";
+import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 
 export function CreateLobby() {
   const [newName, setNewName] = useState("");
   const [participantNames, setParticipantNames] = useState<string[]>([]);
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
   const navigate = useNavigate();
+  const { setKeyLoading } = useLoadingAndErrorStates();
 
   const isParticipantNameEmpty = newName === "";
   const isParticipantNameDuplicate = participantNames.includes(newName);
@@ -35,7 +39,9 @@ export function CreateLobby() {
       return;
     }
     setErrorMessages([]);
+    setKeyLoading("createLobby", true);
     const lobby = await postCreateLobby(participantNames);
+    setKeyLoading("createLobby", false);
     navigate(`/lobbies/${lobby.code}/assign-entrance-numbers`);
   };
 
@@ -83,10 +89,8 @@ const NameBox = ({ children }: { children: JSX.Element | string }) => (
 );
 
 async function postCreateLobby(participants: string[]) {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const body = JSON.stringify({ participants });
-  const url = new URL(`/api/lobbies`, BACKEND_URL);
-  const response = await fetch(url.toString(), {
+  const response = await fetchApi("/lobbies", {
     method: "POST",
     body,
     headers: {

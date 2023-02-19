@@ -1,8 +1,10 @@
+import { useIsFetching } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 export function useLoadingAndErrorStates() {
   const [isLoadingRecord, setIsLoading] = useState<Record<string, boolean>>({});
   const [errorRecord, setError] = useState<Record<string, Error>>({});
+  const isFetching = useIsFetching();
   const setKeyLoading = (key: string, value: boolean) => {
     setIsLoading((prev) => ({ ...prev, [key]: value }));
   };
@@ -12,8 +14,12 @@ export function useLoadingAndErrorStates() {
   const [isAnyLoading, setIsAnyLoading] = useState(false);
 
   useEffect(() => {
-    setIsAnyLoading(Object.values(isLoadingRecord).some((v) => v));
-  }, [isLoadingRecord]);
+    const nKeysLoading = Object.values(isLoadingRecord).filter((v) => v).length;
+    const nQueriesFetching = isFetching;
+    const nTotal = nKeysLoading + nQueriesFetching;
+
+    setIsAnyLoading(nTotal > 0);
+  }, [isLoadingRecord, isFetching]);
 
   return {
     isLoadingRecord,

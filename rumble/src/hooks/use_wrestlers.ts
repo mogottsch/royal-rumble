@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { fetchApi } from "../api/fetcher";
 import { Wrestler } from "./use_lobby";
 
 interface Props {
@@ -35,10 +36,8 @@ async function fetchWrestlers({ queryKey }: any): Promise<Wrestler[]> {
   if (!searchTerm) {
     return [];
   }
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const response = await fetch(
-    BACKEND_URL + "/api/wrestlers/search?search=" + searchTerm
-  );
+
+  const response = await fetchApi("/wrestlers/search?search=" + searchTerm);
   const data = await response.json();
   return data.data ?? [];
 }

@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { Wrestler } from "../hooks/use_lobby";
 import { useWrestlers } from "../hooks/use_wrestlers";
 import { useNotificationContext } from "../contexts/notification_context";
+import { getApiUrl } from "../api/routes";
+import { fetchApi } from "../api/fetcher";
+import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 
 export function AddEntrance() {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ export function AddEntrance() {
   const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
     searchTerm,
   });
+  const { setKeyLoading } = useLoadingAndErrorStates();
   const { notify } = useNotificationContext();
 
   if (!lobby) return <div>loading...</div>;
@@ -28,12 +32,15 @@ export function AddEntrance() {
       return;
     }
 
+    setKeyLoading("addEntrance", true);
     try {
       await postEntrance(lobby.code, selectedWrestler.id);
     } catch (e) {
       const error = e as Error;
       notify(error.message, "error");
       return;
+    } finally {
+      setKeyLoading("addEntrance", false);
     }
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
@@ -112,10 +119,8 @@ export function AddEntrance() {
 }
 
 async function postEntrance(lobbyCode: string, wrestlerId: number) {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const body = JSON.stringify({ wrestler_id: wrestlerId });
-  const url = new URL(`api/lobbies/${lobbyCode}/entrance`, BACKEND_URL);
-  const response = await fetch(url.toString(), {
+  const response = await fetchApi(`lobbies/${lobbyCode}/entrance`, {
     method: "POST",
     body,
     headers: {

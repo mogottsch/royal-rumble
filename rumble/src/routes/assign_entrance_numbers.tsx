@@ -3,6 +3,8 @@ import { Box, Divider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNavigate } from "react-router-dom";
+import { fetchApi } from "../api/fetcher";
+import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 
 export function AssignEntranceNumbers() {
   const navigate = useNavigate();
@@ -16,6 +18,8 @@ export function AssignEntranceNumbers() {
       setSelectedParticipantId(participantId);
     }
   };
+
+  const { setKeyLoading } = useLoadingAndErrorStates();
 
   const [participantEntranceNumber, setParticipantEntranceNumber] = useState<
     Record<number, number>
@@ -99,7 +103,9 @@ export function AssignEntranceNumbers() {
       alert("Not all participants have been assigned entrance numbers");
       return;
     }
+    setKeyLoading("assignEntranceNumbers", true);
     await putEntranceNumbers(lobby.code, participantEntranceNumber);
+    setKeyLoading("assignEntranceNumbers", false);
     await lobbyQuery?.refetch();
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
@@ -195,10 +201,8 @@ async function putEntranceNumbers(
   lobbyCode: string,
   entranceNumbers: Record<number, number>
 ) {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const body = JSON.stringify({ participantEntranceNumbers: entranceNumbers });
-  const url = new URL(`api/lobbies/${lobbyCode}/entrance-numbers`, BACKEND_URL);
-  const response = await fetch(url.toString(), {
+  const response = await fetchApi(`lobbies/${lobbyCode}/entrance-numbers`, {
     method: "POST",
     body,
     headers: {

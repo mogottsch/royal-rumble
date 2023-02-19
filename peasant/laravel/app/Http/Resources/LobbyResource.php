@@ -3,11 +3,19 @@
 namespace App\Http\Resources;
 
 use App\Models\Lobby;
+use App\Services\EntranceNumberAssigner;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LobbyResource extends JsonResource
 {
     private Lobby $lobby;
+    private EntranceNumberAssigner $entranceNumberAssigner;
+
+    public function __construct($resource)
+    {
+        parent::__construct($resource);
+        $this->entranceNumberAssigner = app(EntranceNumberAssigner::class);
+    }
     /**
      * Transform the resource into an array.
      *
@@ -27,6 +35,9 @@ class LobbyResource extends JsonResource
             "code" => $this->lobby->code,
             "participants" => $this->lobby->participants,
             "rumblers" => RumblerResource::collection($this->lobby->rumblers),
+            "nextEntranceNumber" => $this->entranceNumberAssigner->getNextRumblerEntranceNumber(
+                $this->lobby
+            ),
         ];
     }
 }

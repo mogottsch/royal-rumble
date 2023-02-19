@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchApi } from "../api/fetcher";
 import { useEchoContext } from "../contexts/echo_context";
 import { useNotificationContext } from "../contexts/notification_context";
 
@@ -12,6 +13,7 @@ export interface Lobby {
   participants: Participant[];
   rumblers: Rumbler[];
   actions: any[];
+  nextEntranceNumber: number;
 }
 
 export interface Participant {
@@ -101,16 +103,11 @@ function useLobbyQuery(lobbyCode?: string) {
 }
 
 async function fetchLobby({ queryKey }: any): Promise<Lobby> {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const lobbyCode = queryKey[1];
   if (!lobbyCode) {
     throw new Error("No lobby code provided");
   }
-  const response = await fetch(BACKEND_URL + "/api/lobbies/" + lobbyCode, {
-    headers: {
-      accept: "application/json",
-    },
-  });
+  const response = await fetchApi("/lobbies/" + lobbyCode);
   if (response.status === 404) {
     throw new Error("Lobby not found");
   }

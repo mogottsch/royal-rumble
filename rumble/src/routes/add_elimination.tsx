@@ -50,7 +50,7 @@ export function AddElimination() {
         height: "100%",
       }}
     >
-      <Box sx={{ mt: 2, overflowY: "scroll", mb: 2 }}>
+      <Box sx={{ mt: 2, overflowY: "auto", mb: 2 }}>
         <Box sx={{ mb: 4 }}>
           <Divider sx={{ mb: 1 }}>WHO IS/ARE THE ELIMINATOR(S)?</Divider>
           <Box

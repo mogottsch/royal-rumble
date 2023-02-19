@@ -7,8 +7,9 @@ export function History({ lobby }: { lobby: Lobby | undefined }) {
   const actionsReverse = [...actions].reverse();
   return (
     <Box sx={{ overflow: "auto" }}>
+      {actionsReverse.length === 0 && <Box>No actions yet</Box>}
       {actionsReverse.map((action, index) => (
-        <Box>
+        <Box key={index}>
           {actionsReverse.length - index}. <ActionDisplay action={action} />
         </Box>
       ))}

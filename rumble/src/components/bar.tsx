@@ -34,9 +34,11 @@ export function Bar() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton size="large" edge="start" onClick={handleOpenHistory}>
-            <MenuIcon />
-          </IconButton>
+          {lobbyExists && (
+            <IconButton size="large" edge="start" onClick={handleOpenHistory}>
+              <MenuIcon />
+            </IconButton>
+          )}
           <Box sx={{ flexGrow: 1 }} />
           {lobbyExists && (
             <IconButton size="large" edge="end" onClick={handleOpenShare}>
@@ -54,9 +56,9 @@ export function Bar() {
       </Modal>
       <Modal open={openShare} onClose={handleCloseShare}>
         <Box sx={shareModalStyle}>
-          <div style={{ background: "white", padding: "16px" }}>
+          <Box sx={{ background: "white", p: 3, mb: 2 }}>
             <QRCode value={document.location.href} />
-          </div>
+          </Box>
           <CopyToClipboardButton text={shareLink} />
         </Box>
       </Modal>

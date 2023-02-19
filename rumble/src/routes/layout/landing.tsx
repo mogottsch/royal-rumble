@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
-import logo from "../../assets/logo_royal.png";
+import logo from "../../assets/logo_large.png";
 import { Bar } from "../../components/bar";
 import { css } from "@emotion/react";
 

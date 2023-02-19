@@ -12,12 +12,11 @@ export function useEcho() {
       key: import.meta.env.VITE_PUSHER_APP_KEY,
       wsHost: import.meta.env.VITE_PUSHER_HOST,
       wsPort: import.meta.env.VITE_PUSHER_PORT,
-      wssPort: import.meta.env.VITE_PUSHER_PORT,
       cluster: "mt1",
       forceTLS: false,
       encrypted: true,
       disableStats: true,
-      enabledTransports: ["ws", "wss"],
+      enabledTransports: ["ws"],
     });
     setEcho(laravelEcho);
   }, []);

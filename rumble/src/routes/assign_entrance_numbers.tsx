@@ -117,6 +117,7 @@ export function AssignEntranceNumbers() {
         flexDirection: "column",
         height: "100%",
         justifyContent: "space-between",
+        padding: 2,
       }}
     >
       <Box>

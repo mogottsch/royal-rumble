@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
-/** @jsxImportSource @emotion/react */
 import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
 import { css } from "@emotion/react";

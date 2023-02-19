@@ -24,6 +24,6 @@ else
     docker compose -f docker-compose.yaml ${COMMAND}
 fi
 
-rm .env
-rm ./rumble/.env
-rm ./peasant/laravel/.env
+# rm .env
+# rm ./rumble/.env
+# rm ./peasant/laravel/.env

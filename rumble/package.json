@@ -18,11 +18,11 @@
     "@tanstack/react-query-devtools": "^4.9.0",
     "install": "^0.13.0",
     "laravel-echo": "^1.14.2",
-    "next-qrcode": "^2.4.0",
     "npm": "^8.19.2",
     "pusher-js": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-qr-code": "^2.0.11",
     "react-router-dom": "^6.4.1"
   },
   "devDependencies": {

@@ -1,9 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
-/** @jsxImportSource @emotion/react */
-import Button from "@mui/material/Button";
-import Input from "@mui/material/Input";
-import FormControl from "@mui/material/FormControl";
-import { Box, InputLabel } from "@mui/material";
+import { Box } from "@mui/material";
 import { css } from "@emotion/react";
 import { useState } from "react";
 import { InputField } from "../components/form";

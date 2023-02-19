@@ -1,12 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope -- Unaware of jsxImportSource */
-/** @jsxImportSource @emotion/react */
 import Button from "@mui/material/Button";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useEffect, useState } from "react";
 import { Participant, Rumbler } from "../hooks/use_lobby";
-import { useQRCode } from "next-qrcode";
+import QRCode from "react-qr-code";
 import { CopyToClipboardButton } from "../components/buttons";
 
 interface Row {
@@ -33,7 +31,7 @@ export function ViewGame() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { Canvas } = useQRCode();
+  // const { Canvas } = useQRCode();
 
   const [rows, setRows] = useState<Row[]>();
   const foundRumblers = new Set<number>();
@@ -146,6 +144,7 @@ export function ViewGame() {
           sx={{ mt: 1 }}
           size="large"
           href={`/lobbies/${lobby.code}/add-elimination`}
+          disabled={lobby.rumblers.length === 0}
         >
           NEXT ELIMINATATION
         </Button>
@@ -168,7 +167,9 @@ export function ViewGame() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Canvas text={document.location.href} />
+          <div style={{ background: "white", padding: "16px" }}>
+            <QRCode value={document.location.href} />
+          </div>
           <CopyToClipboardButton />
         </Box>
       </Modal>

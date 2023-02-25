@@ -1,0 +1,453 @@
+{
+    "wrestlers": [
+        {
+            "name": "Asuka",
+            "cm_id": 2785,
+            "id": "aac4177b-2bd5-4747-92eb-e2b1d89281b5"
+        },
+        {
+            "name": "Bayley",
+            "cm_id": 9089,
+            "id": "310ce24b-46e9-42ce-84ec-a56d79bd164e"
+        },
+        {
+            "name": "Becky Lynch",
+            "cm_id": 2467,
+            "id": "366980d8-3717-485e-ba5c-cd74f2f5f0c5"
+        },
+        {
+            "name": "Beth Phoenix",
+            "cm_id": 1161,
+            "id": "aa32ffeb-b968-4f6b-beda-942827d53c19"
+        },
+        {
+            "name": "Brie Bella",
+            "cm_id": 5571,
+            "id": "1a1630f4-45a2-422e-a35c-2bec16548f07"
+        },
+        {
+            "name": "Carmella",
+            "cm_id": 15172,
+            "id": "24d65a1c-9b22-4762-92ca-1d7fa9ade2b1"
+        },
+        {
+            "name": "Dana Brooke",
+            "cm_id": 15363,
+            "id": "5fcd63bf-34a2-489c-9b91-477779796c5e"
+        },
+        {
+            "name": "Ember Moon",
+            "cm_id": 7588,
+            "id": "660d8f15-c6a5-4944-bc7f-f1fc426dea43"
+        },
+        {
+            "name": "Jacqueline",
+            "cm_id": 273,
+            "id": "bca96346-6c39-4c29-a39c-93409f2e7b4b"
+        },
+        {
+            "name": "Kairi Sane",
+            "cm_id": 11958,
+            "id": "b27d01ea-fbf1-4e8e-afda-0894f390c9ff"
+        },
+        {
+            "name": "Kelly Kelly",
+            "cm_id": 3584,
+            "id": "dc13ff2c-1d07-422c-a619-886cf08d866e"
+        },
+        {
+            "name": "Lana",
+            "cm_id": 13845,
+            "id": "b212a703-3c29-4903-a3c7-4601a1f2d570"
+        },
+        {
+            "name": "Lita",
+            "cm_id": 1071,
+            "id": "f0e537ca-9a53-4e35-93e9-dd531e5b1c73"
+        },
+        {
+            "name": "Liv Morgan",
+            "cm_id": 16664,
+            "id": "3f31ab11-46ed-4bce-a728-fe9937ba5061"
+        },
+        {
+            "name": "Mandy Rose",
+            "cm_id": 16878,
+            "id": "e394e046-bf40-401e-888c-f45e52cee3cb"
+        },
+        {
+            "name": "Michelle McCool",
+            "cm_id": 1836,
+            "id": "3a42f72b-e681-4364-a6b6-e3f67f2d7de6"
+        },
+        {
+            "name": "Mickie James",
+            "cm_id": 401,
+            "id": "a1e87672-ecd6-47e5-97f8-ed25937a4629"
+        },
+        {
+            "name": "Molly Holly",
+            "cm_id": 502,
+            "id": "a6f1b62c-6775-4615-8b69-5ed9107c78b9"
+        },
+        {
+            "name": "Naomi",
+            "cm_id": 8819,
+            "id": "8367efdc-cf6a-4290-a327-f1a1d82392d1"
+        },
+        {
+            "name": "Natalya",
+            "cm_id": 2048,
+            "id": "b47f7912-1636-4612-8eca-9bf642332607"
+        },
+        {
+            "name": "Nia Jax",
+            "cm_id": 14763,
+            "id": "fcdea061-4d02-4f84-86bf-7b51e0ebe0bf"
+        },
+        {
+            "name": "Nikki Bella",
+            "cm_id": 5572,
+            "id": "d67dddfa-7059-4805-8a11-c8979d5b64f6"
+        },
+        {
+            "name": "Ruby Riott",
+            "cm_id": 12698,
+            "id": "f8ad5c8e-63dd-4c97-bc7d-1905f3e54f58"
+        },
+        {
+            "name": "Sarah Logan",
+            "cm_id": 13384,
+            "id": "b53b2c60-7261-405e-b145-5f0f35a8ab5c"
+        },
+        {
+            "name": "Sasha Banks",
+            "cm_id": 10962,
+            "id": "9bfc6d4d-1120-40c8-8739-685ae826da8c"
+        },
+        {
+            "name": "Sonya Deville",
+            "cm_id": 17658,
+            "id": "7e650bdb-ef1c-411d-8b11-686e5b51d8be"
+        },
+        {
+            "name": "Tamina",
+            "cm_id": 8769,
+            "id": "4103fc86-0852-4eac-b253-0e66615c3efc"
+        },
+        {
+            "name": "Torrie Wilson",
+            "cm_id": 963,
+            "id": "5323fc0a-7f64-486a-adf6-95611e685233"
+        },
+        {
+            "name": "Trish Stratus",
+            "cm_id": 356,
+            "id": "8547663e-9568-43a3-8de6-990768092f04"
+        },
+        {
+            "name": "Vickie Guerrero",
+            "cm_id": 4116,
+            "id": "72c65cb6-0fc6-4b4a-85a7-5274dc063cd2"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "f0e537ca-9a53-4e35-93e9-dd531e5b1c73"
+            ],
+            "victims": [
+                "e394e046-bf40-401e-888c-f45e52cee3cb"
+            ],
+            "raw": "- Lita eliminates Mandy Rose (7:15)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f0e537ca-9a53-4e35-93e9-dd531e5b1c73"
+            ],
+            "victims": [
+                "4103fc86-0852-4eac-b253-0e66615c3efc"
+            ],
+            "raw": "- Lita eliminates Tamina (10:48)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "366980d8-3717-485e-ba5c-cd74f2f5f0c5"
+            ],
+            "victims": [
+                "f0e537ca-9a53-4e35-93e9-dd531e5b1c73"
+            ],
+            "raw": "- Becky Lynch eliminates Lita (11:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5fcd63bf-34a2-489c-9b91-477779796c5e"
+            ],
+            "victims": [
+                "b27d01ea-fbf1-4e8e-afda-0894f390c9ff"
+            ],
+            "raw": "- Dana Brooke eliminates Kairi Sane (12:25)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5323fc0a-7f64-486a-adf6-95611e685233"
+            ],
+            "victims": [
+                "5fcd63bf-34a2-489c-9b91-477779796c5e"
+            ],
+            "raw": "- Torrie Wilson eliminates Dana Brooke (14:20)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7e650bdb-ef1c-411d-8b11-686e5b51d8be"
+            ],
+            "victims": [
+                "5323fc0a-7f64-486a-adf6-95611e685233"
+            ],
+            "raw": "- Sonya Deville eliminates Torrie Wilson (15:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a6f1b62c-6775-4615-8b69-5ed9107c78b9"
+            ],
+            "victims": [
+                "b53b2c60-7261-405e-b145-5f0f35a8ab5c"
+            ],
+            "raw": "- Molly Holly eliminates Sarah Logan (18:05)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3a42f72b-e681-4364-a6b6-e3f67f2d7de6"
+            ],
+            "victims": [
+                "7e650bdb-ef1c-411d-8b11-686e5b51d8be"
+            ],
+            "raw": "- Michelle McCool eliminates Sonya Deville (21:11)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3a42f72b-e681-4364-a6b6-e3f67f2d7de6"
+            ],
+            "victims": [
+                "3f31ab11-46ed-4bce-a728-fe9937ba5061"
+            ],
+            "raw": "- Michelle McCool eliminates Liv Morgan (21:16)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3a42f72b-e681-4364-a6b6-e3f67f2d7de6"
+            ],
+            "victims": [
+                "a6f1b62c-6775-4615-8b69-5ed9107c78b9"
+            ],
+            "raw": "- Michelle McCool eliminates Molly Holly (21:32)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3a42f72b-e681-4364-a6b6-e3f67f2d7de6"
+            ],
+            "victims": [
+                "b212a703-3c29-4903-a3c7-4601a1f2d570"
+            ],
+            "raw": "- Michelle McCool eliminates Lana (21:51)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "366980d8-3717-485e-ba5c-cd74f2f5f0c5",
+                "3a42f72b-e681-4364-a6b6-e3f67f2d7de6",
+                "f8ad5c8e-63dd-4c97-bc7d-1905f3e54f58",
+                "9bfc6d4d-1120-40c8-8739-685ae826da8c"
+            ],
+            "victims": [
+                "72c65cb6-0fc6-4b4a-85a7-5274dc063cd2"
+            ],
+            "raw": "- Becky Lynch, Michelle McCool, Ruby Riott & Sasha Banks eliminate Vickie Guerrero (25:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b47f7912-1636-4612-8eca-9bf642332607"
+            ],
+            "victims": [
+                "3a42f72b-e681-4364-a6b6-e3f67f2d7de6"
+            ],
+            "raw": "- Natalya eliminates Michelle McCool (29:05)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f8ad5c8e-63dd-4c97-bc7d-1905f3e54f58"
+            ],
+            "victims": [
+                "366980d8-3717-485e-ba5c-cd74f2f5f0c5"
+            ],
+            "raw": "- Ruby Riott eliminates Becky Lynch (31:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "fcdea061-4d02-4f84-86bf-7b51e0ebe0bf"
+            ],
+            "victims": [],
+            "raw": "- Nia Jax eliminates Jacquline (33:03)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "fcdea061-4d02-4f84-86bf-7b51e0ebe0bf"
+            ],
+            "victims": [
+                "dc13ff2c-1d07-422c-a619-886cf08d866e"
+            ],
+            "raw": "- Nia Jax eliminates Kelly Kelly (33:09)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "fcdea061-4d02-4f84-86bf-7b51e0ebe0bf"
+            ],
+            "victims": [
+                "f8ad5c8e-63dd-4c97-bc7d-1905f3e54f58"
+            ],
+            "raw": "- Nia Jax eliminates Ruby Riott (33:41)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "fcdea061-4d02-4f84-86bf-7b51e0ebe0bf"
+            ],
+            "victims": [
+                "8367efdc-cf6a-4290-a327-f1a1d82392d1"
+            ],
+            "raw": "- Nia Jax eliminates Naomi (36:25)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b47f7912-1636-4612-8eca-9bf642332607"
+            ],
+            "victims": [
+                "aa32ffeb-b968-4f6b-beda-942827d53c19"
+            ],
+            "raw": "- Natalya eliminates Beth Phoenix (39:05)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "aac4177b-2bd5-4747-92eb-e2b1d89281b5"
+            ],
+            "victims": [
+                "660d8f15-c6a5-4944-bc7f-f1fc426dea43"
+            ],
+            "raw": "- Asuka eliminates Ember Moon (40:50)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d67dddfa-7059-4805-8a11-c8979d5b64f6"
+            ],
+            "victims": [
+                "24d65a1c-9b22-4762-92ca-1d7fa9ade2b1"
+            ],
+            "raw": "- Nikki Bella eliminates Carmella (44:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8547663e-9568-43a3-8de6-990768092f04"
+            ],
+            "victims": [
+                "a1e87672-ecd6-47e5-97f8-ed25937a4629"
+            ],
+            "raw": "- Trish Stratus eliminates Mickie James (49:50)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "aac4177b-2bd5-4747-92eb-e2b1d89281b5",
+                "310ce24b-46e9-42ce-84ec-a56d79bd164e",
+                "1a1630f4-45a2-422e-a35c-2bec16548f07",
+                "b47f7912-1636-4612-8eca-9bf642332607",
+                "d67dddfa-7059-4805-8a11-c8979d5b64f6",
+                "9bfc6d4d-1120-40c8-8739-685ae826da8c",
+                "8547663e-9568-43a3-8de6-990768092f04"
+            ],
+            "victims": [
+                "fcdea061-4d02-4f84-86bf-7b51e0ebe0bf"
+            ],
+            "raw": "- Asuka, Bayley, Brie Bella, Natalya, Nikki Bella, Sasha Banks & Trish Stratus eliminate Nia Jax (50:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9bfc6d4d-1120-40c8-8739-685ae826da8c"
+            ],
+            "victims": [
+                "310ce24b-46e9-42ce-84ec-a56d79bd164e"
+            ],
+            "raw": "- Sasha Banks eliminates Bayley (51:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8547663e-9568-43a3-8de6-990768092f04"
+            ],
+            "victims": [
+                "b47f7912-1636-4612-8eca-9bf642332607"
+            ],
+            "raw": "- Trish Stratus eliminates Natalya (52:20)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9bfc6d4d-1120-40c8-8739-685ae826da8c"
+            ],
+            "victims": [
+                "8547663e-9568-43a3-8de6-990768092f04"
+            ],
+            "raw": "- Sasha Banks eliminates Trish Stratus (53:55)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d67dddfa-7059-4805-8a11-c8979d5b64f6"
+            ],
+            "victims": [
+                "9bfc6d4d-1120-40c8-8739-685ae826da8c"
+            ],
+            "raw": "- Brie & Nikki Bella eliminate Sasha Banks (54:45)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "d67dddfa-7059-4805-8a11-c8979d5b64f6"
+            ],
+            "victims": [
+                "1a1630f4-45a2-422e-a35c-2bec16548f07"
+            ],
+            "raw": "- Nikki Bella eliminates Brie Bella (56:40)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "aac4177b-2bd5-4747-92eb-e2b1d89281b5"
+            ],
+            "victims": [
+                "d67dddfa-7059-4805-8a11-c8979d5b64f6"
+            ],
+            "raw": "- Asuka eliminates Nikki Bella",
+            "is_valid": true
+        }
+    ]
+}

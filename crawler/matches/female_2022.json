@@ -1,0 +1,439 @@
+{
+    "wrestlers": [
+        {
+            "name": "Ronda Rousey",
+            "cm_id": 19446,
+            "id": "8d4da60d-8ab3-4652-96cf-95118c4e02a5"
+        },
+        {
+            "name": "Alicia Fox",
+            "cm_id": 3585,
+            "id": "7e41e68f-3f7a-44ee-850c-33fdea40731a"
+        },
+        {
+            "name": "Aliyah",
+            "cm_id": 13979,
+            "id": "52138728-ec2b-4e28-8e2b-57db63b7f41e"
+        },
+        {
+            "name": "Bianca Belair",
+            "cm_id": 18242,
+            "id": "e031af2f-8420-4e19-9e9a-7012bd7864e1"
+        },
+        {
+            "name": "Brie Bella",
+            "cm_id": 5571,
+            "id": "326ff001-e2be-4a37-9d2d-e34066a94f1e"
+        },
+        {
+            "name": "Cameron",
+            "cm_id": 11635,
+            "id": "0e52b1a9-b0aa-46f4-ac56-7a08557854bc"
+        },
+        {
+            "name": "Carmella",
+            "cm_id": 15172,
+            "id": "5abaed48-5192-48d2-9384-d7017b95d4e5"
+        },
+        {
+            "name": "Charlotte Flair",
+            "cm_id": 12939,
+            "id": "9416439d-8450-45f3-83ac-bdcea1851f88"
+        },
+        {
+            "name": "Dana Brooke",
+            "cm_id": 15363,
+            "id": "6b3a62ec-5de0-4375-a749-3d314ec62cab"
+        },
+        {
+            "name": "Reggie",
+            "cm_id": 23093,
+            "id": "222d055c-ec84-466f-9d92-230eae7f4d43"
+        },
+        {
+            "name": "Ivory",
+            "cm_id": 116,
+            "id": "204fbb64-0b20-4006-8fab-10de83910633"
+        },
+        {
+            "name": "Kelly Kelly",
+            "cm_id": 3584,
+            "id": "f7096ff0-0fc0-4b3f-be18-0810c0d9a8d4"
+        },
+        {
+            "name": "Lita",
+            "cm_id": 1071,
+            "id": "8286aa8f-dc68-43af-92e6-93bdf94d481c"
+        },
+        {
+            "name": "Liv Morgan",
+            "cm_id": 16664,
+            "id": "3a9f4049-bf72-4da7-a474-f3799759a148"
+        },
+        {
+            "name": "Melina",
+            "cm_id": 1916,
+            "id": "b97658b3-508d-40b2-9487-1d78384d557f"
+        },
+        {
+            "name": "Michelle McCool",
+            "cm_id": 1836,
+            "id": "fa6e61f0-9bc1-42e9-a40b-e0d242175315"
+        },
+        {
+            "name": "Mickie James",
+            "cm_id": 401,
+            "id": "c380b198-b1a4-4a73-aaf4-58a1ff96a27f"
+        },
+        {
+            "name": "Molly Holly",
+            "cm_id": 502,
+            "id": "75d69348-48cb-4cbf-8bf6-ba721c270ade"
+        },
+        {
+            "name": "Naomi",
+            "cm_id": 8819,
+            "id": "709d29c4-a006-4eb9-bfa3-d2a5b29baa0f"
+        },
+        {
+            "name": "Natalya",
+            "cm_id": 2048,
+            "id": "cabaa63d-9f21-4e66-82e9-4ded073fbb50"
+        },
+        {
+            "name": "Nikki ASH",
+            "cm_id": 9844,
+            "id": "d6d3970f-1030-4323-9c0b-814c51742f62"
+        },
+        {
+            "name": "Nikki Bella",
+            "cm_id": 5572,
+            "id": "0efcc779-0184-48a0-b086-3830404f3fcd"
+        },
+        {
+            "name": "Queen Zelina",
+            "cm_id": 10147,
+            "id": "a157422b-942e-4ace-ae4d-db48d78f8577"
+        },
+        {
+            "name": "Rhea Ripley",
+            "cm_id": 16519,
+            "id": "0b5601a9-48d4-485c-95b9-c28026cc9ad9"
+        },
+        {
+            "name": "Sarah Logan",
+            "cm_id": 13384,
+            "id": "30ecbdd4-15d7-48a3-a190-f05d6dc83fd5"
+        },
+        {
+            "name": "Sasha Banks",
+            "cm_id": 10962,
+            "id": "a7679a98-6b17-47c2-9a9c-d324a011f3e5"
+        },
+        {
+            "name": "Shayna Baszler",
+            "cm_id": 16366,
+            "id": "52718d5a-9da6-467d-9a27-e2d97a90d286"
+        },
+        {
+            "name": "Shotzi",
+            "cm_id": 17920,
+            "id": "d4b17526-8175-446c-9f38-4fbd65d68f5a"
+        },
+        {
+            "name": "Sonya Deville",
+            "cm_id": 17658,
+            "id": "02290b28-a7b1-4f16-8ea7-2cf7f1e11a45"
+        },
+        {
+            "name": "Summer Rae",
+            "cm_id": 11768,
+            "id": "e3fa1c91-3e53-44f8-982e-7f565b10bce9"
+        },
+        {
+            "name": "Tamina",
+            "cm_id": 8769,
+            "id": "dfcad470-c8b8-4b1a-bb49-d0a6a43115c1"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "a7679a98-6b17-47c2-9a9c-d324a011f3e5"
+            ],
+            "victims": [
+                "b97658b3-508d-40b2-9487-1d78384d557f"
+            ],
+            "raw": "- Sasha Banks eliminates Melina (0:54)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a7679a98-6b17-47c2-9a9c-d324a011f3e5"
+            ],
+            "victims": [
+                "f7096ff0-0fc0-4b3f-be18-0810c0d9a8d4"
+            ],
+            "raw": "- Sasha Banks eliminates Kelly Kelly (5:09)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a157422b-942e-4ace-ae4d-db48d78f8577"
+            ],
+            "victims": [
+                "a7679a98-6b17-47c2-9a9c-d324a011f3e5"
+            ],
+            "raw": "- Queen Zelina eliminates Sasha Banks (9:44)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "fa6e61f0-9bc1-42e9-a40b-e0d242175315"
+            ],
+            "victims": [
+                "6b3a62ec-5de0-4375-a749-3d314ec62cab"
+            ],
+            "raw": "- Michelle McCool eliminates Dana Brooke (14:57)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "cabaa63d-9f21-4e66-82e9-4ded073fbb50"
+            ],
+            "victims": [
+                "dfcad470-c8b8-4b1a-bb49-d0a6a43115c1"
+            ],
+            "raw": "- Natalya eliminates Tamina (18:54)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02290b28-a7b1-4f16-8ea7-2cf7f1e11a45"
+            ],
+            "victims": [
+                "0e52b1a9-b0aa-46f4-ac56-7a08557854bc"
+            ],
+            "raw": "- Sonya Deville eliminates Cameron (21:02)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "709d29c4-a006-4eb9-bfa3-d2a5b29baa0f"
+            ],
+            "victims": [
+                "02290b28-a7b1-4f16-8ea7-2cf7f1e11a45"
+            ],
+            "raw": "- Naomi eliminates Sonya Deville (22:32)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0b5601a9-48d4-485c-95b9-c28026cc9ad9"
+            ],
+            "victims": [
+                "5abaed48-5192-48d2-9384-d7017b95d4e5",
+                "a157422b-942e-4ace-ae4d-db48d78f8577"
+            ],
+            "raw": "- Rhea Ripley eliminates Carmella & Queen Zelina (26:38)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9416439d-8450-45f3-83ac-bdcea1851f88"
+            ],
+            "victims": [
+                "52138728-ec2b-4e28-8e2b-57db63b7f41e"
+            ],
+            "raw": "- Charlotte Flair eliminates Aliyah (28:31)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "02290b28-a7b1-4f16-8ea7-2cf7f1e11a45"
+            ],
+            "victims": [
+                "709d29c4-a006-4eb9-bfa3-d2a5b29baa0f"
+            ],
+            "raw": "- Sonya Deville eliminates Naomi (29:18)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0b5601a9-48d4-485c-95b9-c28026cc9ad9"
+            ],
+            "victims": [
+                "204fbb64-0b20-4006-8fab-10de83910633"
+            ],
+            "raw": "- Rhea Ripley eliminates Ivory (31:14)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c380b198-b1a4-4a73-aaf4-58a1ff96a27f"
+            ],
+            "victims": [
+                "fa6e61f0-9bc1-42e9-a40b-e0d242175315"
+            ],
+            "raw": "- Mickie James eliminates Michelle McCool (35:08)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "cabaa63d-9f21-4e66-82e9-4ded073fbb50"
+            ],
+            "victims": [
+                "e3fa1c91-3e53-44f8-982e-7f565b10bce9"
+            ],
+            "raw": "- Natalya eliminates Summer Rae (40:38)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0efcc779-0184-48a0-b086-3830404f3fcd"
+            ],
+            "victims": [
+                "7e41e68f-3f7a-44ee-850c-33fdea40731a"
+            ],
+            "raw": "- Nikki Bella eliminates Alicia Fox (42:36)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "326ff001-e2be-4a37-9d2d-e34066a94f1e",
+                "0efcc779-0184-48a0-b086-3830404f3fcd"
+            ],
+            "victims": [
+                "30ecbdd4-15d7-48a3-a190-f05d6dc83fd5"
+            ],
+            "raw": "- Brie Bella & Nikki Bella eliminate Sarah Logan (44:09)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "326ff001-e2be-4a37-9d2d-e34066a94f1e"
+            ],
+            "victims": [
+                "3a9f4049-bf72-4da7-a474-f3799759a148"
+            ],
+            "raw": "- Brie Bella eliminates Liv Morgan (44:31)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8286aa8f-dc68-43af-92e6-93bdf94d481c"
+            ],
+            "victims": [
+                "c380b198-b1a4-4a73-aaf4-58a1ff96a27f"
+            ],
+            "raw": "- Lita eliminates Mickie James (46:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d6d3970f-1030-4323-9c0b-814c51742f62"
+            ],
+            "victims": [
+                "75d69348-48cb-4cbf-8bf6-ba721c270ade"
+            ],
+            "raw": "- Nikki ASH eliminates Molly Holly (48:08)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8d4da60d-8ab3-4652-96cf-95118c4e02a5"
+            ],
+            "victims": [
+                "d6d3970f-1030-4323-9c0b-814c51742f62"
+            ],
+            "raw": "- Ronda Rousey eliminates Nikki ASH (50:02)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "326ff001-e2be-4a37-9d2d-e34066a94f1e"
+            ],
+            "victims": [
+                "0efcc779-0184-48a0-b086-3830404f3fcd"
+            ],
+            "raw": "- Brie Bella eliminates Nikki Bella (50:19)",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "326ff001-e2be-4a37-9d2d-e34066a94f1e"
+            ],
+            "raw": "- Rounda Rousey eliminates Brie Bella (51:32)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "8d4da60d-8ab3-4652-96cf-95118c4e02a5"
+            ],
+            "victims": [
+                "d4b17526-8175-446c-9f38-4fbd65d68f5a"
+            ],
+            "raw": "- Ronda Rousey eliminates Shotzi (54:12)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e031af2f-8420-4e19-9e9a-7012bd7864e1"
+            ],
+            "victims": [
+                "cabaa63d-9f21-4e66-82e9-4ded073fbb50"
+            ],
+            "raw": "- Bianca Belair eliminates Natalya (54:26)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9416439d-8450-45f3-83ac-bdcea1851f88"
+            ],
+            "victims": [
+                "8286aa8f-dc68-43af-92e6-93bdf94d481c"
+            ],
+            "raw": "- Charlotte Flair eliminates Lita (55:54)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9416439d-8450-45f3-83ac-bdcea1851f88"
+            ],
+            "victims": [
+                "0b5601a9-48d4-485c-95b9-c28026cc9ad9"
+            ],
+            "raw": "- Charlotte Flair eliminates Rhea Ripley (56:48)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9416439d-8450-45f3-83ac-bdcea1851f88"
+            ],
+            "victims": [
+                "52718d5a-9da6-467d-9a27-e2d97a90d286"
+            ],
+            "raw": "- Charlotte Flair eliminates Shayna Baszler (58:23)",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "e031af2f-8420-4e19-9e9a-7012bd7864e1"
+            ],
+            "raw": "- Charlotte Falir eliminates Bianca Belair (58:24)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "8d4da60d-8ab3-4652-96cf-95118c4e02a5"
+            ],
+            "victims": [
+                "9416439d-8450-45f3-83ac-bdcea1851f88"
+            ],
+            "raw": "- Ronda Rousey eliminates Charlotte Flair",
+            "is_valid": true
+        }
+    ]
+}

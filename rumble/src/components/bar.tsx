@@ -4,6 +4,8 @@ import {
   LinearProgress,
   Modal,
   Toolbar,
+  Typography,
+  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShareIcon from "@mui/icons-material/Share";
@@ -14,6 +16,7 @@ import QRCode from "react-qr-code";
 import { CopyToClipboardButton } from "./buttons";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { History } from "./history";
+import logo from "../assets/logo_small.png";
 
 export function Bar() {
   const { isAnyLoading } = useLoadingAndErrorStateContext();
@@ -26,20 +29,33 @@ export function Bar() {
   const handleOpenHistory = () => setOpenHistory(true);
   const handleCloseHistory = () => setOpenHistory(false);
 
+  const theme = useTheme();
+
   const baseUrl = window.location.origin;
   const shareLink = `${baseUrl}/lobbies/${lobby?.code}`;
   const lobbyExists = lobby !== undefined;
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{ background: theme.palette.background.default, boxShadow: 0 }}
+      >
         <Toolbar>
           {lobbyExists && (
             <IconButton size="large" edge="start" onClick={handleOpenHistory}>
               <MenuIcon />
             </IconButton>
           )}
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+            <Box
+              component="img"
+              sx={{
+                height: "10vh",
+              }}
+              src={logo}
+            />
+          </Box>
           {lobbyExists && (
             <IconButton size="large" edge="end" onClick={handleOpenShare}>
               <ShareIcon />
@@ -59,7 +75,15 @@ export function Bar() {
           <Box sx={{ background: "white", p: 3, mb: 2 }}>
             <QRCode value={document.location.href} />
           </Box>
-          <CopyToClipboardButton text={shareLink} />
+          <Box
+            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+          >
+            <Typography>{shareLink}</Typography>
+            <CopyToClipboardButton text={shareLink} />
+          </Box>
+          <Box sx={{ fontSize: "2rem", fontWeight: "bold", mt: 2, mb: 2 }}>
+            {lobby?.code}
+          </Box>
         </Box>
       </Modal>
     </>

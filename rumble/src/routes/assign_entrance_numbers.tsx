@@ -136,7 +136,8 @@ export function AssignEntranceNumbers() {
                   : "primary"
               }
               variant={
-                selectedEntranceNumber === entranceNumber
+                selectedEntranceNumber === entranceNumber ||
+                assignedEntranceNumbers.includes(entranceNumber)
                   ? "contained"
                   : "outlined"
               }
@@ -165,7 +166,8 @@ export function AssignEntranceNumbers() {
                     : "primary"
                 }
                 variant={
-                  selectedParticipantId === participant.id
+                  selectedParticipantId === participant.id ||
+                  assignedParticipantIds.includes(participant.id)
                     ? "contained"
                     : "outlined"
                 }
@@ -186,7 +188,7 @@ export function AssignEntranceNumbers() {
         }}
       >
         <Button
-          variant="outlined"
+          variant="contained"
           sx={{ width: "100%" }}
           size="large"
           onClick={assignEntranceNumbers}

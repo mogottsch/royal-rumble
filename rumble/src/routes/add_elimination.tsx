@@ -62,8 +62,7 @@ export function AddElimination() {
           >
             {activeRumblers.map((rumbler) => (
               <Button
-                variant="outlined"
-                color={offenders.includes(rumbler) ? "secondary" : "primary"}
+                variant={offenders.includes(rumbler) ? "contained" : "outlined"}
                 onClick={() => toggleOffender(rumbler)}
                 key={rumbler.id}
               >
@@ -82,8 +81,7 @@ export function AddElimination() {
         >
           {activeRumblers.map((rumbler) => (
             <Button
-              variant="outlined"
-              color={victims.includes(rumbler) ? "secondary" : "primary"}
+              variant={victims.includes(rumbler) ? "contained" : "outlined"}
               onClick={() => toggleVictim(rumbler)}
               key={rumbler.id}
             >
@@ -95,7 +93,7 @@ export function AddElimination() {
 
       <Box sx={{ display: "flex", flexDirection: "column", mb: 2 }}>
         <Button
-          variant="outlined"
+          variant="contained"
           size="large"
           onClick={addElimination}
           disabled={victims.length === 0 || offenders.length === 0}
@@ -103,7 +101,8 @@ export function AddElimination() {
           ADD ELIMINATION
         </Button>
         <Button
-          variant="outlined"
+          variant="contained"
+          color="secondary"
           sx={{ mt: 2 }}
           size="large"
           href={`/lobbies/${lobby.code}/view-game`}

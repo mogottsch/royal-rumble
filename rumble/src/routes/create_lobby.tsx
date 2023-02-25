@@ -61,7 +61,7 @@ export function CreateLobby() {
       <form onSubmit={onSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <InputField
-            label="Name"
+            label="Participant Name"
             htmlFor="name"
             id="name"
             value={newName}
@@ -74,7 +74,10 @@ export function CreateLobby() {
         </Box>
       </form>
       <Box sx={{ mt: 4, display: "flex", flexDirection: "column" }}>
-        <PrimaryButton onClick={createLobby}>
+        <PrimaryButton
+          onClick={createLobby}
+          disabled={participantNames.length < 2}
+        >
           Continue with entrance order
         </PrimaryButton>
       </Box>

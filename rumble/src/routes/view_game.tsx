@@ -72,8 +72,6 @@ export function ViewGame() {
           justifyContent: "flex-start",
           overflowY: "auto",
           mt: 1,
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09))",
         }}
       >
         {rows?.map((row, i) => {
@@ -90,20 +88,20 @@ export function ViewGame() {
             >
               <Box
                 sx={{
-                  padding: "5px",
+                  padding: "5px 8px",
                   justifyContent: "center",
-                  border: "1px solid #90caf9",
-                  backgroundColor: "#121212",
+                  borderRadius: "4px",
+                  backgroundColor: "rgba(255, 255, 255, 0.07)",
                 }}
               >
                 {row.participant?.name ?? "NPC"}
               </Box>
               <Box
                 sx={{
-                  padding: "5px",
+                  padding: "5px 8px",
                   justifyContent: "center",
-                  border: "1px solid #90caf9",
-                  backgroundColor: "#121212",
+                  borderRadius: "4px",
+                  backgroundColor: "rgba(255, 255, 255, 0.07)",
                 }}
               >
                 {row.rumbler?.wrestler.name ??
@@ -131,7 +129,7 @@ export function ViewGame() {
         <Grid container spacing={1} sx={{ mb: 2 }}>
           <Grid item xs={12} sm={6}>
             <Button
-              variant="outlined"
+              variant="contained"
               size="large"
               href={`/lobbies/${lobby.code}/add-entrance`}
               sx={{ width: "100%" }}
@@ -142,7 +140,7 @@ export function ViewGame() {
 
           <Grid item xs={12} sm={6}>
             <Button
-              variant="outlined"
+              variant="contained"
               sx={{ width: "100%" }}
               size="large"
               href={`/lobbies/${lobby.code}/add-elimination`}

@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/logo_large.png";
 import { Bar } from "../../components/bar";
-import { css } from "@emotion/react";
 
 export function Landing() {
   return (
@@ -15,14 +14,7 @@ export function Landing() {
         maxWidth="sm"
         sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
       >
-        <img
-          src={logo}
-          className="logo royal rumble"
-          alt="logo royal rumble"
-          css={css`
-            width: 100%;
-          `}
-        />
+        <img src={logo} className="logo royal rumble" alt="logo royal rumble" />
         <Box sx={{ flexGrow: 1 }}>
           <Outlet />
         </Box>

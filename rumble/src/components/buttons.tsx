@@ -19,7 +19,7 @@ export function PrimaryButton(props: ButtonProps) {
 
 export function SecondaryButton(props: ButtonProps) {
   return (
-    <Button variant="outlined" size="large" {...props}>
+    <Button variant="contained" size="large" {...props} color="secondary">
       {props.children}
     </Button>
   );
@@ -27,6 +27,10 @@ export function SecondaryButton(props: ButtonProps) {
 
 export function CopyToClipboardButton({ text }: { text: string }) {
   const handleClick = () => {
+    if (!navigator.clipboard) {
+      notify("Your browser does not support copying to clipboard", "error");
+      return;
+    }
     navigator.clipboard.writeText(text);
     notify("Copied to clipboard", "success");
   };

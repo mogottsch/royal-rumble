@@ -7,7 +7,7 @@ export function App() {
   return (
     <Box
       sx={{
-        height: "100vh",
+        height: "100%",
         display: "grid",
         gridTemplateRows: "auto 1fr",
       }}

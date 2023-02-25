@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import { Autocomplete, Box, TextField } from "@mui/material";
+import { Autocomplete, Box, TextField, useTheme } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useState } from "react";
@@ -13,6 +13,7 @@ import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states"
 
 export function AddEntrance() {
   const navigate = useNavigate();
+  const theme = useTheme();
   const { lobby } = useLobbyContext();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedWrestler, setSelectedWrestler] = useState<Wrestler | null>(
@@ -91,7 +92,7 @@ export function AddEntrance() {
           }}
         >
           <Button
-            variant="outlined"
+            variant="contained"
             css={css`
               width: 100%;
             `}
@@ -102,10 +103,8 @@ export function AddEntrance() {
             ADD ENTRANCE
           </Button>
           <Button
-            variant="outlined"
-            css={css`
-              width: 100%;
-            `}
+            variant="contained"
+            color="secondary"
             sx={{ mt: 2 }}
             size="large"
             href={`/lobbies/${lobby.code}/view-game`}

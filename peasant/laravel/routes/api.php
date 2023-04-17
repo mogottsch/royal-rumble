@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\LobbyController;
 use App\Http\Controllers\LobbyRumbleController;
-use App\Http\Controllers\RumblerController;
 use App\Http\Controllers\WrestlerController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +25,9 @@ Route::post("/lobbies", [LobbyController::class, "store"])->name(
 );
 Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
     "wrestlers.search"
+);
+Route::post("/wrestlers/create", [WrestlerController::class, "create"])->name(
+    "wrestlers.create"
 );
 
 Route::post("/lobbies/{lobby:code}/entrance", [

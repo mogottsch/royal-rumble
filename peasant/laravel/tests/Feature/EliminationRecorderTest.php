@@ -2,16 +2,13 @@
 
 namespace Tests\Feature;
 
-use App\Exceptions\EliminationRecorderErrorCode;
 use App\Exceptions\EliminationRecorderException;
 use App\Models\Action;
 use App\Models\Lobby;
-use App\Models\Wrestler;
 use App\Services\EliminationRecorder;
 use App\Services\EntranceNumberAssigner;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class EliminationRecorderTest extends TestCase
 {
@@ -53,7 +50,7 @@ class EliminationRecorderTest extends TestCase
             $this->lobby
         );
 
-        $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
+        $this->eliminationRecorder->record($this->lobby, $victims, $offenders);
 
         $nActionsAfter = $this->lobby->fresh("actions")->actions->count();
         $latestAction = $this->lobby->latestAction();
@@ -87,7 +84,7 @@ class EliminationRecorderTest extends TestCase
 
         $nActionsBefore = $this->lobby->actions->count();
 
-        $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
+        $this->eliminationRecorder->record($this->lobby, $victims, $offenders);
 
         $nActionsAfter = $this->lobby->fresh("actions")->actions->count();
         $latestAction = $this->lobby->latestAction();
@@ -118,7 +115,7 @@ class EliminationRecorderTest extends TestCase
 
         $nActionsBefore = $this->lobby->actions->count();
 
-        $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
+        $this->eliminationRecorder->record($this->lobby, $victims, $offenders);
 
         $nActionsAfter = $this->lobby->fresh("actions")->actions->count();
         $latestAction = $this->lobby->latestAction();
@@ -152,7 +149,7 @@ class EliminationRecorderTest extends TestCase
 
         $nActionsBefore = $this->lobby->actions->count();
 
-        $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
+        $this->eliminationRecorder->record($this->lobby, $victims, $offenders);
 
         $nActionsAfter = $this->lobby->fresh("actions")->actions->count();
         $latestAction = $this->lobby->latestAction();
@@ -181,8 +178,8 @@ class EliminationRecorderTest extends TestCase
 
         $this->expectException(EliminationRecorderException::class);
 
-        $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
-        $this->eliminationRecorder->record($this->lobby, $offenders, $victims);
+        $this->eliminationRecorder->record($this->lobby, $victims, $offenders);
+        $this->eliminationRecorder->record($this->lobby, $victims, $offenders);
     }
 
     public function test_cannot_record_eliminated_offender()
@@ -193,13 +190,13 @@ class EliminationRecorderTest extends TestCase
 
         $this->eliminationRecorder->record(
             $this->lobby,
+            collect([$rumblers[self::SECOND_RUMBLER]]),
             collect([$rumblers[self::FIRST_RUMBLER]]),
-            collect([$rumblers[self::SECOND_RUMBLER]])
         );
         $this->eliminationRecorder->record(
             $this->lobby,
+            collect([$rumblers[self::THIRD_RUMBLER]]),
             collect([$rumblers[self::SECOND_RUMBLER]]),
-            collect([$rumblers[self::THIRD_RUMBLER]])
         );
     }
 }

@@ -29,7 +29,7 @@ class AssignEntranceNumbersTest extends TestCase
         $body = [
             "participantEntranceNumbers" => $participantsEntranceNumbersMap,
         ];
-        $response = $this->put(
+        $response = $this->post(
             route("lobbies.assignEntranceNumbers", $this->lobby),
             $body
         );
@@ -55,7 +55,7 @@ class AssignEntranceNumbersTest extends TestCase
         $body = [
             "participantEntranceNumbers" => $participantsEntranceNumbersMap,
         ];
-        $response = $this->put(
+        $response = $this->post(
             route("lobbies.assignEntranceNumbers", $this->lobby),
             $body
         );
@@ -68,7 +68,7 @@ class AssignEntranceNumbersTest extends TestCase
         $body = [
             "participantEntranceNumbers" => "not a map",
         ];
-        $response = $this->putJson(
+        $response = $this->postJson(
             route("lobbies.assignEntranceNumbers", $this->lobby),
             $body
         );

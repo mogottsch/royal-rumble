@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08fa1377674d1ea6719f5695dac504cf",
+    "content-hash": "38bf9172ba46261c26c3f83ce4613882",
     "packages": [
         {
             "name": "brick/math",
@@ -3083,6 +3083,54 @@
                 }
             ],
             "time": "2022-11-05T23:03:38+00:00"
+        },
+        {
+            "name": "softonic/laravel-request-accept-json-middleware",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/softonic/laravel-request-accept-json-middleware.git",
+                "reference": "a2c5fa92cd5c25012f26a3db794d50d4c39e26c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/softonic/laravel-request-accept-json-middleware/zipball/a2c5fa92cd5c25012f26a3db794d50d4c39e26c0",
+                "reference": "a2c5fa92cd5c25012f26a3db794d50d4c39e26c0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^7.0 || ^8.0 || ^9.0",
+                "illuminate/http": "^7.0 || ^8.0 || ^9.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "mockery/mockery": "^1.2",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Softonic\\RequestAcceptJson\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Laravel middleware to add Accept application/json header to requests",
+            "homepage": "https://github.com/softonic/laravel-request-accept-json-middleware",
+            "keywords": [
+                "json",
+                "laravel",
+                "middleware",
+                "request"
+            ],
+            "support": {
+                "issues": "https://github.com/softonic/laravel-request-accept-json-middleware/issues",
+                "source": "https://github.com/softonic/laravel-request-accept-json-middleware/tree/3.1.1"
+            },
+            "time": "2022-10-03T14:46:47+00:00"
         },
         {
             "name": "symfony/console",

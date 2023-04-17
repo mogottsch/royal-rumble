@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateWrestlerRequest;
 use App\Models\Wrestler;
 use App\Services\WrestlerSearcher;
 use Illuminate\Http\Request;
@@ -19,12 +20,23 @@ class WrestlerController extends Controller
             );
         }
         $wrestlers = $wrestlerSearcher->search($search);
-        return ["data" => $wrestlers];
+        return response()->json(["data" => $wrestlers], Response::HTTP_OK);
+    }
+
+    public function create(CreateWrestlerRequest $request)
+    {
+        $wrestler = new Wrestler();
+        $wrestler->name = $request->name;
+        $wrestler->save();
+        return response()->json(
+            ["data" => ["wrestler" => $wrestler]],
+            Response::HTTP_CREATED
+        );
     }
 
     public function index()
     {
         $wrestlers = Wrestler::all();
-        return ["data" => $wrestlers];
+        return response()->json(["data" => $wrestlers], Response::HTTP_OK);
     }
 }

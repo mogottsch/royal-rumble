@@ -26,7 +26,7 @@ Route::post("/lobbies", [LobbyController::class, "store"])->name(
 Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
     "wrestlers.search"
 );
-Route::post("/wrestlers/create", [WrestlerController::class, "create"])->name(
+Route::post("/wrestlers", [WrestlerController::class, "create"])->name(
     "wrestlers.create"
 );
 

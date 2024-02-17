@@ -18,17 +18,24 @@ class ProductiveSeeder extends Seeder
     public function run()
     {
         Artisan::call("migrate:fresh");
-        // read names.txt from storage/app and create one wrestler per line
+
+        // Read names.txt from storage/app and create one wrestler per line
         $names = File::get(storage_path("app/names.txt"));
         $names = explode("\n", $names);
+
+        $wrestlers = [];
         foreach ($names as $name) {
             $name = trim($name);
-            if (empty($name)) {
-                continue;
+            if (!empty($name)) {
+                $wrestlers[] = ["name" => $name];
             }
-            $wrestler = new Wrestler();
-            $wrestler->name = $name;
-            $wrestler->save();
         }
+
+        // Insert all wrestlers in a single bulk transaction
+        Wrestler::insert($wrestlers);
+
+        // Output information about the created wrestlers
+        $count = count($wrestlers);
+        $this->command->info("Created $count wrestlers.");
     }
 }

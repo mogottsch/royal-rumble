@@ -1,19 +1,5 @@
 version: "3.9"
 services:
-  nginx:
-    image: nginx:1.23.1-alpine
-    volumes:
-      - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
-      - "./nginx/certs:/etc/nginx/certs"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "6001:6001"
-    networks:
-      - sail
-    depends_on:
-      - api
-      - frontend
 
   frontend:
     build: rumble
@@ -29,9 +15,6 @@ services:
     image: sail-8.3/app
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    ports:
-      - '${APP_PORT:-80}:80'
-      - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
     environment:
       WWWUSER: "1000"
       LARAVEL_SAIL: 1

@@ -1,0 +1,439 @@
+{
+    "wrestlers": [
+        {
+            "name": "Shinsuke Nakamura",
+            "cm_id": 56,
+            "id": "f442efc8-ea76-47c5-8855-0d40fdb2dc05"
+        },
+        {
+            "name": "Adam Cole",
+            "cm_id": 7142,
+            "id": "984f7495-d280-4029-aba3-4a855861b150"
+        },
+        {
+            "name": "Aiden English",
+            "cm_id": 11883,
+            "id": "98c65b41-e2eb-48ed-8f6c-af2370654905"
+        },
+        {
+            "name": "Andrade Almas",
+            "cm_id": 5596,
+            "id": "769ca343-b876-40bf-886b-ab4d98980d0c"
+        },
+        {
+            "name": "Apollo Crews",
+            "cm_id": 11207,
+            "id": "8ed5411d-fceb-4f44-ada5-93da8aabd752"
+        },
+        {
+            "name": "Baron Corbin",
+            "cm_id": 12474,
+            "id": "e719ee24-bd8e-4498-85ca-6fa1f3c503e6"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "eab7c7e3-e373-48f4-98e4-c6ef7a24d9bb"
+        },
+        {
+            "name": "Bray Wyatt",
+            "cm_id": 7659,
+            "id": "7a5bfb6d-1154-47da-842c-089f2cc9f593"
+        },
+        {
+            "name": "Cesaro",
+            "cm_id": 257,
+            "id": "be300377-b218-4c36-88f0-5742d2088ed2"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "b1b6c008-ed80-44bf-9349-fffeeb91ba38"
+        },
+        {
+            "name": "Elias",
+            "cm_id": 7461,
+            "id": "5dab0b00-bce5-4dd7-9e65-28f246b3ea5b"
+        },
+        {
+            "name": "Finn Balor",
+            "cm_id": 2742,
+            "id": "e3811cae-75ef-443e-bc69-a48399153a59"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "a94d3c59-abe8-4a6d-887f-f40a1360c58d"
+        },
+        {
+            "name": "Heath Slater",
+            "cm_id": 3296,
+            "id": "6ea41d29-db47-4edc-99a4-11fa1be8cc7d"
+        },
+        {
+            "name": "Jinder Mahal",
+            "cm_id": 6171,
+            "id": "8ea17886-72b3-4eab-91bd-fc534394b02d"
+        },
+        {
+            "name": "John Cena",
+            "cm_id": 691,
+            "id": "1972d651-90a2-4292-a68d-aafe7cbdd6cc"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "1dab9c8d-78f6-4f8f-88fd-33759e1d5328"
+        },
+        {
+            "name": "Matt Hardy",
+            "cm_id": 99,
+            "id": "125c9a28-7b9d-47f1-a30d-6954ecaebfe7"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "4481025a-e6ba-4586-9111-bb913297241e"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "587b4c79-09a5-43cd-a943-a082af20c63e"
+        },
+        {
+            "name": "Rhyno",
+            "cm_id": 410,
+            "id": "cb1864ca-843e-4156-8e70-3925369e024d"
+        },
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "1f76ec15-6f40-4c6b-adc9-a88eab888519"
+        },
+        {
+            "name": "Rusev",
+            "cm_id": 10610,
+            "id": "262f3057-cb7a-49ba-a2b4-619cdfd24422"
+        },
+        {
+            "name": "Sami Zayn",
+            "cm_id": 1523,
+            "id": "f686620b-d7ed-416c-868b-6f24da56cb58"
+        },
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "da5ce47a-0a54-4386-a49f-044f2b73c920"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "0b0a4bb8-ea19-445a-844d-9e961189605a"
+        },
+        {
+            "name": "The Hurricane",
+            "cm_id": 464,
+            "id": "347476ad-fa34-4618-a2dc-f47ad1aa7be3"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "4eb068f4-85f7-487b-bbfa-24ff32d3c37a"
+        },
+        {
+            "name": "Titus O'Neil",
+            "cm_id": 8881,
+            "id": "6ed724a5-9f50-4443-be7e-935ef05962b0"
+        },
+        {
+            "name": "Xavier Woods",
+            "cm_id": 4955,
+            "id": "c45e21c5-bde1-4b05-84f4-5458c0d5a02a"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "e719ee24-bd8e-4498-85ca-6fa1f3c503e6"
+            ],
+            "victims": [
+                "cb1864ca-843e-4156-8e70-3925369e024d"
+            ],
+            "raw": "- Baron Corbin eliminates Rhyno (4:07)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3811cae-75ef-443e-bc69-a48399153a59"
+            ],
+            "victims": [
+                "e719ee24-bd8e-4498-85ca-6fa1f3c503e6"
+            ],
+            "raw": "- Finn Balor eliminates Baron Corbin (4:14)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6ea41d29-db47-4edc-99a4-11fa1be8cc7d"
+            ],
+            "victims": [
+                "0b0a4bb8-ea19-445a-844d-9e961189605a"
+            ],
+            "raw": "- Heath Slater eliminates Sheamus (16:24)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7a5bfb6d-1154-47da-842c-089f2cc9f593"
+            ],
+            "victims": [
+                "6ea41d29-db47-4edc-99a4-11fa1be8cc7d"
+            ],
+            "raw": "- Bray Wyatt eliminates Heath Slater (16:55)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f442efc8-ea76-47c5-8855-0d40fdb2dc05"
+            ],
+            "victims": [
+                "f686620b-d7ed-416c-868b-6f24da56cb58"
+            ],
+            "raw": "- Shinsuke Nakamura eliminates Sami Zayn (22:02)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "be300377-b218-4c36-88f0-5742d2088ed2"
+            ],
+            "victims": [
+                "8ed5411d-fceb-4f44-ada5-93da8aabd752"
+            ],
+            "raw": "- Cesaro eliminates Apollo Crews (24:35)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8ea17886-72b3-4eab-91bd-fc534394b02d"
+            ],
+            "victims": [
+                "c45e21c5-bde1-4b05-84f4-5458c0d5a02a"
+            ],
+            "raw": "- Jinder Mahal eliminates Xavier Woods (26:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8ea17886-72b3-4eab-91bd-fc534394b02d"
+            ],
+            "victims": [
+                "eab7c7e3-e373-48f4-98e4-c6ef7a24d9bb"
+            ],
+            "raw": "- Jinder Mahal eliminates Big E (26:28)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "da5ce47a-0a54-4386-a49f-044f2b73c920"
+            ],
+            "victims": [
+                "be300377-b218-4c36-88f0-5742d2088ed2"
+            ],
+            "raw": "- Seth Rollins eliminates Cesaro (27:32)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1dab9c8d-78f6-4f8f-88fd-33759e1d5328"
+            ],
+            "victims": [
+                "8ea17886-72b3-4eab-91bd-fc534394b02d"
+            ],
+            "raw": "- Kofi Kingston eliminates Jinder Mahal (29:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "769ca343-b876-40bf-886b-ab4d98980d0c"
+            ],
+            "victims": [
+                "1dab9c8d-78f6-4f8f-88fd-33759e1d5328"
+            ],
+            "raw": "- Andrade Almas eliminates Kofi Kingston (29:30)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7a5bfb6d-1154-47da-842c-089f2cc9f593",
+                "125c9a28-7b9d-47f1-a30d-6954ecaebfe7"
+            ],
+            "victims": [
+                "262f3057-cb7a-49ba-a2b4-619cdfd24422"
+            ],
+            "raw": "- Bray Wyatt & Matt Hardy eliminate Rusev (30:30)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7a5bfb6d-1154-47da-842c-089f2cc9f593",
+                "125c9a28-7b9d-47f1-a30d-6954ecaebfe7"
+            ],
+            "victims": [
+                "7a5bfb6d-1154-47da-842c-089f2cc9f593",
+                "125c9a28-7b9d-47f1-a30d-6954ecaebfe7"
+            ],
+            "raw": "- Bray Wyatt und Matt Hardy eliminate sich gegenseitig (31:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1972d651-90a2-4292-a68d-aafe7cbdd6cc"
+            ],
+            "victims": [
+                "5dab0b00-bce5-4dd7-9e65-28f246b3ea5b"
+            ],
+            "raw": "- John Cena eliminates Elias (23:35)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1972d651-90a2-4292-a68d-aafe7cbdd6cc"
+            ],
+            "victims": [
+                "347476ad-fa34-4618-a2dc-f47ad1aa7be3"
+            ],
+            "raw": "- John Cena eliminates The Hurricane (33:35)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3811cae-75ef-443e-bc69-a48399153a59"
+            ],
+            "victims": [
+                "98c65b41-e2eb-48ed-8f6c-af2370654905"
+            ],
+            "raw": "- Finn Balor eliminates Aiden English (36:41)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4481025a-e6ba-4586-9111-bb913297241e"
+            ],
+            "victims": [
+                "769ca343-b876-40bf-886b-ab4d98980d0c"
+            ],
+            "raw": "- Randy Orton eliminates Andrade Almas (38:07)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "587b4c79-09a5-43cd-a943-a082af20c63e"
+            ],
+            "victims": [
+                "984f7495-d280-4029-aba3-4a855861b150"
+            ],
+            "raw": "- Rey Mysterio eliminates Adam Cole (42:50)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1f76ec15-6f40-4c6b-adc9-a88eab888519"
+            ],
+            "victims": [
+                "6ed724a5-9f50-4443-be7e-935ef05962b0"
+            ],
+            "raw": "- Roman Reigns eliminates Titus O'Neil (45:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1f76ec15-6f40-4c6b-adc9-a88eab888519"
+            ],
+            "victims": [
+                "4eb068f4-85f7-487b-bbfa-24ff32d3c37a"
+            ],
+            "raw": "- Roman Reigns eliminates The Miz (45:47)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1f76ec15-6f40-4c6b-adc9-a88eab888519"
+            ],
+            "victims": [
+                "da5ce47a-0a54-4386-a49f-044f2b73c920"
+            ],
+            "raw": "- Roman Reigns eliminates Seth Rollins (45:55)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b1b6c008-ed80-44bf-9349-fffeeb91ba38"
+            ],
+            "victims": [
+                "a94d3c59-abe8-4a6d-887f-f40a1360c58d"
+            ],
+            "raw": "- Dolph Ziggler eliminates Goldust (48:58)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3811cae-75ef-443e-bc69-a48399153a59"
+            ],
+            "victims": [
+                "b1b6c008-ed80-44bf-9349-fffeeb91ba38"
+            ],
+            "raw": "- Finn Balor eliminates Dolph Ziggler (49:40)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1f76ec15-6f40-4c6b-adc9-a88eab888519"
+            ],
+            "victims": [
+                "4481025a-e6ba-4586-9111-bb913297241e"
+            ],
+            "raw": "- Roman Reigns eliminates Randy Orton (51:14)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e3811cae-75ef-443e-bc69-a48399153a59"
+            ],
+            "victims": [
+                "587b4c79-09a5-43cd-a943-a082af20c63e"
+            ],
+            "raw": "- Finn Balor eliminates Rey Mysterio (51:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1972d651-90a2-4292-a68d-aafe7cbdd6cc"
+            ],
+            "victims": [
+                "e3811cae-75ef-443e-bc69-a48399153a59"
+            ],
+            "raw": "- John Cena eliminates Finn Balor (57:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f442efc8-ea76-47c5-8855-0d40fdb2dc05"
+            ],
+            "victims": [
+                "1972d651-90a2-4292-a68d-aafe7cbdd6cc"
+            ],
+            "raw": "- Shinsuke Nakamura eliminates John Cena (60:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f442efc8-ea76-47c5-8855-0d40fdb2dc05"
+            ],
+            "victims": [
+                "1f76ec15-6f40-4c6b-adc9-a88eab888519"
+            ],
+            "raw": "- Shinsuke Nakamura eliminates Roman Reigns",
+            "is_valid": true
+        }
+    ]
+}

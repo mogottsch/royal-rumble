@@ -1,0 +1,439 @@
+{
+    "wrestlers": [
+        {
+            "name": "Yokozuna",
+            "cm_id": 846,
+            "id": "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+        },
+        {
+            "name": "Mr. Fuji",
+            "cm_id": 1070,
+            "id": "5a534446-303c-48d3-90ed-0ac8e7d6f97b"
+        },
+        {
+            "name": "Bob Backlund",
+            "cm_id": 959,
+            "id": "74f00e6e-2445-414c-8f41-364824485115"
+        },
+        {
+            "name": "Brian Knobbs",
+            "cm_id": 633,
+            "id": "4670a60b-66ae-4434-94a2-a86d68393381"
+        },
+        {
+            "name": "Carlos Colon",
+            "cm_id": 148,
+            "id": "e2068118-44f3-45d5-a32b-236e03d7ab59"
+        },
+        {
+            "name": "Damien DeMento",
+            "cm_id": 3462,
+            "id": "04870483-f2ad-4ba0-89db-23ffb04a0a3f"
+        },
+        {
+            "name": "Earthquake",
+            "cm_id": 339,
+            "id": "a36ccdc7-dfb6-43d3-ab61-e82af9d2808e"
+        },
+        {
+            "name": "El Matador",
+            "cm_id": 93,
+            "id": "01785bc1-6dd9-409a-afa2-c72365272802"
+        },
+        {
+            "name": "Fatu",
+            "cm_id": 303,
+            "id": "6a421d5e-07c4-45c8-b368-c43279660402"
+        },
+        {
+            "name": "Irwin R. Schyster",
+            "cm_id": 893,
+            "id": "93ee4912-90e5-4da6-8957-a4b1d29be0c8"
+        },
+        {
+            "name": "Jerry Lawler",
+            "cm_id": 937,
+            "id": "d3e837e1-f1f4-4f7a-b3f3-7939ea8260f7"
+        },
+        {
+            "name": "Jerry Sags",
+            "cm_id": 558,
+            "id": "8316ec39-cf5f-480d-94f0-955d307fedc0"
+        },
+        {
+            "name": "Koko B. Ware",
+            "cm_id": 57,
+            "id": "40640f9f-7a6a-4f0f-90d6-ecb2f8e4d2db"
+        },
+        {
+            "name": "Max Moon",
+            "cm_id": 876,
+            "id": "fa33080a-b8f7-4d5f-af42-a0a973469c1c"
+        },
+        {
+            "name": "Mr. Perfect",
+            "cm_id": 1015,
+            "id": "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671"
+        },
+        {
+            "name": "Owen Hart",
+            "cm_id": 277,
+            "id": "8b76d7ab-8c07-48da-8575-8b9aef4f6086"
+        },
+        {
+            "name": "Papa Shango",
+            "cm_id": 901,
+            "id": "b8d21c3e-e7da-42e8-912d-121d39e29612"
+        },
+        {
+            "name": "Randy Savage",
+            "cm_id": 640,
+            "id": "5f939635-9e05-4060-b180-e2934330302c"
+        },
+        {
+            "name": "Repo Man",
+            "cm_id": 1069,
+            "id": "771cc5b1-41d9-4482-ac7f-900902b1fa9a"
+        },
+        {
+            "name": "Ric Flair",
+            "cm_id": 1091,
+            "id": "8fc740c3-7811-4ddb-ab38-cdb06f86a200"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "a31b8cae-e191-4af2-acb2-29d54f876018"
+        },
+        {
+            "name": "Samu",
+            "cm_id": 1094,
+            "id": "1f7b952c-f5a9-4326-819b-d8aae01b75f4"
+        },
+        {
+            "name": "Skinner",
+            "cm_id": 247,
+            "id": "d70193b9-d078-4162-b7c7-691e85fc4912"
+        },
+        {
+            "name": "Tatanka",
+            "cm_id": 186,
+            "id": "833220ae-c0f6-46ca-84b4-a335e8b4b671"
+        },
+        {
+            "name": "Ted DiBiase",
+            "cm_id": 1034,
+            "id": "4936e1a8-663b-4665-a75f-33e59d7c7ec5"
+        },
+        {
+            "name": "Tenryu",
+            "cm_id": 748,
+            "id": "80432fca-4ae9-4509-8214-675f671d924e"
+        },
+        {
+            "name": "Terry Taylor",
+            "cm_id": 1058,
+            "id": "db08e450-a944-4317-9e8e-dd84ab4ff202"
+        },
+        {
+            "name": "The Berzerker",
+            "cm_id": 1532,
+            "id": "85efcadc-d271-435f-b611-364e1a07eeeb"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "9ce78713-f047-4763-895b-375926c250fd"
+        },
+        {
+            "name": "Typhoon",
+            "cm_id": 886,
+            "id": "6246d4c9-d875-4282-9819-167061c39062"
+        },
+        {
+            "name": "Virgil",
+            "cm_id": 456,
+            "id": "2fd396b7-fb12-4163-bd4d-9511f18d8314"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "8fc740c3-7811-4ddb-ab38-cdb06f86a200"
+            ],
+            "victims": [
+                "b8d21c3e-e7da-42e8-912d-121d39e29612"
+            ],
+            "raw": "- Ric Flair eliminates Papa Shango",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4936e1a8-663b-4665-a75f-33e59d7c7ec5"
+            ],
+            "victims": [
+                "4670a60b-66ae-4434-94a2-a86d68393381"
+            ],
+            "raw": "- Ted DiBiase eliminates Brian Knobbs",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d3e837e1-f1f4-4f7a-b3f3-7939ea8260f7"
+            ],
+            "victims": [
+                "fa33080a-b8f7-4d5f-af42-a0a973469c1c"
+            ],
+            "raw": "- Jerry Lawler eliminates Max Moon",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671"
+            ],
+            "victims": [
+                "8fc740c3-7811-4ddb-ab38-cdb06f86a200"
+            ],
+            "raw": "- Mr. Perfect eliminates Ric Flair",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671"
+            ],
+            "victims": [
+                "d70193b9-d078-4162-b7c7-691e85fc4912"
+            ],
+            "raw": "- Mr. Perfect eliminates Skinner",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671"
+            ],
+            "victims": [
+                "d3e837e1-f1f4-4f7a-b3f3-7939ea8260f7"
+            ],
+            "raw": "- Mr. Perfect eliminates Jerry Lawler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "85efcadc-d271-435f-b611-364e1a07eeeb"
+            ],
+            "victims": [
+                "2fd396b7-fb12-4163-bd4d-9511f18d8314"
+            ],
+            "raw": "- The Berzerker eliminates Virgil",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "40640f9f-7a6a-4f0f-90d6-ecb2f8e4d2db",
+                "4936e1a8-663b-4665-a75f-33e59d7c7ec5"
+            ],
+            "victims": [
+                "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671"
+            ],
+            "raw": "- Koko B. Ware und Ted DiBiase eliminate Mr. Perfect",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9ce78713-f047-4763-895b-375926c250fd"
+            ],
+            "victims": [
+                "1f7b952c-f5a9-4326-819b-d8aae01b75f4"
+            ],
+            "raw": "- The Undertaker eliminates Samu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9ce78713-f047-4763-895b-375926c250fd"
+            ],
+            "victims": [
+                "80432fca-4ae9-4509-8214-675f671d924e"
+            ],
+            "raw": "- The Undertaker eliminates Tenryu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4936e1a8-663b-4665-a75f-33e59d7c7ec5"
+            ],
+            "victims": [
+                "40640f9f-7a6a-4f0f-90d6-ecb2f8e4d2db",
+                "db08e450-a944-4317-9e8e-dd84ab4ff202"
+            ],
+            "raw": "- Ted DiBiase eliminates Koko B. Ware und Terry Taylor",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9ce78713-f047-4763-895b-375926c250fd"
+            ],
+            "victims": [
+                "4936e1a8-663b-4665-a75f-33e59d7c7ec5"
+            ],
+            "raw": "- The Undertaker eliminates Ted DiBiase",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9ce78713-f047-4763-895b-375926c250fd"
+            ],
+            "victims": [
+                "85efcadc-d271-435f-b611-364e1a07eeeb"
+            ],
+            "raw": "- The Undertaker eliminates The Berzerker",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "9ce78713-f047-4763-895b-375926c250fd"
+            ],
+            "raw": "- Giant Gonzalez (nicht im Match) eliminates The Undertaker",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "a36ccdc7-dfb6-43d3-ab61-e82af9d2808e"
+            ],
+            "victims": [
+                "6246d4c9-d875-4282-9819-167061c39062"
+            ],
+            "raw": "- Earthquake eliminates Typhoon",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e2068118-44f3-45d5-a32b-236e03d7ab59"
+            ],
+            "victims": [
+                "04870483-f2ad-4ba0-89db-23ffb04a0a3f"
+            ],
+            "raw": "- Carlos Colon eliminates Damien DeMento",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "74f00e6e-2445-414c-8f41-364824485115"
+            ],
+            "victims": [
+                "6a421d5e-07c4-45c8-b368-c43279660402"
+            ],
+            "raw": "- Bob Backlund eliminates Fatu",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "93ee4912-90e5-4da6-8957-a4b1d29be0c8"
+            ],
+            "raw": "- Eartquake eliminates Irwin R. Schyster",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "833220ae-c0f6-46ca-84b4-a335e8b4b671"
+            ],
+            "raw": "- Yokozuna eliminates Tatanka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "e2068118-44f3-45d5-a32b-236e03d7ab59"
+            ],
+            "raw": "- Yokozuna eliminates Carlos Colon",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "a36ccdc7-dfb6-43d3-ab61-e82af9d2808e"
+            ],
+            "raw": "- Yokozuna eliminates Earthquake",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "01785bc1-6dd9-409a-afa2-c72365272802"
+            ],
+            "raw": "- Yokozuna eliminates El Matador",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8b76d7ab-8c07-48da-8575-8b9aef4f6086"
+            ],
+            "victims": [
+                "8316ec39-cf5f-480d-94f0-955d307fedc0"
+            ],
+            "raw": "- Owen Hart eliminates Jerry Sags",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "8b76d7ab-8c07-48da-8575-8b9aef4f6086"
+            ],
+            "raw": "- Yokozuna eliminates Owen Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5f939635-9e05-4060-b180-e2934330302c"
+            ],
+            "victims": [
+                "771cc5b1-41d9-4482-ac7f-900902b1fa9a"
+            ],
+            "raw": "- Randy Savage eliminates Repo Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "74f00e6e-2445-414c-8f41-364824485115"
+            ],
+            "victims": [
+                "a31b8cae-e191-4af2-acb2-29d54f876018"
+            ],
+            "raw": "- Bob Backlund eliminates Rick Martel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "74f00e6e-2445-414c-8f41-364824485115"
+            ],
+            "raw": "- Yokozuna eliminates Bob Backlund",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            ],
+            "victims": [
+                "5f939635-9e05-4060-b180-e2934330302c"
+            ],
+            "raw": "- Yokozuna eliminates Randy Savage",
+            "is_valid": true
+        }
+    ]
+}

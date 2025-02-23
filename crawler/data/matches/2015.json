@@ -1,0 +1,438 @@
+{
+    "wrestlers": [
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "f0579ebb-ca76-4382-b48a-7ee52319e59f"
+        },
+        {
+            "name": "Adam Rose",
+            "cm_id": 9031,
+            "id": "751c1854-5497-4599-82f0-f66befad57a7"
+        },
+        {
+            "name": "Bad News Barrett",
+            "cm_id": 2849,
+            "id": "38f1984d-aca1-4002-b8a6-590885d61bb1"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "51b8d868-5b37-4cca-a48e-03884b14045f"
+        },
+        {
+            "name": "Bray Wyatt",
+            "cm_id": 7659,
+            "id": "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+        },
+        {
+            "name": "Bubba Ray Dudley",
+            "cm_id": 189,
+            "id": "07df72a2-05ac-47d0-a99b-71b8c081b7ab"
+        },
+        {
+            "name": "Cesaro",
+            "cm_id": 257,
+            "id": "f3fb0c81-d2f0-43fb-9ae9-ac80185e35d8"
+        },
+        {
+            "name": "Curtis Axel",
+            "cm_id": 5271,
+            "id": "555870f4-5566-4827-8d79-bed9622029c6"
+        },
+        {
+            "name": "Damien Mizdow",
+            "cm_id": 636,
+            "id": "bff97fd4-c257-4f29-a954-5951faab566d"
+        },
+        {
+            "name": "Daniel Bryan",
+            "cm_id": 86,
+            "id": "7fd2a065-98cd-4217-b7b2-04104dc1337c"
+        },
+        {
+            "name": "Dean Ambrose",
+            "cm_id": 3940,
+            "id": "0076b99b-dafc-4e7f-9ac6-a6f371266dcc"
+        },
+        {
+            "name": "Diamond Dallas Page",
+            "cm_id": 18,
+            "id": "994cabed-0b22-463e-83f2-16c441b7f100"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "a49f62a1-979c-4c72-91a7-41e9859e88d0"
+        },
+        {
+            "name": "Fandango",
+            "cm_id": 1704,
+            "id": "3dc99adc-61d4-4fbe-a11c-864bc28c03d4"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "159a2ee6-3eba-45bb-b6a9-ad7cd517abe5"
+        },
+        {
+            "name": "Jack Swagger",
+            "cm_id": 4071,
+            "id": "3a17c81a-5584-4640-b3df-0d00f388f7ae"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "8a8af6c2-971b-41d3-85ff-580edf8f5a20"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "bf01c724-05dc-466e-9c3e-472d867a17bb"
+        },
+        {
+            "name": "Luke Harper",
+            "cm_id": 5244,
+            "id": "35662932-52cc-4976-a037-1e5daa83dbed"
+        },
+        {
+            "name": "R-Truth",
+            "cm_id": 200,
+            "id": "ac96e591-19af-4aec-b4e2-f09c1599c376"
+        },
+        {
+            "name": "Rusev",
+            "cm_id": 10610,
+            "id": "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+        },
+        {
+            "name": "Ryback",
+            "cm_id": 2624,
+            "id": "b6a292e7-a493-499b-9594-468fc422163b"
+        },
+        {
+            "name": "Sin Cara",
+            "cm_id": 3669,
+            "id": "1e11c257-844d-476b-a9c9-3cdafa0a5571"
+        },
+        {
+            "name": "Stardust",
+            "cm_id": 3686,
+            "id": "af8d58c0-6ef9-483e-8ed6-71581eb64588"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "6fc38ae2-9d96-48a7-b5ea-194c6799030f"
+        },
+        {
+            "name": "The Boogeyman",
+            "cm_id": 2455,
+            "id": "49c154a3-ac14-402f-9e8d-c588c3e687c9"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "e6d84b6c-7ccb-4ce1-b3d5-d296f85dd14c"
+        },
+        {
+            "name": "Titus O'Neil",
+            "cm_id": 8881,
+            "id": "3337bf48-23da-4e14-b182-25ddcf580465"
+        },
+        {
+            "name": "Tyson Kidd",
+            "cm_id": 817,
+            "id": "28728307-4358-4a5c-be45-c7facf4be5dd"
+        },
+        {
+            "name": "Zack Ryder",
+            "cm_id": 2750,
+            "id": "141ffb97-592c-4cab-8468-b7cd5642ff47"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "07df72a2-05ac-47d0-a99b-71b8c081b7ab"
+            ],
+            "victims": [
+                "e6d84b6c-7ccb-4ce1-b3d5-d296f85dd14c"
+            ],
+            "raw": "- Bubba Ray Dudley eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "07df72a2-05ac-47d0-a99b-71b8c081b7ab"
+            ],
+            "victims": [
+                "ac96e591-19af-4aec-b4e2-f09c1599c376"
+            ],
+            "raw": "- Bubba Ray Dudley eliminates R-Truth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "victims": [
+                "07df72a2-05ac-47d0-a99b-71b8c081b7ab"
+            ],
+            "raw": "- Bray Wyatt eliminates Bubba Ray Dudley",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [],
+            "raw": "- Curtis Axel is eliminated durch Nichtantritt (Attacke von Erick Rowan)",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "victims": [
+                "35662932-52cc-4976-a037-1e5daa83dbed"
+            ],
+            "raw": "- Bray Wyatt eliminates Luke Harper",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "victims": [
+                "49c154a3-ac14-402f-9e8d-c588c3e687c9"
+            ],
+            "raw": "- Bray Wyatt eliminates The Boogeyman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "victims": [
+                "1e11c257-844d-476b-a9c9-3cdafa0a5571"
+            ],
+            "raw": "- Bray Wyatt eliminates Sin Cara",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "victims": [
+                "141ffb97-592c-4cab-8468-b7cd5642ff47"
+            ],
+            "raw": "- Bray Wyatt eliminates Zack Ryder",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7fd2a065-98cd-4217-b7b2-04104dc1337c"
+            ],
+            "victims": [
+                "28728307-4358-4a5c-be45-c7facf4be5dd"
+            ],
+            "raw": "- Daniel Bryan eliminates Tyson Kidd",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "victims": [
+                "994cabed-0b22-463e-83f2-16c441b7f100"
+            ],
+            "raw": "- Rusev eliminates Diamond Dallas Page",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "victims": [
+                "3dc99adc-61d4-4fbe-a11c-864bc28c03d4"
+            ],
+            "raw": "- Rusev eliminates Fandango",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "victims": [
+                "7fd2a065-98cd-4217-b7b2-04104dc1337c"
+            ],
+            "raw": "- Bray Wyatt eliminates Daniel Bryan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "victims": [
+                "751c1854-5497-4599-82f0-f66befad57a7"
+            ],
+            "raw": "- Rusev eliminates Adam Rose",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "victims": [
+                "bf01c724-05dc-466e-9c3e-472d867a17bb"
+            ],
+            "raw": "- Rusev eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f0579ebb-ca76-4382-b48a-7ee52319e59f"
+            ],
+            "victims": [
+                "159a2ee6-3eba-45bb-b6a9-ad7cd517abe5"
+            ],
+            "raw": "- Roman Reigns eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f0579ebb-ca76-4382-b48a-7ee52319e59f"
+            ],
+            "victims": [
+                "af8d58c0-6ef9-483e-8ed6-71581eb64588"
+            ],
+            "raw": "- Roman Reigns eliminates Stardust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "victims": [
+                "bff97fd4-c257-4f29-a954-5951faab566d"
+            ],
+            "raw": "- Rusev eliminates Damien Mizdow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f0579ebb-ca76-4382-b48a-7ee52319e59f",
+                "0076b99b-dafc-4e7f-9ac6-a6f371266dcc"
+            ],
+            "victims": [
+                "3337bf48-23da-4e14-b182-25ddcf580465"
+            ],
+            "raw": "- Dean Ambrose & Roman Reigns eliminate Titus O'Neil",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "victims": [
+                "51b8d868-5b37-4cca-a48e-03884b14045f"
+            ],
+            "raw": "- Rusev eliminates Big E",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a8af6c2-971b-41d3-85ff-580edf8f5a20",
+                "6fc38ae2-9d96-48a7-b5ea-194c6799030f"
+            ],
+            "victims": [
+                "b6a292e7-a493-499b-9594-468fc422163b"
+            ],
+            "raw": "- Kane & The Big Show eliminate Ryback",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a8af6c2-971b-41d3-85ff-580edf8f5a20"
+            ],
+            "victims": [
+                "3a17c81a-5584-4640-b3df-0d00f388f7ae"
+            ],
+            "raw": "- Kane eliminates Jack Swagger",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a49f62a1-979c-4c72-91a7-41e9859e88d0"
+            ],
+            "victims": [
+                "38f1984d-aca1-4002-b8a6-590885d61bb1"
+            ],
+            "raw": "- Dolph Ziggler eliminates Bad News Barrett",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a49f62a1-979c-4c72-91a7-41e9859e88d0"
+            ],
+            "victims": [
+                "f3fb0c81-d2f0-43fb-9ae9-ac80185e35d8"
+            ],
+            "raw": "- Dolph Ziggler eliminates Cesaro",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a8af6c2-971b-41d3-85ff-580edf8f5a20",
+                "6fc38ae2-9d96-48a7-b5ea-194c6799030f"
+            ],
+            "victims": [
+                "a49f62a1-979c-4c72-91a7-41e9859e88d0"
+            ],
+            "raw": "- Kane & The Big Show eliminate Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a8af6c2-971b-41d3-85ff-580edf8f5a20",
+                "6fc38ae2-9d96-48a7-b5ea-194c6799030f"
+            ],
+            "victims": [
+                "51e9db3e-e0d6-430f-b7c9-f3593c120b72"
+            ],
+            "raw": "- Kane & The Big Show eliminate Bray Wyatt",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8a8af6c2-971b-41d3-85ff-580edf8f5a20",
+                "6fc38ae2-9d96-48a7-b5ea-194c6799030f"
+            ],
+            "victims": [
+                "0076b99b-dafc-4e7f-9ac6-a6f371266dcc"
+            ],
+            "raw": "- Kane & The Big Show eliminate Dean Ambrose",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f0579ebb-ca76-4382-b48a-7ee52319e59f"
+            ],
+            "victims": [
+                "8a8af6c2-971b-41d3-85ff-580edf8f5a20",
+                "6fc38ae2-9d96-48a7-b5ea-194c6799030f"
+            ],
+            "raw": "- Roman Reigns eliminates Kane & The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f0579ebb-ca76-4382-b48a-7ee52319e59f"
+            ],
+            "victims": [
+                "1d652e78-9f6e-44f8-8513-d2f71d28f856"
+            ],
+            "raw": "- Roman Reigns eliminates Rusev",
+            "is_valid": true
+        }
+    ]
+}

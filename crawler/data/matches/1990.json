@@ -1,0 +1,456 @@
+{
+    "wrestlers": [
+        {
+            "name": "Hulk Hogan",
+            "cm_id": 504,
+            "id": "c506fde7-8066-41b8-b087-2c1b629a0967"
+        },
+        {
+            "name": "Akeem",
+            "cm_id": 522,
+            "id": "08ce63da-43b1-4f4c-9668-5545f64bce82"
+        },
+        {
+            "name": "Andre The Giant",
+            "cm_id": 926,
+            "id": "01de2038-d758-4791-b994-8c564f3febfe"
+        },
+        {
+            "name": "Ax",
+            "cm_id": 806,
+            "id": "e47d2ac0-bac2-4867-9ff9-8d65d34bad5c"
+        },
+        {
+            "name": "Bad News Brown",
+            "cm_id": 528,
+            "id": "201ba30a-5ac2-438e-a816-8d9cbc4f3953"
+        },
+        {
+            "name": "Bret Hart",
+            "cm_id": 565,
+            "id": "a0e81367-0e57-45c8-b5f2-2c1952934100"
+        },
+        {
+            "name": "Dino Bravo",
+            "cm_id": 318,
+            "id": "3487eac3-e193-491a-85f6-079867f2b478"
+        },
+        {
+            "name": "Dusty Rhodes",
+            "cm_id": 495,
+            "id": "99798275-647e-4369-a0c2-0900b3ad020f"
+        },
+        {
+            "name": "Earthquake",
+            "cm_id": 339,
+            "id": "6ca57fd7-dfea-4c41-aecd-39fc07aed868"
+        },
+        {
+            "name": "Haku",
+            "cm_id": 694,
+            "id": "a50daf4e-c264-4c86-9597-e41461236b4b"
+        },
+        {
+            "name": "Hercules",
+            "cm_id": 1500,
+            "id": "0bc22241-6e7a-447a-94a4-92ec7743c6fa"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "9c2d8aca-f71b-499e-a93d-1d637baabace"
+        },
+        {
+            "name": "Jimmy Snuka",
+            "cm_id": 461,
+            "id": "ab12c4e8-5c6a-42cb-8447-6654d021a65b"
+        },
+        {
+            "name": "Jim Neidhart",
+            "cm_id": 518,
+            "id": "dc6296d1-7d1b-4241-83e7-d79e0d16e742"
+        },
+        {
+            "name": "Koko B. Ware",
+            "cm_id": 57,
+            "id": "4ac5971e-bb3a-4f3e-8f84-8dd7b2400139"
+        },
+        {
+            "name": "Marty Jannetty",
+            "cm_id": 988,
+            "id": "d4ad5eab-2364-48c2-8efb-6f1ed88c4c62"
+        },
+        {
+            "name": "Mr. Perfect",
+            "cm_id": 1015,
+            "id": "b1b360e4-71c2-47a5-9479-daf69b3f4770"
+        },
+        {
+            "name": "Randy Savage",
+            "cm_id": 640,
+            "id": "0d14919f-a820-4144-974f-8cb0a8c2e4ac"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "81db099f-4935-4cd4-bd4e-65f93893b3a0"
+        },
+        {
+            "name": "Rick Rude",
+            "cm_id": 630,
+            "id": "8dbbeb51-4455-4fdc-90f3-b7c173a59a10"
+        },
+        {
+            "name": "Roddy Piper",
+            "cm_id": 51,
+            "id": "128c25c9-e610-4b43-b6a3-1a763ee2de01"
+        },
+        {
+            "name": "Shawn Michaels",
+            "cm_id": 796,
+            "id": "32121659-c82d-4219-bae3-c7ed0252ed14"
+        },
+        {
+            "name": "Smash",
+            "cm_id": 1069,
+            "id": "e6015c8a-b68d-4ead-96d1-4070170843ec"
+        },
+        {
+            "name": "Ted DiBiase",
+            "cm_id": 1034,
+            "id": "bf57b03c-3063-4726-981e-0a1975b9ac90"
+        },
+        {
+            "name": "The Barbarian",
+            "cm_id": 413,
+            "id": "b3d4e72c-83d7-4abc-bc15-5a121409e8fa"
+        },
+        {
+            "name": "The Honky Tonk Man",
+            "cm_id": 156,
+            "id": "6ca60add-c63b-472e-a486-f0a532133107"
+        },
+        {
+            "name": "The Red Rooster",
+            "cm_id": 1058,
+            "id": "279e576d-6cb1-41d3-81f3-4ba472c0dfbd"
+        },
+        {
+            "name": "The Ultimate Warrior",
+            "cm_id": 84,
+            "id": "d5065339-3b3d-43f4-8040-215da649a860"
+        },
+        {
+            "name": "The Warlord",
+            "cm_id": 1480,
+            "id": "3749530e-16ae-4a74-9c0f-7c0bf6911230"
+        },
+        {
+            "name": "Tito Santana",
+            "cm_id": 93,
+            "id": "e7022dc5-e9b8-4e84-84c6-7a54dc59d1e2"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "bf57b03c-3063-4726-981e-0a1975b9ac90"
+            ],
+            "victims": [
+                "4ac5971e-bb3a-4f3e-8f84-8dd7b2400139"
+            ],
+            "raw": "- Ted DiBiase eliminates Koko B. Ware",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf57b03c-3063-4726-981e-0a1975b9ac90"
+            ],
+            "victims": [
+                "d4ad5eab-2364-48c2-8efb-6f1ed88c4c62"
+            ],
+            "raw": "- Ted DiBiase eliminates Marty Jannetty",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0d14919f-a820-4144-974f-8cb0a8c2e4ac"
+            ],
+            "victims": [
+                "9c2d8aca-f71b-499e-a93d-1d637baabace"
+            ],
+            "raw": "- Randy Savage eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99798275-647e-4369-a0c2-0900b3ad020f"
+            ],
+            "victims": [
+                "0d14919f-a820-4144-974f-8cb0a8c2e4ac"
+            ],
+            "raw": "- Dusty Rhodes eliminates Randy Savage",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "01de2038-d758-4791-b994-8c564f3febfe"
+            ],
+            "victims": [
+                "3749530e-16ae-4a74-9c0f-7c0bf6911230"
+            ],
+            "raw": "- Andre The Giant eliminates The Warlord",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "128c25c9-e610-4b43-b6a3-1a763ee2de01"
+            ],
+            "victims": [
+                "201ba30a-5ac2-438e-a816-8d9cbc4f3953"
+            ],
+            "raw": "- Roddy Piper eliminates Bad News Brown",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "201ba30a-5ac2-438e-a816-8d9cbc4f3953"
+            ],
+            "victims": [
+                "128c25c9-e610-4b43-b6a3-1a763ee2de01"
+            ],
+            "raw": "- Bad News Brown eliminates Roddy Piper",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "01de2038-d758-4791-b994-8c564f3febfe"
+            ],
+            "victims": [
+                "279e576d-6cb1-41d3-81f3-4ba472c0dfbd"
+            ],
+            "raw": "- Andre The Giant eliminates The Red Rooster",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "99798275-647e-4369-a0c2-0900b3ad020f"
+            ],
+            "victims": [
+                "a0e81367-0e57-45c8-b5f2-2c1952934100"
+            ],
+            "raw": "- Dusty Rhodes eliminates Bret Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e47d2ac0-bac2-4867-9ff9-8d65d34bad5c",
+                "e6015c8a-b68d-4ead-96d1-4070170843ec"
+            ],
+            "victims": [
+                "01de2038-d758-4791-b994-8c564f3febfe"
+            ],
+            "raw": "- Ax und Smash eliminate Andre The Giant",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ab12c4e8-5c6a-42cb-8447-6654d021a65b"
+            ],
+            "victims": [
+                "08ce63da-43b1-4f4c-9668-5545f64bce82"
+            ],
+            "raw": "- Jimmy Snuka eliminates Akeem",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6ca57fd7-dfea-4c41-aecd-39fc07aed868"
+            ],
+            "victims": [
+                "99798275-647e-4369-a0c2-0900b3ad020f"
+            ],
+            "raw": "- Earthquake eliminates Dusty Rhodes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6ca57fd7-dfea-4c41-aecd-39fc07aed868"
+            ],
+            "victims": [
+                "e47d2ac0-bac2-4867-9ff9-8d65d34bad5c"
+            ],
+            "raw": "- Earthquake eliminates Ax",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3487eac3-e193-491a-85f6-079867f2b478",
+                "a50daf4e-c264-4c86-9597-e41461236b4b",
+                "ab12c4e8-5c6a-42cb-8447-6654d021a65b",
+                "dc6296d1-7d1b-4241-83e7-d79e0d16e742",
+                "e6015c8a-b68d-4ead-96d1-4070170843ec",
+                "bf57b03c-3063-4726-981e-0a1975b9ac90"
+            ],
+            "victims": [
+                "6ca57fd7-dfea-4c41-aecd-39fc07aed868"
+            ],
+            "raw": "- Dino Bravo, Haku, Jim Neidhart, Jimmy Snuka, Smash und Ted DiBiase eliminate Earthquake",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "victims": [
+                "3487eac3-e193-491a-85f6-079867f2b478"
+            ],
+            "raw": "- The Ultimate Warrior eliminates Dino Bravo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a50daf4e-c264-4c86-9597-e41461236b4b"
+            ],
+            "victims": [
+                "e6015c8a-b68d-4ead-96d1-4070170843ec"
+            ],
+            "raw": "- Haku eliminates Smash",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "81db099f-4935-4cd4-bd4e-65f93893b3a0",
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "victims": [
+                "dc6296d1-7d1b-4241-83e7-d79e0d16e742"
+            ],
+            "raw": "- Rick Martel und The Ultimate Warrior eliminate Jim Neidhart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "victims": [
+                "bf57b03c-3063-4726-981e-0a1975b9ac90"
+            ],
+            "raw": "- The Ultimate Warrior eliminates Ted DiBiase",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c506fde7-8066-41b8-b087-2c1b629a0967"
+            ],
+            "victims": [
+                "ab12c4e8-5c6a-42cb-8447-6654d021a65b"
+            ],
+            "raw": "- Hulk Hogan eliminates Jimmy Snuka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c506fde7-8066-41b8-b087-2c1b629a0967"
+            ],
+            "victims": [
+                "a50daf4e-c264-4c86-9597-e41461236b4b"
+            ],
+            "raw": "- Hulk Hogan eliminates Haku",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "81db099f-4935-4cd4-bd4e-65f93893b3a0",
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "victims": [
+                "e7022dc5-e9b8-4e84-84c6-7a54dc59d1e2"
+            ],
+            "raw": "- Rick Martel und The Ultimate Warrior eliminate Tito Santana",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c506fde7-8066-41b8-b087-2c1b629a0967"
+            ],
+            "victims": [
+                "6ca60add-c63b-472e-a486-f0a532133107"
+            ],
+            "raw": "- Hulk Hogan eliminates The Honky Tonk Man",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "victims": [
+                "32121659-c82d-4219-bae3-c7ed0252ed14"
+            ],
+            "raw": "- The Ultimate Warrior eliminates Shawn Michaels",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "victims": [
+                "81db099f-4935-4cd4-bd4e-65f93893b3a0"
+            ],
+            "raw": "- The Ultimate Warrior eliminates Rick Martel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c506fde7-8066-41b8-b087-2c1b629a0967",
+                "8dbbeb51-4455-4fdc-90f3-b7c173a59a10",
+                "b3d4e72c-83d7-4abc-bc15-5a121409e8fa"
+            ],
+            "victims": [
+                "d5065339-3b3d-43f4-8040-215da649a860"
+            ],
+            "raw": "- Hulk Hogan, Rick Rude und The Barbarian eliminate The Ultimate Warrior",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0bc22241-6e7a-447a-94a4-92ec7743c6fa"
+            ],
+            "victims": [
+                "b3d4e72c-83d7-4abc-bc15-5a121409e8fa"
+            ],
+            "raw": "- Hercules eliminates The Barbarian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8dbbeb51-4455-4fdc-90f3-b7c173a59a10"
+            ],
+            "victims": [
+                "0bc22241-6e7a-447a-94a4-92ec7743c6fa"
+            ],
+            "raw": "- Rick Rude eliminates Hercules",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b1b360e4-71c2-47a5-9479-daf69b3f4770"
+            ],
+            "victims": [
+                "8dbbeb51-4455-4fdc-90f3-b7c173a59a10"
+            ],
+            "raw": "- Mr. Perfect eliminates Rick Rude",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c506fde7-8066-41b8-b087-2c1b629a0967"
+            ],
+            "victims": [
+                "b1b360e4-71c2-47a5-9479-daf69b3f4770"
+            ],
+            "raw": "- Hulk Hogan eliminates Mr. Perfect",
+            "is_valid": true
+        }
+    ]
+}

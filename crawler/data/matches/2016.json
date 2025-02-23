@@ -1,0 +1,482 @@
+{
+    "wrestlers": [
+        {
+            "name": "Triple H",
+            "cm_id": 496,
+            "id": "10401693-2022-4d87-9f53-4ecae8266f02"
+        },
+        {
+            "name": "AJ Styles",
+            "cm_id": 801,
+            "id": "f380f02b-91a7-4bde-85d9-a5c0319ba4de"
+        },
+        {
+            "name": "Alberto Del Rio",
+            "cm_id": 1407,
+            "id": "566bdf8e-cc60-41dc-8dd9-8295c2814a49"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "8e9e9645-e5bb-4d43-852d-fb718a4f0593"
+        },
+        {
+            "name": "Bray Wyatt",
+            "cm_id": 7659,
+            "id": "01a1341f-d1c3-43c4-ad9e-60a51a577e4a"
+        },
+        {
+            "name": "Brock Lesnar",
+            "cm_id": 669,
+            "id": "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+        },
+        {
+            "name": "Paul Heyman",
+            "cm_id": 664,
+            "id": "1e4529c5-2c5e-4bb6-89e2-72dda01554ec"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "5a74e239-130e-4382-8d03-bc2511047eac"
+        },
+        {
+            "name": "Curtis Axel",
+            "cm_id": 5271,
+            "id": "c1610904-b9c8-4724-9862-c35a050d9bc1"
+        },
+        {
+            "name": "Adam Rose",
+            "cm_id": 9031,
+            "id": "10cc3080-d7ab-41e1-a505-a906b7a66ea2"
+        },
+        {
+            "name": "Bo Dallas",
+            "cm_id": 7311,
+            "id": "08ba42bc-3181-4a67-b0f2-9d4f68c690f1"
+        },
+        {
+            "name": "Heath Slater",
+            "cm_id": 3296,
+            "id": "d855bb3b-6d1a-4a87-9715-a40bdf12d74f"
+        },
+        {
+            "name": "Dean Ambrose",
+            "cm_id": 3940,
+            "id": "4b55355f-0a88-40ab-a89b-8b2102a4302a"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "235eaa8f-f844-425a-947c-6ac903021dea"
+        },
+        {
+            "name": "Erick Rowan",
+            "cm_id": 9368,
+            "id": "bc9411df-5ae0-4e1e-93a2-13318ad80342"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "e1c5bafd-4b6a-424e-ba9e-bb5ce48c7d5b"
+        },
+        {
+            "name": "Jack Swagger",
+            "cm_id": 4071,
+            "id": "7ec606e8-2eff-4120-9252-f34736dc773a"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "d52c23dc-e792-464a-ac0e-3a236a03bc5d"
+        },
+        {
+            "name": "Kevin Owens",
+            "cm_id": 1499,
+            "id": "bc87864a-085e-42e3-a4ee-d0068715dc67"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "ec942bd8-05e9-47e5-8c8a-de5632cbbb7a"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "2ae49a33-1c82-465f-b899-523c1be6b217"
+        },
+        {
+            "name": "Xavier Woods",
+            "cm_id": 4955,
+            "id": "96d97b40-53e7-4007-857a-ad67bdc52d66"
+        },
+        {
+            "name": "Luke Harper",
+            "cm_id": 5244,
+            "id": "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "b65b9006-00ce-4df6-bed1-ffd7fa343c76"
+        },
+        {
+            "name": "Neville",
+            "cm_id": 3497,
+            "id": "564d84b0-9144-4765-84df-060032f4cf75"
+        },
+        {
+            "name": "R-Truth",
+            "cm_id": 200,
+            "id": "3c3ec0d5-d3b1-435e-b6d6-4cdf7fa8d704"
+        },
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+        },
+        {
+            "name": "Rusev",
+            "cm_id": 10610,
+            "id": "7965ffe8-2dab-4226-bef4-0f4551d5694b"
+        },
+        {
+            "name": "Ryback",
+            "cm_id": 2624,
+            "id": "08c4f121-cde6-4d46-963d-6a515fd01333"
+        },
+        {
+            "name": "Sami Zayn",
+            "cm_id": 1523,
+            "id": "3560c1d1-b6c5-4d81-85bb-fc39082767d5"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "0c741747-a757-4d53-8fb0-e869aed2dbc7"
+        },
+        {
+            "name": "Stardust",
+            "cm_id": 3686,
+            "id": "6eea7b54-39fe-4923-b9cb-51ee3f3ba375"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "9714f70c-6788-4f17-a8ec-422c36159b69"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "0adeec3e-6c7d-4529-b6e9-a4fa597d7545"
+        },
+        {
+            "name": "Titus O'Neil",
+            "cm_id": 8881,
+            "id": "39082d1d-0e6a-4024-9c01-710eb6ad17c1"
+        },
+        {
+            "name": "Tyler Breeze",
+            "cm_id": 9500,
+            "id": "26740a64-76e6-46ac-ae83-9cd063eb220e"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            ],
+            "victims": [
+                "7965ffe8-2dab-4226-bef4-0f4551d5694b"
+            ],
+            "raw": "- Roman Reigns eliminates Rusev (1:30)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f380f02b-91a7-4bde-85d9-a5c0319ba4de",
+                "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            ],
+            "victims": [
+                "26740a64-76e6-46ac-ae83-9cd063eb220e"
+            ],
+            "raw": "- AJ Styles & Roman Reigns eliminate Tyler Breeze (5:13)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f380f02b-91a7-4bde-85d9-a5c0319ba4de"
+            ],
+            "victims": [
+                "c1610904-b9c8-4724-9862-c35a050d9bc1"
+            ],
+            "raw": "- AJ Styles eliminates Curtis Axel (7:04)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "39082d1d-0e6a-4024-9c01-710eb6ad17c1"
+            ],
+            "victims": [
+                "e1c5bafd-4b6a-424e-ba9e-bb5ce48c7d5b"
+            ],
+            "raw": "- Titus O'Neil eliminates Goldust (17:15)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d52c23dc-e792-464a-ac0e-3a236a03bc5d"
+            ],
+            "victims": [
+                "3c3ec0d5-d3b1-435e-b6d6-4cdf7fa8d704"
+            ],
+            "raw": "- Kane eliminates R-Truth (18:54)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9714f70c-6788-4f17-a8ec-422c36159b69"
+            ],
+            "victims": [
+                "39082d1d-0e6a-4024-9c01-710eb6ad17c1"
+            ],
+            "raw": "- The Big Show eliminates Titus O'Neil (25:12)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9714f70c-6788-4f17-a8ec-422c36159b69"
+            ],
+            "victims": [
+                "08c4f121-cde6-4d46-963d-6a515fd01333"
+            ],
+            "raw": "- The Big Show eliminates Ryback (25:20)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5a74e239-130e-4382-8d03-bc2511047eac"
+            ],
+            "victims": [
+                "ec942bd8-05e9-47e5-8c8a-de5632cbbb7a"
+            ],
+            "raw": "- Chris Jericho eliminates Kofi Kingston (26:47)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8e9e9645-e5bb-4d43-852d-fb718a4f0593"
+            ],
+            "victims": [
+                "d52c23dc-e792-464a-ac0e-3a236a03bc5d"
+            ],
+            "raw": "- Braun Strowman eliminates Kane (28:19)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8e9e9645-e5bb-4d43-852d-fb718a4f0593"
+            ],
+            "victims": [
+                "9714f70c-6788-4f17-a8ec-422c36159b69"
+            ],
+            "raw": "- Braun Strowman eliminates The Big Show (29:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bc87864a-085e-42e3-a4ee-d0068715dc67"
+            ],
+            "victims": [
+                "f380f02b-91a7-4bde-85d9-a5c0319ba4de"
+            ],
+            "raw": "- Kevin Owens eliminates AJ Styles (30:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3560c1d1-b6c5-4d81-85bb-fc39082767d5"
+            ],
+            "victims": [
+                "bc87864a-085e-42e3-a4ee-d0068715dc67"
+            ],
+            "raw": "- Sami Zayn eliminates Kevin Owens (35:37)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+            ],
+            "victims": [
+                "564d84b0-9144-4765-84df-060032f4cf75"
+            ],
+            "raw": "- Luke Harper eliminates Neville (36:16)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+            ],
+            "victims": [
+                "6eea7b54-39fe-4923-b9cb-51ee3f3ba375"
+            ],
+            "raw": "- Luke Harper eliminates Stardust (36:27)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8e9e9645-e5bb-4d43-852d-fb718a4f0593",
+                "bc9411df-5ae0-4e1e-93a2-13318ad80342",
+                "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+            ],
+            "victims": [
+                "b65b9006-00ce-4df6-bed1-ffd7fa343c76"
+            ],
+            "raw": "- Braun Strowman, Erick Rowan & Luke Harper eliminate Mark Henry (38:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8e9e9645-e5bb-4d43-852d-fb718a4f0593"
+            ],
+            "victims": [
+                "3560c1d1-b6c5-4d81-85bb-fc39082767d5"
+            ],
+            "raw": "- Braun Strowman eliminates Sami Zayn (38:26)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+            ],
+            "victims": [
+                "bc9411df-5ae0-4e1e-93a2-13318ad80342"
+            ],
+            "raw": "- Brock Lesnar eliminates Erick Rowan (39:57)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+            ],
+            "victims": [
+                "7ec606e8-2eff-4120-9252-f34736dc773a"
+            ],
+            "raw": "- Brock Lesnar eliminates Jack Swagger (41:18)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+            ],
+            "victims": [
+                "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+            ],
+            "raw": "- Brock Lesnar eliminates Luke Harper (44:18)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+            ],
+            "victims": [
+                "8e9e9645-e5bb-4d43-852d-fb718a4f0593"
+            ],
+            "raw": "- Brock Lesnar eliminates Braun Strowman (45:46)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8e9e9645-e5bb-4d43-852d-fb718a4f0593",
+                "bc9411df-5ae0-4e1e-93a2-13318ad80342",
+                "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+            ],
+            "victims": [
+                "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+            ],
+            "raw": "- Braun Strowman, Erick Rowan & Luke Harper eliminate Brock Lesnar (48:32)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            ],
+            "victims": [
+                "0adeec3e-6c7d-4529-b6e9-a4fa597d7545"
+            ],
+            "raw": "- Roman Reigns eliminates The Miz (51:26)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            ],
+            "victims": [
+                "566bdf8e-cc60-41dc-8dd9-8295c2814a49"
+            ],
+            "raw": "- Roman Reigns eliminates Alberto Del Rio (51:36)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10401693-2022-4d87-9f53-4ecae8266f02"
+            ],
+            "victims": [
+                "235eaa8f-f844-425a-947c-6ac903021dea"
+            ],
+            "raw": "- Triple H eliminates Dolph Ziggler (56:28)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10401693-2022-4d87-9f53-4ecae8266f02",
+                "0c741747-a757-4d53-8fb0-e869aed2dbc7"
+            ],
+            "victims": [
+                "01a1341f-d1c3-43c4-ad9e-60a51a577e4a"
+            ],
+            "raw": "- Sheamus & Triple H eliminate Bray Wyatt (57:41)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4b55355f-0a88-40ab-a89b-8b2102a4302a"
+            ],
+            "victims": [
+                "5a74e239-130e-4382-8d03-bc2511047eac"
+            ],
+            "raw": "- Dean Ambrose eliminates Chris Jericho (58:40)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            ],
+            "victims": [
+                "0c741747-a757-4d53-8fb0-e869aed2dbc7"
+            ],
+            "raw": "- Roman Reigns eliminates Sheamus (59:44)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10401693-2022-4d87-9f53-4ecae8266f02"
+            ],
+            "victims": [
+                "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            ],
+            "raw": "- Triple H eliminates Roman Reigns (59:48)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10401693-2022-4d87-9f53-4ecae8266f02"
+            ],
+            "victims": [
+                "4b55355f-0a88-40ab-a89b-8b2102a4302a"
+            ],
+            "raw": "- Triple H eliminates Dean Ambrose (61:42)",
+            "is_valid": true
+        }
+    ]
+}

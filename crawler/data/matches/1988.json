@@ -1,0 +1,297 @@
+{
+    "wrestlers": [
+        {
+            "name": "Jim Duggan",
+            "cm_id": 1107,
+            "id": "6c34cddd-abd8-41d8-9362-f192d5a8f5d6"
+        },
+        {
+            "name": "B. Brian Blair",
+            "cm_id": 756,
+            "id": "fdf2a4fe-1868-4e36-87bf-adbbf85805d2"
+        },
+        {
+            "name": "Boris Zhukov",
+            "cm_id": 305,
+            "id": "3caf1215-bfc2-4486-94db-0c4fe2987b26"
+        },
+        {
+            "name": "Bret Hart",
+            "cm_id": 565,
+            "id": "c6bdc460-7d95-4423-b14e-aea82e435e39"
+        },
+        {
+            "name": "Butch Reed",
+            "cm_id": 785,
+            "id": "33ace6f9-5c95-4742-bd4b-b9d42a78196c"
+        },
+        {
+            "name": "Danny Davis",
+            "cm_id": 1403,
+            "id": "b7265759-0135-4d82-b64c-5291efd79c8d"
+        },
+        {
+            "name": "Dino Bravo",
+            "cm_id": 318,
+            "id": "76b43fe8-58b4-41c6-893a-10e2949f7d03"
+        },
+        {
+            "name": "Don Muraco",
+            "cm_id": 95,
+            "id": "56dfa2fe-cef0-4d8c-bd8d-a57cd77af430"
+        },
+        {
+            "name": "Hillbilly Jim",
+            "cm_id": 1335,
+            "id": "3220a6ca-02cd-4fc8-af3b-57707f87f42c"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "a0bf9d3a-2ff4-4ab2-b91b-26165d4c08bf"
+        },
+        {
+            "name": "Jim Brunzell",
+            "cm_id": 851,
+            "id": "9a048f47-1f31-4d20-b295-5cb5a01e1254"
+        },
+        {
+            "name": "Jim Neidhart",
+            "cm_id": 518,
+            "id": "80d5ce82-226a-499a-a266-f27ac59e7599"
+        },
+        {
+            "name": "King Harley Race",
+            "cm_id": 341,
+            "id": "6ddb7f8d-b726-4ffd-8627-48138180394e"
+        },
+        {
+            "name": "Nikolai Volkoff",
+            "cm_id": 1097,
+            "id": "5c447932-7e67-4dcb-ba95-438664d46df2"
+        },
+        {
+            "name": "Ron Bass",
+            "cm_id": 1031,
+            "id": "22f38741-9568-4a1c-bed5-c2fd34c45e28"
+        },
+        {
+            "name": "Sam Houston",
+            "cm_id": 21,
+            "id": "c5e3b68e-693b-4f06-b088-3a5bdc412f1e"
+        },
+        {
+            "name": "The Junkyard Dog",
+            "cm_id": 466,
+            "id": "56cd58ca-821e-491b-8803-840d261b98f3"
+        },
+        {
+            "name": "The One Man Gang",
+            "cm_id": 522,
+            "id": "36d66e54-075e-4e49-bf96-e99bd33af33b"
+        },
+        {
+            "name": "The Ultimate Warrior",
+            "cm_id": 84,
+            "id": "75d10e54-f9a1-450b-927a-92891543c1a2"
+        },
+        {
+            "name": "Tito Santana",
+            "cm_id": 93,
+            "id": "48864c65-0977-4860-ac75-8269a9b98501"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "a0bf9d3a-2ff4-4ab2-b91b-26165d4c08bf"
+            ],
+            "victims": [
+                "33ace6f9-5c95-4742-bd4b-b9d42a78196c"
+            ],
+            "raw": "- Jake Roberts eliminates Butch Reed",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c6bdc460-7d95-4423-b14e-aea82e435e39",
+                "80d5ce82-226a-499a-a266-f27ac59e7599"
+            ],
+            "victims": [
+                "48864c65-0977-4860-ac75-8269a9b98501"
+            ],
+            "raw": "- Bret Hart und Jim Neidhart eliminate Tito Santana",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a0bf9d3a-2ff4-4ab2-b91b-26165d4c08bf",
+                "9a048f47-1f31-4d20-b295-5cb5a01e1254"
+            ],
+            "victims": [
+                "3caf1215-bfc2-4486-94db-0c4fe2987b26"
+            ],
+            "raw": "- Jake Roberts und Jim Brunzell eliminate Boris Zhukov",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "56dfa2fe-cef0-4d8c-bd8d-a57cd77af430"
+            ],
+            "victims": [],
+            "raw": "- Don Muraco eliminates Harley Race",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "5c447932-7e67-4dcb-ba95-438664d46df2"
+            ],
+            "victims": [
+                "9a048f47-1f31-4d20-b295-5cb5a01e1254"
+            ],
+            "raw": "- Nikolai Volkoff eliminates Jim Brunzell",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3220a6ca-02cd-4fc8-af3b-57707f87f42c"
+            ],
+            "victims": [
+                "80d5ce82-226a-499a-a266-f27ac59e7599"
+            ],
+            "raw": "- Hillbilly Jim eliminates Jim Neidhart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "22f38741-9568-4a1c-bed5-c2fd34c45e28"
+            ],
+            "victims": [
+                "c5e3b68e-693b-4f06-b088-3a5bdc412f1e"
+            ],
+            "raw": "- Ron Bass eliminates Sam Houston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "56dfa2fe-cef0-4d8c-bd8d-a57cd77af430"
+            ],
+            "victims": [
+                "c6bdc460-7d95-4423-b14e-aea82e435e39"
+            ],
+            "raw": "- Don Muraco eliminates Bret Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "victims": [
+                "fdf2a4fe-1868-4e36-87bf-adbbf85805d2"
+            ],
+            "raw": "- The One Man Gang eliminates B. Brian Blair",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "victims": [
+                "a0bf9d3a-2ff4-4ab2-b91b-26165d4c08bf"
+            ],
+            "raw": "- The One Man Gang eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6c34cddd-abd8-41d8-9362-f192d5a8f5d6"
+            ],
+            "victims": [
+                "5c447932-7e67-4dcb-ba95-438664d46df2"
+            ],
+            "raw": "- Jim Duggan eliminates Nikolai Volkoff",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "victims": [
+                "3220a6ca-02cd-4fc8-af3b-57707f87f42c"
+            ],
+            "raw": "- The One Man Gang eliminates Hillbilly Jim",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6c34cddd-abd8-41d8-9362-f192d5a8f5d6"
+            ],
+            "victims": [
+                "b7265759-0135-4d82-b64c-5291efd79c8d"
+            ],
+            "raw": "- Jim Duggan eliminates Danny Davis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "76b43fe8-58b4-41c6-893a-10e2949f7d03",
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "victims": [
+                "75d10e54-f9a1-450b-927a-92891543c1a2"
+            ],
+            "raw": "- Dino Bravo und The One Man Gang eliminate The Ultimate Warrior",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "22f38741-9568-4a1c-bed5-c2fd34c45e28"
+            ],
+            "victims": [
+                "56cd58ca-821e-491b-8803-840d261b98f3"
+            ],
+            "raw": "- Ron Bass eliminates The Junkyard Dog",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "56dfa2fe-cef0-4d8c-bd8d-a57cd77af430"
+            ],
+            "victims": [
+                "22f38741-9568-4a1c-bed5-c2fd34c45e28"
+            ],
+            "raw": "- Don Muraco eliminates Ron Bass",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "victims": [
+                "56dfa2fe-cef0-4d8c-bd8d-a57cd77af430"
+            ],
+            "raw": "- The One Man Gang eliminates Don Muraco",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "victims": [
+                "76b43fe8-58b4-41c6-893a-10e2949f7d03"
+            ],
+            "raw": "- The One Man Gang eliminates Dino Bravo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6c34cddd-abd8-41d8-9362-f192d5a8f5d6"
+            ],
+            "victims": [
+                "36d66e54-075e-4e49-bf96-e99bd33af33b"
+            ],
+            "raw": "- Jim Duggan eliminates The One Man Gang",
+            "is_valid": true
+        }
+    ]
+}

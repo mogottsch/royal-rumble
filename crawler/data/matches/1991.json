@@ -1,0 +1,467 @@
+{
+    "wrestlers": [
+        {
+            "name": "Hulk Hogan",
+            "cm_id": 504,
+            "id": "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+        },
+        {
+            "name": "Animal",
+            "cm_id": 509,
+            "id": "239c2ccf-5bc3-4105-a4fe-408960b99b5d"
+        },
+        {
+            "name": "Bret Hart",
+            "cm_id": 565,
+            "id": "72b7cfed-5896-4a48-9b28-86c6fd54eeb6"
+        },
+        {
+            "name": "Brian Knobbs",
+            "cm_id": 633,
+            "id": "08f14bc1-996b-438b-a76b-a49cadf8acd1"
+        },
+        {
+            "name": "Butch",
+            "cm_id": 1032,
+            "id": "2bcbde3f-7cb4-4dc9-9fa7-d022e96d339f"
+        },
+        {
+            "name": "Crush",
+            "cm_id": 536,
+            "id": "df45def1-ce8a-47c6-8425-b81e3fe6c92b"
+        },
+        {
+            "name": "Mr. Fuji",
+            "cm_id": 1070,
+            "id": "2901fb7a-ec77-4395-adc2-6dfd89db7177"
+        },
+        {
+            "name": "Dino Bravo",
+            "cm_id": 318,
+            "id": "7865681a-a39f-4e21-89a5-9c1251c84477"
+        },
+        {
+            "name": "Earthquake",
+            "cm_id": 339,
+            "id": "7dae419b-49de-4918-99d9-fb8e0aa325e1"
+        },
+        {
+            "name": "Jimmy Hart",
+            "cm_id": 418,
+            "id": "350bbef0-7531-4074-a6c7-d571ccab505a"
+        },
+        {
+            "name": "Greg Valentine",
+            "cm_id": 104,
+            "id": "4b59a699-fe16-4b53-98bf-b81fb8bc0e28"
+        },
+        {
+            "name": "Haku",
+            "cm_id": 694,
+            "id": "db96d47d-fc2d-47da-bec9-4060e7688579"
+        },
+        {
+            "name": "Hawk",
+            "cm_id": 553,
+            "id": "e2eb7f8f-69ad-4d8d-a394-78e0a69723cf"
+        },
+        {
+            "name": "Hercules",
+            "cm_id": 1500,
+            "id": "8394804f-b5ed-4844-8a03-b4633ea8eba2"
+        },
+        {
+            "name": "Slick",
+            "cm_id": 1492,
+            "id": "f1c9f1de-90eb-4903-984c-56aea5f3f30e"
+        },
+        {
+            "name": "Jake Roberts",
+            "cm_id": 36,
+            "id": "441a24ea-af57-4f24-a2f6-6fd041f75205"
+        },
+        {
+            "name": "Jim Duggan",
+            "cm_id": 1107,
+            "id": "c8bd8843-4fb7-414a-a675-4dcd2989ef83"
+        },
+        {
+            "name": "Jimmy Snuka",
+            "cm_id": 461,
+            "id": "418f524a-5da0-46d8-8376-5230bb8f0bf5"
+        },
+        {
+            "name": "Jim Neidhart",
+            "cm_id": 518,
+            "id": "9bb911c1-1df0-4a18-9e10-f33efe920282"
+        },
+        {
+            "name": "Luke",
+            "cm_id": 88,
+            "id": "228e8412-cb1c-45a0-a3e8-e6b083ee2a8f"
+        },
+        {
+            "name": "Mr. Perfect",
+            "cm_id": 1015,
+            "id": "00c14881-a208-405a-a3a7-5cfae9f59b4d"
+        },
+        {
+            "name": "Bobby Heenan",
+            "cm_id": 770,
+            "id": "95a410fd-6f7e-4c0a-b6a4-d7fda5a1cf17"
+        },
+        {
+            "name": "Paul Roma",
+            "cm_id": 685,
+            "id": "4735dc8a-7669-4aa7-8667-f3a2587e6edd"
+        },
+        {
+            "name": "Slick",
+            "cm_id": 1492,
+            "id": "eef0e9c1-e0ec-477c-afc7-5eee4f512ef9"
+        },
+        {
+            "name": "Rick Martel",
+            "cm_id": 1010,
+            "id": "f2591e62-1ef2-4156-8592-7edce60c27c2"
+        },
+        {
+            "name": "Saba Simba",
+            "cm_id": 1083,
+            "id": "32de9863-847a-4309-830c-b2bf7e9bbee8"
+        },
+        {
+            "name": "Shane Douglas",
+            "cm_id": 336,
+            "id": "c4ac6724-a68f-4eba-856e-9fd3c34a9644"
+        },
+        {
+            "name": "Smash",
+            "cm_id": 1069,
+            "id": "90214bd2-63b2-4c57-aced-b5b95ba8ebca"
+        },
+        {
+            "name": "Mr. Fuji",
+            "cm_id": 1070,
+            "id": "6e89ca1e-e96c-44aa-b01b-4968258d084a"
+        },
+        {
+            "name": "The British Bulldog",
+            "cm_id": 862,
+            "id": "5bb548cb-6031-4f7f-a0c8-47b9b7c7e5d5"
+        },
+        {
+            "name": "The Texas Tornado",
+            "cm_id": 1039,
+            "id": "b7cfd882-3fe6-41d6-b740-84aec621cbee"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "dabbfb3b-9ca8-4a81-94bb-12347dd603da"
+        },
+        {
+            "name": "Brother Love",
+            "cm_id": 1927,
+            "id": "e97e9cc1-692a-4115-9e95-07cef5530e82"
+        },
+        {
+            "name": "The Warlord",
+            "cm_id": 1480,
+            "id": "fda86001-0297-4d20-8d86-b5628bc3ab74"
+        },
+        {
+            "name": "Tito Santana",
+            "cm_id": 93,
+            "id": "8ff4102b-c41b-4c74-83bc-fd6564d3d53a"
+        },
+        {
+            "name": "Tugboat",
+            "cm_id": 886,
+            "id": "16a66283-90ea-4100-a41d-aa8dee8d07d0"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "4b59a699-fe16-4b53-98bf-b81fb8bc0e28"
+            ],
+            "victims": [
+                "7865681a-a39f-4e21-89a5-9c1251c84477"
+            ],
+            "raw": "- Greg Valentine eliminates Dino Bravo",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f2591e62-1ef2-4156-8592-7edce60c27c2"
+            ],
+            "victims": [
+                "32de9863-847a-4309-830c-b2bf7e9bbee8"
+            ],
+            "raw": "- Rick Martel eliminates Saba Simba",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "441a24ea-af57-4f24-a2f6-6fd041f75205"
+            ],
+            "victims": [
+                "4735dc8a-7669-4aa7-8667-f3a2587e6edd"
+            ],
+            "raw": "- Jake Roberts eliminates  Paul Roma",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dabbfb3b-9ca8-4a81-94bb-12347dd603da"
+            ],
+            "victims": [
+                "72b7cfed-5896-4a48-9b28-86c6fd54eeb6"
+            ],
+            "raw": "- The Undertaker eliminates Bret Hart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dabbfb3b-9ca8-4a81-94bb-12347dd603da"
+            ],
+            "victims": [
+                "2bcbde3f-7cb4-4dc9-9fa7-d022e96d339f"
+            ],
+            "raw": "- The Undertaker eliminates Butch",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f2591e62-1ef2-4156-8592-7edce60c27c2"
+            ],
+            "victims": [
+                "441a24ea-af57-4f24-a2f6-6fd041f75205"
+            ],
+            "raw": "- Rick Martel eliminates Jake Roberts",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "dabbfb3b-9ca8-4a81-94bb-12347dd603da"
+            ],
+            "victims": [
+                "b7cfd882-3fe6-41d6-b740-84aec621cbee"
+            ],
+            "raw": "- The Undertaker eliminates  The Texas Tornado",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e2eb7f8f-69ad-4d8d-a394-78e0a69723cf"
+            ],
+            "victims": [
+                "418f524a-5da0-46d8-8376-5230bb8f0bf5"
+            ],
+            "raw": "- Hawk eliminates Jimmy Snuka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "239c2ccf-5bc3-4105-a4fe-408960b99b5d",
+                "e2eb7f8f-69ad-4d8d-a394-78e0a69723cf"
+            ],
+            "victims": [
+                "dabbfb3b-9ca8-4a81-94bb-12347dd603da"
+            ],
+            "raw": "- Animal und Hawk eliminate The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8394804f-b5ed-4844-8a03-b4633ea8eba2",
+                "f2591e62-1ef2-4156-8592-7edce60c27c2"
+            ],
+            "victims": [
+                "e2eb7f8f-69ad-4d8d-a394-78e0a69723cf"
+            ],
+            "raw": "- Hercules und Rick Martel eliminate Hawk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "7dae419b-49de-4918-99d9-fb8e0aa325e1"
+            ],
+            "victims": [
+                "239c2ccf-5bc3-4105-a4fe-408960b99b5d"
+            ],
+            "raw": "- Earthquake eliminates Animal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "00c14881-a208-405a-a3a7-5cfae9f59b4d"
+            ],
+            "victims": [
+                "c8bd8843-4fb7-414a-a675-4dcd2989ef83"
+            ],
+            "raw": "- Mr. Perfect eliminates Jim Duggan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "90214bd2-63b2-4c57-aced-b5b95ba8ebca"
+            ],
+            "raw": "- Hulk Hogan eliminates Smash",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "4b59a699-fe16-4b53-98bf-b81fb8bc0e28"
+            ],
+            "raw": "- Hulk Hogan eliminates Greg Valentine",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "8ff4102b-c41b-4c74-83bc-fd6564d3d53a"
+            ],
+            "raw": "- Earthquahe eliminates Tito Santana",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "7dae419b-49de-4918-99d9-fb8e0aa325e1"
+            ],
+            "victims": [
+                "228e8412-cb1c-45a0-a3e8-e6b083ee2a8f"
+            ],
+            "raw": "- Earthquake eliminates Luke",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "08f14bc1-996b-438b-a76b-a49cadf8acd1"
+            ],
+            "victims": [
+                "8394804f-b5ed-4844-8a03-b4633ea8eba2"
+            ],
+            "raw": "- Brian Knobbs eliminates Hercules",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "df45def1-ce8a-47c6-8425-b81e3fe6c92b"
+            ],
+            "raw": "- Hulk Hogan eliminates Crush",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "fda86001-0297-4d20-8d86-b5628bc3ab74"
+            ],
+            "raw": "- Hulk Hogan eliminates The Warlord",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "08f14bc1-996b-438b-a76b-a49cadf8acd1"
+            ],
+            "victims": [
+                "c4ac6724-a68f-4eba-856e-9fd3c34a9644"
+            ],
+            "raw": "- Brian Knobbs eliminates Shane Douglas",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "16a66283-90ea-4100-a41d-aa8dee8d07d0"
+            ],
+            "raw": "- Hulk Hogan eliminates Tugboat",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5bb548cb-6031-4f7f-a0c8-47b9b7c7e5d5"
+            ],
+            "victims": [
+                "00c14881-a208-405a-a3a7-5cfae9f59b4d"
+            ],
+            "raw": "- The British Bulldog eliminates Mr. Perfect",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f2591e62-1ef2-4156-8592-7edce60c27c2"
+            ],
+            "victims": [
+                "9bb911c1-1df0-4a18-9e10-f33efe920282"
+            ],
+            "raw": "- Rick Martel eliminates Jim Neidhart",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5bb548cb-6031-4f7f-a0c8-47b9b7c7e5d5"
+            ],
+            "victims": [
+                "db96d47d-fc2d-47da-bec9-4060e7688579"
+            ],
+            "raw": "- The British Bulldog eliminates Haku",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5bb548cb-6031-4f7f-a0c8-47b9b7c7e5d5"
+            ],
+            "victims": [
+                "f2591e62-1ef2-4156-8592-7edce60c27c2"
+            ],
+            "raw": "- The British Bulldog eliminates Rick Martel",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "08f14bc1-996b-438b-a76b-a49cadf8acd1",
+                "7dae419b-49de-4918-99d9-fb8e0aa325e1"
+            ],
+            "victims": [
+                "5bb548cb-6031-4f7f-a0c8-47b9b7c7e5d5"
+            ],
+            "raw": "- Brian Knobbs und Earthquake eliminate The British Bulldog",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "08f14bc1-996b-438b-a76b-a49cadf8acd1"
+            ],
+            "raw": "- Hulk Hogan eliminates Brian Knobbs",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf3778dc-c2c3-41eb-a252-9d7a341fceda"
+            ],
+            "victims": [
+                "7dae419b-49de-4918-99d9-fb8e0aa325e1"
+            ],
+            "raw": "- Hulk Hogan eliminates Earthquake",
+            "is_valid": true
+        }
+    ]
+}

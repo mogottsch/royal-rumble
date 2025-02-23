@@ -1,0 +1,438 @@
+{
+    "wrestlers": [
+        {
+            "name": "Triple H",
+            "cm_id": 496,
+            "id": "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a"
+        },
+        {
+            "name": "Albert",
+            "cm_id": 580,
+            "id": "48d4fc63-3367-4042-b023-03079a567473"
+        },
+        {
+            "name": "Al Snow",
+            "cm_id": 179,
+            "id": "bf02d1bd-9dcf-4532-83ce-d646f81d2f37"
+        },
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "2cbe2ed3-a6b1-45b1-86cb-e5f10ca28585"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "ada18679-c7d7-4147-8df6-5b84a684d958"
+        },
+        {
+            "name": "Bradshaw",
+            "cm_id": 193,
+            "id": "63e90ea6-3cd7-481f-90f1-bd51b9d0ce54"
+        },
+        {
+            "name": "Christian",
+            "cm_id": 820,
+            "id": "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0"
+        },
+        {
+            "name": "Chuck",
+            "cm_id": 74,
+            "id": "f9d7f06d-4b81-4532-ab36-f46e9435b5f4"
+        },
+        {
+            "name": "Diamond Dallas Page",
+            "cm_id": 18,
+            "id": "68e96bca-20e6-42b3-8eb0-579a9414dc76"
+        },
+        {
+            "name": "Faarooq",
+            "cm_id": 715,
+            "id": "7fc11cc2-ea7d-48ad-bc60-20dcc6215e22"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "a31af3bd-bab4-49b3-a4b4-ac2b8df01826"
+        },
+        {
+            "name": "Jeff Hardy",
+            "cm_id": 891,
+            "id": "c9b66207-6dc7-49de-8619-aeeb2921ab90"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "25f17036-9257-4ea6-bfd0-441e665646d4"
+        },
+        {
+            "name": "Kurt Angle",
+            "cm_id": 540,
+            "id": "2aee6158-1e93-4eef-a273-8592312e8a27"
+        },
+        {
+            "name": "Lance Storm",
+            "cm_id": 311,
+            "id": "3d097a79-a9de-49ea-bd6d-4c9228ccbc60"
+        },
+        {
+            "name": "Matt Hardy",
+            "cm_id": 99,
+            "id": "8274e435-54f8-452f-a427-20960ae7c06e"
+        },
+        {
+            "name": "Lita",
+            "cm_id": 1071,
+            "id": "874fc2c5-ec6c-4a12-a175-c3b55fc02e6b"
+        },
+        {
+            "name": "Maven",
+            "cm_id": 355,
+            "id": "f3c97477-3848-4cb1-8310-9696a13c5029"
+        },
+        {
+            "name": "Mr. Perfect",
+            "cm_id": 1015,
+            "id": "3410ef6f-6d8d-4780-95aa-a0dd7b6b7132"
+        },
+        {
+            "name": "Perry Saturn",
+            "cm_id": 430,
+            "id": "32618c01-c9aa-44a5-a895-3e65c8429c67"
+        },
+        {
+            "name": "Rikishi",
+            "cm_id": 303,
+            "id": "b131eef1-92a8-4c33-bc72-a67bdd47b805"
+        },
+        {
+            "name": "Rob Van Dam",
+            "cm_id": 866,
+            "id": "34ff08af-9de1-4009-a119-cd7d0c4fdcb8"
+        },
+        {
+            "name": "Scotty 2 Hotty",
+            "cm_id": 527,
+            "id": "2c282066-4712-4dac-8f39-b942e26afd80"
+        },
+        {
+            "name": "Steve Austin",
+            "cm_id": 635,
+            "id": "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+        },
+        {
+            "name": "Test",
+            "cm_id": 1047,
+            "id": "6a2179c7-8f51-4873-b09b-243242449be7"
+        },
+        {
+            "name": "The Big Bossman",
+            "cm_id": 690,
+            "id": "7b025b5e-c972-491c-9184-34ef5ea17e13"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "cfac4e5d-263c-4944-ae2f-b7a8577b80fb"
+        },
+        {
+            "name": "The Godfather",
+            "cm_id": 901,
+            "id": "c946dfc5-565d-419d-89bd-b6bf03b08db6"
+        },
+        {
+            "name": "The Hurricane",
+            "cm_id": 464,
+            "id": "bd8f5a70-b5a1-4fdc-a71b-76d83acb5e05"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "09aee091-190a-45a7-9d45-36966fbf3e66"
+        },
+        {
+            "name": "Val Venis",
+            "cm_id": 588,
+            "id": "bfc13388-3fbd-4dc7-9103-e9a5ef034698"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "b131eef1-92a8-4c33-bc72-a67bdd47b805"
+            ],
+            "victims": [
+                "7b025b5e-c972-491c-9184-34ef5ea17e13"
+            ],
+            "raw": "- Rikishi eliminates The Big Bossman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bf02d1bd-9dcf-4532-83ce-d646f81d2f37"
+            ],
+            "victims": [
+                "3d097a79-a9de-49ea-bd6d-4c9228ccbc60"
+            ],
+            "raw": "- Al Snow eliminates Lance Storm",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2cbe2ed3-a6b1-45b1-86cb-e5f10ca28585"
+            ],
+            "victims": [
+                "63e90ea6-3cd7-481f-90f1-bd51b9d0ce54"
+            ],
+            "raw": "- Billy Gunn eliminates Bradshaw",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "victims": [
+                "a31af3bd-bab4-49b3-a4b4-ac2b8df01826"
+            ],
+            "raw": "- The Undertaker eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "victims": [
+                "bf02d1bd-9dcf-4532-83ce-d646f81d2f37"
+            ],
+            "raw": "- The Undertaker eliminates Al Snow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "victims": [
+                "b131eef1-92a8-4c33-bc72-a67bdd47b805"
+            ],
+            "raw": "- The Undertaker eliminates Rikishi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "victims": [
+                "2cbe2ed3-a6b1-45b1-86cb-e5f10ca28585"
+            ],
+            "raw": "- The Undertaker eliminates Billy Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "victims": [
+                "c9b66207-6dc7-49de-8619-aeeb2921ab90"
+            ],
+            "raw": "- The Undertaker eliminates Jeff Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "victims": [
+                "8274e435-54f8-452f-a427-20960ae7c06e"
+            ],
+            "raw": "- The Undertaker eliminates Matt Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f3c97477-3848-4cb1-8310-9696a13c5029"
+            ],
+            "victims": [
+                "09aee091-190a-45a7-9d45-36966fbf3e66"
+            ],
+            "raw": "- Maven eliminates The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "2c282066-4712-4dac-8f39-b942e26afd80"
+            ],
+            "raw": "- Diamond Dallas Pagee eliminates Scotty 2 Hotty",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0"
+            ],
+            "victims": [
+                "68e96bca-20e6-42b3-8eb0-579a9414dc76"
+            ],
+            "raw": "- Christian eliminates Diamond Dallas Page",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0"
+            ],
+            "victims": [
+                "48d4fc63-3367-4042-b023-03079a567473"
+            ],
+            "raw": "- Christian und Chuck Palumbo eliminate Albert",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0"
+            ],
+            "victims": [
+                "c946dfc5-565d-419d-89bd-b6bf03b08db6"
+            ],
+            "raw": "- Christian und Chuck Palumbo eliminate The Godfather",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [
+                "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0"
+            ],
+            "raw": "- Steve Austin eliminates Christian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [],
+            "raw": "- Steve Austin eliminates Chuck Palumbo",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [
+                "32618c01-c9aa-44a5-a895-3e65c8429c67"
+            ],
+            "raw": "- Steve Austin eliminates Perry Saturn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [
+                "bfc13388-3fbd-4dc7-9103-e9a5ef034698"
+            ],
+            "raw": "- Steve Austin eliminates Val Venis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [
+                "6a2179c7-8f51-4873-b09b-243242449be7"
+            ],
+            "raw": "- Steve Austin eliminates Test",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a",
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [
+                "bd8f5a70-b5a1-4fdc-a71b-76d83acb5e05"
+            ],
+            "raw": "- Steve Austin und Triple H eliminate The Hurricane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a"
+            ],
+            "victims": [
+                "7fc11cc2-ea7d-48ad-bc60-20dcc6215e22"
+            ],
+            "raw": "- Triple H eliminates Faarooq",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "25f17036-9257-4ea6-bfd0-441e665646d4"
+            ],
+            "victims": [
+                "cfac4e5d-263c-4944-ae2f-b7a8577b80fb"
+            ],
+            "raw": "- Kane eliminates The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2aee6158-1e93-4eef-a273-8592312e8a27"
+            ],
+            "victims": [
+                "25f17036-9257-4ea6-bfd0-441e665646d4"
+            ],
+            "raw": "- Kurt Angle eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ada18679-c7d7-4147-8df6-5b84a684d958"
+            ],
+            "victims": [
+                "34ff08af-9de1-4009-a119-cd7d0c4fdcb8"
+            ],
+            "raw": "- Booker T eliminates Rob Van Dam",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "victims": [
+                "ada18679-c7d7-4147-8df6-5b84a684d958"
+            ],
+            "raw": "- Steve Austin eliminates Booker T",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2aee6158-1e93-4eef-a273-8592312e8a27"
+            ],
+            "victims": [
+                "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            ],
+            "raw": "- Kurt Angle eliminates Steve Austin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a"
+            ],
+            "victims": [
+                "3410ef6f-6d8d-4780-95aa-a0dd7b6b7132"
+            ],
+            "raw": "- Triple H eliminates Mr. Perfect",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a"
+            ],
+            "victims": [
+                "2aee6158-1e93-4eef-a273-8592312e8a27"
+            ],
+            "raw": "- Triple H eliminates Kurt Angle ",
+            "is_valid": true
+        }
+    ]
+}

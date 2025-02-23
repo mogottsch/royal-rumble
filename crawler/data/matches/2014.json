@@ -1,0 +1,451 @@
+{
+    "wrestlers": [
+        {
+            "name": "Batista",
+            "cm_id": 962,
+            "id": "741f2a33-58af-4513-9d6a-5f70228ea1a5"
+        },
+        {
+            "name": "Alberto Del Rio",
+            "cm_id": 1407,
+            "id": "6712f038-57a2-4048-b2f3-ab5304b65c08"
+        },
+        {
+            "name": "Alexander Rusev",
+            "cm_id": 10610,
+            "id": "03a18a4e-13ff-4c03-ac60-3a377094e83c"
+        },
+        {
+            "name": "Antonio Cesaro",
+            "cm_id": 257,
+            "id": "29255d0f-43e1-4123-a805-23978d217fcf"
+        },
+        {
+            "name": "Big E. Langston",
+            "cm_id": 8880,
+            "id": "c81fda8d-8d3b-4900-ac78-5010e030faeb"
+        },
+        {
+            "name": "CM Punk",
+            "cm_id": 80,
+            "id": "699e152b-b3d1-4279-ae84-3d5f8781bfcd"
+        },
+        {
+            "name": "Cody Rhodes",
+            "cm_id": 3686,
+            "id": "2ea0a364-f1a3-4283-b40f-cead6dab04c3"
+        },
+        {
+            "name": "Damien Sandow",
+            "cm_id": 636,
+            "id": "e31ae496-65cd-41d5-bfc1-88119600c16a"
+        },
+        {
+            "name": "Dean Ambrose",
+            "cm_id": 3940,
+            "id": "3c02dc0b-326d-46f2-97ac-be1bf11865ab"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "ca6a20b6-a86f-49cc-aefd-cd1692b16ac1"
+        },
+        {
+            "name": "El Torito",
+            "cm_id": 4962,
+            "id": "171fcbe6-9eb0-43a9-a960-70dcbbacf9b6"
+        },
+        {
+            "name": "Erick Rowan",
+            "cm_id": 9368,
+            "id": "9e33cec9-9b63-4d76-b131-20153a5177c2"
+        },
+        {
+            "name": "Fandango",
+            "cm_id": 1704,
+            "id": "5450188a-759d-44f0-bc51-7603ec4abff2"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "31155f8c-b04c-494f-8ef4-6509de6be427"
+        },
+        {
+            "name": "Jack Swagger",
+            "cm_id": 4071,
+            "id": "a13ca8fd-7017-4839-a5c1-2a1a5f1c33c6"
+        },
+        {
+            "name": "Jey Uso",
+            "cm_id": 7350,
+            "id": "d323c5d1-9125-4c80-8d76-06956e4641e8"
+        },
+        {
+            "name": "Jimmy Uso",
+            "cm_id": 7351,
+            "id": "34336d30-7a72-4cc9-896a-72e7bb418daa"
+        },
+        {
+            "name": "John Bradshaw Layfield",
+            "cm_id": 193,
+            "id": "a5def9f2-8a19-4a35-b20e-1567346bee9f"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "9a8cb475-5fca-4517-b4d5-0e3a7453cf09"
+        },
+        {
+            "name": "Kevin Nash",
+            "cm_id": 429,
+            "id": "5431344a-6b61-4bbe-adeb-9d6e927ae3d8"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "53164522-8a4e-4648-a34d-1a39a882b383"
+        },
+        {
+            "name": "Luke Harper",
+            "cm_id": 5244,
+            "id": "e398ae44-73c4-4097-a1dd-f9145850e966"
+        },
+        {
+            "name": "R-Truth",
+            "cm_id": 200,
+            "id": "853a2c3c-9f0d-46e7-a278-9b3740cbed8a"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "5f07f149-2d9b-43fc-84b0-a445acfae33f"
+        },
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "935d5241-b888-40b8-9a17-1bf19488496d"
+        },
+        {
+            "name": "Ryback",
+            "cm_id": 2624,
+            "id": "db8c4f20-849c-42e2-b4f4-589d2fa6cfb0"
+        },
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "444ed487-7090-4126-9451-809302fe5047"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "d61132c2-2c8f-4c32-86fb-abbe458a9b0b"
+        },
+        {
+            "name": "The Great Khali",
+            "cm_id": 2011,
+            "id": "21de21f7-7fd7-4ad8-bb8c-407729e5a629"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "9b5596b3-a649-45cf-a14e-f74a955715df"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "699e152b-b3d1-4279-ae84-3d5f8781bfcd"
+            ],
+            "victims": [
+                "e31ae496-65cd-41d5-bfc1-88119600c16a"
+            ],
+            "raw": "- CM Punk eliminates Damien Sandow",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "699e152b-b3d1-4279-ae84-3d5f8781bfcd"
+            ],
+            "victims": [
+                "9a8cb475-5fca-4517-b4d5-0e3a7453cf09"
+            ],
+            "raw": "- CM Punk eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "699e152b-b3d1-4279-ae84-3d5f8781bfcd",
+                "2ea0a364-f1a3-4283-b40f-cead6dab04c3",
+                "53164522-8a4e-4648-a34d-1a39a882b383",
+                "444ed487-7090-4126-9451-809302fe5047"
+            ],
+            "victims": [
+                "03a18a4e-13ff-4c03-ac60-3a377094e83c"
+            ],
+            "raw": "- CM Punk, Cody Rhodes, Kofi Kingston & Seth Rollins eliminate Alexander Rusev",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3c02dc0b-326d-46f2-97ac-be1bf11865ab"
+            ],
+            "victims": [
+                "853a2c3c-9f0d-46e7-a278-9b3740cbed8a"
+            ],
+            "raw": "- Dean Ambrose eliminates R-Truth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3c02dc0b-326d-46f2-97ac-be1bf11865ab"
+            ],
+            "victims": [
+                "34336d30-7a72-4cc9-896a-72e7bb418daa"
+            ],
+            "raw": "- Dean Ambrose eliminates Jimmy Uso",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5431344a-6b61-4bbe-adeb-9d6e927ae3d8"
+            ],
+            "victims": [
+                "a13ca8fd-7017-4839-a5c1-2a1a5f1c33c6"
+            ],
+            "raw": "- Kevin Nash eliminates Jack Swagger",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "53164522-8a4e-4648-a34d-1a39a882b383"
+            ],
+            "raw": "- Roman Reigns eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "ca6a20b6-a86f-49cc-aefd-cd1692b16ac1"
+            ],
+            "raw": "- Roman Reigns eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "5431344a-6b61-4bbe-adeb-9d6e927ae3d8"
+            ],
+            "raw": "- Roman Reigns eliminates Kevin Nash",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3c02dc0b-326d-46f2-97ac-be1bf11865ab",
+                "935d5241-b888-40b8-9a17-1bf19488496d",
+                "444ed487-7090-4126-9451-809302fe5047"
+            ],
+            "victims": [
+                "21de21f7-7fd7-4ad8-bb8c-407729e5a629"
+            ],
+            "raw": "- Dean Ambrose, Roman Reigns & Seth Rollins eliminate The Great Khali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "31155f8c-b04c-494f-8ef4-6509de6be427"
+            ],
+            "victims": [
+                "2ea0a364-f1a3-4283-b40f-cead6dab04c3"
+            ],
+            "raw": "- Goldust eliminates Cody Rhodes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "31155f8c-b04c-494f-8ef4-6509de6be427"
+            ],
+            "raw": "- Roman Reigns eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "171fcbe6-9eb0-43a9-a960-70dcbbacf9b6"
+            ],
+            "victims": [
+                "5450188a-759d-44f0-bc51-7603ec4abff2"
+            ],
+            "raw": "- El Torito eliminates Fandango",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "171fcbe6-9eb0-43a9-a960-70dcbbacf9b6"
+            ],
+            "raw": "- Roman Reigns eliminates El Torito",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "a5def9f2-8a19-4a35-b20e-1567346bee9f"
+            ],
+            "raw": "- Roman Reigns eliminates John Bradshaw Layfield",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e398ae44-73c4-4097-a1dd-f9145850e966"
+            ],
+            "victims": [
+                "9b5596b3-a649-45cf-a14e-f74a955715df"
+            ],
+            "raw": "- Luke Harper eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e398ae44-73c4-4097-a1dd-f9145850e966"
+            ],
+            "victims": [
+                "d323c5d1-9125-4c80-8d76-06956e4641e8"
+            ],
+            "raw": "- Luke Harper eliminate Jey Uso",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "741f2a33-58af-4513-9d6a-5f70228ea1a5"
+            ],
+            "victims": [
+                "9e33cec9-9b63-4d76-b131-20153a5177c2"
+            ],
+            "raw": "- Batista eliminates Erick Rowan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "741f2a33-58af-4513-9d6a-5f70228ea1a5"
+            ],
+            "victims": [
+                "db8c4f20-849c-42e2-b4f4-589d2fa6cfb0"
+            ],
+            "raw": "- Batista eliminates Ryback",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "741f2a33-58af-4513-9d6a-5f70228ea1a5"
+            ],
+            "victims": [
+                "6712f038-57a2-4048-b2f3-ab5304b65c08"
+            ],
+            "raw": "- Batista eliminates Alberto Del Rio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d61132c2-2c8f-4c32-86fb-abbe458a9b0b"
+            ],
+            "victims": [
+                "c81fda8d-8d3b-4900-ac78-5010e030faeb"
+            ],
+            "raw": "- Sheamus eliminates Big E. Langston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "444ed487-7090-4126-9451-809302fe5047"
+            ],
+            "victims": [
+                "5f07f149-2d9b-43fc-84b0-a445acfae33f"
+            ],
+            "raw": "- Seth Rollins eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "e398ae44-73c4-4097-a1dd-f9145850e966"
+            ],
+            "raw": "- Roman Reigns eliminates Luke Harper",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "29255d0f-43e1-4123-a805-23978d217fcf"
+            ],
+            "raw": "- Roman Reigns eliminates Antonio Cesaro",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "444ed487-7090-4126-9451-809302fe5047"
+            ],
+            "raw": "- Roman Reigns eliminates Seth Rollins",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "3c02dc0b-326d-46f2-97ac-be1bf11865ab"
+            ],
+            "raw": "- Roman Reigns eliminates Dean Ambrose",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "9a8cb475-5fca-4517-b4d5-0e3a7453cf09"
+            ],
+            "victims": [
+                "699e152b-b3d1-4279-ae84-3d5f8781bfcd"
+            ],
+            "raw": "- Kane eliminates CM Punk ",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "victims": [
+                "d61132c2-2c8f-4c32-86fb-abbe458a9b0b"
+            ],
+            "raw": "- Roman Reigns eliminates Sheamus",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "741f2a33-58af-4513-9d6a-5f70228ea1a5"
+            ],
+            "victims": [
+                "935d5241-b888-40b8-9a17-1bf19488496d"
+            ],
+            "raw": "- Batista eliminates Roman Reigns",
+            "is_valid": true
+        }
+    ]
+}

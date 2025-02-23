@@ -1,0 +1,441 @@
+{
+    "wrestlers": [
+        {
+            "name": "Chris Benoit",
+            "cm_id": 574,
+            "id": "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+        },
+        {
+            "name": "Billy Gunn",
+            "cm_id": 1081,
+            "id": "9b17becb-13b7-4737-adcd-bde68a61647b"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "58667541-f26c-4f7f-80a0-0deb7cb189fa"
+        },
+        {
+            "name": "Bradshaw",
+            "cm_id": 193,
+            "id": "f951e246-81c9-453a-a530-afbb55874543"
+        },
+        {
+            "name": "Charlie Haas",
+            "cm_id": 534,
+            "id": "45f83c08-739d-47d4-997b-dbfde981da2b"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "6c583d4d-dbe5-4cbd-b1a2-2119ce5c8e5f"
+        },
+        {
+            "name": "Christian",
+            "cm_id": 820,
+            "id": "51d2a5f8-52d1-45f3-a517-64e704eb07d2"
+        },
+        {
+            "name": "Ernest Miller",
+            "cm_id": 764,
+            "id": "0851417d-cf94-4ae5-8e1d-135439808ffd"
+        },
+        {
+            "name": "Goldberg",
+            "cm_id": 658,
+            "id": "f1132c7c-56bc-4112-8771-06fb684456e2"
+        },
+        {
+            "name": "John Cena",
+            "cm_id": 691,
+            "id": "76e58c97-87ed-4daf-abaf-6a1c71544d83"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "52257ae2-af1d-487e-942b-e4f792064eb8"
+        },
+        {
+            "name": "Kurt Angle",
+            "cm_id": 540,
+            "id": "67289b17-f402-4aa1-9bee-2e5d211611b7"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "1f64b1e1-bf35-4178-ab8b-83d2575c84ae"
+        },
+        {
+            "name": "Theodore Long",
+            "cm_id": 742,
+            "id": "1758a3e1-a1db-446e-b807-59c0f30063e8"
+        },
+        {
+            "name": "Matt Hardy",
+            "cm_id": 99,
+            "id": "6a327357-90ae-4a2a-ad7e-bd562a59445c"
+        },
+        {
+            "name": "Matt Morgan",
+            "cm_id": 1004,
+            "id": "d68248d4-8aa8-4725-956a-cad854758e07"
+        },
+        {
+            "name": "Mick Foley",
+            "cm_id": 6,
+            "id": "f57abf33-29b1-4a82-8ec7-48353efe3d46"
+        },
+        {
+            "name": "Nunzio",
+            "cm_id": 342,
+            "id": "b21592af-b489-4e40-ac22-240f92e86f0f"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+        },
+        {
+            "name": "Rene Dupree",
+            "cm_id": 813,
+            "id": "e95a67ee-75f2-410a-88cf-76899f3677c0"
+        },
+        {
+            "name": "Rhyno",
+            "cm_id": 410,
+            "id": "c2c59e82-e4d5-4145-84f0-9d204a350c48"
+        },
+        {
+            "name": "Rico",
+            "cm_id": 728,
+            "id": "4c26c62f-ddea-40e1-a4db-814a59f464b5"
+        },
+        {
+            "name": "Rikishi",
+            "cm_id": 303,
+            "id": "bd1eb81c-0769-42c1-adab-6040e4ab9702"
+        },
+        {
+            "name": "Rob Van Dam",
+            "cm_id": 866,
+            "id": "13137333-e590-4271-9caf-68c53a85cd1b"
+        },
+        {
+            "name": "Scott Steiner",
+            "cm_id": 844,
+            "id": "2619e802-a219-4243-86cf-4ec29147203c"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "92bf28cf-ac0b-4107-bf3b-c4e086b36a02"
+        },
+        {
+            "name": "Spike Dudley",
+            "cm_id": 162,
+            "id": "949d0b49-b122-494e-9e6c-43ea12de7762"
+        },
+        {
+            "name": "Tajiri",
+            "cm_id": 54,
+            "id": "3b969cb0-1841-49fe-aa7f-66973ce64281"
+        },
+        {
+            "name": "The A-Train",
+            "cm_id": 580,
+            "id": "90ea7c3c-8961-40a8-8708-266db52e0b52"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+        },
+        {
+            "name": "The Hurricane",
+            "cm_id": 464,
+            "id": "ed7b16af-b943-420a-9666-5dd18333065f"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            ],
+            "victims": [
+                "f951e246-81c9-453a-a530-afbb55874543"
+            ],
+            "raw": "- Chris Benoit eliminates Bradshaw",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c2c59e82-e4d5-4145-84f0-9d204a350c48"
+            ],
+            "victims": [
+                "3b969cb0-1841-49fe-aa7f-66973ce64281"
+            ],
+            "raw": "- Rhyno eliminates Tajiri",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            ],
+            "victims": [
+                "1f64b1e1-bf35-4178-ab8b-83d2575c84ae"
+            ],
+            "raw": "- Chris Benoit eliminates Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d68248d4-8aa8-4725-956a-cad854758e07"
+            ],
+            "victims": [
+                "ed7b16af-b943-420a-9666-5dd18333065f"
+            ],
+            "raw": "- Matt Morgan eliminates The Hurricane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "58667541-f26c-4f7f-80a0-0deb7cb189fa"
+            ],
+            "victims": [
+                "2619e802-a219-4243-86cf-4ec29147203c"
+            ],
+            "raw": "- Booker T eliminates Scott Steiner",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "58667541-f26c-4f7f-80a0-0deb7cb189fa"
+            ],
+            "victims": [
+                "52257ae2-af1d-487e-942b-e4f792064eb8"
+            ],
+            "raw": "- Booker T eliminates Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            ],
+            "victims": [
+                "c2c59e82-e4d5-4145-84f0-9d204a350c48"
+            ],
+            "raw": "- Chris Benoit eliminates Rhyno",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e95a67ee-75f2-410a-88cf-76899f3677c0"
+            ],
+            "victims": [
+                "6a327357-90ae-4a2a-ad7e-bd562a59445c"
+            ],
+            "raw": "- Rene Dupree eliminates Matt Hardy",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bd1eb81c-0769-42c1-adab-6040e4ab9702"
+            ],
+            "victims": [
+                "e95a67ee-75f2-410a-88cf-76899f3677c0"
+            ],
+            "raw": "- Rikishi eliminates Rene Dupree",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            ],
+            "victims": [
+                "d68248d4-8aa8-4725-956a-cad854758e07"
+            ],
+            "raw": "- Chris Benoit eliminates Matt Morgan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            ],
+            "victims": [
+                "bd1eb81c-0769-42c1-adab-6040e4ab9702"
+            ],
+            "raw": "- Randy Orton eliminates Rikishi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            ],
+            "victims": [
+                "58667541-f26c-4f7f-80a0-0deb7cb189fa"
+            ],
+            "raw": "- Randy Orton eliminates Booker T",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            ],
+            "victims": [
+                "90ea7c3c-8961-40a8-8708-266db52e0b52"
+            ],
+            "raw": "- Chris Benoit eliminates The A-Train",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            ],
+            "victims": [
+                "92bf28cf-ac0b-4107-bf3b-c4e086b36a02"
+            ],
+            "raw": "- Randy Orton eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            ],
+            "victims": [
+                "0851417d-cf94-4ae5-8e1d-135439808ffd"
+            ],
+            "raw": "- Randy Orton eliminates Ernest Miller",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            ],
+            "victims": [
+                "4c26c62f-ddea-40e1-a4db-814a59f464b5"
+            ],
+            "raw": "- Randy Orton eliminates Rico",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f57abf33-29b1-4a82-8ec7-48353efe3d46"
+            ],
+            "victims": [
+                "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            ],
+            "raw": "- Mick Foley eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f57abf33-29b1-4a82-8ec7-48353efe3d46"
+            ],
+            "victims": [
+                "f57abf33-29b1-4a82-8ec7-48353efe3d46"
+            ],
+            "raw": "- Mick Foley eliminates sich selbst",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6c583d4d-dbe5-4cbd-b1a2-2119ce5c8e5f"
+            ],
+            "victims": [
+                "51d2a5f8-52d1-45f3-a517-64e704eb07d2"
+            ],
+            "raw": "- Chris Jericho eliminates Christian",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f1132c7c-56bc-4112-8771-06fb684456e2"
+            ],
+            "victims": [
+                "45f83c08-739d-47d4-997b-dbfde981da2b"
+            ],
+            "raw": "- Goldberg eliminates Charlie Haas",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f1132c7c-56bc-4112-8771-06fb684456e2"
+            ],
+            "victims": [
+                "9b17becb-13b7-4737-adcd-bde68a61647b"
+            ],
+            "raw": "- Goldberg eliminates Billy Gunn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f1132c7c-56bc-4112-8771-06fb684456e2"
+            ],
+            "victims": [
+                "b21592af-b489-4e40-ac22-240f92e86f0f"
+            ],
+            "raw": "- Goldberg eliminates Nunzio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "67289b17-f402-4aa1-9bee-2e5d211611b7"
+            ],
+            "victims": [
+                "f1132c7c-56bc-4112-8771-06fb684456e2"
+            ],
+            "raw": "- Kurt Angle eliminates Goldberg",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+            ],
+            "victims": [
+                "76e58c97-87ed-4daf-abaf-6a1c71544d83"
+            ],
+            "raw": "- The Big Show eliminates John Cena",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+            ],
+            "victims": [
+                "13137333-e590-4271-9caf-68c53a85cd1b"
+            ],
+            "raw": "- The Big Show eliminates Rob Van Dam",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+            ],
+            "victims": [
+                "6c583d4d-dbe5-4cbd-b1a2-2119ce5c8e5f"
+            ],
+            "raw": "- The Big Show eliminates Chris Jericho",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+            ],
+            "victims": [
+                "67289b17-f402-4aa1-9bee-2e5d211611b7"
+            ],
+            "raw": "- The Big Show eliminates Kurt Angle",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            ],
+            "victims": [
+                "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+            ],
+            "raw": "- Chris Benoit eliminates The Big Show",
+            "is_valid": true
+        }
+    ]
+}

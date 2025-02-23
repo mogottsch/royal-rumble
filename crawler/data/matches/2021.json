@@ -1,0 +1,448 @@
+{
+    "wrestlers": [
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "927bb57d-ec8b-4927-ba85-df46e1f5b3f0"
+        },
+        {
+            "name": "AJ Styles",
+            "cm_id": 801,
+            "id": "3931499d-c87c-4fb8-88b0-892b4b1cdf38"
+        },
+        {
+            "name": "Omos",
+            "cm_id": 21239,
+            "id": "16df7f2d-d30f-4d95-8944-e7b343345298"
+        },
+        {
+            "name": "Big E",
+            "cm_id": 8880,
+            "id": "23a6014d-a6eb-4116-b65d-dee6e36654a5"
+        },
+        {
+            "name": "Bobby Lashley",
+            "cm_id": 1194,
+            "id": "588272dc-a6dc-40f0-bba5-5478286fad70"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "10856da3-9b0d-4890-aa84-de25db4b677a"
+        },
+        {
+            "name": "Carlito",
+            "cm_id": 208,
+            "id": "7723fdcf-297e-4314-ad03-590936724ee9"
+        },
+        {
+            "name": "Cesaro",
+            "cm_id": 257,
+            "id": "35a53018-ddab-4a25-9b6e-0e9fe9f31fdc"
+        },
+        {
+            "name": "Christian",
+            "cm_id": 820,
+            "id": "e5ecc4ff-4d99-4fd7-89ed-612d7ff6afdb"
+        },
+        {
+            "name": "Damian Priest",
+            "cm_id": 16337,
+            "id": "88316894-18ee-4b7a-90a2-113c39a921cc"
+        },
+        {
+            "name": "Daniel Bryan",
+            "cm_id": 86,
+            "id": "7a428742-5070-4021-8d64-25d6e56f70e1"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "f596981e-694e-4628-a15c-fdda84a9751a"
+        },
+        {
+            "name": "Dominik Mysterio",
+            "cm_id": 22500,
+            "id": "3bd63e04-95fa-4976-a36c-054a232d4b33"
+        },
+        {
+            "name": "Elias",
+            "cm_id": 7461,
+            "id": "09fd23cd-9746-4295-9a04-622a2d0178c4"
+        },
+        {
+            "name": "Hurricane Helms",
+            "cm_id": 464,
+            "id": "a64d7756-e097-4ad8-b9ee-3f5c06816a8d"
+        },
+        {
+            "name": "Jeff Hardy",
+            "cm_id": 891,
+            "id": "c8e14fd9-1d0d-4865-9f9f-60681d1759b4"
+        },
+        {
+            "name": "John Morrison",
+            "cm_id": 1099,
+            "id": "ced1ae12-aa2a-4f8e-bf35-c78bd5c0c439"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "e8454708-2c14-40fa-bbed-302cd2657ad5"
+        },
+        {
+            "name": "King Corbin",
+            "cm_id": 12474,
+            "id": "2105bd19-a93c-4c64-bd02-6002c0b6cc5c"
+        },
+        {
+            "name": "Mustafa Ali",
+            "cm_id": 7145,
+            "id": "ab574096-9f91-461f-9c52-03483c347007"
+        },
+        {
+            "name": "Otis",
+            "cm_id": 17854,
+            "id": "007ee589-d109-42ec-811d-0f27a2a2dbef"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "77e6faa5-3c10-48ee-a37a-8867fd4768da"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "68ee7890-8114-4e89-ae33-f713a0e0b180"
+        },
+        {
+            "name": "Ricochet",
+            "cm_id": 3827,
+            "id": "5d390266-37a9-4ae6-b494-3ccf8d1f9cc4"
+        },
+        {
+            "name": "Riddle",
+            "cm_id": 16686,
+            "id": "17ee4a97-be26-49ee-a3bf-01a533588ddd"
+        },
+        {
+            "name": "Sami Zayn",
+            "cm_id": 1523,
+            "id": "8d5948a5-7d2d-4417-aa30-0d4a56ddb37a"
+        },
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "c59c6b28-7a3a-469a-aba0-debf67eb4bea"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "5ee1adf2-a20f-4609-8a98-c24cbc6ea345"
+        },
+        {
+            "name": "Shinsuke Nakamura",
+            "cm_id": 56,
+            "id": "b494bd36-47fc-44a2-b6f1-9825d4081e13"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "2be62a20-1ddb-488c-824b-83918ad097c0"
+        },
+        {
+            "name": "Xavier Woods",
+            "cm_id": 4955,
+            "id": "8b9778ea-afca-4cd1-9ab8-a5c88b563bdc"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "f596981e-694e-4628-a15c-fdda84a9751a"
+            ],
+            "victims": [
+                "c8e14fd9-1d0d-4865-9f9f-60681d1759b4"
+            ],
+            "raw": "- Dolph Ziggler eliminates Jeff Hardy (8:06)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "23a6014d-a6eb-4116-b65d-dee6e36654a5",
+                "8b9778ea-afca-4cd1-9ab8-a5c88b563bdc"
+            ],
+            "victims": [
+                "8d5948a5-7d2d-4417-aa30-0d4a56ddb37a"
+            ],
+            "raw": "- Big E & Xavier Woods eliminate Sami Zayn (14:56)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ab574096-9f91-461f-9c52-03483c347007"
+            ],
+            "victims": [
+                "8b9778ea-afca-4cd1-9ab8-a5c88b563bdc"
+            ],
+            "raw": "- Mustafa Ali eliminates Xavier Woods (16:15)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "23a6014d-a6eb-4116-b65d-dee6e36654a5"
+            ],
+            "victims": [
+                "ab574096-9f91-461f-9c52-03483c347007"
+            ],
+            "raw": "- Big E eliminates Mustafa Ali (16:33)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "09fd23cd-9746-4295-9a04-622a2d0178c4"
+            ],
+            "victims": [
+                "7723fdcf-297e-4314-ad03-590936724ee9"
+            ],
+            "raw": "- Elias eliminates Carlito (19:25)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "88316894-18ee-4b7a-90a2-113c39a921cc"
+            ],
+            "victims": [
+                "09fd23cd-9746-4295-9a04-622a2d0178c4"
+            ],
+            "raw": "- Damian Priest eliminates Elias (21:16) ",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "88316894-18ee-4b7a-90a2-113c39a921cc"
+            ],
+            "victims": [
+                "ced1ae12-aa2a-4f8e-bf35-c78bd5c0c439",
+                "2be62a20-1ddb-488c-824b-83918ad097c0"
+            ],
+            "raw": "- Damian Priest eliminates John Morrison & The Miz (23:44)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8454708-2c14-40fa-bbed-302cd2657ad5"
+            ],
+            "victims": [
+                "f596981e-694e-4628-a15c-fdda84a9751a"
+            ],
+            "raw": "- Kane eliminates Dolph Ziggler (28:31)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e8454708-2c14-40fa-bbed-302cd2657ad5"
+            ],
+            "victims": [
+                "5d390266-37a9-4ae6-b494-3ccf8d1f9cc4"
+            ],
+            "raw": "- Kane eliminates Ricochet (28:46)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "88316894-18ee-4b7a-90a2-113c39a921cc"
+            ],
+            "victims": [
+                "e8454708-2c14-40fa-bbed-302cd2657ad5"
+            ],
+            "raw": "- Damian Priest eliminates Kane (29:55)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2105bd19-a93c-4c64-bd02-6002c0b6cc5c"
+            ],
+            "victims": [
+                "b494bd36-47fc-44a2-b6f1-9825d4081e13"
+            ],
+            "raw": "- King Corbin eliminates Shinsuke Nakamura (31:13)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2105bd19-a93c-4c64-bd02-6002c0b6cc5c"
+            ],
+            "victims": [
+                "007ee589-d109-42ec-811d-0f27a2a2dbef"
+            ],
+            "raw": "- King Corbin eliminates Otis (32:49)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3bd63e04-95fa-4976-a36c-054a232d4b33"
+            ],
+            "victims": [
+                "2105bd19-a93c-4c64-bd02-6002c0b6cc5c"
+            ],
+            "raw": "- Dominik Mysterio eliminates King Corbin (34:07)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "588272dc-a6dc-40f0-bba5-5478286fad70"
+            ],
+            "victims": [
+                "3bd63e04-95fa-4976-a36c-054a232d4b33"
+            ],
+            "raw": "- Bobby Lashley eliminates Dominik Mysterio (35:45)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "588272dc-a6dc-40f0-bba5-5478286fad70"
+            ],
+            "victims": [
+                "88316894-18ee-4b7a-90a2-113c39a921cc"
+            ],
+            "raw": "- Bobby Lashley eliminates Damian Priest (36:00)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "23a6014d-a6eb-4116-b65d-dee6e36654a5",
+                "588272dc-a6dc-40f0-bba5-5478286fad70"
+            ],
+            "victims": [
+                "a64d7756-e097-4ad8-b9ee-3f5c06816a8d"
+            ],
+            "raw": "- Big E & Bobby Lashley eliminate Hurricane Helms (37:52)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "23a6014d-a6eb-4116-b65d-dee6e36654a5",
+                "e5ecc4ff-4d99-4fd7-89ed-612d7ff6afdb",
+                "7a428742-5070-4021-8d64-25d6e56f70e1",
+                "17ee4a97-be26-49ee-a3bf-01a533588ddd"
+            ],
+            "victims": [
+                "588272dc-a6dc-40f0-bba5-5478286fad70"
+            ],
+            "raw": "- Big E, Christian, Daniel Bryan & Riddle eliminate Bobby Lashley (39:42)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "16df7f2d-d30f-4d95-8944-e7b343345298"
+            ],
+            "victims": [
+                "23a6014d-a6eb-4116-b65d-dee6e36654a5"
+            ],
+            "raw": "- Omos eliminates Big E (43:36)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "16df7f2d-d30f-4d95-8944-e7b343345298"
+            ],
+            "victims": [
+                "68ee7890-8114-4e89-ae33-f713a0e0b180"
+            ],
+            "raw": "- Omos eliminates Rey Mysterio (46:31)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10856da3-9b0d-4890-aa84-de25db4b677a"
+            ],
+            "victims": [
+                "35a53018-ddab-4a25-9b6e-0e9fe9f31fdc"
+            ],
+            "raw": "- Braun Strowman eliminates Cesaro (51:06)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10856da3-9b0d-4890-aa84-de25db4b677a"
+            ],
+            "victims": [
+                "5ee1adf2-a20f-4609-8a98-c24cbc6ea345"
+            ],
+            "raw": "- Braun Strowman eliminates Sheamus (51:18)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10856da3-9b0d-4890-aa84-de25db4b677a"
+            ],
+            "victims": [
+                "3931499d-c87c-4fb8-88b0-892b4b1cdf38"
+            ],
+            "raw": "- Braun Strowman eliminates AJ Styles (51:31)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c59c6b28-7a3a-469a-aba0-debf67eb4bea"
+            ],
+            "victims": [
+                "7a428742-5070-4021-8d64-25d6e56f70e1"
+            ],
+            "raw": "- Seth Rollins eliminates Daniel Bryan (55:18) ",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c59c6b28-7a3a-469a-aba0-debf67eb4bea"
+            ],
+            "victims": [
+                "17ee4a97-be26-49ee-a3bf-01a533588ddd"
+            ],
+            "raw": "- Seth Rollins eliminates Riddle (56:12)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "927bb57d-ec8b-4927-ba85-df46e1f5b3f0",
+                "e5ecc4ff-4d99-4fd7-89ed-612d7ff6afdb"
+            ],
+            "victims": [
+                "10856da3-9b0d-4890-aa84-de25db4b677a"
+            ],
+            "raw": "- Christian & Edge eliminate Braun Strowman (57:58)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c59c6b28-7a3a-469a-aba0-debf67eb4bea"
+            ],
+            "victims": [
+                "e5ecc4ff-4d99-4fd7-89ed-612d7ff6afdb"
+            ],
+            "raw": "- Seth Rollins eliminates Christian (57:58)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "927bb57d-ec8b-4927-ba85-df46e1f5b3f0"
+            ],
+            "victims": [
+                "c59c6b28-7a3a-469a-aba0-debf67eb4bea"
+            ],
+            "raw": "- Edge eliminates Seth Rollins (58:10)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "927bb57d-ec8b-4927-ba85-df46e1f5b3f0"
+            ],
+            "victims": [
+                "77e6faa5-3c10-48ee-a37a-8867fd4768da"
+            ],
+            "raw": "- Edge eliminates Randy Orton",
+            "is_valid": true
+        }
+    ]
+}

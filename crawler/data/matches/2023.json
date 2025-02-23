@@ -1,0 +1,434 @@
+{
+    "wrestlers": [
+        {
+            "name": "Cody Rhodes",
+            "cm_id": 3686,
+            "id": "270cf78b-52bf-46c6-9d39-561f9ec54e8c"
+        },
+        {
+            "name": "Angelo Dawkins",
+            "cm_id": 12894,
+            "id": "2b275901-9671-4ce7-9f48-f187dcf13188"
+        },
+        {
+            "name": "Austin Theory",
+            "cm_id": 18855,
+            "id": "cf47d228-6b65-4015-83d9-773093535b03"
+        },
+        {
+            "name": "Baron Corbin",
+            "cm_id": 12474,
+            "id": "18e3a82e-5fe0-4757-b822-bf49d8d899cb"
+        },
+        {
+            "name": "Bobby Lashley",
+            "cm_id": 1194,
+            "id": "8635f4d1-f3ef-46b5-9f0c-cd8bd461d417"
+        },
+        {
+            "name": "Booker T",
+            "cm_id": 642,
+            "id": "97f03afe-01c7-4e1a-ad4e-c0535cbdc36e"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "d1b0e663-a2a0-4205-a1a2-312d9884481f"
+        },
+        {
+            "name": "Brock Lesnar",
+            "cm_id": 669,
+            "id": "49c4094a-df49-42e3-be59-583d5847dffe"
+        },
+        {
+            "name": "Chad Gable",
+            "cm_id": 15197,
+            "id": "20e55dfe-16ba-4639-bb50-7a566b167819"
+        },
+        {
+            "name": "Damian Priest",
+            "cm_id": 16337,
+            "id": "52b94cbf-0a42-44a1-8cde-a140d1137ed0"
+        },
+        {
+            "name": "Dominik Mysterio",
+            "cm_id": 22500,
+            "id": "0fbaacd4-ac4f-44af-945e-9def1860b8da"
+        },
+        {
+            "name": "Drew McIntyre",
+            "cm_id": 2879,
+            "id": "98e5addf-80b9-4886-9d21-c7f8527f5c11"
+        },
+        {
+            "name": "Edge",
+            "cm_id": 932,
+            "id": "8d4a28e3-da09-45c1-843d-37851591c0fd"
+        },
+        {
+            "name": "Elias",
+            "cm_id": 7461,
+            "id": "e3ded86f-37f4-41b7-b313-2aca9564f06c"
+        },
+        {
+            "name": "Finn Balor",
+            "cm_id": 2742,
+            "id": "0daf70ad-9228-4938-8ab2-d7d1223364aa"
+        },
+        {
+            "name": "Gunther",
+            "cm_id": 16807,
+            "id": "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+        },
+        {
+            "name": "Johnny Gargano",
+            "cm_id": 4129,
+            "id": "a5a9152b-119e-41e5-910a-8418ce6fd656"
+        },
+        {
+            "name": "Karrion Kross",
+            "cm_id": 16269,
+            "id": "9e2adc1f-0ded-4d72-b6a3-9b1a4cd857dd"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "72773e26-0204-4b3f-896c-ccc980cf0810"
+        },
+        {
+            "name": "Logan Paul",
+            "cm_id": 25777,
+            "id": "1b22a890-365f-420e-a7fa-c770f5a16ad4"
+        },
+        {
+            "name": "Montez Ford",
+            "cm_id": 17720,
+            "id": "3f66e367-41be-46b4-b880-944ad2f365e6"
+        },
+        {
+            "name": "Omos",
+            "cm_id": 21239,
+            "id": "f4afa414-6b5f-40f6-a24b-4d5b5dcfb110"
+        },
+        {
+            "name": "Otis",
+            "cm_id": 17854,
+            "id": "5d411a21-5566-492d-abcb-7e866d81a1a9"
+        },
+        {
+            "name": "Ricochet",
+            "cm_id": 3827,
+            "id": "86335819-de6d-4109-bd53-ccfb5f9b9c18"
+        },
+        {
+            "name": "Santos Escobar",
+            "cm_id": 6920,
+            "id": "83e140cf-deec-4c2b-93c2-2bf2f240bb0d"
+        },
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "f8d241f9-8741-4af6-85bf-cdb0c5532bda"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "16740f9a-d870-4cfc-86a6-1855dd7b680b"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "b3a0f918-720b-44b1-9ae1-aca692d5125f"
+        },
+        {
+            "name": "Xavier Woods",
+            "cm_id": 4955,
+            "id": "f272bd05-cb62-402e-9136-644413192c5f"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "16740f9a-d870-4cfc-86a6-1855dd7b680b"
+            ],
+            "victims": [
+                "b3a0f918-720b-44b1-9ae1-aca692d5125f"
+            ],
+            "raw": "- Sheamus eliminates The Miz (6:58)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "98e5addf-80b9-4886-9d21-c7f8527f5c11"
+            ],
+            "victims": [
+                "9e2adc1f-0ded-4d72-b6a3-9b1a4cd857dd"
+            ],
+            "raw": "- Drew McIntyre eliminates Karrion Kross (14:03)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+            ],
+            "victims": [
+                "f272bd05-cb62-402e-9136-644413192c5f"
+            ],
+            "raw": "- Gunther eliminates Xavier Woods (17:58)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+            ],
+            "victims": [
+                "72773e26-0204-4b3f-896c-ccc980cf0810"
+            ],
+            "raw": "- Gunther eliminates Kofi Kingston (18:31)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "49c4094a-df49-42e3-be59-583d5847dffe"
+            ],
+            "victims": [
+                "83e140cf-deec-4c2b-93c2-2bf2f240bb0d"
+            ],
+            "raw": "- Brock Lesnar eliminates Santos Escobar (20:14)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "49c4094a-df49-42e3-be59-583d5847dffe"
+            ],
+            "victims": [
+                "2b275901-9671-4ce7-9f48-f187dcf13188"
+            ],
+            "raw": "- Brock Lesnar eliminates Angelo Dawkins (20:19)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "49c4094a-df49-42e3-be59-583d5847dffe"
+            ],
+            "victims": [
+                "20e55dfe-16ba-4639-bb50-7a566b167819"
+            ],
+            "raw": "- Brock Lesnar eliminates Chad Gable (20:28)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8635f4d1-f3ef-46b5-9f0c-cd8bd461d417"
+            ],
+            "victims": [
+                "49c4094a-df49-42e3-be59-583d5847dffe"
+            ],
+            "raw": "- Bobby Lashley eliminates Brock Lesnar (22:15)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f8d241f9-8741-4af6-85bf-cdb0c5532bda"
+            ],
+            "victims": [
+                "18e3a82e-5fe0-4757-b822-bf49d8d899cb"
+            ],
+            "raw": "- Seth Rollins eliminates Baron Corbin (26:04)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f8d241f9-8741-4af6-85bf-cdb0c5532bda"
+            ],
+            "victims": [
+                "8635f4d1-f3ef-46b5-9f0c-cd8bd461d417"
+            ],
+            "raw": "- Seth Rollins eliminates Bobby Lashley (28:51)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "98e5addf-80b9-4886-9d21-c7f8527f5c11",
+                "16740f9a-d870-4cfc-86a6-1855dd7b680b"
+            ],
+            "victims": [
+                "5d411a21-5566-492d-abcb-7e866d81a1a9"
+            ],
+            "raw": "- Drew McIntyre & Sheamus eliminate Otis (30:09)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "98e5addf-80b9-4886-9d21-c7f8527f5c11",
+                "16740f9a-d870-4cfc-86a6-1855dd7b680b"
+            ],
+            "victims": [
+                "e3ded86f-37f4-41b7-b313-2aca9564f06c"
+            ],
+            "raw": "- Drew McIntyre & Sheamus eliminate Elias (33:16)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0fbaacd4-ac4f-44af-945e-9def1860b8da",
+                "0daf70ad-9228-4938-8ab2-d7d1223364aa"
+            ],
+            "victims": [
+                "a5a9152b-119e-41e5-910a-8418ce6fd656"
+            ],
+            "raw": "- Dominik Mysterio & Finn Balor eliminate Johnny Gargano (35:29)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+            ],
+            "victims": [
+                "97f03afe-01c7-4e1a-ad4e-c0535cbdc36e"
+            ],
+            "raw": "- Gunther eliminates Booker T (37:19)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "52b94cbf-0a42-44a1-8cde-a140d1137ed0"
+            ],
+            "victims": [
+                "3f66e367-41be-46b4-b880-944ad2f365e6"
+            ],
+            "raw": "- Damian Priest eliminates Montez Ford (40:43)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8d4a28e3-da09-45c1-843d-37851591c0fd"
+            ],
+            "victims": [
+                "52b94cbf-0a42-44a1-8cde-a140d1137ed0"
+            ],
+            "raw": "- Edge eliminates Damian Priest (42:07)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "8d4a28e3-da09-45c1-843d-37851591c0fd"
+            ],
+            "victims": [
+                "0daf70ad-9228-4938-8ab2-d7d1223364aa"
+            ],
+            "raw": "- Edge eliminates Finn Balor (42:11)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0daf70ad-9228-4938-8ab2-d7d1223364aa"
+            ],
+            "victims": [
+                "8d4a28e3-da09-45c1-843d-37851591c0fd"
+            ],
+            "raw": "- Finn Balor eliminates Edge (42:49)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d1b0e663-a2a0-4205-a1a2-312d9884481f"
+            ],
+            "victims": [
+                "f4afa414-6b5f-40f6-a24b-4d5b5dcfb110"
+            ],
+            "raw": "- Braun Strowman eliminates Omos (48:59)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+            ],
+            "victims": [
+                "16740f9a-d870-4cfc-86a6-1855dd7b680b"
+            ],
+            "raw": "- Gunther eliminates Sheamus (52:33)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+            ],
+            "victims": [
+                "98e5addf-80b9-4886-9d21-c7f8527f5c11"
+            ],
+            "raw": "- Gunther eliminates Drew McIntyre (53:35)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "270cf78b-52bf-46c6-9d39-561f9ec54e8c"
+            ],
+            "victims": [
+                "0fbaacd4-ac4f-44af-945e-9def1860b8da"
+            ],
+            "raw": "- Cody Rhodes eliminates Dominik Mysterio (57:33)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "270cf78b-52bf-46c6-9d39-561f9ec54e8c"
+            ],
+            "victims": [
+                "d1b0e663-a2a0-4205-a1a2-312d9884481f"
+            ],
+            "raw": "- Cody Rhodes eliminates Braun Strowman (59:26)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "cf47d228-6b65-4015-83d9-773093535b03"
+            ],
+            "victims": [
+                "86335819-de6d-4109-bd53-ccfb5f9b9c18"
+            ],
+            "raw": "- Austin Theory eliminates Ricochet (59:46)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "270cf78b-52bf-46c6-9d39-561f9ec54e8c"
+            ],
+            "victims": [
+                "cf47d228-6b65-4015-83d9-773093535b03"
+            ],
+            "raw": "- Cody Rhodes eliminates Austin Theory (60:38)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1b22a890-365f-420e-a7fa-c770f5a16ad4"
+            ],
+            "victims": [
+                "f8d241f9-8741-4af6-85bf-cdb0c5532bda"
+            ],
+            "raw": "- Logan Paul eliminates Seth Rollins (63:15)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "270cf78b-52bf-46c6-9d39-561f9ec54e8c"
+            ],
+            "victims": [
+                "1b22a890-365f-420e-a7fa-c770f5a16ad4"
+            ],
+            "raw": "- Cody Rhodes eliminates Logan Paul (64:25)",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "270cf78b-52bf-46c6-9d39-561f9ec54e8c"
+            ],
+            "victims": [
+                "bfa7bd9e-6371-4bfd-a25c-4d74c668e061"
+            ],
+            "raw": "- Cody Rhodes eliminates Gunther",
+            "is_valid": true
+        }
+    ]
+}

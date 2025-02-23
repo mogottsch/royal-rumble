@@ -1,0 +1,450 @@
+{
+    "wrestlers": [
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "6ba738d6-bca2-4aa4-967c-4a75da4c6ffa"
+        },
+        {
+            "name": "Carlito",
+            "cm_id": 208,
+            "id": "d76e7303-75d5-4534-b217-0309dc78f78a"
+        },
+        {
+            "name": "Chris Jericho",
+            "cm_id": 758,
+            "id": "f739749f-88a5-4297-9f34-52ff4b77b689"
+        },
+        {
+            "name": "CM Punk",
+            "cm_id": 80,
+            "id": "163ad1ad-fab7-4a45-bc5a-7d485caaef24"
+        },
+        {
+            "name": "Cody Rhodes",
+            "cm_id": 3686,
+            "id": "e14bfe51-37b7-42ec-9190-9a5d89692835"
+        },
+        {
+            "name": "Finlay",
+            "cm_id": 154,
+            "id": "fdf8ea1f-840b-4bbf-99b3-baceeed4e9f9"
+        },
+        {
+            "name": "Hornswoggle",
+            "cm_id": 3586,
+            "id": "af78d712-c06f-4c80-ae87-4a3a9886dfb1"
+        },
+        {
+            "name": "John Morrison",
+            "cm_id": 1099,
+            "id": "25195b01-7f9c-4d9b-9533-773b776b166b"
+        },
+        {
+            "name": "Kane",
+            "cm_id": 379,
+            "id": "c4c7eaa9-1703-49ed-ae3c-9396839db9e5"
+        },
+        {
+            "name": "Kofi Kingston",
+            "cm_id": 3687,
+            "id": "625ba596-e6b7-4ab1-bde9-d91375bdc8da"
+        },
+        {
+            "name": "Mark Henry",
+            "cm_id": 437,
+            "id": "1e5c721a-21b6-4d19-826f-389b58b43078"
+        },
+        {
+            "name": "Tony Atlas",
+            "cm_id": 1083,
+            "id": "6419d8d1-48ad-4f8e-a869-10bf59b42423"
+        },
+        {
+            "name": "Mike Knox",
+            "cm_id": 173,
+            "id": "97e331f5-3744-460a-8006-1372a49d5303"
+        },
+        {
+            "name": "R-Truth",
+            "cm_id": 200,
+            "id": "828a238e-2c6a-4c7f-9212-1871f35853b6"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "b142a3ec-1a7e-4cb8-9b39-39b11ac9a256"
+        },
+        {
+            "name": "Santino Marella",
+            "cm_id": 3689,
+            "id": "bfd5a7a1-c37e-47cf-b809-eff6933a5f44"
+        },
+        {
+            "name": "Shelton Benjamin",
+            "cm_id": 823,
+            "id": "4a1d7132-96de-49b1-82d2-b779477567f1"
+        },
+        {
+            "name": "Ted DiBiase",
+            "cm_id": 4247,
+            "id": "a465a33e-6840-4fa8-9261-dec798a50366"
+        },
+        {
+            "name": "The Big Show",
+            "cm_id": 712,
+            "id": "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+        },
+        {
+            "name": "The Brian Kendrick",
+            "cm_id": 106,
+            "id": "5ee2caeb-1f41-490e-9f52-f707be3dc750"
+        },
+        {
+            "name": "Ezekiel Jackson",
+            "cm_id": 4710,
+            "id": "3d9a14fb-4997-4851-bcb8-fe47665205ab"
+        },
+        {
+            "name": "Jim Duggan",
+            "cm_id": 1107,
+            "id": "a8a70df1-d403-48f0-a0c4-3142da8877b3"
+        },
+        {
+            "name": "JTG",
+            "cm_id": 2717,
+            "id": "63bcb3e4-160a-40c6-8d2b-cb4f8054f12a"
+        },
+        {
+            "name": "The Great Khali",
+            "cm_id": 2011,
+            "id": "e7c2dd7d-b2de-402f-bcbb-a2d5a66def91"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "5cd7e501-ca1d-40e6-8e98-4eaa5b9c9b91"
+        },
+        {
+            "name": "The Undertaker",
+            "cm_id": 761,
+            "id": "69f220c1-3482-4db6-887b-bf6d9d65b7ee"
+        },
+        {
+            "name": "Triple H",
+            "cm_id": 496,
+            "id": "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+        },
+        {
+            "name": "Vladimir Kozlov",
+            "cm_id": 2817,
+            "id": "6db31646-ba9b-43e4-8c1e-c571e9e4e301"
+        },
+        {
+            "name": "William Regal",
+            "cm_id": 594,
+            "id": "c1468d61-ddf8-4aa7-b206-07b69a17c42d"
+        },
+        {
+            "name": "Layla",
+            "cm_id": 1593,
+            "id": "8b65bfa6-1c39-4f90-864f-a034dfe5d730"
+        },
+        {
+            "name": "Dolph Ziggler",
+            "cm_id": 2515,
+            "id": "f0189314-9389-4c45-a12c-bd150b85a0b7"
+        },
+        {
+            "name": "Goldust",
+            "cm_id": 917,
+            "id": "3fe5206b-c4ff-4865-9196-86977c960bf7"
+        },
+        {
+            "name": "Montel Vontavious Porter",
+            "cm_id": 561,
+            "id": "057c547a-5ac7-42c3-91a0-0abfea25d0f3"
+        },
+        {
+            "name": "Rob Van Dam",
+            "cm_id": 866,
+            "id": "0f4e696a-d16c-4abb-b6b4-5aaf52734957"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "6db31646-ba9b-43e4-8c1e-c571e9e4e301"
+            ],
+            "victims": [
+                "e7c2dd7d-b2de-402f-bcbb-a2d5a66def91"
+            ],
+            "raw": "- Vladimir Kozlov eliminates The Great Khali",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6db31646-ba9b-43e4-8c1e-c571e9e4e301"
+            ],
+            "victims": [
+                "057c547a-5ac7-42c3-91a0-0abfea25d0f3"
+            ],
+            "raw": "- Vladimir Kozlov eliminates Montel Vontavious Porter",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6db31646-ba9b-43e4-8c1e-c571e9e4e301"
+            ],
+            "victims": [
+                "d76e7303-75d5-4534-b217-0309dc78f78a"
+            ],
+            "raw": "- Vladimir Kozlov eliminates Carlito",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            ],
+            "victims": [
+                "6db31646-ba9b-43e4-8c1e-c571e9e4e301"
+            ],
+            "raw": "- Triple H eliminates Vladimir Kozlov",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            ],
+            "victims": [
+                "25195b01-7f9c-4d9b-9533-773b776b166b",
+                "5cd7e501-ca1d-40e6-8e98-4eaa5b9c9b91"
+            ],
+            "raw": "- Triple H eliminates John Morrison & The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "69f220c1-3482-4db6-887b-bf6d9d65b7ee"
+            ],
+            "victims": [
+                "63bcb3e4-160a-40c6-8d2b-cb4f8054f12a"
+            ],
+            "raw": "- The Undertaker eliminates JTG",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "e14bfe51-37b7-42ec-9190-9a5d89692835"
+            ],
+            "victims": [
+                "3fe5206b-c4ff-4865-9196-86977c960bf7"
+            ],
+            "raw": "- Cody Rhodes eliminates Goldust",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "b142a3ec-1a7e-4cb8-9b39-39b11ac9a256"
+            ],
+            "victims": [
+                "1e5c721a-21b6-4d19-826f-389b58b43078"
+            ],
+            "raw": "- Rey Mysterio eliminates Mark Henry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "69f220c1-3482-4db6-887b-bf6d9d65b7ee"
+            ],
+            "victims": [
+                "4a1d7132-96de-49b1-82d2-b779477567f1"
+            ],
+            "raw": "- The Undertaker eliminates Shelton Benjamin",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "163ad1ad-fab7-4a45-bc5a-7d485caaef24"
+            ],
+            "victims": [
+                "c1468d61-ddf8-4aa7-b206-07b69a17c42d"
+            ],
+            "raw": "- CM Punk eliminates William Regal",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "5ee2caeb-1f41-490e-9f52-f707be3dc750"
+            ],
+            "victims": [
+                "625ba596-e6b7-4ab1-bde9-d91375bdc8da"
+            ],
+            "raw": "- The Brian Kendrick eliminates Kofi Kingston",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            ],
+            "victims": [
+                "5ee2caeb-1f41-490e-9f52-f707be3dc750"
+            ],
+            "raw": "- Triple H eliminates The Brian Kendrick",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c4c7eaa9-1703-49ed-ae3c-9396839db9e5"
+            ],
+            "victims": [
+                "f0189314-9389-4c45-a12c-bd150b85a0b7"
+            ],
+            "raw": "- Kane eliminates Dolph Ziggler",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c4c7eaa9-1703-49ed-ae3c-9396839db9e5"
+            ],
+            "victims": [
+                "bfd5a7a1-c37e-47cf-b809-eff6933a5f44"
+            ],
+            "raw": "- Kane eliminates Santino Marella",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            ],
+            "victims": [
+                "a8a70df1-d403-48f0-a0c4-3142da8877b3"
+            ],
+            "raw": "- The Big Show eliminates Jim Duggan",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            ],
+            "victims": [
+                "828a238e-2c6a-4c7f-9212-1871f35853b6"
+            ],
+            "raw": "- The Big Show eliminates R-Truth",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            ],
+            "victims": [
+                "163ad1ad-fab7-4a45-bc5a-7d485caaef24"
+            ],
+            "raw": "- The Big Show eliminates CM Punk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            ],
+            "victims": [
+                "97e331f5-3744-460a-8006-1372a49d5303",
+                "b142a3ec-1a7e-4cb8-9b39-39b11ac9a256"
+            ],
+            "raw": "- The Big Show eliminates Rey Mysterio & Mike Knox",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c4c7eaa9-1703-49ed-ae3c-9396839db9e5"
+            ],
+            "victims": [
+                "fdf8ea1f-840b-4bbf-99b3-baceeed4e9f9"
+            ],
+            "raw": "- Kane eliminates Finlay",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "f739749f-88a5-4297-9f34-52ff4b77b689"
+            ],
+            "victims": [
+                "0f4e696a-d16c-4abb-b6b4-5aaf52734957"
+            ],
+            "raw": "- Chris Jericho eliminates Rob Van Dam",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "69f220c1-3482-4db6-887b-bf6d9d65b7ee"
+            ],
+            "victims": [
+                "f739749f-88a5-4297-9f34-52ff4b77b689"
+            ],
+            "raw": "- The Undertaker eliminates Chris Jericho",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6ba738d6-bca2-4aa4-967c-4a75da4c6ffa",
+                "e14bfe51-37b7-42ec-9190-9a5d89692835",
+                "a465a33e-6840-4fa8-9261-dec798a50366"
+            ],
+            "victims": [
+                "c4c7eaa9-1703-49ed-ae3c-9396839db9e5"
+            ],
+            "raw": "- Cody Rhodes, Ted DiBiase & Randy Orton eliminiern Kane",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6ba738d6-bca2-4aa4-967c-4a75da4c6ffa"
+            ],
+            "victims": [
+                "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            ],
+            "raw": "- Randy Orton eliminates The Big Show",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            ],
+            "victims": [
+                "69f220c1-3482-4db6-887b-bf6d9d65b7ee"
+            ],
+            "raw": "- The Big Show eliminates The Undertaker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            ],
+            "victims": [
+                "a465a33e-6840-4fa8-9261-dec798a50366"
+            ],
+            "raw": "- Triple H eliminates Ted DiBiase",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            ],
+            "victims": [
+                "e14bfe51-37b7-42ec-9190-9a5d89692835"
+            ],
+            "raw": "- Triple H eliminates Cody Rhodes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6ba738d6-bca2-4aa4-967c-4a75da4c6ffa"
+            ],
+            "victims": [
+                "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            ],
+            "raw": "- Randy Orton eliminates Triple H",
+            "is_valid": true
+        }
+    ]
+}

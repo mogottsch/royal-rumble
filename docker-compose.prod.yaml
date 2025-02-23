@@ -3,17 +3,3 @@ services:
   soketi:
     volumes:
       - "./nginx/certs:/app/certs"
-  nginx:
-    image: nginx:1.23.1-alpine
-    volumes:
-      - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
-      - "./nginx/certs:/etc/nginx/certs"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "6001:6001"
-    networks:
-      - sail
-    depends_on:
-      - api
-      - frontend

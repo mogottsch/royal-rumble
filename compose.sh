@@ -15,13 +15,9 @@ if [[ ! " ${ALLOWS_ENVS[@]} " =~ " ${ENV} " ]]; then
 fi
 
 cp .$ENV.env .env
-cp .env ./rumble/.env
-cp .env ./peasant/laravel/.env
+cp .env ./frontend/.env
+cp .env ./backend/laravel/.env
 
 cp ./nginx/nginx.$ENV.conf ./nginx/nginx.conf
 
 docker compose -f docker-compose.yaml -f docker-compose.$ENV.yaml ${COMMAND} 
-
-# rm .env
-# rm ./rumble/.env
-# rm ./peasant/laravel/.env

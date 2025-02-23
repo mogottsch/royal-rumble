@@ -1,5 +1,10 @@
 import Button from "@mui/material/Button";
-import { Autocomplete, Box, createFilterOptions, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Box,
+  createFilterOptions,
+  TextField,
+} from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useState } from "react";
@@ -9,11 +14,11 @@ import { useWrestlers } from "../hooks/use_wrestlers";
 import { useNotificationContext } from "../contexts/notification_context";
 import { fetchApi } from "../api/fetcher";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
 
 interface WrestlerOptionType extends Partial<Wrestler> {
   inputValue?: string;
@@ -25,17 +30,18 @@ const filter = createFilterOptions<WrestlerOptionType>();
 export function AddEntrance() {
   const navigate = useNavigate();
   const { lobby } = useLobbyContext();
-  const [selectedWrestler, setSelectedWrestler] = useState<WrestlerOptionType | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedWrestler, setSelectedWrestler] =
+    useState<WrestlerOptionType | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [open, toggleOpen] = useState(false);
 
   const [dialogValue, setDialogValue] = useState({
-    name: '',
+    name: "",
   });
 
   const handleClose = () => {
     setDialogValue({
-      name: '',
+      name: "",
     });
     toggleOpen(false);
   };
@@ -43,6 +49,7 @@ export function AddEntrance() {
   const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
     searchTerm,
   });
+  console.log({ searchedWrestlers, isLoading });
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { notify } = useNotificationContext();
 
@@ -88,7 +95,6 @@ export function AddEntrance() {
     handleClose();
   };
 
-
   return (
     <Box
       sx={{
@@ -102,7 +108,7 @@ export function AddEntrance() {
         <Autocomplete
           value={selectedWrestler}
           onChange={(event, newValue) => {
-            if (typeof newValue === 'string') {
+            if (typeof newValue === "string") {
               // timeout to avoid instant validation of the dialog's form.
               setTimeout(() => {
                 toggleOpen(true);
@@ -126,7 +132,7 @@ export function AddEntrance() {
           filterOptions={(options, params) => {
             const filtered = filter(options, params);
 
-            if (params.inputValue !== '') {
+            if (params.inputValue !== "") {
               filtered.push({
                 inputValue: params.inputValue,
                 name: `Add "${params.inputValue}"`,
@@ -139,7 +145,7 @@ export function AddEntrance() {
           options={searchedWrestlers as WrestlerOptionType[]}
           getOptionLabel={(option) => {
             // e.g value selected with enter, right from the input
-            if (typeof option === 'string') {
+            if (typeof option === "string") {
               return option;
             }
             if (option.inputValue) {
@@ -187,7 +193,12 @@ export function AddEntrance() {
         </Box>
       </Box>
       <Dialog open={open} onClose={handleClose}>
-        <form onSubmit={(event) => { event.preventDefault(); addWrestler(); }}>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            addWrestler();
+          }}
+        >
           <DialogTitle>Add a new wrestler</DialogTitle>
           <DialogContent>
             <TextField
@@ -212,7 +223,7 @@ export function AddEntrance() {
           </DialogActions>
         </form>
       </Dialog>
-    </Box >
+    </Box>
   );
 }
 
@@ -233,7 +244,6 @@ async function postEntrance(lobbyCode: string, wrestlerId: number) {
     throw new Error(message);
   }
 }
-
 
 async function postWrestler(name: string): Promise<Wrestler> {
   const body = JSON.stringify({ name });

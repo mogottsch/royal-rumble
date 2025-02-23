@@ -2,13 +2,13 @@ version: "3.9"
 services:
 
   frontend:
-    build: rumble
+    build: frontend
     networks:
       - sail
 
   api:
     build:
-      context: ./peasant/laravel/docker/8.3
+      context: ./backend/laravel/docker/8.3
       dockerfile: Dockerfile
       args:
         WWWGROUP: 1000
@@ -22,7 +22,7 @@ services:
       XDEBUG_CONFIG: "${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}"
       IGNITION_LOCAL_SITES_PATH: '${PWD}'
     volumes:
-      - "./peasant/laravel:/var/www/html"
+      - "./backend/laravel:/var/www/html"
     networks:
       - sail
     depends_on:

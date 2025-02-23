@@ -56,6 +56,7 @@ export interface Wrestler {
   created_at: string;
   updated_at: string;
   name: string;
+  image_url?: string;
 }
 
 export function useLobby({ lobbyCode }: { lobbyCode?: string }) {

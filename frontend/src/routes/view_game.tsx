@@ -213,6 +213,7 @@ export function ViewGame() {
           gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
           gridAutoRows: "min-content", // or 'auto'
           mt: 1,
+          overflowY: "scroll",
         }}
       >
         {rows?.map((row, index) => (

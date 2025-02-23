@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "@mui/material/Button";
 import { Box, Grid } from "@mui/material";
 import { useLobbyContext } from "../contexts/lobby_context";
@@ -66,27 +66,58 @@ interface WrestlerNameProps {
   name?: string;
 }
 
-const WrestlerName = ({ name }: WrestlerNameProps) => (
-  <Box
-    sx={{
-      width: "100%",
-      backgroundColor: "#1a1919",
-      display: "flex",
-      justifyContent: "center",
-      padding: "5px",
-      fontWeight: 400,
-      color: "#fff",
-      boxShadow: "0 -1px 100px #ff0000,0 -1px 5px #ff0000",
-      textShadow: `
-    0 0 4px #ff0000,
-    0 0 8px #ff0000
-  `,
-    }}
-  >
-    <span>{name ?? <>&nbsp;</>}</span>
-  </Box>
-);
+const WrestlerName = ({ name }: WrestlerNameProps) => {
+  const textRef = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const resizeText = () => {
+      const span = textRef.current;
+      if (!span || !span.parentElement) return;
+      const parentWidth = span.parentElement.offsetWidth - 20;
+      let fontSize = 16;
+      span.style.fontSize = `${fontSize}px`;
+      while (span.offsetWidth > parentWidth && fontSize > 8) {
+        fontSize--;
+        span.style.fontSize = `${fontSize}px`;
+      }
+    };
+    resizeText();
+    window.addEventListener("resize", resizeText);
+    return () => window.removeEventListener("resize", resizeText);
+  }, [name]);
 
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        height: "30px",
+        backgroundColor: "#1a1919",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center", // Add this
+        padding: "5px",
+        fontWeight: 400,
+        color: "#fff",
+        boxShadow: "0 -1px 100px #ff0000,0 -1px 5px #ff0000",
+        textShadow: `
+          0 0 4px #ff0000,
+          0 0 8px #ff0000
+        `,
+      }}
+    >
+      <span
+        ref={textRef}
+        style={{
+          display: "inline-block",
+          whiteSpace: "nowrap",
+          textAlign: "center",
+          lineHeight: 1,
+        }}
+      >
+        {name ?? <>&nbsp;</>}
+      </span>
+    </Box>
+  );
+};
 const participantCardStyles = {
   display: "flex",
   flexDirection: "column",

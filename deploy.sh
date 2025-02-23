@@ -13,6 +13,6 @@ export WWWGROUP=${GID:-1000}
 ./compose.sh prod exec api php artisan route:cache
 ./compose.sh prod exec api php artisan view:cache
 
-./compose.sh prod exec api php artisan migrate
+./compose.sh prod exec api php artisan db:seed --class=ProductionSeeder
 
 

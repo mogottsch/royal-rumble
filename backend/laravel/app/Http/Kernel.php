@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Softonic\RequestAcceptJson\Middleware\RequestAcceptJson;
+use App\Http\Middleware\RequestAcceptJson;
 
 class Kernel extends HttpKernel
 {

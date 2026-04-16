@@ -6,6 +6,8 @@ export function useEcho() {
   const [echo, setEcho] = useState<Echo>();
 
   useEffect(() => {
+    const scheme = import.meta.env.VITE_PUSHER_SCHEME ?? "http";
+    const forceTLS = scheme === "https";
     window.Pusher = Pusher;
     let laravelEcho = new Echo({
       broadcaster: "pusher",
@@ -14,10 +16,10 @@ export function useEcho() {
       wsPort: import.meta.env.VITE_PUSHER_PORT,
       wssPort: import.meta.env.VITE_PUSHER_PORT,
       cluster: "mt1",
-      forceTLS: false,
+      forceTLS,
       encrypted: true,
       disableStats: true,
-      enabledTransports: ["ws"],
+      enabledTransports: forceTLS ? ["wss"] : ["ws"],
     });
     setEcho(laravelEcho);
   }, []);

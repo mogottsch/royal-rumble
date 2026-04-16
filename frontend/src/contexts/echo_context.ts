@@ -2,7 +2,7 @@ import Echo from "laravel-echo";
 import { createContext, useContext } from "react";
 
 export type StateContextType = {
-  echo?: Echo;
+  echo?: Echo<"pusher">;
 };
 
 export const EchoContext = createContext<StateContextType>({

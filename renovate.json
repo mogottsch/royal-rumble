@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "ignorePaths": ["**/node_modules/**", "**/vendor/**"],
+  "packageRules": [
+    {
+      "matchManagers": ["composer"],
+      "groupName": "composer"
+    },
+    {
+      "matchManagers": ["npm"],
+      "groupName": "npm",
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "npm-major",
+      "automerge": false
+    },
+    {
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "groupName": "docker"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    }
+  ],
+  "automerge": true,
+  "prConcurrentLimit": 20,
+  "prHourlyLimit": 10,
+  "rebaseWhen": "auto"
+}

@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import Pusher from "pusher-js";
 
 export function useEcho() {
-  const [echo, setEcho] = useState<Echo>();
+  const [echo, setEcho] = useState<Echo<"pusher">>();
 
   useEffect(() => {
     const scheme = import.meta.env.VITE_PUSHER_SCHEME ?? "http";
     const forceTLS = scheme === "https";
     window.Pusher = Pusher;
-    let laravelEcho = new Echo({
+    let laravelEcho = new Echo<"pusher">({
       broadcaster: "pusher",
       key: import.meta.env.VITE_PUSHER_APP_KEY,
       wsHost: import.meta.env.VITE_PUSHER_HOST,

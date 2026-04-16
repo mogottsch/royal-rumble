@@ -28,7 +28,7 @@ export function useWrestlers({ searchTerm }: Props) {
 
 function useWrestlersQuery(searchTerm: string) {
   const queryKey = ["wrestlers", searchTerm];
-  return useQuery<Wrestler[], any>(queryKey, fetchWrestlers);
+  return useQuery<Wrestler[], any>({ queryKey, queryFn: fetchWrestlers });
 }
 
 async function fetchWrestlers({ queryKey }: any): Promise<Wrestler[]> {

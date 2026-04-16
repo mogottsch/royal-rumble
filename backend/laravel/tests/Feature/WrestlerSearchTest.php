@@ -12,7 +12,7 @@ class WrestlerSearchTest extends TestCase
 {
     private WrestlerSearcher $wrestlerSearcher;
 
-    use RefreshDatabase;
+    protected bool $seed = false;
 
     public function setUp(): void
     {

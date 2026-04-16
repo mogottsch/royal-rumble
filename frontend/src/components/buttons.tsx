@@ -1,5 +1,5 @@
-import { Button, Snackbar } from "@mui/material";
-import { useState } from "react";
+import { Button } from "@mui/material";
+import { JSX } from "react";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import { useNotificationContext } from "../contexts/notification_context";
 

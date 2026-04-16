@@ -1,6 +1,6 @@
 import { Button, Divider, FormControl, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import { fetchApi } from "../api/fetcher";
 import { getApiUrl } from "../api/routes";

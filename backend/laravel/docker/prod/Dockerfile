@@ -1,6 +1,6 @@
 FROM composer:2 AS composer
 
-FROM php:8.3-cli-alpine AS base
+FROM php:8.5-cli-alpine AS base
 
 RUN apk add --no-cache \
         postgresql-libs \

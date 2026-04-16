@@ -159,7 +159,7 @@ const ParticipantCard = ({ row }: ParticipantCardProps) => (
 
 const ActionButtons = ({ lobby }: { lobby: any }) => (
   <Grid container spacing={1} sx={{ mb: 2 }}>
-    <Grid item xs={12} sm={6}>
+    <Grid size={{ xs: 12, sm: 6 }}>
       <Button
         variant="contained"
         size="large"
@@ -169,7 +169,7 @@ const ActionButtons = ({ lobby }: { lobby: any }) => (
         NEXT ENTRANCE
       </Button>
     </Grid>
-    <Grid item xs={12} sm={6}>
+    <Grid size={{ xs: 12, sm: 6 }}>
       <Button
         variant="contained"
         sx={{ width: "100%" }}

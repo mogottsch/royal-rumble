@@ -13,7 +13,7 @@ from pathlib import Path
 def main():
     root_dir = Path(__file__).parent.parent.parent
 
-    years = range(1988, 2025)
+    years = range(1988, 2027)
 
     for year in years:
         path = root_dir / f"data/matches/{year}.json"

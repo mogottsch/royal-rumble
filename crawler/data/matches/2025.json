@@ -1,0 +1,443 @@
+{
+    "wrestlers": [
+        {
+            "name": "Jey Uso",
+            "cm_id": 7350,
+            "id": "003afaf3-0ecd-4449-819e-e0c9cc15fe75"
+        },
+        {
+            "name": "AJ Styles",
+            "cm_id": 801,
+            "id": "d9d08f16-674d-4162-8b0c-694781a16f82"
+        },
+        {
+            "name": "Andrade",
+            "cm_id": 5596,
+            "id": "4270b9ce-81b7-40ba-b657-f19ff28b50fb"
+        },
+        {
+            "name": "Braun Strowman",
+            "cm_id": 16167,
+            "id": "3b432d84-2806-43dd-8363-9f39172ed437"
+        },
+        {
+            "name": "Bron Breakker",
+            "cm_id": 24300,
+            "id": "3b4a5c8f-1814-47e5-817b-28401566555b"
+        },
+        {
+            "name": "Carmelo Hayes",
+            "cm_id": 15859,
+            "id": "ab98a43c-dcaf-4498-a0b4-be6fff859811"
+        },
+        {
+            "name": "Chad Gable",
+            "cm_id": 15197,
+            "id": "f915a568-7188-41ef-a727-588f810835d7"
+        },
+        {
+            "name": "CM Punk",
+            "cm_id": 80,
+            "id": "4587652d-f526-4bed-b097-b3829c6149e8"
+        },
+        {
+            "name": "Damian Priest",
+            "cm_id": 16337,
+            "id": "72fb20d1-c9e4-49da-bbba-96b58211d619"
+        },
+        {
+            "name": "Dominik Mysterio",
+            "cm_id": 22500,
+            "id": "c3ab1c12-7f46-4511-b2a4-f8e598b50a58"
+        },
+        {
+            "name": "Drew McIntyre",
+            "cm_id": 2879,
+            "id": "81a99ed8-52d0-436d-a3ba-a08a07b8d245"
+        },
+        {
+            "name": "Finn Balor",
+            "cm_id": 2742,
+            "id": "19200551-ba24-4d54-b3e2-d9b38ac37077"
+        },
+        {
+            "name": "IShowSpeed",
+            "cm_id": 31287,
+            "id": "9e9211e0-da2b-4c4a-bf48-9292ea890427"
+        },
+        {
+            "name": "Jacob Fatu",
+            "cm_id": 14128,
+            "id": "10801854-a5e9-443a-8038-dd9eb12c54d3"
+        },
+        {
+            "name": "Jimmy Uso",
+            "cm_id": 7351,
+            "id": "61a8b076-0070-49b3-a049-9cf13e6ce2c3"
+        },
+        {
+            "name": "Joe Hendry",
+            "cm_id": 14930,
+            "id": "26004a48-80cd-4d87-97f4-9ad4f68f34aa"
+        },
+        {
+            "name": "John Cena",
+            "cm_id": 691,
+            "id": "eb37415a-f469-42d0-b529-152ff8c38709"
+        },
+        {
+            "name": "LA Knight",
+            "cm_id": 4409,
+            "id": "150c3f30-d088-411b-a9eb-cd665c4808c8"
+        },
+        {
+            "name": "Logan Paul",
+            "cm_id": 25777,
+            "id": "49c577ed-948c-4f7a-b491-b45f8fd5727e"
+        },
+        {
+            "name": "Ludwig Kaiser",
+            "cm_id": 5855,
+            "id": "0d7b881c-a2c4-41c1-9ae1-310dd0998113"
+        },
+        {
+            "name": "Otis",
+            "cm_id": 17854,
+            "id": "1a67ab0e-8bb7-49ef-8f00-67d75994f8f5"
+        },
+        {
+            "name": "Penta",
+            "cm_id": 10334,
+            "id": "28afed57-d129-4214-b612-1a4cad1b1f3e"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "03f7e467-f91a-4636-bd0c-0a32ff619cec"
+        },
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "0688ca2c-8044-4aaa-9e35-facb876f1df1"
+        },
+        {
+            "name": "Paul Heyman",
+            "cm_id": 664,
+            "id": "17151879-d602-4016-8c46-37c0bab685cb"
+        },
+        {
+            "name": "Sami Zayn",
+            "cm_id": 1523,
+            "id": "5137b10d-29c0-499b-9c21-9a93a580d24b"
+        },
+        {
+            "name": "Santos Escobar",
+            "cm_id": 6920,
+            "id": "e79285d7-6e72-4696-a53e-648fb2bfc345"
+        },
+        {
+            "name": "Seth Rollins",
+            "cm_id": 2250,
+            "id": "af04eccf-11ed-4557-8a0b-4bb2b7dfd977"
+        },
+        {
+            "name": "Sheamus",
+            "cm_id": 2641,
+            "id": "f69e91ab-3479-4c28-b424-550cc5f071a4"
+        },
+        {
+            "name": "Shinsuke Nakamura",
+            "cm_id": 56,
+            "id": "3ccaa273-3b9a-4387-9a18-b2b05676db70"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "51ed2bb1-8e56-4962-9d4e-72610d6b61b5"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "3b4a5c8f-1814-47e5-817b-28401566555b"
+            ],
+            "victims": [
+                "ab98a43c-dcaf-4498-a0b4-be6fff859811"
+            ],
+            "raw": "- Bron Breakker eliminates Carmelo Hayes",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b4a5c8f-1814-47e5-817b-28401566555b"
+            ],
+            "victims": [
+                "e79285d7-6e72-4696-a53e-648fb2bfc345"
+            ],
+            "raw": "- Bron Breakker eliminates Santos Escobar",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b4a5c8f-1814-47e5-817b-28401566555b",
+                "9e9211e0-da2b-4c4a-bf48-9292ea890427"
+            ],
+            "victims": [
+                "1a67ab0e-8bb7-49ef-8f00-67d75994f8f5"
+            ],
+            "raw": "- Bron Breakker & IShowSpeed eliminate Otis",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1a67ab0e-8bb7-49ef-8f00-67d75994f8f5"
+            ],
+            "victims": [
+                "9e9211e0-da2b-4c4a-bf48-9292ea890427"
+            ],
+            "raw": "- Otis eliminates IShowSpeed",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10801854-a5e9-443a-8038-dd9eb12c54d3"
+            ],
+            "victims": [
+                "f915a568-7188-41ef-a727-588f810835d7"
+            ],
+            "raw": "- Jacob Fatu eliminates Chad Gable",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10801854-a5e9-443a-8038-dd9eb12c54d3"
+            ],
+            "victims": [
+                "03f7e467-f91a-4636-bd0c-0a32ff619cec"
+            ],
+            "raw": "- Jacob Fatu eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10801854-a5e9-443a-8038-dd9eb12c54d3"
+            ],
+            "victims": [
+                "4270b9ce-81b7-40ba-b657-f19ff28b50fb"
+            ],
+            "raw": "- Jacob Fatu eliminates Andrade",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "28afed57-d129-4214-b612-1a4cad1b1f3e"
+            ],
+            "victims": [
+                "0d7b881c-a2c4-41c1-9ae1-310dd0998113"
+            ],
+            "raw": "- Penta eliminates Ludwig Kaiser",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0688ca2c-8044-4aaa-9e35-facb876f1df1"
+            ],
+            "victims": [
+                "51ed2bb1-8e56-4962-9d4e-72610d6b61b5"
+            ],
+            "raw": "- Roman Reigns eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0688ca2c-8044-4aaa-9e35-facb876f1df1"
+            ],
+            "victims": [
+                "f69e91ab-3479-4c28-b424-550cc5f071a4"
+            ],
+            "raw": "- Roman Reigns eliminates Sheamus",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0688ca2c-8044-4aaa-9e35-facb876f1df1"
+            ],
+            "victims": [
+                "26004a48-80cd-4d87-97f4-9ad4f68f34aa"
+            ],
+            "raw": "- Roman Reigns eliminates Joe Hendry",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "0688ca2c-8044-4aaa-9e35-facb876f1df1"
+            ],
+            "victims": [
+                "3b4a5c8f-1814-47e5-817b-28401566555b"
+            ],
+            "raw": "- Roman Reigns eliminates Bron Breakker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "10801854-a5e9-443a-8038-dd9eb12c54d3"
+            ],
+            "victims": [
+                "61a8b076-0070-49b3-a049-9cf13e6ce2c3"
+            ],
+            "raw": "- Jacob Fatu eliminates Jimmy Uso",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "19200551-ba24-4d54-b3e2-d9b38ac37077"
+            ],
+            "victims": [
+                "28afed57-d129-4214-b612-1a4cad1b1f3e"
+            ],
+            "raw": "- Finn Balor eliminates Penta",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "003afaf3-0ecd-4449-819e-e0c9cc15fe75"
+            ],
+            "victims": [
+                "3ccaa273-3b9a-4387-9a18-b2b05676db70"
+            ],
+            "raw": "- Jey Uso eliminates Shinsuke Nakamura",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "3b432d84-2806-43dd-8363-9f39172ed437"
+            ],
+            "victims": [
+                "10801854-a5e9-443a-8038-dd9eb12c54d3"
+            ],
+            "raw": "- Braun Strowman eliminates Jacob Fatu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "eb37415a-f469-42d0-b529-152ff8c38709"
+            ],
+            "victims": [
+                "3b432d84-2806-43dd-8363-9f39172ed437"
+            ],
+            "raw": "- John Cena eliminates Braun Strowman",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "eb37415a-f469-42d0-b529-152ff8c38709"
+            ],
+            "victims": [
+                "19200551-ba24-4d54-b3e2-d9b38ac37077"
+            ],
+            "raw": "- John Cena eliminates Finn Balor",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "72fb20d1-c9e4-49da-bbba-96b58211d619"
+            ],
+            "victims": [
+                "c3ab1c12-7f46-4511-b2a4-f8e598b50a58"
+            ],
+            "raw": "- Damian Priest eliminates Dominik Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "003afaf3-0ecd-4449-819e-e0c9cc15fe75"
+            ],
+            "victims": [
+                "5137b10d-29c0-499b-9c21-9a93a580d24b"
+            ],
+            "raw": "- Jey Uso eliminates Sami Zayn",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "72fb20d1-c9e4-49da-bbba-96b58211d619"
+            ],
+            "victims": [
+                "81a99ed8-52d0-436d-a3ba-a08a07b8d245"
+            ],
+            "raw": "- Damian Priest eliminates Drew McIntyre",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "150c3f30-d088-411b-a9eb-cd665c4808c8"
+            ],
+            "victims": [
+                "72fb20d1-c9e4-49da-bbba-96b58211d619"
+            ],
+            "raw": "- LA Knight eliminates Damian Priest",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "d9d08f16-674d-4162-8b0c-694781a16f82"
+            ],
+            "victims": [
+                "150c3f30-d088-411b-a9eb-cd665c4808c8"
+            ],
+            "raw": "- AJ Styles eliminates LA Knight",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "49c577ed-948c-4f7a-b491-b45f8fd5727e"
+            ],
+            "victims": [
+                "d9d08f16-674d-4162-8b0c-694781a16f82"
+            ],
+            "raw": "- Logan Paul eliminates AJ Styles",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "4587652d-f526-4bed-b097-b3829c6149e8"
+            ],
+            "victims": [
+                "0688ca2c-8044-4aaa-9e35-facb876f1df1",
+                "af04eccf-11ed-4557-8a0b-4bb2b7dfd977"
+            ],
+            "raw": "- CM Punk eliminates Roman Reigns & Seth Rollins",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "49c577ed-948c-4f7a-b491-b45f8fd5727e"
+            ],
+            "victims": [
+                "4587652d-f526-4bed-b097-b3829c6149e8"
+            ],
+            "raw": "- Logan Paul eliminates CM Punk",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "eb37415a-f469-42d0-b529-152ff8c38709"
+            ],
+            "victims": [
+                "49c577ed-948c-4f7a-b491-b45f8fd5727e"
+            ],
+            "raw": "- John Cena eliminates Logan Paul",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "003afaf3-0ecd-4449-819e-e0c9cc15fe75"
+            ],
+            "victims": [
+                "eb37415a-f469-42d0-b529-152ff8c38709"
+            ],
+            "raw": "- Jey Uso eliminates John Cena",
+            "is_valid": true
+        }
+    ]
+}

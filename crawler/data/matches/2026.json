@@ -1,0 +1,432 @@
+{
+    "wrestlers": [
+        {
+            "name": "Roman Reigns",
+            "cm_id": 9967,
+            "id": "167dc226-eb37-4751-ab91-fa839a45a33f"
+        },
+        {
+            "name": "Austin Theory",
+            "cm_id": 18855,
+            "id": "758d6a5a-cc99-41e7-ba48-ac4c97018daf"
+        },
+        {
+            "name": "Brock Lesnar",
+            "cm_id": 669,
+            "id": "939c7617-d32d-4755-b4c5-913acc1e06e7"
+        },
+        {
+            "name": "Paul Heyman",
+            "cm_id": 664,
+            "id": "3b803dce-b756-4ee5-ac22-55381da5f5a6"
+        },
+        {
+            "name": "Bron Breakker",
+            "cm_id": 24300,
+            "id": "ae259e5b-3e3f-4644-b8fc-8601d1062fe8"
+        },
+        {
+            "name": "Bronson Reed",
+            "cm_id": 10790,
+            "id": "a8931897-aa63-4cb1-bcbf-46648bd8c749"
+        },
+        {
+            "name": "Cody Rhodes",
+            "cm_id": 3686,
+            "id": "62a056d8-40c9-425d-8c3d-ecdc99ff9f8d"
+        },
+        {
+            "name": "Damian Priest",
+            "cm_id": 16337,
+            "id": "5971597c-6371-4aa1-acfd-84cbafe15e0a"
+        },
+        {
+            "name": "Dragon Lee",
+            "cm_id": 14355,
+            "id": "666254f7-d322-4ed3-889b-97c844f58fbe"
+        },
+        {
+            "name": "El Grande Americano",
+            "cm_id": 5855,
+            "id": "679f115f-3040-4644-baef-18c8bed8fa41"
+        },
+        {
+            "name": "Gunther",
+            "cm_id": 16807,
+            "id": "90b0da1b-e19f-4a0b-bfcd-f7c7cb3a8a36"
+        },
+        {
+            "name": "Ilja Dragunov",
+            "cm_id": 13179,
+            "id": "e2bc10b1-6384-44cf-a841-0d81d76b0db8"
+        },
+        {
+            "name": "Jacob Fatu",
+            "cm_id": 14128,
+            "id": "f62e3b3f-b0bf-45bc-aef2-da3a30b9bc65"
+        },
+        {
+            "name": "Je'Von Evans",
+            "cm_id": 26930,
+            "id": "0d44c9e0-0ac3-48a6-a427-885bcdb6aed2"
+        },
+        {
+            "name": "Jey Uso",
+            "cm_id": 7350,
+            "id": "04217b9c-6522-4ac0-827b-6f4a5899ebce"
+        },
+        {
+            "name": "LA Knight",
+            "cm_id": 4409,
+            "id": "2ca9fe39-7bb5-494d-9961-40df076216fc"
+        },
+        {
+            "name": "La Parka",
+            "cm_id": 23160,
+            "id": "67006143-b3cb-4d72-b873-0de5b86f226b"
+        },
+        {
+            "name": "Logan Paul",
+            "cm_id": 25777,
+            "id": "8b6a9241-eee1-4c44-8f76-fe385aab25c6"
+        },
+        {
+            "name": "Matt Cardona",
+            "cm_id": 2750,
+            "id": "1be76b79-b979-4bd9-92fd-9a1b58c49fb1"
+        },
+        {
+            "name": "Mr. Iguana",
+            "cm_id": 10251,
+            "id": "65863749-439d-471e-a9b5-0a8eb4e90963"
+        },
+        {
+            "name": "Oba Femi",
+            "cm_id": 26953,
+            "id": "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+        },
+        {
+            "name": "Penta",
+            "cm_id": 10334,
+            "id": "80110122-47f1-44f9-8298-4c0b7d03ba67"
+        },
+        {
+            "name": "Randy Orton",
+            "cm_id": 998,
+            "id": "faee188b-b7db-4eea-a629-a63c23182933"
+        },
+        {
+            "name": "Rey Fenix",
+            "cm_id": 10343,
+            "id": "6eccdafd-1f7e-4916-a25f-7eaf694b63f0"
+        },
+        {
+            "name": "Rey Mysterio",
+            "cm_id": 604,
+            "id": "0b43c9bd-28f6-40c2-9cc9-6a8be1398847"
+        },
+        {
+            "name": "Royce Keys",
+            "cm_id": 12277,
+            "id": "6acc7004-529e-456b-aeef-cd8644fa4f5f"
+        },
+        {
+            "name": "Rusev",
+            "cm_id": 10610,
+            "id": "19f2ab23-02a6-4d1f-8f2b-17fc433f222e"
+        },
+        {
+            "name": "Solo Sikoa",
+            "cm_id": 22525,
+            "id": "85330030-867c-4cfd-9bf9-b156a226b32e"
+        },
+        {
+            "name": "The Miz",
+            "cm_id": 1590,
+            "id": "2cb005e7-5efd-42a3-91b4-ee99d16b2020"
+        },
+        {
+            "name": "The Original El Grande Americano",
+            "cm_id": 15197,
+            "id": "51945980-0ff1-4483-ba02-df0f49c9c3da"
+        },
+        {
+            "name": "Trick Williams",
+            "cm_id": 24301,
+            "id": "c53beb8f-93f5-4415-84a4-90b54b7b1642"
+        }
+    ],
+    "eliminations": [
+        {
+            "offenders": [
+                "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+            ],
+            "victims": [
+                "ae259e5b-3e3f-4644-b8fc-8601d1062fe8"
+            ],
+            "raw": "- Oba Femi eliminates Bron Breakker",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+            ],
+            "victims": [
+                "19f2ab23-02a6-4d1f-8f2b-17fc433f222e"
+            ],
+            "raw": "- Oba Femi eliminates Rusev",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+            ],
+            "victims": [
+                "85330030-867c-4cfd-9bf9-b156a226b32e"
+            ],
+            "raw": "- Oba Femi eliminates Solo Sikoa",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+            ],
+            "victims": [
+                "0b43c9bd-28f6-40c2-9cc9-6a8be1398847"
+            ],
+            "raw": "- Oba Femi eliminates Rey Mysterio",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+            ],
+            "victims": [
+                "1be76b79-b979-4bd9-92fd-9a1b58c49fb1"
+            ],
+            "raw": "- Oba Femi eliminates Matt Cardona",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c53beb8f-93f5-4415-84a4-90b54b7b1642"
+            ],
+            "victims": [
+                "65863749-439d-471e-a9b5-0a8eb4e90963"
+            ],
+            "raw": "- Trick Williams eliminates Mr. Iguana",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "51945980-0ff1-4483-ba02-df0f49c9c3da"
+            ],
+            "victims": [
+                "679f115f-3040-4644-baef-18c8bed8fa41"
+            ],
+            "raw": "- The Original El Grande Americano eliminates El Grande Americano ",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "c53beb8f-93f5-4415-84a4-90b54b7b1642"
+            ],
+            "victims": [
+                "51945980-0ff1-4483-ba02-df0f49c9c3da"
+            ],
+            "raw": "- Trick Williams eliminates The Original El Grande Americano",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "62a056d8-40c9-425d-8c3d-ecdc99ff9f8d"
+            ],
+            "victims": [
+                "c53beb8f-93f5-4415-84a4-90b54b7b1642"
+            ],
+            "raw": "- Cody Rhodes eliminates Trick Williams",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "6acc7004-529e-456b-aeef-cd8644fa4f5f"
+            ],
+            "victims": [
+                "5971597c-6371-4aa1-acfd-84cbafe15e0a"
+            ],
+            "raw": "- Royce Keys eliminates Damian Priest",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "758d6a5a-cc99-41e7-ba48-ac4c97018daf",
+                "a8931897-aa63-4cb1-bcbf-46648bd8c749",
+                "8b6a9241-eee1-4c44-8f76-fe385aab25c6"
+            ],
+            "victims": [
+                "6acc7004-529e-456b-aeef-cd8644fa4f5f"
+            ],
+            "raw": "- Austin Theory, Bronson Reed & Logan Paul eliminate Royce Keys",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "758d6a5a-cc99-41e7-ba48-ac4c97018daf"
+            ],
+            "victims": [
+                "67006143-b3cb-4d72-b873-0de5b86f226b"
+            ],
+            "raw": "- Austin Theory eliminates La Parka",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "a8931897-aa63-4cb1-bcbf-46648bd8c749"
+            ],
+            "victims": [
+                "666254f7-d322-4ed3-889b-97c844f58fbe"
+            ],
+            "raw": "- Bronson Reed eliminates Dragon Lee",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "2ca9fe39-7bb5-494d-9961-40df076216fc"
+            ],
+            "victims": [
+                "758d6a5a-cc99-41e7-ba48-ac4c97018daf"
+            ],
+            "raw": "- LA Knight eliminates Austin Theory",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "939c7617-d32d-4755-b4c5-913acc1e06e7"
+            ],
+            "victims": [
+                "e2bc10b1-6384-44cf-a841-0d81d76b0db8"
+            ],
+            "raw": "- Brock Lesnar eliminates Ilja Dragunov",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "939c7617-d32d-4755-b4c5-913acc1e06e7"
+            ],
+            "victims": [
+                "1946e8b8-2e48-423b-86a1-41a2ca4e696e"
+            ],
+            "raw": "- Brock Lesnar eliminates Oba Femi",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "62a056d8-40c9-425d-8c3d-ecdc99ff9f8d",
+                "2ca9fe39-7bb5-494d-9961-40df076216fc"
+            ],
+            "victims": [
+                "939c7617-d32d-4755-b4c5-913acc1e06e7"
+            ],
+            "raw": "- Cody Rhodes & LA Knight eliminate Brock Lesnar",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "167dc226-eb37-4751-ab91-fa839a45a33f"
+            ],
+            "victims": [
+                "2cb005e7-5efd-42a3-91b4-ee99d16b2020"
+            ],
+            "raw": "- Roman Reigns eliminates The Miz",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "62a056d8-40c9-425d-8c3d-ecdc99ff9f8d"
+            ],
+            "victims": [
+                "2ca9fe39-7bb5-494d-9961-40df076216fc"
+            ],
+            "raw": "- Cody Rhodes eliminates LA Knight",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "faee188b-b7db-4eea-a629-a63c23182933"
+            ],
+            "victims": [
+                "0d44c9e0-0ac3-48a6-a427-885bcdb6aed2"
+            ],
+            "raw": "- Randy Orton eliminates Je'Von Evans",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "90b0da1b-e19f-4a0b-bfcd-f7c7cb3a8a36"
+            ],
+            "victims": [
+                "80110122-47f1-44f9-8298-4c0b7d03ba67"
+            ],
+            "raw": "- Gunther eliminates Penta",
+            "is_valid": true
+        },
+        {
+            "offenders": [],
+            "victims": [
+                "62a056d8-40c9-425d-8c3d-ecdc99ff9f8d"
+            ],
+            "raw": "- Drew McIntyre eliminates Cody Rhodes",
+            "is_valid": false
+        },
+        {
+            "offenders": [
+                "167dc226-eb37-4751-ab91-fa839a45a33f"
+            ],
+            "victims": [
+                "f62e3b3f-b0bf-45bc-aef2-da3a30b9bc65"
+            ],
+            "raw": "- Roman Reigns eliminates Jacob Fatu",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "167dc226-eb37-4751-ab91-fa839a45a33f"
+            ],
+            "victims": [
+                "04217b9c-6522-4ac0-827b-6f4a5899ebce"
+            ],
+            "raw": "- Roman Reigns eliminates Jey Uso",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "167dc226-eb37-4751-ab91-fa839a45a33f"
+            ],
+            "victims": [
+                "8b6a9241-eee1-4c44-8f76-fe385aab25c6"
+            ],
+            "raw": "- Roman Reigns eliminates Logan Paul",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "90b0da1b-e19f-4a0b-bfcd-f7c7cb3a8a36"
+            ],
+            "victims": [
+                "faee188b-b7db-4eea-a629-a63c23182933"
+            ],
+            "raw": "- Gunther eliminates Randy Orton",
+            "is_valid": true
+        },
+        {
+            "offenders": [
+                "167dc226-eb37-4751-ab91-fa839a45a33f"
+            ],
+            "victims": [
+                "90b0da1b-e19f-4a0b-bfcd-f7c7cb3a8a36"
+            ],
+            "raw": "- Roman Reigns eliminates Gunther",
+            "is_valid": true
+        }
+    ]
+}

@@ -76,7 +76,7 @@ class LobbyRumbleController extends Controller
         }
 
         try {
-            $eliminationRecorder->record(
+            $elimination = $eliminationRecorder->record(
                 $lobby,
                 $victimRumblers,
                 $offenderRumblers
@@ -88,6 +88,9 @@ class LobbyRumbleController extends Controller
             );
         }
 
-        return response(status: Response::HTTP_CREATED);
+        return response()->json(
+            ["elimination_id" => $elimination->id],
+            Response::HTTP_CREATED
+        );
     }
 }

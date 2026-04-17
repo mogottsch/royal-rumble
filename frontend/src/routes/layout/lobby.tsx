@@ -2,13 +2,27 @@ import { useParams } from "react-router-dom";
 import { App } from "./app";
 import { useLobby } from "../../hooks/use_lobby";
 import { LobbyContextProvider } from "../../contexts/lobby_context";
+import { ParticipantClaimProvider } from "../../contexts/participant_claim_context";
+import { useParticipantClaimState } from "../../hooks/use_participant_claim";
+import { ClaimGate } from "../../components/claim_gate";
 
 export function LobbyLayout() {
   const { lobbyCode } = useParams<{ lobbyCode: string }>();
   const { lobby, query: lobbyQuery } = useLobby({ lobbyCode });
+  const { claimedParticipantId, claim, clear } =
+    useParticipantClaimState(lobbyCode);
+
+  const isKnownParticipant =
+    claimedParticipantId !== null &&
+    lobby?.participants.some((p) => p.id === claimedParticipantId);
+
   return (
-    <LobbyContextProvider value={{ lobby, lobbyQuery }}>
-      <App />
-    </LobbyContextProvider>
+    <ParticipantClaimProvider
+      value={{ claimedParticipantId, claim, clear }}
+    >
+      <LobbyContextProvider value={{ lobby, lobbyQuery }}>
+        {lobby && !isKnownParticipant ? <ClaimGate lobby={lobby} /> : <App />}
+      </LobbyContextProvider>
+    </ParticipantClaimProvider>
   );
 }

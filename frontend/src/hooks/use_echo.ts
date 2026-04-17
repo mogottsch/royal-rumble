@@ -8,13 +8,18 @@ export function useEcho() {
   useEffect(() => {
     const scheme = import.meta.env.VITE_PUSHER_SCHEME ?? "http";
     const forceTLS = scheme === "https";
+    const rawHost = import.meta.env.VITE_PUSHER_HOST ?? window.location.hostname;
+    const [wsHost, embeddedPort] = rawHost.split(":");
+    const port = Number(
+      import.meta.env.VITE_PUSHER_PORT ?? embeddedPort ?? (forceTLS ? 443 : 80),
+    );
     window.Pusher = Pusher;
     let laravelEcho = new Echo<"pusher">({
       broadcaster: "pusher",
       key: import.meta.env.VITE_PUSHER_APP_KEY,
-      wsHost: import.meta.env.VITE_PUSHER_HOST,
-      wsPort: import.meta.env.VITE_PUSHER_PORT,
-      wssPort: import.meta.env.VITE_PUSHER_PORT,
+      wsHost,
+      wsPort: port,
+      wssPort: port,
       cluster: "mt1",
       forceTLS,
       encrypted: true,

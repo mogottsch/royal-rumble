@@ -9,10 +9,14 @@ use InvalidArgumentException;
 
 class LobbyCreator
 {
-    public function createWithParticipants(Collection $participantNames): Lobby
+    public function createWithParticipants(Collection $participantNames, array $drinkConfig = []): Lobby
     {
         $this->validateParticipantNames($participantNames);
-        $lobby = Lobby::create();
+        $lobby = new Lobby();
+        $lobby->code = (new LobbyCodeGenerator())->generate();
+        $this->applyDrinkConfig($lobby, $drinkConfig);
+        $lobby->save();
+
         foreach ($participantNames as $participantName) {
             $participant = new Participant();
             $participant->name = $participantName;
@@ -22,6 +26,21 @@ class LobbyCreator
 
         $lobby->load("participants");
         return $lobby;
+    }
+
+    private function applyDrinkConfig(Lobby $lobby, array $config): void
+    {
+        $allowed = [
+            "schluecke_per_elimination",
+            "shots_per_elimination",
+            "schluecke_on_npc_elimination",
+            "shots_on_npc_elimination",
+        ];
+        foreach ($allowed as $key) {
+            if (array_key_exists($key, $config) && $config[$key] !== null) {
+                $lobby->{$key} = (int) $config[$key];
+            }
+        }
     }
 
     private function validateParticipantNames(Collection $participantNames)

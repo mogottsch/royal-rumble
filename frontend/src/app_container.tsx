@@ -9,6 +9,7 @@ import theme from "./theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { App } from "./app";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { I18nProvider } from "./i18n";
 
 export function AppContainer() {
   const queryClient = new QueryClient();
@@ -16,11 +17,13 @@ export function AppContainer() {
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen={false} />
-          <CssBaseline />
-          <App />
-        </QueryClientProvider>
+        <I18nProvider>
+          <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <CssBaseline />
+            <App />
+          </QueryClientProvider>
+        </I18nProvider>
       </ThemeProvider>
     </React.StrictMode>
   );

@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Exceptions\EliminationRecorderErrorCode;
 use App\Exceptions\EliminationRecorderException;
+use App\Models\Chug;
+use App\Models\DrinkDistribution;
 use App\Models\Elimination;
 use App\Models\Lobby;
 use App\Models\Offender;
@@ -29,11 +31,64 @@ class EliminationRecorder
 
         $elimination = $this->createElimination($offenders, $victims);
 
+        $this->recordChugs($lobby, $elimination, $victims);
+        $this->recordNpcPenalties($lobby, $elimination, $offenders, $victims);
+
         $this->assignNewEntranceNumbers($lobby, $victims);
 
         $this->actionRecorder->recordElimination($lobby, $elimination);
 
         return $elimination;
+    }
+
+    private function recordChugs(Lobby $lobby, Elimination $elimination, Collection $victims): void
+    {
+        foreach ($victims as $victim) {
+            $participant = $victim->participant;
+            if (!$participant) {
+                continue;
+            }
+            Chug::create([
+                "lobby_id" => $lobby->id,
+                "participant_id" => $participant->id,
+                "elimination_id" => $elimination->id,
+            ]);
+        }
+    }
+
+    private function recordNpcPenalties(
+        Lobby $lobby,
+        Elimination $elimination,
+        Collection $offenders,
+        Collection $victims
+    ): void {
+        $schluecke = (int) $lobby->schluecke_on_npc_elimination;
+        $shots = (int) $lobby->shots_on_npc_elimination;
+        if ($schluecke === 0 && $shots === 0) {
+            return;
+        }
+
+        $participants = $lobby->participants()->get();
+        foreach ($offenders as $offender) {
+            if ($offender->participant) {
+                continue;
+            }
+            foreach ($victims as $victim) {
+                foreach ($participants as $participant) {
+                    DrinkDistribution::create([
+                        "lobby_id" => $lobby->id,
+                        "elimination_id" => $elimination->id,
+                        "offender_rumbler_id" => $offender->id,
+                        "victim_rumbler_id" => $victim->id,
+                        "giver_participant_id" => null,
+                        "receiver_participant_id" => $participant->id,
+                        "schluecke" => $schluecke,
+                        "shots" => $shots,
+                        "kind" => DrinkDistribution::KIND_NPC_ELIMINATION_PENALTY,
+                    ]);
+                }
+            }
+        }
     }
 
     private function validateRumblers(

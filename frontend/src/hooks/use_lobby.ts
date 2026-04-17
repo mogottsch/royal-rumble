@@ -14,11 +14,49 @@ export interface Lobby {
   rumblers: Rumbler[];
   actions: Action[];
   nextEntranceNumber: number;
+  drink_config: DrinkConfig;
+  drink_distributions: DrinkDistribution[];
+  chugs: Chug[];
+}
+
+export interface DrinkConfig {
+  schluecke_per_elimination: number;
+  shots_per_elimination: number;
+  schluecke_on_npc_elimination: number;
+  shots_on_npc_elimination: number;
+}
+
+export interface DrinkDistribution {
+  id: number;
+  lobby_id: number;
+  elimination_id: number | null;
+  offender_rumbler_id: number | null;
+  victim_rumbler_id: number | null;
+  giver_participant_id: number | null;
+  receiver_participant_id: number;
+  schluecke: number;
+  shots: number;
+  kind: "elimination_reward" | "npc_elimination_penalty";
+  created_at?: string;
+  giver?: Participant | null;
+  receiver?: Participant | null;
+  offender_rumbler?: Rumbler | null;
+  victim_rumbler?: Rumbler | null;
+}
+
+export interface Chug {
+  id: number;
+  lobby_id: number;
+  participant_id: number;
+  elimination_id: number;
+  created_at?: string;
+  participant?: Participant | null;
 }
 
 export interface Action {
   id: number;
   lobby_id: number;
+  created_at?: string;
   type: "entrance" | "elimination";
   rumbler?: Rumbler;
   elimination?: Elimination;
@@ -49,6 +87,7 @@ export interface Rumbler {
   wrestler_id: number;
   wrestler: Wrestler;
   is_eliminated: boolean;
+  participant: Participant | null;
 }
 
 export interface Wrestler {
@@ -64,7 +103,6 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
   const query = useLobbyQuery(lobbyCode);
   const { notify } = useNotificationContext();
   const navigate = useNavigate();
-
   useEffect(() => {
     if (query.data) {
       setLobby(query.data);
@@ -93,6 +131,23 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
       channel.stopListening(eventName, callback);
     };
   }, [lobby, echo]);
+
+  useEffect(() => {
+    if (!lobbyCode) {
+      return;
+    }
+
+    const interval = window.setInterval(async () => {
+      const response = await fetchApi("/lobbies/" + lobbyCode);
+      if (!response.ok) {
+        return;
+      }
+      const data = await response.json();
+      setLobby(data.data.lobby);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, [lobbyCode]);
 
   useEffect(() => {
     if (query.isError) {

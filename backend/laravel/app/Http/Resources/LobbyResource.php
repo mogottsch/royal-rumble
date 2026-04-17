@@ -16,12 +16,7 @@ class LobbyResource extends JsonResource
         parent::__construct($resource);
         $this->entranceNumberAssigner = app(EntranceNumberAssigner::class);
     }
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+
     public function toArray($request)
     {
         if ($this->resource instanceof Lobby) {
@@ -39,6 +34,9 @@ class LobbyResource extends JsonResource
                 $this->lobby
             ),
             "actions" => ActionResource::collection($this->lobby->actions),
+            "drink_config" => $this->lobby->getDrinkConfig(),
+            "drink_distributions" => $this->lobby->drinkDistributions,
+            "chugs" => $this->lobby->chugs,
         ];
     }
 }

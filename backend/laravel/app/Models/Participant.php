@@ -18,4 +18,19 @@ class Participant extends Model
     {
         return $this->belongsTo(Rumbler::class);
     }
+
+    public function distributionsGiven()
+    {
+        return $this->hasMany(DrinkDistribution::class, "giver_participant_id");
+    }
+
+    public function distributionsReceived()
+    {
+        return $this->hasMany(DrinkDistribution::class, "receiver_participant_id");
+    }
+
+    public function chugs()
+    {
+        return $this->hasMany(Chug::class);
+    }
 }

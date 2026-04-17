@@ -26,10 +26,16 @@ class LobbyController extends Controller
         LobbyCreator $lobbyCreator
     ) {
         $lobby = $lobbyCreator->createWithParticipants(
-            collect($request->get("participants"))
+            collect($request->get("participants")),
+            $request->only([
+                "schluecke_per_elimination",
+                "shots_per_elimination",
+                "schluecke_on_npc_elimination",
+                "shots_on_npc_elimination",
+            ])
         );
         return response()->json(
-            ["data" => ["lobby" => $lobby]],
+            ["data" => ["lobby" => new LobbyResource($lobby)]],
             Response::HTTP_CREATED
         );
     }

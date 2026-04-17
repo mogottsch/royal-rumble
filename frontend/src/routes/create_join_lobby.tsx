@@ -3,11 +3,13 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import { InputField } from "../components/form";
 import { PrimaryButton } from "../components/buttons";
+import { useI18n } from "../i18n";
 
 export default function CreateJoinLobby() {
   const establishedYear = 2022;
   const currentYear = new Date().getFullYear();
   const [lobbyCode, setLobbyCode] = useState("");
+  const { t } = useI18n();
 
   const updateLobbyCode = (value: string) => {
     setLobbyCode(value.toUpperCase());
@@ -24,17 +26,24 @@ export default function CreateJoinLobby() {
     >
       <div
         className="edition-year"
-        aria-label={`${currentYear} edition, established ${establishedYear}`}
+        aria-label={
+          t("landing.ariaEdition", {
+            currentYear,
+            establishedYear,
+          })
+        }
       >
         <div className="edition-year__headline">
           <span className="edition-year__number">{currentYear}</span>
-          <span className="edition-year__word">Edition</span>
+          <span className="edition-year__word">{t("landing.edition")}</span>
         </div>
-        <div className="edition-year__est">Est. {establishedYear}</div>
+        <div className="edition-year__est">
+          {t("landing.established", { year: establishedYear })}
+        </div>
       </div>
 
       <InputField
-        label="Lobby code"
+        label={t("landing.lobbyCode")}
         htmlFor="lobby-code"
         id="lobby-code"
         value={lobbyCode}
@@ -47,7 +56,7 @@ export default function CreateJoinLobby() {
           width: 100%;
         `}
       >
-        JOIN
+        {t("landing.join")}
       </PrimaryButton>
       <PrimaryButton
         css={css`
@@ -56,7 +65,7 @@ export default function CreateJoinLobby() {
         sx={{ mt: 5 }}
         href="/lobbies/create"
       >
-        CREATE
+        {t("landing.create")}
       </PrimaryButton>
     </Box>
   );

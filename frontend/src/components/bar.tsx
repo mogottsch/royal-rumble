@@ -15,12 +15,20 @@ import { useState } from "react";
 import QRCode from "react-qr-code";
 import { CopyToClipboardButton } from "./buttons";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { History } from "./history";
 import logo from "../assets/logo_small.png";
+import { LanguageSwitcher } from "./language_switcher";
+import { useI18n } from "../i18n";
 
 export function Bar() {
   const { isAnyLoading } = useLoadingAndErrorStateContext();
   const { lobby } = useLobbyContext();
+  const { claimedParticipantId, clear } = useParticipantClaim();
+  const { t } = useI18n();
+  const claimedParticipant = lobby?.participants.find(
+    (p) => p.id === claimedParticipantId,
+  );
   const [openShare, setOpenShare] = useState(false);
   const [openHistory, setOpenHistory] = useState(false);
 
@@ -34,6 +42,8 @@ export function Bar() {
   const baseUrl = window.location.origin;
   const shareLink = `${baseUrl}/lobbies/${lobby?.code}`;
   const lobbyExists = lobby !== undefined;
+  const playingAsPrefix = t("bar.playingAs", { name: "__name__" }).split("__name__")[0];
+  const playingAsSuffix = t("bar.playingAs", { name: "__name__" }).split("__name__")[1] ?? "";
 
   return (
     <>
@@ -56,12 +66,44 @@ export function Bar() {
               src={logo}
             />
           </Box>
+          <Box sx={{ mr: 1 }}>
+            <LanguageSwitcher />
+          </Box>
           {lobbyExists && (
             <IconButton size="large" edge="end" onClick={handleOpenShare}>
               <ShareIcon />
             </IconButton>
           )}
         </Toolbar>
+        {claimedParticipant && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 1,
+              px: 2,
+              pb: 0.5,
+            }}
+          >
+            <Typography variant="caption" sx={{ opacity: 0.8 }}>
+              {playingAsPrefix}
+              <strong>{claimedParticipant.name}</strong>
+              {playingAsSuffix}
+            </Typography>
+            <Typography
+              variant="caption"
+              onClick={clear}
+              sx={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                opacity: 0.8,
+              }}
+            >
+              {t("common.switch")}
+            </Typography>
+          </Box>
+        )}
         {isAnyLoading ? <LinearProgress /> : <Box sx={{ height: "4px" }} />}
       </AppBar>
 

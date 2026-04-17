@@ -45,6 +45,26 @@ class Lobby extends Model
         return $this->hasMany(Action::class);
     }
 
+    public function drinkDistributions()
+    {
+        return $this->hasMany(DrinkDistribution::class);
+    }
+
+    public function chugs()
+    {
+        return $this->hasMany(Chug::class);
+    }
+
+    public function getDrinkConfig(): array
+    {
+        return [
+            "schluecke_per_elimination" => $this->schluecke_per_elimination,
+            "shots_per_elimination" => $this->shots_per_elimination,
+            "schluecke_on_npc_elimination" => $this->schluecke_on_npc_elimination,
+            "shots_on_npc_elimination" => $this->shots_on_npc_elimination,
+        ];
+    }
+
     public function latestAction()
     {
         return $this->hasMany(Action::class)
@@ -58,10 +78,20 @@ class Lobby extends Model
             "participants",
             "rumblers",
             "rumblers.wrestler",
+            "rumblers.participant",
             "actions",
             "actions.rumbler.wrestler",
             "actions.elimination.rumblerVictims.wrestler",
+            "actions.elimination.rumblerVictims.participant",
             "actions.elimination.rumblerOffenders.wrestler",
+            "actions.elimination.rumblerOffenders.participant",
+            "drinkDistributions",
+            "drinkDistributions.receiver",
+            "drinkDistributions.giver",
+            "drinkDistributions.offenderRumbler.wrestler",
+            "drinkDistributions.victimRumbler.wrestler",
+            "chugs",
+            "chugs.participant",
         ]);
     }
 }

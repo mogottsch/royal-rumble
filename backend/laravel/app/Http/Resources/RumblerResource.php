@@ -25,6 +25,7 @@ class RumblerResource extends JsonResource
             "wrestler_id" => $this->rumbler->wrestler_id,
             "wrestler" => $this->rumbler->wrestler,
             "is_eliminated" => $this->rumbler->isEliminated(),
+            "participant" => $this->rumbler->participant,
         ];
     }
 }

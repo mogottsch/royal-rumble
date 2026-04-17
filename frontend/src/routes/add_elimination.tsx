@@ -5,39 +5,49 @@ import { fetchApi } from "../api/fetcher";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import { Rumbler } from "../hooks/use_lobby";
+import { useI18n } from "../i18n";
+import { WrestlerTile } from "../components/wrestler_tile";
 
 export function AddElimination() {
   const { lobby } = useLobbyContext();
   const navigate = useNavigate();
-  const [victims, setVictims] = useState<Rumbler[]>([]);
-  const [offenders, setOffenders] = useState<Rumbler[]>([]);
+  const { t } = useI18n();
+  const [victimIds, setVictimIds] = useState<number[]>([]);
+  const [offenderIds, setOffenderIds] = useState<number[]>([]);
   const { setKeyLoading } = useLoadingAndErrorStates();
 
   if (!lobby) return null;
 
   const rumblers = lobby.rumblers || [];
   const activeRumblers = rumblers.filter((rumbler) => !rumbler.is_eliminated);
+  const victims = activeRumblers.filter((rumbler) => victimIds.includes(rumbler.id));
+  const offenders = activeRumblers.filter((rumbler) => offenderIds.includes(rumbler.id));
 
   const toggleVictim = (rumbler: Rumbler) => {
-    if (victims.includes(rumbler)) {
-      setVictims(victims.filter((victim: Rumbler) => victim.id !== rumbler.id));
+    if (victimIds.includes(rumbler.id)) {
+      setVictimIds(victimIds.filter((victimId) => victimId !== rumbler.id));
     } else {
-      setVictims([...victims, rumbler]);
+      setVictimIds([...victimIds, rumbler.id]);
     }
   };
 
   const toggleOffender = (rumbler: Rumbler) => {
-    if (offenders.includes(rumbler)) {
-      setOffenders(offenders.filter((offender) => offender.id !== rumbler.id));
+    if (offenderIds.includes(rumbler.id)) {
+      setOffenderIds(offenderIds.filter((offenderId) => offenderId !== rumbler.id));
     } else {
-      setOffenders([...offenders, rumbler]);
+      setOffenderIds([...offenderIds, rumbler.id]);
     }
   };
 
   const addElimination = async () => {
     if (victims.length === 0 || offenders.length === 0) return;
     setKeyLoading("addElimination", true);
-    await postElimination(lobby.code, offenders, victims);
+    await postElimination(
+      lobby.code,
+      offenders,
+      victims,
+      t("addElimination.errorFailedPrefix"),
+    );
     setKeyLoading("addElimination", false);
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
@@ -52,41 +62,47 @@ export function AddElimination() {
     >
       <Box sx={{ mt: 2, overflowY: "auto", mb: 2 }}>
         <Box sx={{ mb: 4 }}>
-          <Divider sx={{ mb: 1 }}>WHO IS/ARE THE ELIMINATOR(S)?</Divider>
+          <Divider sx={{ mb: 1 }}>{t("addElimination.offenders")}</Divider>
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
               gap: 1,
             }}
           >
             {activeRumblers.map((rumbler) => (
-              <Button
-                variant={offenders.includes(rumbler) ? "contained" : "outlined"}
-                onClick={() => toggleOffender(rumbler)}
+              <Box
                 key={rumbler.id}
+                onClick={() => toggleOffender(rumbler)}
               >
-                {rumbler.wrestler.name}
-              </Button>
+                <WrestlerTile
+                  participant={rumbler.participant ?? undefined}
+                  rumbler={rumbler}
+                  selected={offenderIds.includes(rumbler.id)}
+                />
+              </Box>
             ))}
           </Box>
         </Box>
-        <Divider sx={{ mb: 1 }}>WHO IS/ARE THE VICTIM(S)?</Divider>
+        <Divider sx={{ mb: 1 }}>{t("addElimination.victims")}</Divider>
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
             gap: 1,
           }}
         >
           {activeRumblers.map((rumbler) => (
-            <Button
-              variant={victims.includes(rumbler) ? "contained" : "outlined"}
-              onClick={() => toggleVictim(rumbler)}
+            <Box
               key={rumbler.id}
+              onClick={() => toggleVictim(rumbler)}
             >
-              {rumbler.wrestler.name}
-            </Button>
+              <WrestlerTile
+                participant={rumbler.participant ?? undefined}
+                rumbler={rumbler}
+                selected={victimIds.includes(rumbler.id)}
+              />
+            </Box>
           ))}
         </Box>
       </Box>
@@ -96,9 +112,9 @@ export function AddElimination() {
           variant="contained"
           size="large"
           onClick={addElimination}
-          disabled={victims.length === 0 || offenders.length === 0}
+          disabled={victimIds.length === 0 || offenderIds.length === 0}
         >
-          ADD ELIMINATION
+          {t("addElimination.submit")}
         </Button>
         <Button
           variant="contained"
@@ -107,7 +123,7 @@ export function AddElimination() {
           size="large"
           href={`/lobbies/${lobby.code}/view-game`}
         >
-          BACK
+          {t("common.back")}
         </Button>
       </Box>
     </Box>
@@ -117,7 +133,8 @@ export function AddElimination() {
 async function postElimination(
   lobbyCode: string,
   offenders: Rumbler[],
-  victims: Rumbler[]
+  victims: Rumbler[],
+  errorPrefix: string,
 ) {
   const body = JSON.stringify({
     victim_ids: victims.map((rumbler) => rumbler.id),
@@ -133,6 +150,7 @@ async function postElimination(
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to post entrance: ${response.statusText}`);
+    throw new Error(`${errorPrefix}: ${response.statusText}`);
   }
+  return (await response.json()) as { elimination_id: number };
 }

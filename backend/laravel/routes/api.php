@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DrinkDistributionController;
 use App\Http\Controllers\LobbyController;
 use App\Http\Controllers\LobbyRumbleController;
 use App\Http\Controllers\WrestlerController;
@@ -44,6 +45,11 @@ Route::post("/lobbies/{lobby:code}/elimination", [
     LobbyRumbleController::class,
     "elimination",
 ])->name("lobbies.elimination");
+
+Route::post("/lobbies/{lobby:code}/distributions", [
+    DrinkDistributionController::class,
+    "store",
+])->name("lobbies.distributions.store");
 // });
 //
 Route::get("/test/", function () {

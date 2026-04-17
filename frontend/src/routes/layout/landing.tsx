@@ -5,6 +5,8 @@ import { Outlet } from "react-router-dom";
 import logoAvif from "../../assets/logo_neon.avif";
 import logoPng from "../../assets/logo_neon.png";
 import logoWebp from "../../assets/logo_neon.webp";
+import { LanguageSwitcher } from "../../components/language_switcher";
+import { useI18n } from "../../i18n";
 
 const BEAM_X = [18, 50, 82] as const;
 const FLOOR_Y = 87;
@@ -15,6 +17,7 @@ const SWEEP_DURATION_MS = 9000;
 export function Landing() {
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
   const [targetX, setTargetX] = useState(50);
+  const { t } = useI18n();
 
   useEffect(() => {
     const updateViewport = () =>
@@ -132,6 +135,9 @@ export function Landing() {
           zIndex: 1,
         }}
       >
+        <Box sx={{ display: "flex", justifyContent: "flex-end", pt: 2 }}>
+          <LanguageSwitcher />
+        </Box>
         <div className="titantron">
           <picture>
             <source srcSet={logoAvif} type="image/avif" />
@@ -139,7 +145,7 @@ export function Landing() {
             <img
               src={logoPng}
               className="logo logo--neon"
-              alt="Suff Royale"
+              alt={t("landing.logoAlt")}
             />
           </picture>
         </div>

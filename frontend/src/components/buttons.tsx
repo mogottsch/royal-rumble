@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { JSX } from "react";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import { useNotificationContext } from "../contexts/notification_context";
+import { useI18n } from "../i18n";
 
 type ParentButtonProps = React.ComponentProps<typeof Button>;
 
@@ -26,13 +27,14 @@ export function SecondaryButton(props: ButtonProps) {
 }
 
 export function CopyToClipboardButton({ text }: { text: string }) {
+  const { t } = useI18n();
   const handleClick = () => {
     if (!navigator.clipboard) {
-      notify("Your browser does not support copying to clipboard", "error");
+      notify(t("bar.copyUnsupported"), "error");
       return;
     }
     navigator.clipboard.writeText(text);
-    notify("Copied to clipboard", "success");
+    notify(t("bar.copied"), "success");
   };
   const { notify } = useNotificationContext();
 

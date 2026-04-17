@@ -1,10 +1,5 @@
 import Button from "@mui/material/Button";
-import {
-  Autocomplete,
-  Box,
-  createFilterOptions,
-  TextField,
-} from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useState } from "react";
@@ -17,15 +12,11 @@ import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states"
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
+import { useI18n } from "../i18n";
+import { WrestlerPickerTile } from "../components/wrestler_tile";
 
-interface WrestlerOptionType extends Partial<Wrestler> {
-  inputValue?: string;
-  name: string;
-}
-
-const filter = createFilterOptions<WrestlerOptionType>();
+interface WrestlerOptionType extends Wrestler {}
 
 export function AddEntrance() {
   const navigate = useNavigate();
@@ -49,20 +40,20 @@ export function AddEntrance() {
   const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
     searchTerm,
   });
-  console.log({ searchedWrestlers, isLoading });
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { notify } = useNotificationContext();
+  const { t } = useI18n();
 
-  if (!lobby) return <div>loading...</div>;
+  if (!lobby) return <div>{t("addEntrance.loading")}</div>;
 
   const addEntrance = async () => {
     if (selectedWrestler === null) {
-      notify("Please select a wrestler", "error");
+      notify(t("addEntrance.selectWrestler"), "error");
       return;
     }
 
     if (selectedWrestler.id === undefined) {
-      throw new Error("Wrestler id is undefined");
+      throw new Error(t("addEntrance.errorMissingId"));
     }
 
     console.log(selectedWrestler);
@@ -84,7 +75,7 @@ export function AddEntrance() {
     setKeyLoading("addWrestler", true);
     try {
       const wrestler = await postWrestler(dialogValue.name);
-      notify(`Added ${wrestler.name}`, "success");
+      notify(t("addEntrance.addedWrestler", { name: wrestler.name }), "success");
       setSelectedWrestler(wrestler);
     } catch (e) {
       const error = e as Error;
@@ -105,63 +96,45 @@ export function AddEntrance() {
         justifyContent: "space-between",
       }}
     >
-      <Box sx={{ mt: 2 }}>
-        <Autocomplete
-          value={selectedWrestler}
-          onChange={(event, newValue) => {
-            if (typeof newValue === "string") {
-              // timeout to avoid instant validation of the dialog's form.
-              setTimeout(() => {
-                toggleOpen(true);
-                setDialogValue({
-                  name: newValue,
-                });
-              });
-            } else if (newValue && newValue.inputValue) {
-              toggleOpen(true);
-              setDialogValue({
-                name: newValue.inputValue,
-              });
-            } else {
-              setSelectedWrestler(newValue);
-            }
-          }}
-          inputValue={searchTerm}
-          onInputChange={(_, newInputValue) => {
-            setSearchTerm(newInputValue);
-          }}
-          filterOptions={(options, params) => {
-            const filtered = filter(options, params);
-
-            if (params.inputValue !== "") {
-              filtered.push({
-                inputValue: params.inputValue,
-                name: `Add "${params.inputValue}"`,
-              });
-            }
-
-            return filtered;
-          }}
+      <Box sx={{ mt: 2, display: "grid", gridTemplateRows: "auto auto 1fr", gap: 2 }}>
+        <TextField
           id="wrestler-search"
-          options={searchedWrestlers as WrestlerOptionType[]}
-          getOptionLabel={(option) => {
-            // e.g value selected with enter, right from the input
-            if (typeof option === "string") {
-              return option;
-            }
-            if (option.inputValue) {
-              return option.inputValue;
-            }
-            return option.name;
-          }}
-          selectOnFocus
-          clearOnBlur
-          handleHomeEndKeys
-          renderOption={(props, option) => <li {...props}>{option.name}</li>}
-          sx={{ width: 300 }}
-          freeSolo
-          renderInput={(params) => <TextField {...params} label="Wrestler" />}
+          label={t("addEntrance.label")}
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
         />
+        <Button
+          variant="outlined"
+          onClick={() => {
+            toggleOpen(true);
+            setDialogValue({ name: searchTerm });
+          }}
+          disabled={searchTerm.trim() === ""}
+        >
+          {t("addEntrance.createOption", { name: searchTerm || "..." })}
+        </Button>
+        {searchTerm.trim() !== "" && searchedWrestlers.length === 0 && !isLoading ? (
+          <Typography sx={{ opacity: 0.7 }}>{t("addEntrance.noResults")}</Typography>
+        ) : (
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
+              gap: 1,
+              alignContent: "start",
+            }}
+          >
+            {searchedWrestlers.map((wrestler) => (
+              <WrestlerPickerTile
+                key={wrestler.id}
+                name={wrestler.name}
+                imageUrl={wrestler.image_url}
+                selected={selectedWrestler?.id === wrestler.id}
+                onClick={() => setSelectedWrestler(wrestler as WrestlerOptionType)}
+              />
+            ))}
+          </Box>
+        )}
       </Box>
       <Box sx={{ mb: 2 }}>
         <Box
@@ -180,7 +153,7 @@ export function AddEntrance() {
             onClick={addEntrance}
             disabled={selectedWrestler === null}
           >
-            ADD ENTRANCE
+            {t("addEntrance.submit")}
           </Button>
           <Button
             variant="contained"
@@ -189,7 +162,7 @@ export function AddEntrance() {
             size="large"
             href={`/lobbies/${lobby.code}/view-game`}
           >
-            BACK
+            {t("common.back")}
           </Button>
         </Box>
       </Box>
@@ -200,7 +173,7 @@ export function AddEntrance() {
             addWrestler();
           }}
         >
-          <DialogTitle>Add a new wrestler</DialogTitle>
+          <DialogTitle>{t("addEntrance.dialogTitle")}</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus
@@ -213,14 +186,14 @@ export function AddEntrance() {
                   name: event.target.value,
                 })
               }
-              label="name"
+              label={t("addEntrance.dialogLabel")}
               type="text"
               variant="standard"
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button type="submit">Add</Button>
+            <Button onClick={handleClose}>{t("common.cancel")}</Button>
+            <Button type="submit">{t("common.add")}</Button>
           </DialogActions>
         </form>
       </Dialog>

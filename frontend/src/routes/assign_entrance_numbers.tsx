@@ -5,10 +5,12 @@ import { useLobbyContext } from "../contexts/lobby_context";
 import { useNavigate } from "react-router-dom";
 import { fetchApi } from "../api/fetcher";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
+import { useI18n } from "../i18n";
 
 export function AssignEntranceNumbers() {
   const navigate = useNavigate();
   const { lobby, lobbyQuery } = useLobbyContext();
+  const { t } = useI18n();
 
   const [selectedParticipantId, setSelectedParticipantId] = useState<number>();
   const toggleParticipant = (participantId: number) => {
@@ -99,12 +101,16 @@ export function AssignEntranceNumbers() {
 
   const assignEntranceNumbers = async () => {
     if (participantEntranceNumber === undefined || !allAssigned) {
-      console.error("Not all participants have been assigned entrance numbers");
-      alert("Not all participants have been assigned entrance numbers");
+      console.error(t("assignEntrance.errorIncomplete"));
+      alert(t("assignEntrance.errorIncomplete"));
       return;
     }
     setKeyLoading("assignEntranceNumbers", true);
-    await putEntranceNumbers(lobby.code, participantEntranceNumber);
+    await putEntranceNumbers(
+      lobby.code,
+      participantEntranceNumber,
+      t("assignEntrance.errorFailedPrefix"),
+    );
     setKeyLoading("assignEntranceNumbers", false);
     await lobbyQuery?.refetch();
     navigate(`/lobbies/${lobby.code}/view-game`);
@@ -193,7 +199,7 @@ export function AssignEntranceNumbers() {
           size="large"
           onClick={assignEntranceNumbers}
         >
-          START ROYAL RUMBLE
+          {t("assignEntrance.start")}
         </Button>
       </Box>
     </Box>
@@ -202,7 +208,8 @@ export function AssignEntranceNumbers() {
 
 async function putEntranceNumbers(
   lobbyCode: string,
-  entranceNumbers: Record<number, number>
+  entranceNumbers: Record<number, number>,
+  errorPrefix: string,
 ) {
   const body = JSON.stringify({ participantEntranceNumbers: entranceNumbers });
   const response = await fetchApi(`lobbies/${lobbyCode}/entrance-numbers`, {
@@ -215,7 +222,7 @@ async function putEntranceNumbers(
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to post entrance numbers: ${response.statusText}`);
+    throw new Error(`${errorPrefix}: ${response.statusText}`);
   }
   const data = await response.json();
   return data.data.lobby;

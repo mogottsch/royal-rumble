@@ -10,6 +10,10 @@ class StoreLobbyRequest extends FormRequest
     {
         return [
             "participants" => ["required", "array"],
+            "schluecke_per_elimination" => ["nullable", "integer", "min:0", "max:100"],
+            "shots_per_elimination" => ["nullable", "integer", "min:0", "max:100"],
+            "schluecke_on_npc_elimination" => ["nullable", "integer", "min:0", "max:100"],
+            "shots_on_npc_elimination" => ["nullable", "integer", "min:0", "max:100"],
         ];
     }
 }

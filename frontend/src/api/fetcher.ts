@@ -5,10 +5,18 @@ const defaultOptions: RequestInit = {
     accept: "application/json",
   },
 };
+
 export async function fetchApi(
   path: string | URL,
   options?: RequestInit
 ): Promise<Response> {
   const url = path instanceof URL ? path : getApiUrl(path);
   return fetch(url.toString(), { ...defaultOptions, ...options });
+}
+
+export function participantIdHeaders(
+  participantId: number | null
+): Record<string, string> {
+  if (participantId === null) return {};
+  return { "X-Participant-Id": String(participantId) };
 }

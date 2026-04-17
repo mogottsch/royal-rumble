@@ -23,6 +23,8 @@ class ActionResource extends JsonResource
         }
         return [
             "id" => $this->action->id,
+            "created_at" => $this->action->created_at,
+            "updated_at" => $this->action->updated_at,
             "lobby_id" => $this->action->lobby_id,
             "type" => $this->action->getType(),
             "rumbler" => $this->action->rumbler,

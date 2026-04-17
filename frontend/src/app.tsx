@@ -18,6 +18,7 @@ import { AssignEntranceNumbers } from "./routes/assign_entrance_numbers";
 import { ViewGame } from "./routes/view_game";
 import { AddEntrance } from "./routes/add_entrance";
 import { AddElimination } from "./routes/add_elimination";
+import { Distribute } from "./routes/distribute";
 import { LobbyLayout } from "./routes/layout/lobby";
 import { useEcho } from "./hooks/use_echo";
 import { EchoContextProvider } from "./contexts/echo_context";
@@ -76,6 +77,14 @@ const router = createBrowserRouter([
       {
         path: "add-elimination",
         element: <AddElimination />,
+      },
+      {
+        path: "distribute",
+        element: <Distribute />,
+      },
+      {
+        path: "distribute/:eliminationId",
+        element: <Distribute />,
       },
     ],
   },

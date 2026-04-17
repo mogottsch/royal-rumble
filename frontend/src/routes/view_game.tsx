@@ -1,8 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import { Box, Grid } from "@mui/material";
+import { Box, Fab, Grid } from "@mui/material";
+import LocalBarIcon from "@mui/icons-material/LocalBar";
+import { useNavigate } from "react-router-dom";
+import { getPendingDrinkPools } from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { Participant, Rumbler } from "../hooks/use_lobby";
+import { StatsDrawer } from "../components/stats_drawer";
+import { useI18n } from "../i18n";
+import { WrestlerTile } from "../components/wrestler_tile";
 
 interface Row {
   participant?: Participant;
@@ -13,175 +20,39 @@ interface ParticipantCardProps {
   row: Row;
 }
 
-interface ParticipantNameProps {
-  name?: string;
-}
-
-const ParticipantName = ({ name }: ParticipantNameProps) => (
-  <span>{name ?? "NPC"}</span>
-);
-
-interface WrestlerImageProps {
-  imageUrl?: string;
-}
-
-const IMAGE_SIZE = 100;
-const IMAGE_SIZE_PX = `${IMAGE_SIZE}px`;
-const WrestlerImage = ({ imageUrl }: WrestlerImageProps) => {
-  if (imageUrl) {
-    return <img src={imageUrl} height={IMAGE_SIZE_PX} alt="wrestler" />;
-  }
-  return (
-    <span
-      style={{
-        height: IMAGE_SIZE_PX,
-        fontSize: `${IMAGE_SIZE - 30}px`,
-        fontWeight: 400,
-      }}
-    >
-      ?
-    </span>
-  );
-};
-
-interface EntranceNumberProps {
-  number?: number;
-}
-
-const EntranceNumber = ({ number }: EntranceNumberProps) => (
-  <Box
-    sx={{
-      height: IMAGE_SIZE_PX,
-      fontSize: `${IMAGE_SIZE - 60}px`,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <span>#{number}</span>
-  </Box>
-);
-
-interface WrestlerNameProps {
-  name?: string;
-}
-
-const WrestlerName = ({ name }: WrestlerNameProps) => {
-  const textRef = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    const resizeText = () => {
-      const span = textRef.current;
-      if (!span || !span.parentElement) return;
-      const parentWidth = span.parentElement.offsetWidth - 20;
-      let fontSize = 16;
-      span.style.fontSize = `${fontSize}px`;
-      while (span.offsetWidth > parentWidth && fontSize > 8) {
-        fontSize--;
-        span.style.fontSize = `${fontSize}px`;
-      }
-    };
-    resizeText();
-    window.addEventListener("resize", resizeText);
-    return () => window.removeEventListener("resize", resizeText);
-  }, [name]);
-
-  return (
-    <Box
-      sx={{
-        width: "100%",
-        height: "30px",
-        backgroundColor: "#1a1919",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center", // Add this
-        padding: "5px",
-        fontWeight: 400,
-        color: "#fff",
-        boxShadow: "0 -1px 100px #ff0000,0 -1px 5px #ff0000",
-        textShadow: `
-          0 0 4px #ff0000,
-          0 0 8px #ff0000
-        `,
-      }}
-    >
-      <span
-        ref={textRef}
-        style={{
-          display: "inline-block",
-          whiteSpace: "nowrap",
-          textAlign: "center",
-          lineHeight: 1,
-        }}
-      >
-        {name ?? <>&nbsp;</>}
-      </span>
-    </Box>
-  );
-};
-const participantCardStyles = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-
-  // justifyContent: "space-between",
-  // padding: "5px",
-  margin: "5px",
-  paddingTop: "5px",
-  borderRadius: "4px",
-
-  backgroundColor: "rgba(255, 255, 255, 0.07)",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-
-  border: "1px solid #7b7b7b",
-
-  fontWeight: 200,
-} as const;
-
-interface ParticipantCardProps {
-  row: Row;
-}
-
 const ParticipantCard = ({ row }: ParticipantCardProps) => (
-  <Box sx={participantCardStyles}>
-    <ParticipantName name={row.participant?.name} />
-    {row.rumbler ? (
-      <>
-        <WrestlerImage imageUrl={row.rumbler.wrestler.image_url} />
-      </>
-    ) : (
-      <EntranceNumber number={row.participant?.entrance_number} />
-    )}
-
-    <WrestlerName name={row.rumbler?.wrestler.name} />
-  </Box>
+  <WrestlerTile participant={row.participant} rumbler={row.rumbler} />
 );
 
-const ActionButtons = ({ lobby }: { lobby: any }) => (
-  <Grid container spacing={1} sx={{ mb: 2 }}>
-    <Grid size={{ xs: 12, sm: 6 }}>
-      <Button
-        variant="contained"
-        size="large"
-        href={`/lobbies/${lobby.code}/add-entrance`}
-        sx={{ width: "100%" }}
-      >
-        NEXT ENTRANCE
-      </Button>
+const ActionButtons = ({ lobby }: { lobby: any }) => {
+  const { t } = useI18n();
+
+  return (
+    <Grid container spacing={1} sx={{ mb: 2 }}>
+      <Grid size={{ xs: 12, sm: 6 }}>
+        <Button
+          variant="contained"
+          size="large"
+          href={`/lobbies/${lobby.code}/add-entrance`}
+          sx={{ width: "100%" }}
+        >
+          {t("viewGame.nextEntranceButton")}
+        </Button>
+      </Grid>
+      <Grid size={{ xs: 12, sm: 6 }}>
+        <Button
+          variant="contained"
+          sx={{ width: "100%" }}
+          size="large"
+          href={`/lobbies/${lobby.code}/add-elimination`}
+          disabled={lobby.rumblers.length === 0}
+        >
+          {t("viewGame.nextEliminationButton")}
+        </Button>
+      </Grid>
     </Grid>
-    <Grid size={{ xs: 12, sm: 6 }}>
-      <Button
-        variant="contained"
-        sx={{ width: "100%" }}
-        size="large"
-        href={`/lobbies/${lobby.code}/add-elimination`}
-        disabled={lobby.rumblers.length === 0}
-      >
-        NEXT ELIMINATATION
-      </Button>
-    </Grid>
-  </Grid>
-);
+  );
+};
 
 const checkEntranceNumbersAssigned = (participants: Participant[]) => {
   return participants.every(
@@ -191,7 +62,11 @@ const checkEntranceNumbersAssigned = (participants: Participant[]) => {
 
 export function ViewGame() {
   const { lobby } = useLobbyContext();
+  const { claimedParticipantId } = useParticipantClaim();
+  const navigate = useNavigate();
+  const { t } = useI18n();
   const [rows, setRows] = useState<Row[]>();
+  const [statsOpen, setStatsOpen] = useState(false);
 
   useEffect(() => {
     if (!lobby) return;
@@ -227,8 +102,10 @@ export function ViewGame() {
   if (!lobby) return null;
 
   if (!checkEntranceNumbersAssigned(lobby.participants)) {
-    return <div>Wait while the host assigns entrance numbers</div>;
+    return <div>{t("viewGame.pendingEntranceNumbers")}</div>;
   }
+
+  const pendingDrinkPools = getPendingDrinkPools(lobby, claimedParticipantId);
 
   return (
     <Box
@@ -262,11 +139,33 @@ export function ViewGame() {
               fontWeight: 200,
             }}
           >
-            Next: #{lobby.nextEntranceNumber}
+            {t("viewGame.nextEntrance", { number: lobby.nextEntranceNumber })}
           </Box>
+        )}
+        {pendingDrinkPools.length > 0 && (
+          <Button
+            variant="outlined"
+            size="large"
+            sx={{ width: "100%", mb: 1 }}
+            onClick={() => navigate(`/lobbies/${lobby.code}/distribute`)}
+          >
+            {t("viewGame.handOutDrinks", { count: pendingDrinkPools.length })}
+          </Button>
         )}
         <ActionButtons lobby={lobby} />
       </Box>
+      <Fab
+        color="primary"
+        onClick={() => setStatsOpen(true)}
+        sx={{ position: "fixed", bottom: 80, right: 16 }}
+      >
+        <LocalBarIcon />
+      </Fab>
+      <StatsDrawer
+        open={statsOpen}
+        onClose={() => setStatsOpen(false)}
+        lobby={lobby}
+      />
     </Box>
   );
 }

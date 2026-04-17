@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { fetchApi, participantIdHeaders } from "../api/fetcher";
 import {
   getPendingChestChoices,
@@ -34,21 +34,26 @@ type RevealedChestResult = {
   chest_reward_id: number;
   chest_type: "safe" | "group" | "chaos";
   card_key: string;
-  card_mode: "auto" | "give_out";
+  card_mode: "auto" | "give_out" | "target_pick";
   schluecke: number;
   shots: number;
   offenderName: string;
   victimName: string;
+  chooserParticipantId?: number;
+  adminMode?: boolean;
 };
 
 export function Distribute() {
   const { lobby, lobbyQuery } = useLobbyContext();
   const { claimedParticipantId } = useParticipantClaim();
   const { eliminationId } = useParams<{ eliminationId: string }>();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { t } = useI18n();
   const [didRefetch, setDidRefetch] = useState(false);
   const parsedEliminationId = eliminationId ? parseInt(eliminationId) : undefined;
+  const adminChestRewardId = searchParams.get("adminChestRewardId");
+  const adminParticipantId = searchParams.get("adminParticipantId");
   const chestChoices =
     lobby && claimedParticipantId !== null
       ? getPendingChestChoices(lobby, claimedParticipantId)
@@ -69,10 +74,16 @@ export function Distribute() {
         card_mode: revealedChestRewards[0].cardMode,
         schluecke: revealedChestRewards[0].schluecke,
         shots: revealedChestRewards[0].shots,
-        offenderName: revealedChestRewards[0].offender.wrestler.name,
-        victimName: revealedChestRewards[0].victim.wrestler.name,
+        offenderName:
+          revealedChestRewards[0].offender?.wrestler.name ?? t("distribute.adminTriggerOffender"),
+        victimName:
+          revealedChestRewards[0].victim?.wrestler.name ?? t("distribute.adminTriggerVictim"),
       }
     : null;
+  const adminRevealedChestResult =
+    lobby && adminChestRewardId && adminParticipantId
+      ? buildAdminRevealResult(lobby, Number(adminChestRewardId), Number(adminParticipantId))
+      : null;
   const hasChestChoices = chestChoices.length > 0;
   const hasPools = pools.length > 0;
 
@@ -93,6 +104,35 @@ export function Distribute() {
 
   if (!lobby || claimedParticipantId === null) return null;
 
+  if (adminRevealedChestResult) {
+    return (
+      <ChestRevealScreen
+        result={adminRevealedChestResult}
+        onContinue={async () => {
+          await acknowledgeChestReveal(
+            lobby.code,
+            adminRevealedChestResult.chest_reward_id,
+            Number(adminParticipantId),
+          );
+          await lobbyQuery?.refetch();
+          if (adminRevealedChestResult.card_mode === "target_pick") {
+            navigate(
+              `/lobbies/${lobby.code}/distribute?adminTargetChestRewardId=${adminChestRewardId}&adminParticipantId=${adminParticipantId}`,
+            );
+            return;
+          }
+          if (adminRevealedChestResult.card_mode === "give_out") {
+            navigate(
+              `/lobbies/${lobby.code}/distribute?adminDistributionParticipantId=${adminParticipantId}`,
+            );
+            return;
+          }
+          navigate(`/lobbies/${lobby.code}/view-game`);
+        }}
+      />
+    );
+  }
+
   if (revealedChestResult) {
     return (
       <ChestRevealScreen
@@ -104,6 +144,9 @@ export function Distribute() {
             claimedParticipantId,
           );
           await lobbyQuery?.refetch();
+          if (revealedChestResult.card_mode === "target_pick") {
+            return;
+          }
           if (revealedChestResult.card_mode === "give_out") {
             return;
           }
@@ -126,7 +169,42 @@ export function Distribute() {
     );
   }
 
-  if (!hasPools) {
+  const effectiveParticipantId =
+    adminParticipantId === null ? claimedParticipantId : Number(adminParticipantId);
+  const adminTargetChestRewardId = searchParams.get("adminTargetChestRewardId");
+  const targetPickRewardId = adminTargetChestRewardId ?? null;
+  const targetPickReward = targetPickRewardId
+    ? lobby.chest_rewards.find((reward) => reward.id === Number(targetPickRewardId))
+      : lobby.chest_rewards.find(
+        (reward) =>
+          reward.chooser_participant_id === claimedParticipantId &&
+          reward.status === "pending_target_pick",
+      );
+
+  if (targetPickReward) {
+    return (
+      <TargetPickScreen
+        lobby={lobby}
+        chestRewardId={targetPickReward.id}
+        chooserParticipantId={targetPickReward.chooser_participant_id}
+        viewerParticipantId={claimedParticipantId}
+        onResolved={async () => {
+          await lobbyQuery?.refetch();
+          navigate(`/lobbies/${lobby.code}/view-game`);
+        }}
+      />
+    );
+  }
+
+  const effectivePools =
+    lobby && effectiveParticipantId !== null
+      ? getPendingDrinkPools(lobby, effectiveParticipantId, parsedEliminationId)
+      : pools;
+  const constrainedPool = effectivePools.find(
+    (pool) => (pool.minimumSelfSchluecke ?? 0) > 0 || (pool.minimumSelfShots ?? 0) > 0,
+  );
+
+  if (effectivePools.length === 0) {
     if (lobbyQuery?.isFetching) {
       return (
         <Box sx={{ p: 2 }}>
@@ -145,11 +223,27 @@ export function Distribute() {
     );
   }
 
+  if (constrainedPool) {
+    return (
+      <AggregateForm
+        lobby={lobby}
+        pools={[constrainedPool]}
+        giverId={effectiveParticipantId}
+        viewerId={claimedParticipantId}
+        onFinish={async () => {
+          await lobbyQuery?.refetch();
+          navigate(`/lobbies/${lobby.code}/distribute${window.location.search}`);
+        }}
+      />
+    );
+  }
+
   return (
     <AggregateForm
       lobby={lobby}
-      pools={pools}
-      giverId={claimedParticipantId}
+      pools={effectivePools}
+      giverId={effectiveParticipantId}
+      viewerId={claimedParticipantId}
       onFinish={() => navigate(`/lobbies/${lobby.code}/view-game`)}
     />
   );
@@ -186,8 +280,8 @@ function ChestChoiceForm({
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" sx={{ textAlign: "center", mb: 1 }}>
         {t("distribute.chestTitle", {
-          offender: choice.offender.wrestler.name,
-          victim: choice.victim.wrestler.name,
+          offender: choice.offender?.wrestler.name ?? t("distribute.adminTriggerOffender"),
+          victim: choice.victim?.wrestler.name ?? t("distribute.adminTriggerVictim"),
         })}
       </Typography>
       <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 3 }}>
@@ -260,10 +354,83 @@ function ChestRevealScreen({
         </CardContent>
       </Card>
       <Button variant="contained" size="large" onClick={handleContinue}>
-        {result.card_mode === "give_out"
+        {result.card_mode === "target_pick"
+          ? t("distribute.continueToTargetPick")
+          : result.card_mode === "give_out"
           ? t("distribute.continueToDistribution")
           : t("distribute.continueToGame")}
       </Button>
+    </Box>
+  );
+}
+
+function TargetPickScreen({
+  lobby,
+  chestRewardId,
+  chooserParticipantId,
+  viewerParticipantId,
+  onResolved,
+}: {
+  lobby: Lobby;
+  chestRewardId: number;
+  chooserParticipantId: number;
+  viewerParticipantId: number;
+  onResolved: () => Promise<void>;
+}) {
+  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { notify } = useNotificationContext();
+  const { t } = useI18n();
+
+  const chooser = lobby.participants.find((participant) => participant.id === chooserParticipantId);
+  const options = lobby.participants.filter((participant) => participant.id !== chooserParticipantId);
+
+  const pickTarget = async (targetParticipantId: number) => {
+    setKeyLoading("resolveRussianRoulette", true);
+    try {
+      const result = await postTargetResolution(
+        lobby.code,
+        chestRewardId,
+        targetParticipantId,
+        viewerParticipantId,
+      );
+      const loser = lobby.participants.find(
+        (participant) => participant.id === result.result_participant_id,
+      );
+      notify(
+        t("distribute.russianRouletteResult", {
+          loser: loser?.name ?? t("distribute.adminTriggerVictim"),
+        }),
+        "success",
+      );
+      await onResolved();
+    } catch (error) {
+      notify((error as Error).message, "error");
+    } finally {
+      setKeyLoading("resolveRussianRoulette", false);
+    }
+  };
+
+  return (
+    <Box sx={{ p: 2 }}>
+      <Typography variant="h6" sx={{ textAlign: "center", mb: 1 }}>
+        {t("distribute.russianRouletteTitle")}
+      </Typography>
+      <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 3 }}>
+        {t("distribute.russianRouletteBody", {
+          chooser: chooser?.name ?? t("distribute.adminTriggerOffender"),
+        })}
+      </Typography>
+      <Stack spacing={2}>
+        {options.map((participant) => (
+          <Card key={participant.id} variant="outlined">
+            <CardActionArea onClick={() => pickTarget(participant.id)}>
+              <CardContent>
+                <Typography variant="h6">{participant.name}</Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        ))}
+      </Stack>
     </Box>
   );
 }
@@ -295,11 +462,13 @@ function AggregateForm({
   lobby,
   pools,
   giverId,
+  viewerId,
   onFinish,
 }: {
   lobby: Lobby;
   pools: PendingDrinkPool[];
   giverId: number;
+  viewerId: number;
   onFinish: () => void;
 }) {
   const { setKeyLoading } = useLoadingAndErrorStates();
@@ -312,6 +481,8 @@ function AggregateForm({
 
   const totalSchluecke = pools.reduce((sum, pool) => sum + pool.schluecke, 0);
   const totalShots = pools.reduce((sum, pool) => sum + pool.shots, 0);
+  const minimumSelfSchluecke = pools.reduce((sum, pool) => sum + (pool.minimumSelfSchluecke ?? 0), 0);
+  const minimumSelfShots = pools.reduce((sum, pool) => sum + (pool.minimumSelfShots ?? 0), 0);
 
   const sumSchluecke = useMemo(
     () => Object.values(alloc).reduce((s, a) => s + a.schluecke, 0),
@@ -322,7 +493,14 @@ function AggregateForm({
     [alloc],
   );
 
-  const canSubmit = sumSchluecke === totalSchluecke && sumShots === totalShots;
+  const selfAllocation = alloc[giverId] ?? { schluecke: 0, shots: 0 };
+  const meetsSelfMinimum =
+    selfAllocation.schluecke >= minimumSelfSchluecke &&
+    selfAllocation.shots >= minimumSelfShots;
+  const canSubmit =
+    sumSchluecke === totalSchluecke &&
+    sumShots === totalShots &&
+    meetsSelfMinimum;
 
   const bump = (
     participantId: number,
@@ -344,7 +522,7 @@ function AggregateForm({
         await postDistribution(
           lobby.code,
           request,
-          giverId,
+          viewerId,
           t("distribute.failedPrefix"),
         );
       }
@@ -365,18 +543,26 @@ function AggregateForm({
           shots: totalShots,
         })}
       </Typography>
+      {(minimumSelfSchluecke > 0 || minimumSelfShots > 0) && (
+        <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 2 }}>
+          {t("distribute.minimumSelf", {
+            sips: minimumSelfSchluecke,
+            shots: minimumSelfShots,
+          })}
+        </Typography>
+      )}
 
       <Stack spacing={0.5} sx={{ mb: 2 }}>
         {pools.map((pool) => (
           <Typography
-            key={`${pool.chestRewardId ?? 0}-${pool.eliminationId}-${pool.offender.id}-${pool.victim.id}`}
+            key={`${pool.chestRewardId ?? 0}-${pool.eliminationId}-${pool.offender?.id ?? 0}-${pool.victim?.id ?? 0}`}
             variant="body2"
             sx={{ opacity: 0.8 }}
           >
             {t("distribute.aggregateElimination", {
               id: pool.eliminationId,
-              offender: pool.offender.wrestler.name,
-              victim: pool.victim.wrestler.name,
+              offender: pool.offender?.wrestler.name ?? t("distribute.adminTriggerOffender"),
+              victim: pool.victim?.wrestler.name ?? t("distribute.adminTriggerVictim"),
             })}
           </Typography>
         ))}
@@ -422,6 +608,48 @@ function AggregateForm({
   );
 }
 
+function buildAdminRevealResult(
+  lobby: Lobby,
+  chestRewardId: number,
+  participantId: number,
+): RevealedChestResult | null {
+  const reward = lobby.chest_rewards.find(
+    (entry) =>
+      entry.id === chestRewardId &&
+      entry.chooser_participant_id === participantId &&
+      (
+        entry.status === "revealed_auto" ||
+        entry.status === "revealed_distribution" ||
+        entry.status === "revealed_target_pick"
+      ) &&
+      entry.chest_type &&
+      entry.card_key &&
+      entry.card_mode,
+  );
+
+  if (!reward) {
+    return null;
+  }
+  if (!reward.chest_type || !reward.card_key || !reward.card_mode) {
+    return null;
+  }
+
+  const chooser = lobby.participants.find((participant) => participant.id === participantId);
+
+  return {
+    chest_reward_id: reward.id,
+    chest_type: reward.chest_type,
+    card_key: reward.card_key,
+    card_mode: reward.card_mode,
+    schluecke: reward.pending_schluecke,
+    shots: reward.pending_shots,
+    offenderName: chooser?.name ?? "Admin",
+    victimName: "debug trigger",
+    chooserParticipantId: participantId,
+    adminMode: true,
+  };
+}
+
 function buildDistributionRequests(pools: PendingDrinkPool[], alloc: Allocation) {
   const remaining = Object.fromEntries(
     Object.entries(alloc).map(([participantId, value]) => [participantId, { ...value }]),
@@ -460,8 +688,8 @@ function buildDistributionRequests(pools: PendingDrinkPool[], alloc: Allocation)
       return {
         chest_reward_id: pool.chestRewardId,
         elimination_id: pool.eliminationId,
-        offender_rumbler_id: pool.offender.id,
-        victim_rumbler_id: pool.victim.id,
+        offender_rumbler_id: pool.offender?.id ?? 0,
+        victim_rumbler_id: pool.victim?.id ?? 0,
         splits,
       };
     })
@@ -625,6 +853,34 @@ async function acknowledgeChestReveal(
     const text = await response.text();
     throw new Error(text);
   }
+}
+
+async function postTargetResolution(
+  lobbyCode: string,
+  chestRewardId: number,
+  targetParticipantId: number,
+  viewerParticipantId: number,
+) {
+  const response = await fetchApi(
+    `/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/resolve-target`,
+    {
+      method: "POST",
+      body: JSON.stringify({ target_participant_id: targetParticipantId }),
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        ...participantIdHeaders(viewerParticipantId),
+      },
+    },
+  );
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text);
+  }
+
+  const data = await response.json();
+  return data.data as { target_participant_id: number; result_participant_id: number };
 }
 
 async function postDistribution(

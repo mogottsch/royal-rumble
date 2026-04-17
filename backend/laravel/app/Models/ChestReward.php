@@ -10,6 +10,8 @@ class ChestReward extends Model
     use HasFactory;
 
     const STATUS_PENDING_CHOICE = "pending_choice";
+    const STATUS_REVEALED_TARGET_PICK = "revealed_target_pick";
+    const STATUS_PENDING_TARGET_PICK = "pending_target_pick";
     const STATUS_REVEALED_AUTO = "revealed_auto";
     const STATUS_REVEALED_DISTRIBUTION = "revealed_distribution";
     const STATUS_PENDING_DISTRIBUTION = "pending_distribution";
@@ -20,6 +22,10 @@ class ChestReward extends Model
     protected $casts = [
         "pending_schluecke" => "integer",
         "pending_shots" => "integer",
+        "minimum_self_schluecke" => "integer",
+        "minimum_self_shots" => "integer",
+        "target_participant_id" => "integer",
+        "result_participant_id" => "integer",
     ];
 
     public function lobby()
@@ -45,5 +51,15 @@ class ChestReward extends Model
     public function chooser()
     {
         return $this->belongsTo(Participant::class, "chooser_participant_id");
+    }
+
+    public function targetParticipant()
+    {
+        return $this->belongsTo(Participant::class, "target_participant_id");
+    }
+
+    public function resultParticipant()
+    {
+        return $this->belongsTo(Participant::class, "result_participant_id");
     }
 }

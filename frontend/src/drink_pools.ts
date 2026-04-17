@@ -3,27 +3,29 @@ import { Lobby, Rumbler } from "./hooks/use_lobby";
 export type PendingDrinkPool = {
   chestRewardId?: number;
   eliminationId: number;
-  offender: Rumbler;
-  victim: Rumbler;
+  offender?: Rumbler;
+  victim?: Rumbler;
   schluecke: number;
   shots: number;
+  minimumSelfSchluecke?: number;
+  minimumSelfShots?: number;
 };
 
 export type PendingChestChoice = {
   chestRewardId: number;
   eliminationId: number;
-  offender: Rumbler;
-  victim: Rumbler;
+  offender?: Rumbler;
+  victim?: Rumbler;
 };
 
 export type RevealedChestReward = {
   chestRewardId: number;
   eliminationId: number;
-  offender: Rumbler;
-  victim: Rumbler;
+  offender?: Rumbler;
+  victim?: Rumbler;
   chestType: "safe" | "group" | "chaos";
   cardKey: string;
-  cardMode: "auto" | "give_out";
+  cardMode: "auto" | "give_out" | "target_pick";
   schluecke: number;
   shots: number;
 };
@@ -40,15 +42,13 @@ export function getPendingChestChoices(
     .filter(
       (reward) =>
         reward.chooser_participant_id === claimedParticipantId &&
-        reward.status === "pending_choice" &&
-        reward.offender_rumbler &&
-        reward.victim_rumbler,
+        reward.status === "pending_choice",
     )
     .map((reward) => ({
       chestRewardId: reward.id,
       eliminationId: reward.elimination_id,
-      offender: reward.offender_rumbler as Rumbler,
-      victim: reward.victim_rumbler as Rumbler,
+      offender: reward.offender_rumbler ?? undefined,
+      victim: reward.victim_rumbler ?? undefined,
     }));
 }
 
@@ -64,9 +64,11 @@ export function getRevealedChestRewards(
     .filter(
       (reward) =>
         reward.chooser_participant_id === claimedParticipantId &&
-        (reward.status === "revealed_auto" || reward.status === "revealed_distribution") &&
-        reward.offender_rumbler &&
-        reward.victim_rumbler &&
+        (
+          reward.status === "revealed_auto" ||
+          reward.status === "revealed_distribution" ||
+          reward.status === "revealed_target_pick"
+        ) &&
         reward.chest_type &&
         reward.card_key &&
         reward.card_mode,
@@ -74,11 +76,11 @@ export function getRevealedChestRewards(
     .map((reward) => ({
       chestRewardId: reward.id,
       eliminationId: reward.elimination_id,
-      offender: reward.offender_rumbler as Rumbler,
-      victim: reward.victim_rumbler as Rumbler,
+      offender: reward.offender_rumbler ?? undefined,
+      victim: reward.victim_rumbler ?? undefined,
       chestType: reward.chest_type as "safe" | "group" | "chaos",
       cardKey: reward.card_key as string,
-      cardMode: reward.card_mode as "auto" | "give_out",
+      cardMode: reward.card_mode as "auto" | "give_out" | "target_pick",
       schluecke: reward.pending_schluecke,
       shots: reward.pending_shots,
     }));
@@ -97,17 +99,17 @@ export function getPendingDrinkPools(
         (reward) =>
           reward.chooser_participant_id === claimedParticipantId &&
           reward.status === "pending_distribution" &&
-          reward.offender_rumbler &&
-          reward.victim_rumbler &&
           (eliminationId === undefined || reward.elimination_id === eliminationId),
       )
       .map((reward) => ({
         chestRewardId: reward.id,
         eliminationId: reward.elimination_id,
-        offender: reward.offender_rumbler as Rumbler,
-        victim: reward.victim_rumbler as Rumbler,
+        offender: reward.offender_rumbler ?? undefined,
+        victim: reward.victim_rumbler ?? undefined,
         schluecke: reward.pending_schluecke,
         shots: reward.pending_shots,
+        minimumSelfSchluecke: reward.minimum_self_schluecke ?? 0,
+        minimumSelfShots: reward.minimum_self_shots ?? 0,
       }));
   }
 
@@ -154,7 +156,7 @@ export function getPendingDrinkPoolSignature(pools: PendingDrinkPool[]): string 
   return pools
     .map(
       (pool) =>
-        `${pool.chestRewardId ?? 0}:${pool.eliminationId}:${pool.offender.id}:${pool.victim.id}`,
+        `${pool.chestRewardId ?? 0}:${pool.eliminationId}:${pool.offender?.id ?? 0}:${pool.victim?.id ?? 0}`,
     )
     .join("|");
 }

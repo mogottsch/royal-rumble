@@ -67,15 +67,21 @@ export interface ChestReward {
   chooser_participant_id: number;
   status:
     | "pending_choice"
+    | "revealed_target_pick"
+    | "pending_target_pick"
     | "revealed_auto"
     | "revealed_distribution"
     | "pending_distribution"
     | "resolved";
   chest_type: "safe" | "group" | "chaos" | null;
   card_key: string | null;
-  card_mode: "auto" | "give_out" | null;
+  card_mode: "auto" | "give_out" | "target_pick" | null;
   pending_schluecke: number;
   pending_shots: number;
+  minimum_self_schluecke?: number;
+  minimum_self_shots?: number;
+  target_participant_id?: number | null;
+  result_participant_id?: number | null;
   chooser?: Participant | null;
   offender_rumbler?: Rumbler | null;
   victim_rumbler?: Rumbler | null;

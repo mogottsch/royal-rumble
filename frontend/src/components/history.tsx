@@ -330,9 +330,6 @@ function summarizeChestRewards(distributions: DrinkDistribution[], lobby: Lobby)
 
     const offender = distribution.offender_rumbler?.wrestler.name;
     const victim = distribution.victim_rumbler?.wrestler.name;
-    if (!offender || !victim) {
-      continue;
-    }
 
     const key = [
       reward.id,
@@ -349,7 +346,10 @@ function summarizeChestRewards(distributions: DrinkDistribution[], lobby: Lobby)
         sips: reward.pending_schluecke,
         shots: reward.pending_shots,
       }),
-      elimination: t("history.eliminating", { offender, victim }),
+      elimination:
+        offender && victim
+          ? t("history.eliminating", { offender, victim })
+          : t("history.adminTrigger"),
     });
   }
 

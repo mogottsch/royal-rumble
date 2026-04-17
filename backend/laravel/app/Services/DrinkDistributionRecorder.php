@@ -158,5 +158,18 @@ class DrinkDistributionRecorder
         if ($shotsSum !== (int) $chestReward->pending_shots) {
             throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SHOTS_SUM);
         }
+
+        $selfSplit = collect($splits)
+            ->firstWhere("receiver_participant_id", $giver->id);
+
+        $selfSchluecke = (int) ($selfSplit["schluecke"] ?? 0);
+        $selfShots = (int) ($selfSplit["shots"] ?? 0);
+
+        if ($selfSchluecke < (int) $chestReward->minimum_self_schluecke) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SCHLUECKE_SUM);
+        }
+        if ($selfShots < (int) $chestReward->minimum_self_shots) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SHOTS_SUM);
+        }
     }
 }

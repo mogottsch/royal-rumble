@@ -64,6 +64,16 @@ Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/acknowledge", [
     ChestRewardController::class,
     "acknowledge",
 ])->name("lobbies.chestRewards.acknowledge");
+
+Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-target", [
+    ChestRewardController::class,
+    "resolveTarget",
+])->name("lobbies.chestRewards.resolveTarget");
+
+Route::post("/lobbies/{lobby:code}/admin/chest-rewards/trigger", [
+    ChestRewardController::class,
+    "adminTrigger",
+])->name("lobbies.admin.chestRewards.trigger");
 // });
 //
 Route::get("/test/", function () {

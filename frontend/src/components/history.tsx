@@ -40,6 +40,7 @@ export function History({ lobby }: { lobby: Lobby | undefined }) {
 }
 
 function HistoryRow({ index, item }: { index: number; item: HistoryItem }) {
+  const { t } = useI18n();
   const rumble = item.group === "rumble";
 
   return (
@@ -62,7 +63,7 @@ function HistoryRow({ index, item }: { index: number; item: HistoryItem }) {
         {index}.
       </Typography>
       <Chip
-        label={rumble ? "Rumble" : "Drink"}
+        label={rumble ? t("history.rumble") : t("history.drink")}
         size="small"
         sx={{
           height: 20,
@@ -150,12 +151,14 @@ function ActionDisplay({ action }: { action: Action }) {
 }
 
 function Entrance({ action }: { action: Action }) {
+  const { t } = useI18n();
   const wrestler = action.rumbler?.wrestler;
   if (!wrestler) return null;
-  return <>{wrestler.name} entered the match</>;
+  return <>{t("history.entered", { name: wrestler.name })}</>;
 }
 
 function Elimination({ action }: { action: Action }) {
+  const { t } = useI18n();
   const elimination = action.elimination;
   if (!elimination) return null;
 
@@ -166,10 +169,14 @@ function Elimination({ action }: { action: Action }) {
     (rumbler) => rumbler.wrestler.name,
   );
 
-  return <>{joinButLast(offenders, ", ", " and ")} eliminated {joinButLast(victims, ", ", " and ")}</>;
+  return <>{t("history.eliminated", {
+    offenders: joinButLast(offenders, ", ", t("history.and")),
+    victims: joinButLast(victims, ", ", t("history.and")),
+  })}</>;
 }
 
 function DistributionGroupDisplay({ distributions }: { distributions: DrinkDistribution[] }) {
+  const { t } = useI18n();
   const first = distributions[0];
 
   if (first.kind === "npc_elimination_penalty") {
@@ -182,18 +189,26 @@ function DistributionGroupDisplay({ distributions }: { distributions: DrinkDistr
 
   return (
     <>
-      {giver} handed out {joinButLast(totals, ", ", " and ")}
-      {eliminations.length > 0 ? ` for ${joinButLast(eliminations, ", ", " and ")}` : ""}
+      {t("history.handedOut", {
+        giver: String(giver),
+        totals: joinButLast(totals, ", ", t("history.and")),
+        eliminations:
+          eliminations.length > 0
+            ? joinButLast(eliminations, ", ", t("history.and"))
+            : "",
+      })}
     </>
   );
 }
 
 function NpcDistributionGroupDisplay({ distributions }: { distributions: DrinkDistribution[] }) {
+  const { t } = useI18n();
   const totals = summarizePerReceiver(distributions);
-  return <>NPC elimination penalty: {joinButLast(totals, ", ", " and ")}</>;
+  return <>{t("history.npcPenalty", { totals: joinButLast(totals, ", ", t("history.and")) })}</>;
 }
 
 function summarizePerReceiver(distributions: DrinkDistribution[]): string[] {
+  const { t } = useI18n();
   const perReceiver = new Map<string, { sips: number; shots: number }>();
 
   for (const distribution of distributions) {
@@ -208,13 +223,14 @@ function summarizePerReceiver(distributions: DrinkDistribution[]): string[] {
 
   return Array.from(perReceiver.entries()).map(([receiver, total]) => {
     const parts: string[] = [];
-    if (total.sips > 0) parts.push(`${total.sips} sips`);
-    if (total.shots > 0) parts.push(`${total.shots} shots`);
-    return `${receiver} ${parts.join(" and ")}`;
+    if (total.sips > 0) parts.push(t("history.sips", { count: total.sips }));
+    if (total.shots > 0) parts.push(t("history.shots", { count: total.shots }));
+    return `${receiver} ${parts.join(t("history.and"))}`;
   });
 }
 
 function summarizeEliminations(distributions: DrinkDistribution[]): string[] {
+  const { t } = useI18n();
   const summaries = new Map<string, string>();
 
   for (const distribution of distributions) {
@@ -222,15 +238,16 @@ function summarizeEliminations(distributions: DrinkDistribution[]): string[] {
     const victim = distribution.victim_rumbler?.wrestler.name;
     if (!offender || !victim) continue;
     const key = `${offender}->${victim}`;
-    summaries.set(key, `${offender} eliminating ${victim}`);
+    summaries.set(key, t("history.eliminating", { offender, victim }));
   }
 
   return Array.from(summaries.values());
 }
 
 function ChugDisplay({ chug }: { chug: Chug }) {
+  const { t } = useI18n();
   const participant = chug.participant?.name ?? chug.participant_id;
-  return <>{participant} chugged</>;
+  return <>{t("history.chugged", { participant: String(participant) })}</>;
 }
 
 function joinButLast(array: string[], separator: string, lastSeparator: string) {

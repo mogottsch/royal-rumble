@@ -13,13 +13,22 @@ export interface Lobby {
   participants: Participant[];
   rumblers: Rumbler[];
   actions: Action[];
-  nextEntranceNumber: number;
+  nextEntranceNumber: number | null;
+  settings: LobbySettings;
   drink_config: DrinkConfig;
   drink_distributions: DrinkDistribution[];
   chugs: Chug[];
 }
 
 export interface DrinkConfig {
+  schluecke_per_elimination: number;
+  shots_per_elimination: number;
+  schluecke_on_npc_elimination: number;
+  shots_on_npc_elimination: number;
+}
+
+export interface LobbySettings {
+  rumble_size: number;
   schluecke_per_elimination: number;
   shots_per_elimination: number;
   schluecke_on_npc_elimination: number;

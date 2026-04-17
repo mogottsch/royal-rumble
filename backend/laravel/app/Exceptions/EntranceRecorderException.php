@@ -19,6 +19,8 @@ class EntranceRecorderException extends Exception
         return match ($this->errorCode) {
             EntranceRecorderErrorCode::WRESTLER_ALREADY_ENTERED
                 => "Wrestler already entered.",
+            EntranceRecorderErrorCode::RUMBLE_ALREADY_FULL
+                => "The rumble is already full.",
             default => "Unknown error.",
         };
     }
@@ -27,4 +29,5 @@ class EntranceRecorderException extends Exception
 enum EntranceRecorderErrorCode
 {
     case WRESTLER_ALREADY_ENTERED;
+    case RUMBLE_ALREADY_FULL;
 }

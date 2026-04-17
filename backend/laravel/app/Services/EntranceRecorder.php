@@ -21,6 +21,11 @@ class EntranceRecorder
     public function record(Lobby $lobby, Wrestler $wrestler): Rumbler
     {
         $this->lobby = $lobby;
+        if ($this->rumbleAlreadyFull()) {
+            throw new EntranceRecorderException(
+                EntranceRecorderErrorCode::RUMBLE_ALREADY_FULL
+            );
+        }
         if ($this->wrestlerAlreadyEntered($wrestler)) {
             throw new EntranceRecorderException(
                 EntranceRecorderErrorCode::WRESTLER_ALREADY_ENTERED
@@ -54,6 +59,11 @@ class EntranceRecorder
     private function wrestlerAlreadyEntered(Wrestler $wrestler): bool
     {
         return $this->lobby->rumblers->contains("wrestler_id", $wrestler->id);
+    }
+
+    private function rumbleAlreadyFull(): bool
+    {
+        return $this->lobby->rumblers->count() >= (int) $this->lobby->rumble_size;
     }
 
     private function assignParticipantIfSameEntranceNumber(

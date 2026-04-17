@@ -28,11 +28,10 @@ class LobbyResource extends JsonResource
         return [
             "id" => $this->lobby->id,
             "code" => $this->lobby->code,
+            "settings" => $this->lobby->getSettings(),
             "participants" => $this->lobby->participants,
             "rumblers" => RumblerResource::collection($this->lobby->rumblers),
-            "nextEntranceNumber" => $this->entranceNumberAssigner->getNextRumblerEntranceNumber(
-                $this->lobby
-            ),
+            "nextEntranceNumber" => $this->entranceNumberAssigner->getNextRumblerEntranceNumber($this->lobby),
             "actions" => ActionResource::collection($this->lobby->actions),
             "drink_config" => $this->lobby->getDrinkConfig(),
             "drink_distributions" => $this->lobby->drinkDistributions,

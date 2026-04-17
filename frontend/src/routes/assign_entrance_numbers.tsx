@@ -12,6 +12,22 @@ export function AssignEntranceNumbers() {
   const { lobby, lobbyQuery } = useLobbyContext();
   const { t } = useI18n();
 
+  useEffect(() => {
+    if (!lobby) {
+      return;
+    }
+
+    const allAssignedInLobby = lobby.participants.every(
+      (participant) => participant.entrance_number !== null,
+    );
+
+    if (!allAssignedInLobby) {
+      return;
+    }
+
+    navigate(`/lobbies/${lobby.code}/view-game`, { replace: true });
+  }, [lobby, navigate]);
+
   const [selectedParticipantId, setSelectedParticipantId] = useState<number>();
   const toggleParticipant = (participantId: number) => {
     if (selectedParticipantId === participantId) {

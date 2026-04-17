@@ -2,6 +2,7 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import { Lobby } from "../hooks/use_lobby";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { useI18n } from "../i18n";
+import { LanguageSwitcher } from "./language_switcher";
 
 export function ClaimGate({ lobby }: { lobby: Lobby }) {
   const { claim } = useParticipantClaim();
@@ -9,6 +10,9 @@ export function ClaimGate({ lobby }: { lobby: Lobby }) {
 
   return (
     <Box sx={{ mt: 4, px: 2 }}>
+      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+        <LanguageSwitcher />
+      </Box>
       <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
         {t("claimGate.title")}
       </Typography>

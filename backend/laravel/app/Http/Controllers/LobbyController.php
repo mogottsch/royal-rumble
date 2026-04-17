@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LobbyUpdated;
 use App\Exceptions\EntranceNumberAssignerException;
 use App\Http\Requests\AssignEntranceNumbersRequest;
 use App\Http\Requests\StoreLobbyRequest;
+use App\Http\Requests\UpdateLobbySettingsRequest;
 use App\Http\Resources\LobbyResource;
 use App\Models\Lobby;
 use App\Services\EntranceNumberAssigner;
@@ -28,6 +30,7 @@ class LobbyController extends Controller
         $lobby = $lobbyCreator->createWithParticipants(
             collect($request->get("participants")),
             $request->only([
+                "rumble_size",
                 "schluecke_per_elimination",
                 "shots_per_elimination",
                 "schluecke_on_npc_elimination",
@@ -62,6 +65,41 @@ class LobbyController extends Controller
 
         return response()->json(
             ["data" => ["lobby" => $lobby]],
+            Response::HTTP_OK
+        );
+    }
+
+    public function updateSettings(
+        UpdateLobbySettingsRequest $request,
+        Lobby $lobby
+    ) {
+        $validated = $request->validated();
+        $minRumbleSize = max(
+            $lobby->participants()->count(),
+            $lobby->rumblers()->count(),
+            (int) ($lobby->participants()->max("entrance_number") ?? 0),
+            1
+        );
+
+        if ((int) $validated["rumble_size"] < $minRumbleSize) {
+            return response()->json(
+                [
+                    "message" =>
+                        "Rumble size cannot be lower than the current match state.",
+                ],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        foreach ($validated as $key => $value) {
+            $lobby->{$key} = $value;
+        }
+        $lobby->save();
+
+        LobbyUpdated::dispatch($lobby->fresh());
+
+        return response()->json(
+            ["data" => ["lobby" => new LobbyResource($lobby->fresh())]],
             Response::HTTP_OK
         );
     }

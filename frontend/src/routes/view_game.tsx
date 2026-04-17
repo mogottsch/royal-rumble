@@ -48,16 +48,18 @@ const ActionButtons = ({
           </Button>
         </Grid>
       )}
-      <Grid size={{ xs: 12, sm: 6 }}>
-        <Button
-          variant="contained"
-          size="large"
-          href={`/lobbies/${lobby.code}/add-entrance`}
-          sx={{ width: "100%" }}
-        >
-          {t("viewGame.nextEntranceButton")}
-        </Button>
-      </Grid>
+      {lobby.nextEntranceNumber !== null && (
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Button
+            variant="contained"
+            size="large"
+            href={`/lobbies/${lobby.code}/add-entrance`}
+            sx={{ width: "100%" }}
+          >
+            {t("viewGame.nextEntranceButton")}
+          </Button>
+        </Grid>
+      )}
       <Grid size={{ xs: 12, sm: 6 }}>
         <Button
           variant="contained"
@@ -147,19 +149,19 @@ export function ViewGame() {
         ))}
       </Box>
       <Box>
-        {lobby.nextEntranceNumber && (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              padding: "10px",
-              fontSize: "17px",
-              fontWeight: 200,
-            }}
-          >
-            {t("viewGame.nextEntrance", { number: lobby.nextEntranceNumber })}
-          </Box>
-        )}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "10px",
+            fontSize: "17px",
+            fontWeight: 200,
+          }}
+        >
+          {lobby.nextEntranceNumber !== null
+            ? t("viewGame.nextEntrance", { number: lobby.nextEntranceNumber })
+            : t("viewGame.rumbleFull", { count: lobby.settings.rumble_size })}
+        </Box>
         <ActionButtons
           lobby={lobby}
           pendingDrinkPoolsCount={pendingDrinkPools.length}

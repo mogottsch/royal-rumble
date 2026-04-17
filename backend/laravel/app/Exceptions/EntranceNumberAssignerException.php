@@ -29,6 +29,8 @@ class EntranceNumberAssignerException extends Exception
                 => "The number of participants in the lobby is not equal to the number of entrance numbers given.",
             EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE
                 => "Entrance numbers have to start with 1.",
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_EXCEED_RUMBLE_SIZE
+                => "Entrance numbers cannot exceed the rumble size.",
             default => "Unknown error.",
         };
     }
@@ -42,4 +44,5 @@ enum EntranceNumberAssignerErrorCode
     case ENTRANCE_NUMBERS_ARE_NOT_SEQUENTIAL;
     case UNEXPECTED_NUMBER_OF_PARTICIPANTS;
     case ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE;
+    case ENTRANCE_NUMBERS_EXCEED_RUMBLE_SIZE;
 }

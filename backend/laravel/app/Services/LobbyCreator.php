@@ -31,6 +31,7 @@ class LobbyCreator
     private function applyDrinkConfig(Lobby $lobby, array $config): void
     {
         $allowed = [
+            "rumble_size",
             "schluecke_per_elimination",
             "shots_per_elimination",
             "schluecke_on_npc_elimination",

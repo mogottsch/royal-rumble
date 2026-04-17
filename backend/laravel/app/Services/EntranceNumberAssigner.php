@@ -86,6 +86,17 @@ class EntranceNumberAssigner
                 EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE
             );
         }
+
+        if (
+            !$this->allEntranceNumbersFitRumbleSize(
+                $lobby,
+                $participantsEntranceNumbersMap
+            )
+        ) {
+            throw new EntranceNumberAssignerException(
+                EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_EXCEED_RUMBLE_SIZE
+            );
+        }
     }
 
     private function correctNumberOfParticipants(
@@ -144,22 +155,36 @@ class EntranceNumberAssigner
         return min($participantsEntranceNumbersMap) === 1;
     }
 
-    public function getNextRumblerEntranceNumber(Lobby $lobby): int
+    private function allEntranceNumbersFitRumbleSize(
+        Lobby $lobby,
+        array $participantsEntranceNumbersMap
+    ): bool {
+        return max($participantsEntranceNumbersMap) <= (int) $lobby->rumble_size;
+    }
+
+    public function getNextRumblerEntranceNumber(Lobby $lobby): ?int
     {
         $nRumblers = $lobby->fresh("rumblers")->rumblers->count();
+
+        if ($nRumblers >= (int) $lobby->rumble_size) {
+            return null;
+        }
 
         return $nRumblers + self::NEXT_OFFSET;
     }
 
     public function getNextParticipantEntranceNumber(Lobby $lobby)
     {
-        $nextParticipantEntranceNumber =
-            $this->getHighestParticipantEntranceNumber($lobby) +
-            self::NEXT_OFFSET;
-
         $nextRumblerEntranceNumber = $this->getNextRumblerEntranceNumber(
             $lobby
         );
+        if ($nextRumblerEntranceNumber === null) {
+            return null;
+        }
+
+        $nextParticipantEntranceNumber =
+            $this->getHighestParticipantEntranceNumber($lobby) +
+            self::NEXT_OFFSET;
         return max($nextParticipantEntranceNumber, $nextRumblerEntranceNumber);
     }
 
@@ -174,9 +199,12 @@ class EntranceNumberAssigner
         Lobby $lobby,
         Participant $participant
     ) {
-        $participant->entrance_number = $this->getNextParticipantEntranceNumber(
-            $lobby
-        );
+        $nextEntranceNumber = $this->getNextParticipantEntranceNumber($lobby);
+        if ($nextEntranceNumber === null) {
+            return;
+        }
+
+        $participant->entrance_number = $nextEntranceNumber;
         $participant->save();
     }
 }

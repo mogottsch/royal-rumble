@@ -7,37 +7,58 @@ import {
   Menu,
   MenuItem,
   Modal,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Toolbar,
   Typography,
+  Button,
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LanguageIcon from "@mui/icons-material/Language";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import SettingsIcon from "@mui/icons-material/Settings";
 import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import QRCode from "react-qr-code";
+import { fetchApi } from "../api/fetcher";
 import { CopyToClipboardButton } from "./buttons";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
+import { useNotificationContext } from "../contexts/notification_context";
+import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import logo from "../assets/logo_small.png";
 import { LanguageSwitcher } from "./language_switcher";
 import { useI18n } from "../i18n";
 import { ActivityPanel } from "./activity_panel";
+import {
+  getLobbySettings,
+  LobbySettings,
+  LobbySettingsForm,
+} from "./lobby_settings_form";
 
 export function Bar() {
   const { isAnyLoading } = useLoadingAndErrorStateContext();
-  const { lobby } = useLobbyContext();
+  const { lobby, lobbyQuery } = useLobbyContext();
   const { claimedParticipantId, clear } = useParticipantClaim();
+  const { notify } = useNotificationContext();
+  const { setKeyLoading } = useLoadingAndErrorStates();
   const { t } = useI18n();
   const claimedParticipant = lobby?.participants.find(
     (p) => p.id === claimedParticipantId,
   );
   const [openShare, setOpenShare] = useState(false);
   const [openHistory, setOpenHistory] = useState(false);
+  const [openSettings, setOpenSettings] = useState(false);
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
+  const [settings, setSettings] = useState<LobbySettings | null>(
+    lobby ? getLobbySettings(lobby) : null,
+  );
 
   const handleOpenShare = () => setOpenShare(true);
   const handleCloseShare = () => setOpenShare(false);
@@ -45,6 +66,38 @@ export function Bar() {
   const handleCloseHistory = () => setOpenHistory(false);
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => setMenuAnchor(event.currentTarget);
   const handleCloseMenu = () => setMenuAnchor(null);
+
+  const handleOpenSettings = () => {
+    if (!lobby) return;
+    setSettings(getLobbySettings(lobby));
+    setOpenSettings(true);
+  };
+
+  const handleSaveSettings = async () => {
+    if (!lobby || !settings) return;
+    setKeyLoading("updateLobbySettings", true);
+    try {
+      const response = await fetchApi(`/lobbies/${lobby.code}/settings`, {
+        method: "PATCH",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(settings),
+      });
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.message ?? t("lobbySettings.saveFailed"));
+      }
+      await lobbyQuery?.refetch();
+      setOpenSettings(false);
+      notify(t("lobbySettings.saved"), "success");
+    } catch (error) {
+      notify((error as Error).message, "error");
+    } finally {
+      setKeyLoading("updateLobbySettings", false);
+    }
+  };
 
   const theme = useTheme();
 
@@ -87,7 +140,6 @@ export function Bar() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1,
               px: 2,
               pb: 0.5,
             }}
@@ -96,17 +148,6 @@ export function Bar() {
               {playingAsPrefix}
               <strong>{claimedParticipant.name}</strong>
               {playingAsSuffix}
-            </Typography>
-            <Typography
-              variant="caption"
-              onClick={clear}
-              sx={{
-                cursor: "pointer",
-                textDecoration: "underline",
-                opacity: 0.8,
-              }}
-            >
-              {t("common.switch")}
             </Typography>
           </Box>
         )}
@@ -139,6 +180,30 @@ export function Bar() {
             <LanguageSwitcher />
           </Box>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleCloseMenu();
+            handleOpenSettings();
+          }}
+        >
+          <ListItemIcon>
+            <SettingsIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>{t("lobbySettings.menu")}</ListItemText>
+        </MenuItem>
+        {claimedParticipant && (
+          <MenuItem
+            onClick={() => {
+              handleCloseMenu();
+              clear();
+            }}
+          >
+            <ListItemIcon>
+              <SwapHorizIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>{t("common.changePlayer")}</ListItemText>
+          </MenuItem>
+        )}
       </Menu>
       <Modal open={openShare} onClose={handleCloseShare}>
         <Box sx={shareModalStyle}>
@@ -156,6 +221,16 @@ export function Bar() {
           </Box>
         </Box>
       </Modal>
+      <Dialog open={openSettings} onClose={() => setOpenSettings(false)} fullWidth>
+        <DialogTitle>{t("lobbySettings.menu")}</DialogTitle>
+        <DialogContent>
+          {settings && <LobbySettingsForm value={settings} onChange={setSettings} />}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenSettings(false)}>{t("common.cancel")}</Button>
+          <Button onClick={handleSaveSettings}>{t("common.save")}</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

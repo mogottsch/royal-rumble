@@ -20,6 +20,7 @@ class LobbyFactory extends Factory
         $lobbyCodeGenerator = new LobbyCodeGenerator();
         return [
             "code" => $lobbyCodeGenerator->generate(),
+            "rumble_size" => 30,
         ];
     }
 }

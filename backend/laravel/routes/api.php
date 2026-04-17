@@ -24,6 +24,9 @@ Route::get("/lobbies/{lobby:code}", [LobbyController::class, "get"])->name(
 Route::post("/lobbies", [LobbyController::class, "store"])->name(
     "lobbies.store"
 );
+Route::patch("/lobbies/{lobby:code}/settings", [LobbyController::class, "updateSettings"])->name(
+    "lobbies.updateSettings"
+);
 Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
     "wrestlers.search"
 );

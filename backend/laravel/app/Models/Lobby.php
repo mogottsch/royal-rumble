@@ -65,6 +65,14 @@ class Lobby extends Model
         ];
     }
 
+    public function getSettings(): array
+    {
+        return [
+            "rumble_size" => $this->rumble_size,
+            ...$this->getDrinkConfig(),
+        ];
+    }
+
     public function latestAction()
     {
         return $this->hasMany(Action::class)

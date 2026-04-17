@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import { Box, TextField, Typography } from "@mui/material";
 import { css } from "@emotion/react";
 import { useLobbyContext } from "../contexts/lobby_context";
-import { useState } from "react";
+import { useDeferredValue, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Wrestler } from "../hooks/use_lobby";
 import { useWrestlers } from "../hooks/use_wrestlers";
@@ -24,6 +24,7 @@ export function AddEntrance() {
   const [selectedWrestler, setSelectedWrestler] =
     useState<WrestlerOptionType | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const deferredSearchTerm = useDeferredValue(searchTerm);
   const [open, toggleOpen] = useState(false);
 
   const [dialogValue, setDialogValue] = useState({
@@ -38,13 +39,15 @@ export function AddEntrance() {
   };
 
   const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
-    searchTerm,
+    searchTerm: deferredSearchTerm,
   });
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { notify } = useNotificationContext();
   const { t } = useI18n();
 
   if (!lobby) return <div>{t("addEntrance.loading")}</div>;
+
+  const displayedWrestlers = searchedWrestlers.slice(0, 24);
 
   const addEntrance = async () => {
     if (selectedWrestler === null) {
@@ -56,7 +59,6 @@ export function AddEntrance() {
       throw new Error(t("addEntrance.errorMissingId"));
     }
 
-    console.log(selectedWrestler);
     setKeyLoading("addEntrance", true);
     try {
       await postEntrance(lobby.code, selectedWrestler.id);
@@ -113,7 +115,7 @@ export function AddEntrance() {
         >
           {t("addEntrance.createOption", { name: searchTerm || "..." })}
         </Button>
-        {searchTerm.trim() !== "" && searchedWrestlers.length === 0 && !isLoading ? (
+        {deferredSearchTerm.trim().length >= 2 && searchedWrestlers.length === 0 && !isLoading ? (
           <Typography sx={{ opacity: 0.7 }}>{t("addEntrance.noResults")}</Typography>
         ) : (
           <Box
@@ -124,7 +126,7 @@ export function AddEntrance() {
               alignContent: "start",
             }}
           >
-            {searchedWrestlers.map((wrestler) => (
+            {displayedWrestlers.map((wrestler) => (
               <WrestlerPickerTile
                 key={wrestler.id}
                 name={wrestler.name}

@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
 import { fetchApi } from "../api/fetcher";
 import { Wrestler } from "./use_lobby";
 
@@ -8,17 +7,10 @@ interface Props {
 }
 
 export function useWrestlers({ searchTerm }: Props) {
-  const [wrestlers, setWrestlers] = useState<Wrestler[] | undefined>(undefined);
   const query = useWrestlersQuery(searchTerm);
 
-  useEffect(() => {
-    if (query.data) {
-      setWrestlers(query.data);
-    }
-  }, [query.data]);
-
   return {
-    wrestlers: wrestlers ?? [],
+    wrestlers: query.data ?? [],
     isLoading: query.isLoading,
     isError: query.isError,
     error: query.error,
@@ -28,7 +20,12 @@ export function useWrestlers({ searchTerm }: Props) {
 
 function useWrestlersQuery(searchTerm: string) {
   const queryKey = ["wrestlers", searchTerm];
-  return useQuery<Wrestler[], any>({ queryKey, queryFn: fetchWrestlers });
+  return useQuery<Wrestler[], any>({
+    queryKey,
+    queryFn: fetchWrestlers,
+    enabled: searchTerm.trim().length >= 2,
+    placeholderData: (previousData) => previousData,
+  });
 }
 
 async function fetchWrestlers({ queryKey }: any): Promise<Wrestler[]> {

@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { useEffect, useRef } from "react";
 import { Participant, Rumbler } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
@@ -12,7 +11,15 @@ function ParticipantName({ name }: { name: string }) {
 
 function WrestlerImage({ imageUrl, alt }: { imageUrl?: string; alt: string }) {
   if (imageUrl) {
-    return <img src={imageUrl} height={IMAGE_SIZE_PX} alt={alt} />;
+    return (
+      <img
+        src={imageUrl}
+        height={IMAGE_SIZE_PX}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+      />
+    );
   }
 
   return (
@@ -45,26 +52,6 @@ function EntranceNumber({ number }: { number?: number }) {
 }
 
 function WrestlerName({ name }: { name?: string }) {
-  const textRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const resizeText = () => {
-      const span = textRef.current;
-      if (!span || !span.parentElement) return;
-      const parentWidth = span.parentElement.offsetWidth - 20;
-      let fontSize = 16;
-      span.style.fontSize = `${fontSize}px`;
-      while (span.offsetWidth > parentWidth && fontSize > 8) {
-        fontSize--;
-        span.style.fontSize = `${fontSize}px`;
-      }
-    };
-
-    resizeText();
-    window.addEventListener("resize", resizeText);
-    return () => window.removeEventListener("resize", resizeText);
-  }, [name]);
-
   return (
     <Box
       sx={{
@@ -76,6 +63,7 @@ function WrestlerName({ name }: { name?: string }) {
         alignItems: "center",
         padding: "5px",
         fontWeight: 400,
+        fontSize: "12px",
         color: "#fff",
         boxShadow: "0 -1px 100px #ff0000,0 -1px 5px #ff0000",
         textShadow: `
@@ -85,9 +73,11 @@ function WrestlerName({ name }: { name?: string }) {
       }}
     >
       <span
-        ref={textRef}
         style={{
-          display: "inline-block",
+          display: "block",
+          width: "100%",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
           whiteSpace: "nowrap",
           textAlign: "center",
           lineHeight: 1,

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WrestlerImageController;
 use App\Models\Lobby;
 use App\Models\Wrestler;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get("/", function () {
 //     return view("welcome");
 // });
+
+Route::get("storage/wrestlers/{wrestler}", [WrestlerImageController::class, "show"])->name(
+    "wrestlers.image"
+);
 
 Route::get("debug/wrestlers", function () {
     $wrestlers = Wrestler::orderBy("created_at", "desc")->get();

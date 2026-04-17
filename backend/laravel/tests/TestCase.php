@@ -9,6 +9,4 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
     use RefreshDatabase;
-
-    protected bool $seed = true;
 }

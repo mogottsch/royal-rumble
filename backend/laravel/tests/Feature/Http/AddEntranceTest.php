@@ -21,7 +21,7 @@ class AddEntranceTest extends TestCase
 
     public function test_records_two_entrances()
     {
-        $wrestlers = Wrestler::all()->take(2);
+        $wrestlers = Wrestler::factory()->count(2)->create();
 
         foreach ($wrestlers as $wrestler) {
             $body = ["wrestler_id" => $wrestler->id];
@@ -40,7 +40,7 @@ class AddEntranceTest extends TestCase
 
     public function test_does_not_record_same_wrestler()
     {
-        $wrestler = Wrestler::first();
+        $wrestler = Wrestler::factory()->create();
 
         $body = ["wrestler_id" => $wrestler->id];
         $response = $this->postJson(

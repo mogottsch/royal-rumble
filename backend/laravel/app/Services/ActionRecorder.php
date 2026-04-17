@@ -12,7 +12,7 @@ class ActionRecorder
 {
     public function recordEntrance(Lobby $lobby, Rumbler $rumbler)
     {
-        $action = $this->createAction($lobby, $rumbler);
+        $action = $this->createAction($lobby);
 
         $action->rumbler()->associate($rumbler);
 

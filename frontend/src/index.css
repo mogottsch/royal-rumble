@@ -27,123 +27,20 @@ body {
   will-change: filter, opacity;
 }
 
-.scheinwerfer {
+.spotlight-stage {
   position: fixed;
-  top: -5vh;
-  width: 22vmax;
-  height: 92vh;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 5;
   mix-blend-mode: screen;
+}
+
+.spotlight-beam,
+.spotlight-pool {
   will-change: transform;
-  margin-left: -11vmax;
-}
-
-.scheinwerfer__beam {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 245, 215, 0.5) 0%,
-    rgba(255, 230, 185, 0.25) 40%,
-    rgba(255, 215, 160, 0.1) 75%,
-    transparent 100%
-  );
-  clip-path: polygon(25% 0%, 75% 0%, 92% 100%, 8% 100%);
-  filter: blur(18px);
-  opacity: 0.95;
-}
-
-.scheinwerfer__pool {
-  display: none;
-}
-
-.scheinwerfer--left {
-  left: 25%;
-  transform-origin: 50% 0%;
-  animation: scheinwerfer-left 7s ease-in-out infinite alternate;
-}
-
-.scheinwerfer--center {
-  left: 50%;
-  transform-origin: 50% 0%;
-  animation: scheinwerfer-center 9s ease-in-out infinite alternate;
-}
-
-.scheinwerfer--right {
-  left: 75%;
-  transform-origin: 50% 0%;
-  animation: scheinwerfer-right 8.5s ease-in-out infinite alternate;
-}
-
-@keyframes scheinwerfer-left {
-  0%   { transform: rotate(-10deg); }
-  100% { transform: rotate(10deg); }
-}
-
-@keyframes scheinwerfer-center {
-  0%   { transform: rotate(-8deg); }
-  100% { transform: rotate(8deg); }
-}
-
-@keyframes scheinwerfer-right {
-  0%   { transform: rotate(-10deg); }
-  100% { transform: rotate(10deg); }
-}
-
-.floor-lights {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 8vh;
-  height: 10vh;
-  pointer-events: none;
-  z-index: 4;
-  mix-blend-mode: screen;
-}
-
-.floor-pool {
-  position: absolute;
-  top: 0;
-  width: 38vmax;
-  height: 100%;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(255, 248, 225, 0.95) 0%,
-    rgba(255, 230, 185, 0.5) 25%,
-    rgba(255, 215, 160, 0.18) 55%,
-    transparent 85%
-  );
-  filter: blur(14px);
-  will-change: left;
-}
-
-.floor-pool--left {
-  animation: floor-pool-left 7s ease-in-out infinite alternate;
-}
-
-.floor-pool--center {
-  animation: floor-pool-center 9s ease-in-out infinite alternate;
-}
-
-.floor-pool--right {
-  animation: floor-pool-right 8.5s ease-in-out infinite alternate;
-}
-
-@keyframes floor-pool-left {
-  0%   { left: calc(25% + 16vh); }
-  100% { left: calc(25% - 16vh); }
-}
-
-@keyframes floor-pool-center {
-  0%   { left: calc(50% + 13vh); }
-  100% { left: calc(50% - 13vh); }
-}
-
-@keyframes floor-pool-right {
-  0%   { left: calc(75% + 16vh); }
-  100% { left: calc(75% - 16vh); }
 }
 
 @keyframes neon-flicker {
@@ -186,31 +83,48 @@ body {
   50%      { opacity: 1; }
 }
 
-.est-year {
+.edition-year {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
   justify-content: center;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 0.45rem;
   margin-bottom: 40px;
   user-select: none;
 }
 
-.est-year__label {
-  font-family: sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.3rem;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+.edition-year__headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
-.est-year__number {
+.edition-year__number,
+.edition-year__word {
   font-family: "Courier New", monospace;
   font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: 0.35rem;
+  font-size: clamp(2.5rem, 8vw, 4.75rem);
+  letter-spacing: 0.22rem;
   color: #ff6b88;
   text-shadow:
     0 0 4px #ff6b88,
     0 0 10px rgba(255, 107, 136, 0.8),
     0 0 22px rgba(255, 60, 90, 0.5);
+  animation: neon-flicker 6s infinite steps(1, end);
+}
+
+.edition-year__word {
+  font-size: clamp(1.45rem, 4vw, 2.5rem);
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.edition-year__est {
+  font-family: sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.56);
 }

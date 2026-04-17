@@ -5,6 +5,8 @@ import { InputField } from "../components/form";
 import { PrimaryButton } from "../components/buttons";
 
 export default function CreateJoinLobby() {
+  const establishedYear = 2022;
+  const currentYear = new Date().getFullYear();
   const [lobbyCode, setLobbyCode] = useState("");
 
   const updateLobbyCode = (value: string) => {
@@ -20,9 +22,15 @@ export default function CreateJoinLobby() {
         justifyContent: "center",
       }}
     >
-      <div className="est-year" aria-label="Established 2027">
-        <span className="est-year__label">Est.</span>
-        <span className="est-year__number">2027</span>
+      <div
+        className="edition-year"
+        aria-label={`${currentYear} edition, established ${establishedYear}`}
+      >
+        <div className="edition-year__headline">
+          <span className="edition-year__number">{currentYear}</span>
+          <span className="edition-year__word">Edition</span>
+        </div>
+        <div className="edition-year__est">Est. {establishedYear}</div>
       </div>
 
       <InputField

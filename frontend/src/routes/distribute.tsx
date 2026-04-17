@@ -17,6 +17,7 @@ import { fetchApi, participantIdHeaders } from "../api/fetcher";
 import {
   getPendingChestChoices,
   getPendingDrinkPools,
+  getRevealedChestRewards,
   PendingChestChoice,
   PendingDrinkPool,
 } from "../drink_pools";
@@ -31,9 +32,9 @@ type Allocation = Record<number, { schluecke: number; shots: number }>;
 
 type RevealedChestResult = {
   chest_reward_id: number;
-  chest_type: string;
+  chest_type: "safe" | "group" | "chaos";
   card_key: string;
-  card_mode: string;
+  card_mode: "auto" | "give_out";
   schluecke: number;
   shots: number;
   offenderName: string;
@@ -47,16 +48,31 @@ export function Distribute() {
   const navigate = useNavigate();
   const { t } = useI18n();
   const [didRefetch, setDidRefetch] = useState(false);
-  const [revealedChestResult, setRevealedChestResult] = useState<RevealedChestResult | null>(null);
   const parsedEliminationId = eliminationId ? parseInt(eliminationId) : undefined;
   const chestChoices =
     lobby && claimedParticipantId !== null
       ? getPendingChestChoices(lobby, claimedParticipantId)
       : [];
+  const revealedChestRewards =
+    lobby && claimedParticipantId !== null
+      ? getRevealedChestRewards(lobby, claimedParticipantId)
+      : [];
   const pools =
     lobby && claimedParticipantId !== null
       ? getPendingDrinkPools(lobby, claimedParticipantId, parsedEliminationId)
       : [];
+  const revealedChestResult = revealedChestRewards[0]
+    ? {
+        chest_reward_id: revealedChestRewards[0].chestRewardId,
+        chest_type: revealedChestRewards[0].chestType,
+        card_key: revealedChestRewards[0].cardKey,
+        card_mode: revealedChestRewards[0].cardMode,
+        schluecke: revealedChestRewards[0].schluecke,
+        shots: revealedChestRewards[0].shots,
+        offenderName: revealedChestRewards[0].offender.wrestler.name,
+        victimName: revealedChestRewards[0].victim.wrestler.name,
+      }
+    : null;
   const hasChestChoices = chestChoices.length > 0;
   const hasPools = pools.length > 0;
 
@@ -82,9 +98,13 @@ export function Distribute() {
       <ChestRevealScreen
         result={revealedChestResult}
         onContinue={async () => {
+          await acknowledgeChestReveal(
+            lobby.code,
+            revealedChestResult.chest_reward_id,
+            claimedParticipantId,
+          );
           await lobbyQuery?.refetch();
           if (revealedChestResult.card_mode === "give_out") {
-            setRevealedChestResult(null);
             return;
           }
           navigate(`/lobbies/${lobby.code}/view-game`);
@@ -99,7 +119,9 @@ export function Distribute() {
         choice={chestChoices[0]}
         chooserId={claimedParticipantId}
         lobbyCode={lobby.code}
-        onResolved={setRevealedChestResult}
+        onResolved={async () => {
+          await lobbyQuery?.refetch();
+        }}
       />
     );
   }
@@ -142,7 +164,7 @@ function ChestChoiceForm({
   choice: PendingChestChoice;
   chooserId: number;
   lobbyCode: string;
-  onResolved: (result: RevealedChestResult) => void;
+  onResolved: () => Promise<void>;
 }) {
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { notify } = useNotificationContext();
@@ -152,11 +174,7 @@ function ChestChoiceForm({
     setKeyLoading("openChest", true);
     try {
       const result = await postChestRoll(lobbyCode, choice.chestRewardId, chestType, chooserId);
-      onResolved({
-        ...result,
-        offenderName: choice.offender.wrestler.name,
-        victimName: choice.victim.wrestler.name,
-      });
+      await onResolved();
     } catch (error) {
       notify((error as Error).message, "error");
     } finally {
@@ -231,13 +249,13 @@ function ChestRevealScreen({
       <Card variant="outlined">
         <CardContent>
           <Typography variant="overline" sx={{ opacity: 0.7 }}>
-            {t("distribute.cardDrawn")}
-          </Typography>
-          <Typography variant="h5" sx={{ mt: 1, mb: 1 }}>
             {t(`distribute.chest.${result.chest_type}`)}
           </Typography>
+          <Typography variant="h4" sx={{ mt: 1, mb: 1 }}>
+            {getCardTitle(t, result.card_key)}
+          </Typography>
           <Typography variant="body1">
-            {getCardText(t, result.card_key, result.schluecke, result.shots)}
+            {getCardDescription(t, result.card_key, result.schluecke, result.shots)}
           </Typography>
         </CardContent>
       </Card>
@@ -535,7 +553,23 @@ function getCardText(
   sips: number,
   shots: number,
 ) {
-  return t(`distribute.card.${cardKey}`, { sips, shots });
+  return getCardDescription(t, cardKey, sips, shots);
+}
+
+function getCardTitle(
+  t: (key: string, params?: Record<string, string | number>) => string,
+  cardKey: string,
+) {
+  return t(`distribute.cardTitle.${cardKey}`);
+}
+
+function getCardDescription(
+  t: (key: string, params?: Record<string, string | number>) => string,
+  cardKey: string,
+  sips: number,
+  shots: number,
+) {
+  return t(`distribute.cardDescription.${cardKey}`, { sips, shots });
 }
 
 async function postChestRoll(
@@ -562,12 +596,35 @@ async function postChestRoll(
   const data = await response.json();
   return data.data as {
     chest_reward_id: number;
-    chest_type: string;
+    chest_type: "safe" | "group" | "chaos";
     card_key: string;
-    card_mode: string;
+    card_mode: "auto" | "give_out";
     schluecke: number;
     shots: number;
   };
+}
+
+async function acknowledgeChestReveal(
+  lobbyCode: string,
+  chestRewardId: number,
+  chooserId: number,
+) {
+  const response = await fetchApi(
+    `/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/acknowledge`,
+    {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        ...participantIdHeaders(chooserId),
+      },
+    },
+  );
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text);
+  }
 }
 
 async function postDistribution(

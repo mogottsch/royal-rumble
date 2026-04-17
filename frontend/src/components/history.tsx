@@ -1,5 +1,5 @@
 import { Box, Chip, Stack, Typography } from "@mui/material";
-import { Action, Chug, DrinkDistribution, Lobby } from "../hooks/use_lobby";
+import { Action, ChestReward, Chug, DrinkDistribution, Lobby } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
 type HistoryItem =
@@ -32,14 +32,22 @@ export function History({ lobby }: { lobby: Lobby | undefined }) {
       <Stack spacing={1}>
         {items.length === 0 && <Typography sx={{ opacity: 0.6 }}>{t("history.none")}</Typography>}
         {items.map((item, index) => (
-          <HistoryRow key={item.id} index={items.length - index} item={item} />
+          <HistoryRow key={item.id} index={items.length - index} item={item} lobby={lobby} />
         ))}
       </Stack>
     </Box>
   );
 }
 
-function HistoryRow({ index, item }: { index: number; item: HistoryItem }) {
+function HistoryRow({
+  index,
+  item,
+  lobby,
+}: {
+  index: number;
+  item: HistoryItem;
+  lobby: Lobby;
+}) {
   const { t } = useI18n();
   const rumble = item.group === "rumble";
 
@@ -74,7 +82,7 @@ function HistoryRow({ index, item }: { index: number; item: HistoryItem }) {
         }}
       />
       <Typography variant="body2">
-        <HistoryDisplay item={item} />
+        <HistoryDisplay item={item} lobby={lobby} />
       </Typography>
     </Box>
   );
@@ -114,9 +122,18 @@ function buildGroupedDistributions(distributions: DrinkDistribution[]): HistoryI
 
     const rounded = distribution.created_at.slice(0, 19);
     const key =
-      distribution.kind === "elimination_reward" || distribution.kind === "chest_reward"
-        ? `${distribution.kind}:${distribution.giver_participant_id}:${rounded}`
-        : `${distribution.kind}:${distribution.receiver_participant_id}:${rounded}`;
+      distribution.kind === "chest_reward"
+        ? [
+            distribution.kind,
+            distribution.giver_participant_id,
+            distribution.elimination_id,
+            distribution.offender_rumbler_id,
+            distribution.victim_rumbler_id,
+            rounded,
+          ].join(":")
+        : distribution.kind === "elimination_reward"
+          ? `${distribution.kind}:${distribution.giver_participant_id}:${rounded}`
+          : `${distribution.kind}:${distribution.receiver_participant_id}:${rounded}`;
 
     const existing = groups.get(key) ?? [];
     existing.push(distribution);
@@ -131,12 +148,12 @@ function buildGroupedDistributions(distributions: DrinkDistribution[]): HistoryI
   }));
 }
 
-function HistoryDisplay({ item }: { item: HistoryItem }) {
+function HistoryDisplay({ item, lobby }: { item: HistoryItem; lobby: Lobby }) {
   if ("action" in item) {
     return <ActionDisplay action={item.action} />;
   }
   if ("distributions" in item) {
-    return <DistributionGroupDisplay distributions={item.distributions} />;
+    return <DistributionGroupDisplay distributions={item.distributions} lobby={lobby} />;
   }
   return <ChugDisplay chug={item.chug} />;
 }
@@ -175,7 +192,13 @@ function Elimination({ action }: { action: Action }) {
   })}</>;
 }
 
-function DistributionGroupDisplay({ distributions }: { distributions: DrinkDistribution[] }) {
+function DistributionGroupDisplay({
+  distributions,
+  lobby,
+}: {
+  distributions: DrinkDistribution[];
+  lobby: Lobby;
+}) {
   const { t } = useI18n();
   const first = distributions[0];
 
@@ -186,6 +209,44 @@ function DistributionGroupDisplay({ distributions }: { distributions: DrinkDistr
   const giver = first.giver?.name ?? first.giver_participant_id ?? "NPC";
   const totals = summarizePerReceiver(distributions);
   const eliminations = summarizeEliminations(distributions);
+  const chestRewards = summarizeChestRewards(distributions, lobby);
+
+  if (first.kind === "chest_reward") {
+    const primaryReward = chestRewards[0];
+    const triggerText =
+      eliminations.length > 0 ? joinButLast(eliminations, ", ", t("history.and")) : "";
+
+    return (
+      <Stack spacing={0.4}>
+        <Typography variant="body2" sx={{ fontWeight: 600 }}>
+          {t("history.chestReward", {
+            giver: String(giver),
+            chest: primaryReward?.chest ?? t("history.drink"),
+            card: primaryReward?.cardTitle ?? "",
+            totals: joinButLast(totals, ", ", t("history.and")),
+          })}
+        </Typography>
+        {(primaryReward || triggerText) && (
+          <Typography variant="caption" sx={{ opacity: 0.7, display: "block", lineHeight: 1.4 }}>
+            {primaryReward && (
+              <>
+                <Box component="span" sx={{ fontWeight: 700 }}>
+                  {primaryReward.chest}
+                </Box>
+                {" | "}
+                <Box component="span" sx={{ fontWeight: 700 }}>
+                  {primaryReward.cardTitle}
+                </Box>
+                {`: ${primaryReward.cardDescription}`}
+              </>
+            )}
+            {primaryReward && triggerText ? "  •  " : ""}
+            {triggerText && `${t("history.trigger")}: ${triggerText}`}
+          </Typography>
+        )}
+      </Stack>
+    );
+  }
 
   return (
     <>
@@ -242,6 +303,72 @@ function summarizeEliminations(distributions: DrinkDistribution[]): string[] {
   }
 
   return Array.from(summaries.values());
+}
+
+function summarizeChestRewards(distributions: DrinkDistribution[], lobby: Lobby) {
+  const { t } = useI18n();
+  const rewards = new Map<
+    string,
+      {
+        key: string;
+        chest: string;
+        cardTitle: string;
+        cardDescription: string;
+        elimination: string;
+      }
+  >();
+
+  for (const distribution of distributions) {
+    if (distribution.kind !== "chest_reward") {
+      continue;
+    }
+
+    const reward = findMatchingChestReward(distribution, lobby.chest_rewards);
+    if (!reward?.chest_type || !reward.card_key) {
+      continue;
+    }
+
+    const offender = distribution.offender_rumbler?.wrestler.name;
+    const victim = distribution.victim_rumbler?.wrestler.name;
+    if (!offender || !victim) {
+      continue;
+    }
+
+    const key = [
+      reward.id,
+      distribution.elimination_id,
+      distribution.offender_rumbler_id,
+      distribution.victim_rumbler_id,
+    ].join(":");
+
+    rewards.set(key, {
+      key,
+      chest: t(`distribute.chest.${reward.chest_type}`),
+      cardTitle: t(`distribute.cardTitle.${reward.card_key}`),
+      cardDescription: t(`distribute.cardDescription.${reward.card_key}`, {
+        sips: reward.pending_schluecke,
+        shots: reward.pending_shots,
+      }),
+      elimination: t("history.eliminating", { offender, victim }),
+    });
+  }
+
+  return Array.from(rewards.values());
+}
+
+function findMatchingChestReward(
+  distribution: DrinkDistribution,
+  chestRewards: ChestReward[],
+): ChestReward | null {
+  return (
+    chestRewards.find(
+      (reward) =>
+        reward.elimination_id === distribution.elimination_id &&
+        reward.offender_rumbler_id === distribution.offender_rumbler_id &&
+        reward.victim_rumbler_id === distribution.victim_rumbler_id &&
+        reward.chooser_participant_id === distribution.giver_participant_id,
+    ) ?? null
+  );
 }
 
 function ChugDisplay({ chug }: { chug: Chug }) {

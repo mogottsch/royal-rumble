@@ -10,6 +10,8 @@ class ChestReward extends Model
     use HasFactory;
 
     const STATUS_PENDING_CHOICE = "pending_choice";
+    const STATUS_REVEALED_AUTO = "revealed_auto";
+    const STATUS_REVEALED_DISTRIBUTION = "revealed_distribution";
     const STATUS_PENDING_DISTRIBUTION = "pending_distribution";
     const STATUS_RESOLVED = "resolved";
 

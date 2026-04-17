@@ -65,7 +65,12 @@ export interface ChestReward {
   offender_rumbler_id: number;
   victim_rumbler_id: number;
   chooser_participant_id: number;
-  status: "pending_choice" | "pending_distribution" | "resolved";
+  status:
+    | "pending_choice"
+    | "revealed_auto"
+    | "revealed_distribution"
+    | "pending_distribution"
+    | "resolved";
   chest_type: "safe" | "group" | "chaos" | null;
   card_key: string | null;
   card_mode: "auto" | "give_out" | null;

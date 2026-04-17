@@ -64,8 +64,6 @@ class DrinkDistributionRecorder
         }
 
         $chestReward->status = ChestReward::STATUS_RESOLVED;
-        $chestReward->pending_schluecke = 0;
-        $chestReward->pending_shots = 0;
         $chestReward->save();
 
         LobbyUpdated::dispatch($lobby->fresh());

@@ -59,6 +59,11 @@ Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/roll", [
     ChestRewardController::class,
     "roll",
 ])->name("lobbies.chestRewards.roll");
+
+Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/acknowledge", [
+    ChestRewardController::class,
+    "acknowledge",
+])->name("lobbies.chestRewards.acknowledge");
 // });
 //
 Route::get("/test/", function () {

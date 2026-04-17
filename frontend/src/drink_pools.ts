@@ -16,6 +16,18 @@ export type PendingChestChoice = {
   victim: Rumbler;
 };
 
+export type RevealedChestReward = {
+  chestRewardId: number;
+  eliminationId: number;
+  offender: Rumbler;
+  victim: Rumbler;
+  chestType: "safe" | "group" | "chaos";
+  cardKey: string;
+  cardMode: "auto" | "give_out";
+  schluecke: number;
+  shots: number;
+};
+
 export function getPendingChestChoices(
   lobby: Lobby,
   claimedParticipantId: number | null,
@@ -37,6 +49,38 @@ export function getPendingChestChoices(
       eliminationId: reward.elimination_id,
       offender: reward.offender_rumbler as Rumbler,
       victim: reward.victim_rumbler as Rumbler,
+    }));
+}
+
+export function getRevealedChestRewards(
+  lobby: Lobby,
+  claimedParticipantId: number | null,
+): RevealedChestReward[] {
+  if (claimedParticipantId === null || !lobby.drink_config.mystery_chests_enabled) {
+    return [];
+  }
+
+  return lobby.chest_rewards
+    .filter(
+      (reward) =>
+        reward.chooser_participant_id === claimedParticipantId &&
+        (reward.status === "revealed_auto" || reward.status === "revealed_distribution") &&
+        reward.offender_rumbler &&
+        reward.victim_rumbler &&
+        reward.chest_type &&
+        reward.card_key &&
+        reward.card_mode,
+    )
+    .map((reward) => ({
+      chestRewardId: reward.id,
+      eliminationId: reward.elimination_id,
+      offender: reward.offender_rumbler as Rumbler,
+      victim: reward.victim_rumbler as Rumbler,
+      chestType: reward.chest_type as "safe" | "group" | "chaos",
+      cardKey: reward.card_key as string,
+      cardMode: reward.card_mode as "auto" | "give_out",
+      schluecke: reward.pending_schluecke,
+      shots: reward.pending_shots,
     }));
 }
 

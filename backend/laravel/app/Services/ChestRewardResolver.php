@@ -72,7 +72,7 @@ class ChestRewardResolver
         if ($scaled["mode"] === "give_out") {
             $chestReward->pending_schluecke = $scaled["schluecke"];
             $chestReward->pending_shots = $scaled["shots"];
-            $chestReward->status = ChestReward::STATUS_PENDING_DISTRIBUTION;
+            $chestReward->status = ChestReward::STATUS_REVEALED_DISTRIBUTION;
             $chestReward->save();
 
             LobbyUpdated::dispatch($lobby->fresh());
@@ -101,9 +101,9 @@ class ChestRewardResolver
             ]);
         }
 
-        $chestReward->status = ChestReward::STATUS_RESOLVED;
-        $chestReward->pending_schluecke = 0;
-        $chestReward->pending_shots = 0;
+        $chestReward->status = ChestReward::STATUS_REVEALED_AUTO;
+        $chestReward->pending_schluecke = $scaled["schluecke"];
+        $chestReward->pending_shots = $scaled["shots"];
         $chestReward->save();
 
         LobbyUpdated::dispatch($lobby->fresh());
@@ -116,6 +116,36 @@ class ChestRewardResolver
             "schluecke" => $scaled["schluecke"],
             "shots" => $scaled["shots"],
         ];
+    }
+
+    public function acknowledge(
+        Lobby $lobby,
+        ChestReward $chestReward,
+        Participant $chooser
+    ): array {
+        if ($chestReward->chooser_participant_id !== $chooser->id) {
+            throw new InvalidArgumentException("You cannot acknowledge this chest.");
+        }
+
+        if ($chestReward->status === ChestReward::STATUS_REVEALED_DISTRIBUTION) {
+            $chestReward->status = ChestReward::STATUS_PENDING_DISTRIBUTION;
+            $chestReward->save();
+
+            LobbyUpdated::dispatch($lobby->fresh());
+
+            return ["next_status" => ChestReward::STATUS_PENDING_DISTRIBUTION];
+        }
+
+        if ($chestReward->status === ChestReward::STATUS_REVEALED_AUTO) {
+            $chestReward->status = ChestReward::STATUS_RESOLVED;
+            $chestReward->save();
+
+            LobbyUpdated::dispatch($lobby->fresh());
+
+            return ["next_status" => ChestReward::STATUS_RESOLVED];
+        }
+
+        throw new InvalidArgumentException("This chest cannot be acknowledged right now.");
     }
 
     private function drawCard(string $chestType): array

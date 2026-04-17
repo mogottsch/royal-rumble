@@ -7,6 +7,7 @@ use App\Models\Lobby;
 use App\Models\Participant;
 use App\Services\ChestRewardResolver;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 class ChestRewardController extends Controller
@@ -28,6 +29,55 @@ class ChestRewardController extends Controller
             );
         }
 
+        $chooser = $this->resolveChooser($request, $lobby);
+        if ($chooser instanceof Response) {
+            return $chooser;
+        }
+
+        try {
+            $result = $resolver->resolve($lobby, $chestReward, $chooser, $data["chest_type"]);
+        } catch (\InvalidArgumentException $e) {
+            return response()->json(
+                ["message" => $e->getMessage()],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        return response()->json(["data" => $result], Response::HTTP_CREATED);
+    }
+
+    public function acknowledge(
+        Request $request,
+        Lobby $lobby,
+        ChestReward $chestReward,
+        ChestRewardResolver $resolver
+    ) {
+        if ($chestReward->lobby_id !== $lobby->id) {
+            return response()->json(
+                ["message" => "Chest reward not found in lobby."],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        $chooser = $this->resolveChooser($request, $lobby);
+        if ($chooser instanceof Response) {
+            return $chooser;
+        }
+
+        try {
+            $result = $resolver->acknowledge($lobby, $chestReward, $chooser);
+        } catch (\InvalidArgumentException $e) {
+            return response()->json(
+                ["message" => $e->getMessage()],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        return response()->json(["data" => $result], Response::HTTP_OK);
+    }
+
+    private function resolveChooser(Request $request, Lobby $lobby): Participant|JsonResponse
+    {
         $chooserId = (int) $request->header("X-Participant-Id", 0);
         if ($chooserId <= 0) {
             return response()->json(
@@ -44,15 +94,6 @@ class ChestRewardController extends Controller
             );
         }
 
-        try {
-            $result = $resolver->resolve($lobby, $chestReward, $chooser, $data["chest_type"]);
-        } catch (\InvalidArgumentException $e) {
-            return response()->json(
-                ["message" => $e->getMessage()],
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
-        }
-
-        return response()->json(["data" => $result], Response::HTTP_CREATED);
+        return $chooser;
     }
 }

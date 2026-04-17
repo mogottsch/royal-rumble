@@ -29,7 +29,7 @@ const filter = createFilterOptions<WrestlerOptionType>();
 
 export function AddEntrance() {
   const navigate = useNavigate();
-  const { lobby } = useLobbyContext();
+  const { lobby, lobbyQuery } = useLobbyContext();
   const [selectedWrestler, setSelectedWrestler] =
     useState<WrestlerOptionType | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -76,6 +76,7 @@ export function AddEntrance() {
     } finally {
       setKeyLoading("addEntrance", false);
     }
+    await lobbyQuery?.refetch();
     navigate(`/lobbies/${lobby.code}/view-game`);
   };
 

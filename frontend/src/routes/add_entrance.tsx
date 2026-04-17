@@ -18,6 +18,10 @@ import { WrestlerPickerTile } from "../components/wrestler_tile";
 
 interface WrestlerOptionType extends Wrestler {}
 
+type WrestlerWithThumbnail = Wrestler & {
+  thumbnail_url?: string;
+};
+
 export function AddEntrance() {
   const navigate = useNavigate();
   const { lobby, lobbyQuery } = useLobbyContext();
@@ -126,15 +130,19 @@ export function AddEntrance() {
               alignContent: "start",
             }}
           >
-            {displayedWrestlers.map((wrestler) => (
+            {displayedWrestlers.map((wrestler) => {
+              const wrestlerWithThumbnail = wrestler as WrestlerWithThumbnail;
+
+              return (
               <WrestlerPickerTile
                 key={wrestler.id}
                 name={wrestler.name}
-                imageUrl={wrestler.image_url}
+                imageUrl={wrestlerWithThumbnail.thumbnail_url ?? wrestler.image_url}
                 selected={selectedWrestler?.id === wrestler.id}
                 onClick={() => setSelectedWrestler(wrestler as WrestlerOptionType)}
               />
-            ))}
+              );
+            })}
           </Box>
         )}
       </Box>

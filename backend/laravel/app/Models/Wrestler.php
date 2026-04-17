@@ -9,7 +9,7 @@ class Wrestler extends Model
 {
     use HasFactory;
 
-    protected $appends = ["image_url"];
+    protected $appends = ["image_url", "thumbnail_url"];
 
     protected function imageUrl(): Attribute
     {
@@ -17,6 +17,15 @@ class Wrestler extends Model
             get: fn() => $this->image_filename === null
                 ? null
                 : route("wrestlers.image", ["wrestler" => $this->id])
+        );
+    }
+
+    protected function thumbnailUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this->image_filename === null
+                ? null
+                : route("wrestlers.thumbnail", ["wrestler" => $this->id])
         );
     }
 }

@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::get("storage/wrestlers/{wrestler}", [WrestlerImageController::class, "show"])->name(
     "wrestlers.image"
 );
+Route::get("storage/wrestlers/{wrestler}/thumbnail.webp", [WrestlerImageController::class, "thumbnail"])->name(
+    "wrestlers.thumbnail"
+);
 
 Route::get("debug/wrestlers", function () {
     $wrestlers = Wrestler::orderBy("created_at", "desc")->get();

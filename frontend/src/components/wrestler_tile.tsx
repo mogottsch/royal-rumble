@@ -1,23 +1,36 @@
 import { Box } from "@mui/material";
-import { Participant, Rumbler } from "../hooks/use_lobby";
+import { Participant, Rumbler, Wrestler } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
 const IMAGE_SIZE = 100;
 const IMAGE_SIZE_PX = `${IMAGE_SIZE}px`;
+const SEARCH_IMAGE_SIZE = 56;
+
+type WrestlerImageProps = {
+  imageUrl?: string;
+  alt: string;
+  size: number;
+};
+
+type WrestlerWithThumbnail = Wrestler & {
+  thumbnail_url?: string;
+};
 
 function ParticipantName({ name }: { name: string }) {
   return <span>{name}</span>;
 }
 
-function WrestlerImage({ imageUrl, alt }: { imageUrl?: string; alt: string }) {
+function WrestlerImage({ imageUrl, alt, size }: WrestlerImageProps) {
   if (imageUrl) {
     return (
       <img
         src={imageUrl}
-        height={IMAGE_SIZE_PX}
+        width={size}
+        height={size}
         alt={alt}
         loading="lazy"
         decoding="async"
+        style={{ width: size, height: size, objectFit: "cover" }}
       />
     );
   }
@@ -115,6 +128,7 @@ export function WrestlerTile({
   onClick?: () => void;
 }) {
   const { t } = useI18n();
+  const wrestler = rumbler?.wrestler as WrestlerWithThumbnail | undefined;
 
   return (
     <Box
@@ -128,15 +142,16 @@ export function WrestlerTile({
       onClick={onClick}
     >
       <ParticipantName name={participant?.name ?? t("viewGame.npc")} />
-      {rumbler ? (
+      {wrestler ? (
         <WrestlerImage
-          imageUrl={rumbler.wrestler.image_url}
+          imageUrl={wrestler.thumbnail_url ?? wrestler.image_url}
           alt={t("viewGame.wrestlerAlt")}
+          size={IMAGE_SIZE}
         />
       ) : (
         <EntranceNumber number={participant?.entrance_number} />
       )}
-      <WrestlerName name={rumbler?.wrestler.name} />
+      <WrestlerName name={wrestler?.name} />
     </Box>
   );
 }
@@ -153,16 +168,12 @@ export function WrestlerSearchOption({
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, py: 0.5 }}>
       {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt={t("viewGame.wrestlerAlt")}
-          style={{ width: 56, height: 56, objectFit: "cover", borderRadius: 4 }}
-        />
+        <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} size={SEARCH_IMAGE_SIZE} />
       ) : (
         <Box
           sx={{
-            width: 56,
-            height: 56,
+            width: SEARCH_IMAGE_SIZE,
+            height: SEARCH_IMAGE_SIZE,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -199,7 +210,7 @@ export function WrestlerPreviewTile({
       }}
     >
       <ParticipantName name={t("viewGame.npc")} />
-      <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} />
+      <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} size={IMAGE_SIZE} />
       <WrestlerName name={name} />
     </Box>
   );
@@ -230,7 +241,7 @@ export function WrestlerPickerTile({
       onClick={onClick}
     >
       <ParticipantName name={t("viewGame.npc")} />
-      <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} />
+      <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} size={IMAGE_SIZE} />
       <WrestlerName name={name} />
     </Box>
   );

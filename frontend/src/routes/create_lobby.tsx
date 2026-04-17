@@ -61,34 +61,60 @@ export function CreateLobby() {
     addParticipant();
   };
   return (
-    <Box>
-      <Box>
-        {participantNames.map((name) => (
-          <NameBox key={name}>{name}</NameBox>
-        ))}
-      </Box>
-      <Divider />
-      <form onSubmit={onSubmit}>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <InputField
-            label={t("createLobby.participantName")}
-            htmlFor="name"
-            id="name"
-            value={newName}
-            onChange={setNewName}
-            errorMessages={errorMessages}
-          />
-          <PrimaryButton sx={{ mt: 2 }} onClick={addParticipant}>
-            {t("createLobby.addParticipant")}
-          </PrimaryButton>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+        minHeight: 0,
+      }}
+    >
+      <Box
+        sx={{
+          flex: 1,
+          minHeight: 0,
+          overflowY: "auto",
+          pt: 1,
+          pb: 2,
+        }}
+      >
+        <Box>
+          {participantNames.map((name) => (
+            <NameBox key={name}>{name}</NameBox>
+          ))}
         </Box>
-      </form>
+        <Divider />
+        <form onSubmit={onSubmit}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <InputField
+              label={t("createLobby.participantName")}
+              htmlFor="name"
+              id="name"
+              value={newName}
+              onChange={setNewName}
+              errorMessages={errorMessages}
+            />
+            <PrimaryButton sx={{ mt: 2 }} onClick={addParticipant}>
+              {t("createLobby.addParticipant")}
+            </PrimaryButton>
+          </Box>
+        </form>
 
-      <Box sx={{ mt: 4 }}>
-        <LobbySettingsForm value={settings} onChange={setSettings} />
+        <Box sx={{ mt: 4 }}>
+          <LobbySettingsForm value={settings} onChange={setSettings} />
+        </Box>
       </Box>
 
-      <Box sx={{ mt: 4, display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          pt: 2,
+          pb: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 28%, rgba(0,0,0,1) 100%)",
+        }}
+      >
         <PrimaryButton
           onClick={createLobby}
           disabled={participantNames.length < 2}

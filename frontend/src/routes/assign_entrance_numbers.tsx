@@ -137,12 +137,19 @@ export function AssignEntranceNumbers() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        justifyContent: "space-between",
-        padding: 2,
+        flex: 1,
+        minHeight: 0,
+        pt: 1,
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          flex: 1,
+          minHeight: 0,
+          overflowY: "auto",
+          pb: 2,
+        }}
+      >
         <Box
           sx={{
             display: "grid",
@@ -207,6 +214,9 @@ export function AssignEntranceNumbers() {
       <Box
         sx={{
           width: "100%",
+          pt: 2,
+          pb: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 28%, rgba(0,0,0,1) 100%)",
         }}
       >
         <Button

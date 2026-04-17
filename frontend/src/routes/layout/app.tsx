@@ -9,13 +9,23 @@ export function App() {
     <Box
       sx={{
         height: "100%",
+        minHeight: 0,
         display: "grid",
-        gridTemplateRows: "auto 1fr",
+        gridTemplateRows: "auto auto 1fr",
       }}
     >
       <Bar />
       <PendingDistributionPrompt />
-      <Container maxWidth="sm" sx={{ overflow: "hidden" }}>
+      <Container
+        maxWidth="sm"
+        sx={{
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: 0,
+          pb: 2,
+        }}
+      >
         <Outlet />
       </Container>
     </Box>

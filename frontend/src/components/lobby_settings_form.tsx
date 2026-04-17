@@ -1,4 +1,13 @@
-import { Box, FormControlLabel, Switch, TextField, Typography } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import {
+  Box,
+  FormControlLabel,
+  IconButton,
+  Switch,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Lobby } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
@@ -139,13 +148,43 @@ function NumField({
   value: number;
   onChange: (v: string) => void;
 }) {
+  const nextValue = (delta: number) => onChange(String(Math.max(0, value + delta)));
+
   return (
-    <TextField
-      label={label}
-      type="number"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      size="small"
-    />
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "auto 1fr auto",
+        alignItems: "center",
+        gap: 1,
+        border: "1px solid",
+        borderColor: "divider",
+        borderRadius: 2,
+        px: 1,
+        py: 0.5,
+      }}
+    >
+      <IconButton
+        aria-label={`Decrease ${label}`}
+        size="large"
+        onClick={() => nextValue(-1)}
+        disabled={value === 0}
+      >
+        <RemoveIcon />
+      </IconButton>
+      <Box sx={{ textAlign: "center", minWidth: 0 }}>
+        <Typography variant="caption" sx={{ opacity: 0.7, display: "block" }}>
+          {label}
+        </Typography>
+        <Typography variant="h6">{value}</Typography>
+      </Box>
+      <IconButton
+        aria-label={`Increase ${label}`}
+        size="large"
+        onClick={() => nextValue(1)}
+      >
+        <AddIcon />
+      </IconButton>
+    </Box>
   );
 }

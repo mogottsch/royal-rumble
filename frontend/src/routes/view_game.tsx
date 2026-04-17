@@ -36,44 +36,54 @@ const ActionButtons = ({
   const { t } = useI18n();
 
   return (
-    <Grid container spacing={1} sx={{ mb: 2 }}>
+    <Box
+      sx={{
+        position: "sticky",
+        bottom: 0,
+        zIndex: 2,
+        background: "linear-gradient(180deg, rgba(18,18,18,0) 0%, rgba(18,18,18,0.92) 24%, rgba(18,18,18,1) 100%)",
+        px: 1,
+        pt: 1,
+        pb: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
+      }}
+    >
       {pendingDrinkPoolsCount > 0 && (
-        <Grid size={{ xs: 12 }}>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            sx={{ width: "100%" }}
-            onClick={onOpenDistribute}
-          >
-            {t("viewGame.handOutDrinks", { count: pendingDrinkPoolsCount })}
-          </Button>
-        </Grid>
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          sx={{ width: "100%", mb: 1 }}
+          onClick={onOpenDistribute}
+        >
+          {t("viewGame.handOutDrinks", { count: pendingDrinkPoolsCount })}
+        </Button>
       )}
-      {lobby.nextEntranceNumber !== null && (
+      <Grid container spacing={1}>
+        {lobby.nextEntranceNumber !== null && (
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <Button
+              variant="contained"
+              size="large"
+              href={`/lobbies/${lobby.code}/add-entrance`}
+              sx={{ width: "100%" }}
+            >
+              {t("viewGame.nextEntranceButton")}
+            </Button>
+          </Grid>
+        )}
         <Grid size={{ xs: 12, sm: 6 }}>
           <Button
             variant="contained"
-            size="large"
-            href={`/lobbies/${lobby.code}/add-entrance`}
             sx={{ width: "100%" }}
+            size="large"
+            href={`/lobbies/${lobby.code}/add-elimination`}
+            disabled={lobby.rumblers.length === 0}
           >
-            {t("viewGame.nextEntranceButton")}
+            {t("viewGame.nextEliminationButton")}
           </Button>
         </Grid>
-      )}
-      <Grid size={{ xs: 12, sm: 6 }}>
-        <Button
-          variant="contained"
-          sx={{ width: "100%" }}
-          size="large"
-          href={`/lobbies/${lobby.code}/add-elimination`}
-          disabled={lobby.rumblers.length === 0}
-        >
-          {t("viewGame.nextEliminationButton")}
-        </Button>
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 
@@ -167,9 +177,11 @@ export function ViewGame() {
         sx={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
-          gridAutoRows: "min-content", // or 'auto'
+          gridAutoRows: "min-content",
           mt: 1,
-          overflowY: "scroll",
+          overflowY: "auto",
+          minHeight: 0,
+          pb: 1,
         }}
       >
         {rows?.map((row, index) => (

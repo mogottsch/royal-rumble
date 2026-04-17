@@ -1,6 +1,6 @@
-import LocalBarIcon from "@mui/icons-material/LocalBar";
+import LiquorIcon from "@mui/icons-material/Liquor";
 import SportsBarIcon from "@mui/icons-material/SportsBar";
-import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import LocalDrinkIcon from "@mui/icons-material/LocalDrink";
 import { Button, Stack, Typography } from "@mui/material";
 import { useI18n } from "../i18n";
 
@@ -13,16 +13,10 @@ interface TrackerControlProps {
 }
 
 const trackerIcons = {
-  sips: WaterDropIcon,
-  shots: LocalBarIcon,
+  sips: LocalDrinkIcon,
+  shots: LiquorIcon,
   chugs: SportsBarIcon,
-} satisfies Record<DrinkType, typeof WaterDropIcon>;
-
-const trackerSymbols = {
-  sips: "S",
-  shots: "Sh",
-  chugs: "C",
-} satisfies Record<DrinkType, string>;
+} satisfies Record<DrinkType, typeof LocalDrinkIcon>;
 
 function TrackerControl({ drinkType, remaining, onDecrement }: TrackerControlProps) {
   const { t } = useI18n();
@@ -50,8 +44,8 @@ function TrackerControl({ drinkType, remaining, onDecrement }: TrackerControlPro
         <Typography variant="caption" sx={{ fontWeight: 900, lineHeight: 1 }}>
           {remaining}
         </Typography>
-        <Typography variant="caption" sx={{ opacity: 0.85, lineHeight: 1 }}>
-          {trackerSymbols[drinkType]}
+        <Typography variant="caption" sx={{ opacity: 0.9, lineHeight: 1, whiteSpace: "nowrap" }}>
+          {t(`viewGame.tracker.${drinkType}`)}
         </Typography>
       </Stack>
     </Button>

@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import { Box, Fab, Grid } from "@mui/material";
-import LocalBarIcon from "@mui/icons-material/LocalBar";
+import { Box, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { getPendingDrinkPools } from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { Participant, Rumbler } from "../hooks/use_lobby";
-import { StatsDrawer } from "../components/stats_drawer";
 import { useI18n } from "../i18n";
 import { WrestlerTile } from "../components/wrestler_tile";
 
@@ -24,11 +22,32 @@ const ParticipantCard = ({ row }: ParticipantCardProps) => (
   <WrestlerTile participant={row.participant} rumbler={row.rumbler} />
 );
 
-const ActionButtons = ({ lobby }: { lobby: any }) => {
+const ActionButtons = ({
+  lobby,
+  pendingDrinkPoolsCount,
+  onOpenDistribute,
+}: {
+  lobby: any;
+  pendingDrinkPoolsCount: number;
+  onOpenDistribute: () => void;
+}) => {
   const { t } = useI18n();
 
   return (
     <Grid container spacing={1} sx={{ mb: 2 }}>
+      {pendingDrinkPoolsCount > 0 && (
+        <Grid size={{ xs: 12 }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            sx={{ width: "100%" }}
+            onClick={onOpenDistribute}
+          >
+            {t("viewGame.handOutDrinks", { count: pendingDrinkPoolsCount })}
+          </Button>
+        </Grid>
+      )}
       <Grid size={{ xs: 12, sm: 6 }}>
         <Button
           variant="contained"
@@ -66,7 +85,6 @@ export function ViewGame() {
   const navigate = useNavigate();
   const { t } = useI18n();
   const [rows, setRows] = useState<Row[]>();
-  const [statsOpen, setStatsOpen] = useState(false);
 
   useEffect(() => {
     if (!lobby) return;
@@ -142,30 +160,12 @@ export function ViewGame() {
             {t("viewGame.nextEntrance", { number: lobby.nextEntranceNumber })}
           </Box>
         )}
-        {pendingDrinkPools.length > 0 && (
-          <Button
-            variant="outlined"
-            size="large"
-            sx={{ width: "100%", mb: 1 }}
-            onClick={() => navigate(`/lobbies/${lobby.code}/distribute`)}
-          >
-            {t("viewGame.handOutDrinks", { count: pendingDrinkPools.length })}
-          </Button>
-        )}
-        <ActionButtons lobby={lobby} />
+        <ActionButtons
+          lobby={lobby}
+          pendingDrinkPoolsCount={pendingDrinkPools.length}
+          onOpenDistribute={() => navigate(`/lobbies/${lobby.code}/distribute`)}
+        />
       </Box>
-      <Fab
-        color="primary"
-        onClick={() => setStatsOpen(true)}
-        sx={{ position: "fixed", bottom: 80, right: 16 }}
-      >
-        <LocalBarIcon />
-      </Fab>
-      <StatsDrawer
-        open={statsOpen}
-        onClose={() => setStatsOpen(false)}
-        lobby={lobby}
-      />
     </Box>
   );
 }

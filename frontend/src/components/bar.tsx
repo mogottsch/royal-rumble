@@ -1,7 +1,11 @@
 import {
   AppBar,
+  ListItemIcon,
+  ListItemText,
   IconButton,
   LinearProgress,
+  Menu,
+  MenuItem,
   Modal,
   Toolbar,
   Typography,
@@ -9,6 +13,8 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShareIcon from "@mui/icons-material/Share";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import LanguageIcon from "@mui/icons-material/Language";
 import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import { Box } from "@mui/system";
 import { useState } from "react";
@@ -16,10 +22,10 @@ import QRCode from "react-qr-code";
 import { CopyToClipboardButton } from "./buttons";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
-import { History } from "./history";
 import logo from "../assets/logo_small.png";
 import { LanguageSwitcher } from "./language_switcher";
 import { useI18n } from "../i18n";
+import { ActivityPanel } from "./activity_panel";
 
 export function Bar() {
   const { isAnyLoading } = useLoadingAndErrorStateContext();
@@ -31,11 +37,14 @@ export function Bar() {
   );
   const [openShare, setOpenShare] = useState(false);
   const [openHistory, setOpenHistory] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
 
   const handleOpenShare = () => setOpenShare(true);
   const handleCloseShare = () => setOpenShare(false);
   const handleOpenHistory = () => setOpenHistory(true);
   const handleCloseHistory = () => setOpenHistory(false);
+  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => setMenuAnchor(event.currentTarget);
+  const handleCloseMenu = () => setMenuAnchor(null);
 
   const theme = useTheme();
 
@@ -66,12 +75,9 @@ export function Bar() {
               src={logo}
             />
           </Box>
-          <Box sx={{ mr: 1 }}>
-            <LanguageSwitcher />
-          </Box>
           {lobbyExists && (
-            <IconButton size="large" edge="end" onClick={handleOpenShare}>
-              <ShareIcon />
+            <IconButton size="large" edge="end" onClick={handleOpenMenu} aria-label={t("bar.more")}>
+              <MoreVertIcon />
             </IconButton>
           )}
         </Toolbar>
@@ -107,11 +113,33 @@ export function Bar() {
         {isAnyLoading ? <LinearProgress /> : <Box sx={{ height: "4px" }} />}
       </AppBar>
 
-      <Modal open={openHistory} onClose={handleCloseHistory}>
-        <Box sx={historyModalStyle} onClick={handleCloseHistory}>
-          <History lobby={lobby} />
-        </Box>
-      </Modal>
+      <ActivityPanel open={openHistory} onClose={handleCloseHistory} lobby={lobby} />
+      <Menu
+        anchorEl={menuAnchor}
+        open={menuAnchor !== null}
+        onClose={handleCloseMenu}
+      >
+        <MenuItem
+          onClick={() => {
+            handleCloseMenu();
+            handleOpenShare();
+          }}
+        >
+          <ListItemIcon>
+            <ShareIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>{t("bar.share")}</ListItemText>
+        </MenuItem>
+        <MenuItem disableRipple>
+          <ListItemIcon>
+            <LanguageIcon fontSize="small" />
+          </ListItemIcon>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2, width: "100%" }}>
+            <ListItemText>{t("common.language")}</ListItemText>
+            <LanguageSwitcher />
+          </Box>
+        </MenuItem>
+      </Menu>
       <Modal open={openShare} onClose={handleCloseShare}>
         <Box sx={shareModalStyle}>
           <Box sx={{ background: "white", p: 3, mb: 2 }}>
@@ -147,11 +175,4 @@ const modalStyle = {
 const shareModalStyle = {
   ...modalStyle,
   p: 4,
-};
-
-const historyModalStyle = {
-  ...modalStyle,
-  p: 2,
-  height: "90vh",
-  width: "90vw",
 };

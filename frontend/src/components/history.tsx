@@ -26,7 +26,7 @@ export function History({ lobby }: { lobby: Lobby | undefined }) {
       }}
     >
       <Typography variant="h6" sx={{ mb: 1.5 }}>
-        Match Log
+        {t("history.title")}
       </Typography>
 
       <Stack spacing={1}>

@@ -541,7 +541,16 @@ function AggregateForm({
   };
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box
+      sx={{
+        p: 2,
+        height: "100%",
+        minHeight: 0,
+        display: "flex",
+        flexDirection: "column",
+        overflowY: "auto",
+      }}
+    >
       <Typography variant="h6" sx={{ textAlign: "center" }}>
         {t("distribute.aggregateTitle")}
       </Typography>
@@ -736,8 +745,8 @@ function ParticipantRow({
         {participant.name}
       </Typography>
       <Stack
-        direction="row"
-        spacing={{ xs: 0.5, sm: showBothDrinkTypes ? 1 : 2 }}
+        direction={showBothDrinkTypes ? "column" : "row"}
+        spacing={showBothDrinkTypes ? 0.2 : { xs: 0.5, sm: 2 }}
         sx={{
           alignItems: "flex-end",
           justifySelf: "end",

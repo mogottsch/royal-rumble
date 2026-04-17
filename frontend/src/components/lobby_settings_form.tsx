@@ -1,4 +1,4 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, FormControlLabel, Switch, TextField, Typography } from "@mui/material";
 import { Lobby } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
@@ -8,6 +8,8 @@ export type LobbySettings = {
   shots_per_elimination: number;
   schluecke_on_npc_elimination: number;
   shots_on_npc_elimination: number;
+  mystery_chests_enabled: boolean;
+  chest_aggression_multiplier: number;
 };
 
 export function getDefaultLobbySettings(): LobbySettings {
@@ -17,6 +19,8 @@ export function getDefaultLobbySettings(): LobbySettings {
     shots_per_elimination: 0,
     schluecke_on_npc_elimination: 0,
     shots_on_npc_elimination: 0,
+    mystery_chests_enabled: false,
+    chest_aggression_multiplier: 1,
   };
 }
 
@@ -37,6 +41,13 @@ export function LobbySettingsForm({
     onChange({ ...value, [key]: Math.max(0, parseInt(next) || 0) });
   };
 
+  const setMultiplier = (next: string) => {
+    onChange({
+      ...value,
+      chest_aggression_multiplier: Math.min(3, Math.max(0.25, Number.parseFloat(next) || 1)),
+    });
+  };
+
   return (
     <Box sx={{ mt: 1 }}>
       <Typography variant="h6" sx={{ mb: 1 }}>
@@ -50,21 +61,53 @@ export function LobbySettingsForm({
         />
         <Box>
           <Typography variant="subtitle2" sx={{ mb: 1, opacity: 0.8 }}>
-            {t("lobbySettings.perElimination")}
+            {t("lobbySettings.chests")}
           </Typography>
-          <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
-            <NumField
-              label={t("createLobby.sipsPerElimination")}
-              value={value.schluecke_per_elimination}
-              onChange={setField("schluecke_per_elimination")}
+          <Box sx={{ display: "grid", gap: 2 }}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={value.mystery_chests_enabled}
+                  onChange={(_, checked) =>
+                    onChange({ ...value, mystery_chests_enabled: checked })
+                  }
+                />
+              }
+              label={t("lobbySettings.enableChests")}
             />
-            <NumField
-              label={t("createLobby.shotsPerElimination")}
-              value={value.shots_per_elimination}
-              onChange={setField("shots_per_elimination")}
-            />
+            {value.mystery_chests_enabled && (
+              <TextField
+                label={t("lobbySettings.chestMultiplier")}
+                type="number"
+                value={value.chest_aggression_multiplier}
+                onChange={(e) => setMultiplier(e.target.value)}
+                slotProps={{
+                  htmlInput: { min: 0.25, max: 3, step: 0.25 },
+                }}
+                size="small"
+              />
+            )}
           </Box>
         </Box>
+        {!value.mystery_chests_enabled && (
+          <Box>
+            <Typography variant="subtitle2" sx={{ mb: 1, opacity: 0.8 }}>
+              {t("lobbySettings.perElimination")}
+            </Typography>
+            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
+              <NumField
+                label={t("createLobby.sipsPerElimination")}
+                value={value.schluecke_per_elimination}
+                onChange={setField("schluecke_per_elimination")}
+              />
+              <NumField
+                label={t("createLobby.shotsPerElimination")}
+                value={value.shots_per_elimination}
+                onChange={setField("shots_per_elimination")}
+              />
+            </Box>
+          </Box>
+        )}
         <Box>
           <Typography variant="subtitle2" sx={{ mb: 1, opacity: 0.8 }}>
             {t("lobbySettings.npcElimination")}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import { Box, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { getPendingDrinkPools } from "../drink_pools";
+import { getPendingChestChoices, getPendingDrinkPools } from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { Participant, Rumbler } from "../hooks/use_lobby";
@@ -126,6 +126,8 @@ export function ViewGame() {
   }
 
   const pendingDrinkPools = getPendingDrinkPools(lobby, claimedParticipantId);
+  const pendingChestChoices = getPendingChestChoices(lobby, claimedParticipantId);
+  const pendingDrinkTaskCount = pendingDrinkPools.length + pendingChestChoices.length;
 
   return (
     <Box
@@ -164,7 +166,7 @@ export function ViewGame() {
         </Box>
         <ActionButtons
           lobby={lobby}
-          pendingDrinkPoolsCount={pendingDrinkPools.length}
+          pendingDrinkPoolsCount={pendingDrinkTaskCount}
           onOpenDistribute={() => navigate(`/lobbies/${lobby.code}/distribute`)}
         />
       </Box>

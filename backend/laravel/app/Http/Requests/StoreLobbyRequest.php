@@ -15,6 +15,8 @@ class StoreLobbyRequest extends FormRequest
             "shots_per_elimination" => ["nullable", "integer", "min:0", "max:100"],
             "schluecke_on_npc_elimination" => ["nullable", "integer", "min:0", "max:100"],
             "shots_on_npc_elimination" => ["nullable", "integer", "min:0", "max:100"],
+            "mystery_chests_enabled" => ["nullable", "boolean"],
+            "chest_aggression_multiplier" => ["nullable", "numeric", "min:0.25", "max:3"],
         ];
     }
 

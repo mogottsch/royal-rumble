@@ -1,24 +1,44 @@
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import {
   Box,
   Button,
+  Card,
+  CardActionArea,
+  CardContent,
   Divider,
   IconButton,
   Stack,
   Typography,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchApi, participantIdHeaders } from "../api/fetcher";
-import { getPendingDrinkPools, PendingDrinkPool } from "../drink_pools";
+import {
+  getPendingChestChoices,
+  getPendingDrinkPools,
+  PendingChestChoice,
+  PendingDrinkPool,
+} from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
+import { useNotificationContext } from "../contexts/notification_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import { Lobby, Participant } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
 type Allocation = Record<number, { schluecke: number; shots: number }>;
+
+type RevealedChestResult = {
+  chest_reward_id: number;
+  chest_type: string;
+  card_key: string;
+  card_mode: string;
+  schluecke: number;
+  shots: number;
+  offenderName: string;
+  victimName: string;
+};
 
 export function Distribute() {
   const { lobby, lobbyQuery } = useLobbyContext();
@@ -27,30 +47,70 @@ export function Distribute() {
   const navigate = useNavigate();
   const { t } = useI18n();
   const [didRefetch, setDidRefetch] = useState(false);
+  const [revealedChestResult, setRevealedChestResult] = useState<RevealedChestResult | null>(null);
   const parsedEliminationId = eliminationId ? parseInt(eliminationId) : undefined;
+  const chestChoices =
+    lobby && claimedParticipantId !== null
+      ? getPendingChestChoices(lobby, claimedParticipantId)
+      : [];
   const pools =
     lobby && claimedParticipantId !== null
       ? getPendingDrinkPools(lobby, claimedParticipantId, parsedEliminationId)
       : [];
+  const hasChestChoices = chestChoices.length > 0;
   const hasPools = pools.length > 0;
 
   useEffect(() => {
-    if (!lobby || claimedParticipantId === null || hasPools || didRefetch || !lobbyQuery) {
+    if (
+      !lobby ||
+      claimedParticipantId === null ||
+      hasChestChoices ||
+      hasPools ||
+      didRefetch ||
+      !lobbyQuery
+    ) {
       return;
     }
     setDidRefetch(true);
     lobbyQuery.refetch();
-  }, [claimedParticipantId, didRefetch, hasPools, lobby, lobbyQuery]);
+  }, [claimedParticipantId, didRefetch, hasChestChoices, hasPools, lobby, lobbyQuery]);
 
   if (!lobby || claimedParticipantId === null) return null;
 
+  if (revealedChestResult) {
+    return (
+      <ChestRevealScreen
+        result={revealedChestResult}
+        onContinue={async () => {
+          await lobbyQuery?.refetch();
+          if (revealedChestResult.card_mode === "give_out") {
+            setRevealedChestResult(null);
+            return;
+          }
+          navigate(`/lobbies/${lobby.code}/view-game`);
+        }}
+      />
+    );
+  }
+
+  if (hasChestChoices) {
+    return (
+      <ChestChoiceForm
+        choice={chestChoices[0]}
+        chooserId={claimedParticipantId}
+        lobbyCode={lobby.code}
+        onResolved={setRevealedChestResult}
+      />
+    );
+  }
+
   if (!hasPools) {
     if (lobbyQuery?.isFetching) {
-        return (
-          <Box sx={{ p: 2 }}>
-            <Typography>{t("distribute.loading")}</Typography>
-          </Box>
-        );
+      return (
+        <Box sx={{ p: 2 }}>
+          <Typography>{t("distribute.loading")}</Typography>
+        </Box>
+      );
     }
 
     return (
@@ -70,6 +130,146 @@ export function Distribute() {
       giverId={claimedParticipantId}
       onFinish={() => navigate(`/lobbies/${lobby.code}/view-game`)}
     />
+  );
+}
+
+function ChestChoiceForm({
+  choice,
+  chooserId,
+  lobbyCode,
+  onResolved,
+}: {
+  choice: PendingChestChoice;
+  chooserId: number;
+  lobbyCode: string;
+  onResolved: (result: RevealedChestResult) => void;
+}) {
+  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { notify } = useNotificationContext();
+  const { t } = useI18n();
+
+  const openChest = async (chestType: "safe" | "group" | "chaos") => {
+    setKeyLoading("openChest", true);
+    try {
+      const result = await postChestRoll(lobbyCode, choice.chestRewardId, chestType, chooserId);
+      onResolved({
+        ...result,
+        offenderName: choice.offender.wrestler.name,
+        victimName: choice.victim.wrestler.name,
+      });
+    } catch (error) {
+      notify((error as Error).message, "error");
+    } finally {
+      setKeyLoading("openChest", false);
+    }
+  };
+
+  return (
+    <Box sx={{ p: 2 }}>
+      <Typography variant="h6" sx={{ textAlign: "center", mb: 1 }}>
+        {t("distribute.chestTitle", {
+          offender: choice.offender.wrestler.name,
+          victim: choice.victim.wrestler.name,
+        })}
+      </Typography>
+      <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 3 }}>
+        {t("distribute.chooseChest")}
+      </Typography>
+      <Stack spacing={2}>
+        <ChestTypeCard
+          title={t("distribute.chestSafe")}
+          body={t("distribute.chestSafeHint")}
+          onClick={() => openChest("safe")}
+        />
+        <ChestTypeCard
+          title={t("distribute.chestGroup")}
+          body={t("distribute.chestGroupHint")}
+          onClick={() => openChest("group")}
+        />
+        <ChestTypeCard
+          title={t("distribute.chestChaos")}
+          body={t("distribute.chestChaosHint")}
+          onClick={() => openChest("chaos")}
+        />
+      </Stack>
+    </Box>
+  );
+}
+
+function ChestRevealScreen({
+  result,
+  onContinue,
+}: {
+  result: RevealedChestResult;
+  onContinue: () => Promise<void>;
+}) {
+  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { t } = useI18n();
+
+  const handleContinue = async () => {
+    setKeyLoading("continueChest", true);
+    try {
+      await onContinue();
+    } finally {
+      setKeyLoading("continueChest", false);
+    }
+  };
+
+  return (
+    <Box sx={{ p: 2, display: "grid", gap: 2 }}>
+      <Typography variant="h6" sx={{ textAlign: "center" }}>
+        {t("distribute.chestRevealTitle", {
+          chest: t(`distribute.chest.${result.chest_type}`),
+        })}
+      </Typography>
+      <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8 }}>
+        {t("distribute.chestTitle", {
+          offender: result.offenderName,
+          victim: result.victimName,
+        })}
+      </Typography>
+      <Card variant="outlined">
+        <CardContent>
+          <Typography variant="overline" sx={{ opacity: 0.7 }}>
+            {t("distribute.cardDrawn")}
+          </Typography>
+          <Typography variant="h5" sx={{ mt: 1, mb: 1 }}>
+            {t(`distribute.chest.${result.chest_type}`)}
+          </Typography>
+          <Typography variant="body1">
+            {getCardText(t, result.card_key, result.schluecke, result.shots)}
+          </Typography>
+        </CardContent>
+      </Card>
+      <Button variant="contained" size="large" onClick={handleContinue}>
+        {result.card_mode === "give_out"
+          ? t("distribute.continueToDistribution")
+          : t("distribute.continueToGame")}
+      </Button>
+    </Box>
+  );
+}
+
+function ChestTypeCard({
+  title,
+  body,
+  onClick,
+}: {
+  title: string;
+  body: string;
+  onClick: () => void;
+}) {
+  return (
+    <Card variant="outlined">
+      <CardActionArea onClick={onClick}>
+        <CardContent>
+          <Typography variant="h6">{title}</Typography>
+          <Typography variant="body2" sx={{ opacity: 0.8 }}>
+            {body}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }
 
@@ -141,10 +341,7 @@ function AggregateForm({
       <Typography variant="h6" sx={{ textAlign: "center" }}>
         {t("distribute.aggregateTitle")}
       </Typography>
-      <Typography
-        variant="body2"
-        sx={{ textAlign: "center", opacity: 0.8, mb: 2 }}
-      >
+      <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 2 }}>
         {t("distribute.aggregateTotal", {
           sips: totalSchluecke,
           shots: totalShots,
@@ -154,7 +351,7 @@ function AggregateForm({
       <Stack spacing={0.5} sx={{ mb: 2 }}>
         {pools.map((pool) => (
           <Typography
-            key={`${pool.eliminationId}-${pool.offender.id}-${pool.victim.id}`}
+            key={`${pool.chestRewardId ?? 0}-${pool.eliminationId}-${pool.offender.id}-${pool.victim.id}`}
             variant="body2"
             sx={{ opacity: 0.8 }}
           >
@@ -196,12 +393,7 @@ function AggregateForm({
       </Box>
 
       <Stack spacing={1} sx={{ mt: 3 }}>
-        <Button
-          variant="contained"
-          size="large"
-          disabled={!canSubmit}
-          onClick={submit}
-        >
+        <Button variant="contained" size="large" disabled={!canSubmit} onClick={submit}>
           {t("common.confirm")}
         </Button>
         <Button size="small" onClick={onFinish}>
@@ -217,42 +409,45 @@ function buildDistributionRequests(pools: PendingDrinkPool[], alloc: Allocation)
     Object.entries(alloc).map(([participantId, value]) => [participantId, { ...value }]),
   ) as Allocation;
 
-  return pools.map((pool) => {
-    let remainingSchluecke = pool.schluecke;
-    let remainingShots = pool.shots;
-    const splits: {
-      receiver_participant_id: number;
-      schluecke: number;
-      shots: number;
-    }[] = [];
+  return pools
+    .map((pool) => {
+      let remainingSchluecke = pool.schluecke;
+      let remainingShots = pool.shots;
+      const splits: {
+        receiver_participant_id: number;
+        schluecke: number;
+        shots: number;
+      }[] = [];
 
-    for (const participantIdString of Object.keys(remaining)) {
-      const participantId = parseInt(participantIdString);
-      const entry = remaining[participantId];
-      const schluecke = Math.min(entry.schluecke, remainingSchluecke);
-      const shots = Math.min(entry.shots, remainingShots);
+      for (const participantIdString of Object.keys(remaining)) {
+        const participantId = parseInt(participantIdString);
+        const entry = remaining[participantId];
+        const schluecke = Math.min(entry.schluecke, remainingSchluecke);
+        const shots = Math.min(entry.shots, remainingShots);
 
-      if (schluecke > 0 || shots > 0) {
-        splits.push({
-          receiver_participant_id: participantId,
-          schluecke,
-          shots,
-        });
+        if (schluecke > 0 || shots > 0) {
+          splits.push({
+            receiver_participant_id: participantId,
+            schluecke,
+            shots,
+          });
+        }
+
+        entry.schluecke -= schluecke;
+        entry.shots -= shots;
+        remainingSchluecke -= schluecke;
+        remainingShots -= shots;
       }
 
-      entry.schluecke -= schluecke;
-      entry.shots -= shots;
-      remainingSchluecke -= schluecke;
-      remainingShots -= shots;
-    }
-
-    return {
-      elimination_id: pool.eliminationId,
-      offender_rumbler_id: pool.offender.id,
-      victim_rumbler_id: pool.victim.id,
-      splits,
-    };
-  }).filter((request) => request.splits.length > 0);
+      return {
+        chest_reward_id: pool.chestRewardId,
+        elimination_id: pool.eliminationId,
+        offender_rumbler_id: pool.offender.id,
+        victim_rumbler_id: pool.victim.id,
+        splits,
+      };
+    })
+    .filter((request) => request.splits.length > 0);
 }
 
 function ParticipantRow({
@@ -334,9 +529,51 @@ function Stepper({
   );
 }
 
+function getCardText(
+  t: (key: string, params?: Record<string, string | number>) => string,
+  cardKey: string,
+  sips: number,
+  shots: number,
+) {
+  return t(`distribute.card.${cardKey}`, { sips, shots });
+}
+
+async function postChestRoll(
+  lobbyCode: string,
+  chestRewardId: number,
+  chestType: "safe" | "group" | "chaos",
+  chooserId: number,
+) {
+  const response = await fetchApi(`/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/roll`, {
+    method: "POST",
+    body: JSON.stringify({ chest_type: chestType }),
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      ...participantIdHeaders(chooserId),
+    },
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text);
+  }
+
+  const data = await response.json();
+  return data.data as {
+    chest_reward_id: number;
+    chest_type: string;
+    card_key: string;
+    card_mode: string;
+    schluecke: number;
+    shots: number;
+  };
+}
+
 async function postDistribution(
   lobbyCode: string,
   body: {
+    chest_reward_id?: number;
     elimination_id: number;
     offender_rumbler_id: number;
     victim_rumbler_id: number;

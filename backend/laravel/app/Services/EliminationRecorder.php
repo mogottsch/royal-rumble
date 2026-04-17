@@ -18,7 +18,8 @@ class EliminationRecorder
 {
     public function __construct(
         private ActionRecorder $actionRecorder,
-        private EntranceNumberAssigner $entranceNumberAssigner
+        private EntranceNumberAssigner $entranceNumberAssigner,
+        private ChestRewardResolver $chestRewardResolver
     ) {
     }
 
@@ -33,6 +34,7 @@ class EliminationRecorder
 
         $this->recordChugs($lobby, $elimination, $victims);
         $this->recordNpcPenalties($lobby, $elimination, $offenders, $victims);
+        $this->chestRewardResolver->createPendingRewards($lobby, $elimination, $offenders, $victims);
 
         $this->assignNewEntranceNumbers($lobby, $victims);
 

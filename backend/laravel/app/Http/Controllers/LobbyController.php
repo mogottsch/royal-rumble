@@ -35,6 +35,8 @@ class LobbyController extends Controller
                 "shots_per_elimination",
                 "schluecke_on_npc_elimination",
                 "shots_on_npc_elimination",
+                "mystery_chests_enabled",
+                "chest_aggression_multiplier",
             ])
         );
         return response()->json(

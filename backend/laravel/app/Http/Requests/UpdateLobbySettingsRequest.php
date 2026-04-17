@@ -14,6 +14,8 @@ class UpdateLobbySettingsRequest extends FormRequest
             "shots_per_elimination" => ["required", "integer", "min:0", "max:100"],
             "schluecke_on_npc_elimination" => ["required", "integer", "min:0", "max:100"],
             "shots_on_npc_elimination" => ["required", "integer", "min:0", "max:100"],
+            "mystery_chests_enabled" => ["required", "boolean"],
+            "chest_aggression_multiplier" => ["required", "numeric", "min:0.25", "max:3"],
         ];
     }
 }

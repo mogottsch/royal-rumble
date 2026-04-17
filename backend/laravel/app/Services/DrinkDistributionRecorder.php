@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Events\LobbyUpdated;
+use App\Models\ChestReward;
 use App\Exceptions\DrinkDistributionErrorCode;
 use App\Exceptions\DrinkDistributionException;
 use App\Models\DrinkDistribution;
@@ -36,6 +37,36 @@ class DrinkDistributionRecorder
                 "kind" => DrinkDistribution::KIND_ELIMINATION_REWARD,
             ]);
         }
+
+        LobbyUpdated::dispatch($lobby->fresh());
+    }
+
+    public function recordChestRewardDistribution(
+        Lobby $lobby,
+        ChestReward $chestReward,
+        Participant $giver,
+        array $splits
+    ): void {
+        $this->validateChestReward($lobby, $chestReward, $giver, $splits);
+
+        foreach ($splits as $split) {
+            DrinkDistribution::create([
+                "lobby_id" => $lobby->id,
+                "elimination_id" => $chestReward->elimination_id,
+                "offender_rumbler_id" => $chestReward->offender_rumbler_id,
+                "victim_rumbler_id" => $chestReward->victim_rumbler_id,
+                "giver_participant_id" => $giver->id,
+                "receiver_participant_id" => (int) $split["receiver_participant_id"],
+                "schluecke" => (int) ($split["schluecke"] ?? 0),
+                "shots" => (int) ($split["shots"] ?? 0),
+                "kind" => DrinkDistribution::KIND_CHEST_REWARD,
+            ]);
+        }
+
+        $chestReward->status = ChestReward::STATUS_RESOLVED;
+        $chestReward->pending_schluecke = 0;
+        $chestReward->pending_shots = 0;
+        $chestReward->save();
 
         LobbyUpdated::dispatch($lobby->fresh());
     }
@@ -89,6 +120,44 @@ class DrinkDistributionRecorder
             throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SCHLUECKE_SUM);
         }
         if ($shotsSum !== (int) $lobby->shots_per_elimination) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SHOTS_SUM);
+        }
+    }
+
+    private function validateChestReward(
+        Lobby $lobby,
+        ChestReward $chestReward,
+        Participant $giver,
+        array $splits
+    ): void {
+        if ($giver->lobby_id !== $lobby->id) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::GIVER_NOT_IN_LOBBY);
+        }
+        if ($chestReward->lobby_id !== $lobby->id) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::OFFENDER_VICTIM_MISMATCH);
+        }
+        if ($chestReward->chooser_participant_id !== $giver->id) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::GIVER_DOES_NOT_OWN_OFFENDER);
+        }
+        if ($chestReward->status !== ChestReward::STATUS_PENDING_DISTRIBUTION) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::ALREADY_DISTRIBUTED);
+        }
+
+        $participantIds = $lobby->participants()->pluck("id")->all();
+        foreach ($splits as $split) {
+            $receiverId = (int) ($split["receiver_participant_id"] ?? 0);
+            if (!in_array($receiverId, $participantIds, true)) {
+                throw new DrinkDistributionException(DrinkDistributionErrorCode::RECEIVER_NOT_IN_LOBBY);
+            }
+        }
+
+        $schlueckeSum = array_sum(array_map(fn($s) => (int) ($s["schluecke"] ?? 0), $splits));
+        $shotsSum = array_sum(array_map(fn($s) => (int) ($s["shots"] ?? 0), $splits));
+
+        if ($schlueckeSum !== (int) $chestReward->pending_schluecke) {
+            throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SCHLUECKE_SUM);
+        }
+        if ($shotsSum !== (int) $chestReward->pending_shots) {
             throw new DrinkDistributionException(DrinkDistributionErrorCode::WRONG_SHOTS_SUM);
         }
     }

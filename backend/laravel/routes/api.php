@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChestRewardController;
 use App\Http\Controllers\DrinkDistributionController;
 use App\Http\Controllers\LobbyController;
 use App\Http\Controllers\LobbyRumbleController;
@@ -53,6 +54,11 @@ Route::post("/lobbies/{lobby:code}/distributions", [
     DrinkDistributionController::class,
     "store",
 ])->name("lobbies.distributions.store");
+
+Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/roll", [
+    ChestRewardController::class,
+    "roll",
+])->name("lobbies.chestRewards.roll");
 // });
 //
 Route::get("/test/", function () {

@@ -36,10 +36,14 @@ class LobbyCreator
             "shots_per_elimination",
             "schluecke_on_npc_elimination",
             "shots_on_npc_elimination",
+            "mystery_chests_enabled",
+            "chest_aggression_multiplier",
         ];
         foreach ($allowed as $key) {
             if (array_key_exists($key, $config) && $config[$key] !== null) {
-                $lobby->{$key} = (int) $config[$key];
+                $lobby->{$key} = $key === "chest_aggression_multiplier"
+                    ? (float) $config[$key]
+                    : (is_bool($config[$key]) ? $config[$key] : (int) $config[$key]);
             }
         }
     }

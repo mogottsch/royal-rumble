@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DrinkDistribution extends Model
+class ChestReward extends Model
 {
     use HasFactory;
 
-    const KIND_ELIMINATION_REWARD = "elimination_reward";
-    const KIND_CHEST_REWARD = "chest_reward";
-    const KIND_NPC_ELIMINATION_PENALTY = "npc_elimination_penalty";
+    const STATUS_PENDING_CHOICE = "pending_choice";
+    const STATUS_PENDING_DISTRIBUTION = "pending_distribution";
+    const STATUS_RESOLVED = "resolved";
 
     protected $guarded = [];
 
     protected $casts = [
-        "schluecke" => "integer",
-        "shots" => "integer",
+        "pending_schluecke" => "integer",
+        "pending_shots" => "integer",
     ];
 
     public function lobby()
@@ -40,13 +40,8 @@ class DrinkDistribution extends Model
         return $this->belongsTo(Rumbler::class, "victim_rumbler_id");
     }
 
-    public function giver()
+    public function chooser()
     {
-        return $this->belongsTo(Participant::class, "giver_participant_id");
-    }
-
-    public function receiver()
-    {
-        return $this->belongsTo(Participant::class, "receiver_participant_id");
+        return $this->belongsTo(Participant::class, "chooser_participant_id");
     }
 }

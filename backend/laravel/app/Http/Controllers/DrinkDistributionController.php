@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\DrinkDistributionException;
+use App\Models\ChestReward;
 use App\Models\Elimination;
 use App\Models\Lobby;
 use App\Models\Participant;
@@ -19,6 +20,7 @@ class DrinkDistributionController extends Controller
         DrinkDistributionRecorder $recorder
     ) {
         $data = $request->validate([
+            "chest_reward_id" => ["nullable", "integer"],
             "elimination_id" => ["required", "integer"],
             "offender_rumbler_id" => ["required", "integer"],
             "victim_rumbler_id" => ["required", "integer"],
@@ -42,6 +44,32 @@ class DrinkDistributionController extends Controller
                 ["message" => "Giver participant not found in lobby."],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
+        }
+
+        if (!empty($data["chest_reward_id"])) {
+            $chestReward = ChestReward::where("lobby_id", $lobby->id)->find($data["chest_reward_id"]);
+            if (!$chestReward) {
+                return response()->json(
+                    ["message" => "Chest reward not found."],
+                    Response::HTTP_NOT_FOUND
+                );
+            }
+
+            try {
+                $recorder->recordChestRewardDistribution(
+                    $lobby,
+                    $chestReward,
+                    $giver,
+                    $data["splits"]
+                );
+            } catch (DrinkDistributionException $e) {
+                return response()->json(
+                    ["message" => $e->getMessage(), "code" => $e->errorCode->name],
+                    Response::HTTP_UNPROCESSABLE_ENTITY
+                );
+            }
+
+            return response(status: Response::HTTP_CREATED);
         }
 
         $elimination = Elimination::find($data["elimination_id"]);

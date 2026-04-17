@@ -36,6 +36,7 @@ class LobbyResource extends JsonResource
             "drink_config" => $this->lobby->getDrinkConfig(),
             "drink_distributions" => $this->lobby->drinkDistributions,
             "chugs" => $this->lobby->chugs,
+            "chest_rewards" => $this->lobby->chestRewards,
         ];
     }
 }

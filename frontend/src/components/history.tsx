@@ -114,7 +114,7 @@ function buildGroupedDistributions(distributions: DrinkDistribution[]): HistoryI
 
     const rounded = distribution.created_at.slice(0, 19);
     const key =
-      distribution.kind === "elimination_reward"
+      distribution.kind === "elimination_reward" || distribution.kind === "chest_reward"
         ? `${distribution.kind}:${distribution.giver_participant_id}:${rounded}`
         : `${distribution.kind}:${distribution.receiver_participant_id}:${rounded}`;
 

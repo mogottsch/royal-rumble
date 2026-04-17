@@ -18,6 +18,7 @@ export interface Lobby {
   drink_config: DrinkConfig;
   drink_distributions: DrinkDistribution[];
   chugs: Chug[];
+  chest_rewards: ChestReward[];
 }
 
 export interface DrinkConfig {
@@ -25,6 +26,8 @@ export interface DrinkConfig {
   shots_per_elimination: number;
   schluecke_on_npc_elimination: number;
   shots_on_npc_elimination: number;
+  mystery_chests_enabled: boolean;
+  chest_aggression_multiplier: number;
 }
 
 export interface LobbySettings {
@@ -33,6 +36,8 @@ export interface LobbySettings {
   shots_per_elimination: number;
   schluecke_on_npc_elimination: number;
   shots_on_npc_elimination: number;
+  mystery_chests_enabled: boolean;
+  chest_aggression_multiplier: number;
 }
 
 export interface DrinkDistribution {
@@ -45,10 +50,28 @@ export interface DrinkDistribution {
   receiver_participant_id: number;
   schluecke: number;
   shots: number;
-  kind: "elimination_reward" | "npc_elimination_penalty";
+  kind: "elimination_reward" | "chest_reward" | "npc_elimination_penalty";
   created_at?: string;
   giver?: Participant | null;
   receiver?: Participant | null;
+  offender_rumbler?: Rumbler | null;
+  victim_rumbler?: Rumbler | null;
+}
+
+export interface ChestReward {
+  id: number;
+  lobby_id: number;
+  elimination_id: number;
+  offender_rumbler_id: number;
+  victim_rumbler_id: number;
+  chooser_participant_id: number;
+  status: "pending_choice" | "pending_distribution" | "resolved";
+  chest_type: "safe" | "group" | "chaos" | null;
+  card_key: string | null;
+  card_mode: "auto" | "give_out" | null;
+  pending_schluecke: number;
+  pending_shots: number;
+  chooser?: Participant | null;
   offender_rumbler?: Rumbler | null;
   victim_rumbler?: Rumbler | null;
 }

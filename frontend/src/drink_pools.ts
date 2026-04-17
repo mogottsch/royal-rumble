@@ -1,6 +1,7 @@
 import { Lobby, Rumbler } from "./hooks/use_lobby";
 
 export type PendingDrinkPool = {
+  chestRewardId?: number;
   eliminationId: number;
   offender: Rumbler;
   victim: Rumbler;
@@ -8,12 +9,63 @@ export type PendingDrinkPool = {
   shots: number;
 };
 
+export type PendingChestChoice = {
+  chestRewardId: number;
+  eliminationId: number;
+  offender: Rumbler;
+  victim: Rumbler;
+};
+
+export function getPendingChestChoices(
+  lobby: Lobby,
+  claimedParticipantId: number | null,
+): PendingChestChoice[] {
+  if (claimedParticipantId === null || !lobby.drink_config.mystery_chests_enabled) {
+    return [];
+  }
+
+  return lobby.chest_rewards
+    .filter(
+      (reward) =>
+        reward.chooser_participant_id === claimedParticipantId &&
+        reward.status === "pending_choice" &&
+        reward.offender_rumbler &&
+        reward.victim_rumbler,
+    )
+    .map((reward) => ({
+      chestRewardId: reward.id,
+      eliminationId: reward.elimination_id,
+      offender: reward.offender_rumbler as Rumbler,
+      victim: reward.victim_rumbler as Rumbler,
+    }));
+}
+
 export function getPendingDrinkPools(
   lobby: Lobby,
   claimedParticipantId: number | null,
   eliminationId?: number,
 ): PendingDrinkPool[] {
   if (claimedParticipantId === null) return [];
+
+  if (lobby.drink_config.mystery_chests_enabled) {
+    return lobby.chest_rewards
+      .filter(
+        (reward) =>
+          reward.chooser_participant_id === claimedParticipantId &&
+          reward.status === "pending_distribution" &&
+          reward.offender_rumbler &&
+          reward.victim_rumbler &&
+          (eliminationId === undefined || reward.elimination_id === eliminationId),
+      )
+      .map((reward) => ({
+        chestRewardId: reward.id,
+        eliminationId: reward.elimination_id,
+        offender: reward.offender_rumbler as Rumbler,
+        victim: reward.victim_rumbler as Rumbler,
+        schluecke: reward.pending_schluecke,
+        shots: reward.pending_shots,
+      }));
+  }
 
   const schluecke = lobby.drink_config.schluecke_per_elimination ?? 0;
   const shots = lobby.drink_config.shots_per_elimination ?? 0;
@@ -56,6 +108,13 @@ export function getPendingDrinkPools(
 
 export function getPendingDrinkPoolSignature(pools: PendingDrinkPool[]): string {
   return pools
-    .map((pool) => `${pool.eliminationId}:${pool.offender.id}:${pool.victim.id}`)
+    .map(
+      (pool) =>
+        `${pool.chestRewardId ?? 0}:${pool.eliminationId}:${pool.offender.id}:${pool.victim.id}`,
+    )
     .join("|");
+}
+
+export function getPendingChestChoiceSignature(choices: PendingChestChoice[]): string {
+  return choices.map((choice) => String(choice.chestRewardId)).join("|");
 }

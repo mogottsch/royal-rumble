@@ -10,6 +10,11 @@ class Lobby extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        "mystery_chests_enabled" => "boolean",
+        "chest_aggression_multiplier" => "float",
+    ];
+
     public static function make()
     {
         $lobby = new Lobby();
@@ -55,6 +60,11 @@ class Lobby extends Model
         return $this->hasMany(Chug::class);
     }
 
+    public function chestRewards()
+    {
+        return $this->hasMany(ChestReward::class);
+    }
+
     public function getDrinkConfig(): array
     {
         return [
@@ -62,6 +72,8 @@ class Lobby extends Model
             "shots_per_elimination" => $this->shots_per_elimination,
             "schluecke_on_npc_elimination" => $this->schluecke_on_npc_elimination,
             "shots_on_npc_elimination" => $this->shots_on_npc_elimination,
+            "mystery_chests_enabled" => $this->mystery_chests_enabled,
+            "chest_aggression_multiplier" => $this->chest_aggression_multiplier,
         ];
     }
 
@@ -100,6 +112,10 @@ class Lobby extends Model
             "drinkDistributions.victimRumbler.wrestler",
             "chugs",
             "chugs.participant",
+            "chestRewards",
+            "chestRewards.chooser",
+            "chestRewards.offenderRumbler.wrestler",
+            "chestRewards.victimRumbler.wrestler",
         ]);
     }
 }

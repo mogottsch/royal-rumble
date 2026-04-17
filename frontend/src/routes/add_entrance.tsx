@@ -98,55 +98,72 @@ export function AddEntrance() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        justifyContent: "space-between",
+        flex: 1,
+        minHeight: 0,
+        pt: 1,
       }}
     >
-      <Box sx={{ mt: 2, display: "grid", gridTemplateRows: "auto auto 1fr", gap: 2 }}>
-        <TextField
-          id="wrestler-search"
-          label={t("addEntrance.label")}
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-        <Button
-          variant="outlined"
-          onClick={() => {
-            toggleOpen(true);
-            setDialogValue({ name: searchTerm });
-          }}
-          disabled={searchTerm.trim() === ""}
-        >
-          {t("addEntrance.createOption", { name: searchTerm || "..." })}
-        </Button>
-        {deferredSearchTerm.trim().length >= 2 && searchedWrestlers.length === 0 && !isLoading ? (
-          <Typography sx={{ opacity: 0.7 }}>{t("addEntrance.noResults")}</Typography>
-        ) : (
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
-              gap: 1,
-              alignContent: "start",
+      <Box
+        sx={{
+          flex: 1,
+          minHeight: 0,
+          overflowY: "auto",
+          pb: 2,
+        }}
+      >
+        <Box sx={{ display: "grid", gap: 2 }}>
+          <TextField
+            id="wrestler-search"
+            label={t("addEntrance.label")}
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <Button
+            variant="outlined"
+            onClick={() => {
+              toggleOpen(true);
+              setDialogValue({ name: searchTerm });
             }}
+            disabled={searchTerm.trim() === ""}
           >
-            {displayedWrestlers.map((wrestler) => {
-              const wrestlerWithThumbnail = wrestler as WrestlerWithThumbnail;
+            {t("addEntrance.createOption", { name: searchTerm || "..." })}
+          </Button>
+          {deferredSearchTerm.trim().length >= 2 && searchedWrestlers.length === 0 && !isLoading ? (
+            <Typography sx={{ opacity: 0.7 }}>{t("addEntrance.noResults")}</Typography>
+          ) : (
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
+                gap: 1,
+                alignContent: "start",
+              }}
+            >
+              {displayedWrestlers.map((wrestler) => {
+                const wrestlerWithThumbnail = wrestler as WrestlerWithThumbnail;
 
-              return (
-              <WrestlerPickerTile
-                key={wrestler.id}
-                name={wrestler.name}
-                imageUrl={wrestlerWithThumbnail.thumbnail_url ?? wrestler.image_url}
-                selected={selectedWrestler?.id === wrestler.id}
-                onClick={() => setSelectedWrestler(wrestler as WrestlerOptionType)}
-              />
-              );
-            })}
-          </Box>
-        )}
+                return (
+                  <WrestlerPickerTile
+                    key={wrestler.id}
+                    name={wrestler.name}
+                    imageUrl={wrestlerWithThumbnail.thumbnail_url ?? wrestler.image_url}
+                    selected={selectedWrestler?.id === wrestler.id}
+                    onClick={() => setSelectedWrestler(wrestler as WrestlerOptionType)}
+                  />
+                );
+              })}
+            </Box>
+          )}
+        </Box>
       </Box>
-      <Box sx={{ mb: 2 }}>
+      <Box
+        sx={{
+          pt: 2,
+          pb: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 28%, rgba(0,0,0,1) 100%)",
+        }}
+      >
         <Box
           sx={{
             display: "flex",

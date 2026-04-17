@@ -2,7 +2,9 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import logo from "../../assets/logo_neon.png";
+import logoAvif from "../../assets/logo_neon.avif";
+import logoPng from "../../assets/logo_neon.png";
+import logoWebp from "../../assets/logo_neon.webp";
 
 const BEAM_X = [18, 50, 82] as const;
 const FLOOR_Y = 87;
@@ -131,11 +133,15 @@ export function Landing() {
         }}
       >
         <div className="titantron">
-          <img
-            src={logo}
-            className="logo logo--neon"
-            alt="Suff Royale"
-          />
+          <picture>
+            <source srcSet={logoAvif} type="image/avif" />
+            <source srcSet={logoWebp} type="image/webp" />
+            <img
+              src={logoPng}
+              className="logo logo--neon"
+              alt="Suff Royale"
+            />
+          </picture>
         </div>
         <Box sx={{ flexGrow: 1 }}>
           <Outlet />

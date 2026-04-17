@@ -11,7 +11,7 @@ body {
 .titantron {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 440px;
   margin: 0 auto;
   z-index: 2;
 }

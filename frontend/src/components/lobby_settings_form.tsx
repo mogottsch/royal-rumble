@@ -5,7 +5,6 @@ import {
   FormControlLabel,
   IconButton,
   Switch,
-  TextField,
   Typography,
 } from "@mui/material";
 import { Lobby } from "../hooks/use_lobby";
@@ -50,10 +49,11 @@ export function LobbySettingsForm({
     onChange({ ...value, [key]: Math.max(0, parseInt(next) || 0) });
   };
 
-  const setMultiplier = (next: string) => {
+  const setMultiplier = (next: number) => {
+    const rounded = Math.round(next * 10) / 10;
     onChange({
       ...value,
-      chest_aggression_multiplier: Math.min(3, Math.max(0.25, Number.parseFloat(next) || 1)),
+      chest_aggression_multiplier: Math.min(3, Math.max(0.25, rounded)),
     });
   };
 
@@ -85,15 +85,13 @@ export function LobbySettingsForm({
               label={t("lobbySettings.enableChests")}
             />
             {value.mystery_chests_enabled && (
-              <TextField
+              <DecimalField
                 label={t("lobbySettings.chestMultiplier")}
-                type="number"
                 value={value.chest_aggression_multiplier}
-                onChange={(e) => setMultiplier(e.target.value)}
-                slotProps={{
-                  htmlInput: { min: 0.25, max: 3, step: 0.25 },
-                }}
-                size="small"
+                step={0.1}
+                min={0.25}
+                max={3}
+                onChange={setMultiplier}
               />
             )}
           </Box>
@@ -182,6 +180,63 @@ function NumField({
         aria-label={`Increase ${label}`}
         size="large"
         onClick={() => nextValue(1)}
+      >
+        <AddIcon />
+      </IconButton>
+    </Box>
+  );
+}
+
+function DecimalField({
+  label,
+  value,
+  step,
+  min,
+  max,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  step: number;
+  min: number;
+  max: number;
+  onChange: (v: number) => void;
+}) {
+  const nextValue = (delta: number) => onChange(Math.min(max, Math.max(min, value + delta)));
+
+  return (
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "auto 1fr auto",
+        alignItems: "center",
+        gap: 1,
+        border: "1px solid",
+        borderColor: "divider",
+        borderRadius: 2,
+        px: 1,
+        py: 0.5,
+      }}
+    >
+      <IconButton
+        aria-label={`Decrease ${label}`}
+        size="large"
+        onClick={() => nextValue(-step)}
+        disabled={value <= min}
+      >
+        <RemoveIcon />
+      </IconButton>
+      <Box sx={{ textAlign: "center", minWidth: 0 }}>
+        <Typography variant="caption" sx={{ opacity: 0.7, display: "block" }}>
+          {label}
+        </Typography>
+        <Typography variant="h6">{value.toFixed(1)}</Typography>
+      </Box>
+      <IconButton
+        aria-label={`Increase ${label}`}
+        size="large"
+        onClick={() => nextValue(step)}
+        disabled={value >= max}
       >
         <AddIcon />
       </IconButton>

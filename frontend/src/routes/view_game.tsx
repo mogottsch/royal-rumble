@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Button from "@mui/material/Button";
 import { Box, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { PersonalDrinkTracker } from "../components/personal_drink_tracker";
 import { getPendingChestChoices, getPendingDrinkPools } from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { Participant, Rumbler } from "../hooks/use_lobby";
+import { usePersonalDrinkTracker } from "../hooks/use_personal_drink_tracker";
 import { useI18n } from "../i18n";
 import { WrestlerTile } from "../components/wrestler_tile";
 
@@ -87,6 +89,34 @@ export function ViewGame() {
   const navigate = useNavigate();
   const { t } = useI18n();
   const [rows, setRows] = useState<Row[]>();
+  const pendingDrinkPools = lobby ? getPendingDrinkPools(lobby, claimedParticipantId) : [];
+  const pendingChestChoices = lobby ? getPendingChestChoices(lobby, claimedParticipantId) : [];
+  const pendingDrinkTaskCount = pendingDrinkPools.length + pendingChestChoices.length;
+  const rawDueTotals = useMemo(
+    () => ({
+      sips:
+        lobby?.drink_distributions
+          .filter(
+            (distribution) => distribution.receiver_participant_id === claimedParticipantId,
+          )
+          .reduce((sum, distribution) => sum + distribution.schluecke, 0) ?? 0,
+      shots:
+        lobby?.drink_distributions
+          .filter(
+            (distribution) => distribution.receiver_participant_id === claimedParticipantId,
+          )
+          .reduce((sum, distribution) => sum + distribution.shots, 0) ?? 0,
+      chugs:
+        lobby?.chugs.filter((chug) => chug.participant_id === claimedParticipantId)
+          .length ?? 0,
+    }),
+    [claimedParticipantId, lobby?.chugs, lobby?.drink_distributions],
+  );
+  const drinkTracker = usePersonalDrinkTracker({
+    lobbyCode: lobby?.code,
+    claimedParticipantId: claimedParticipantId ?? undefined,
+    raw: rawDueTotals,
+  });
 
   useEffect(() => {
     if (!lobby) return;
@@ -125,10 +155,6 @@ export function ViewGame() {
     return <div>{t("viewGame.pendingEntranceNumbers")}</div>;
   }
 
-  const pendingDrinkPools = getPendingDrinkPools(lobby, claimedParticipantId);
-  const pendingChestChoices = getPendingChestChoices(lobby, claimedParticipantId);
-  const pendingDrinkTaskCount = pendingDrinkPools.length + pendingChestChoices.length;
-
   return (
     <Box
       sx={{
@@ -150,7 +176,14 @@ export function ViewGame() {
           <ParticipantCard key={index} row={row} />
         ))}
       </Box>
-      <Box>
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          backgroundColor: "background.default",
+          pb: 1,
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -164,6 +197,12 @@ export function ViewGame() {
             ? t("viewGame.nextEntrance", { number: lobby.nextEntranceNumber })
             : t("viewGame.rumbleFull", { count: lobby.settings.rumble_size })}
         </Box>
+        {claimedParticipantId !== null && (
+          <PersonalDrinkTracker
+            remaining={drinkTracker.remaining}
+            onDecrement={drinkTracker.decrement}
+          />
+        )}
         <ActionButtons
           lobby={lobby}
           pendingDrinkPoolsCount={pendingDrinkTaskCount}

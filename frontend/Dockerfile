@@ -2,6 +2,8 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
+RUN corepack enable
+
 ARG VITE_BACKEND_URL
 ARG VITE_PUSHER_HOST
 ARG VITE_PUSHER_PORT
@@ -19,6 +21,22 @@ RUN yarn install --frozen-lockfile
 
 COPY frontend/ ./
 RUN yarn build
+
+FROM node:20-alpine AS dev
+
+WORKDIR /app
+
+RUN corepack enable
+
+COPY frontend/package.json frontend/yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+COPY frontend/ ./
+
+EXPOSE 5173
+EXPOSE 4784
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
 
 FROM nginx:alpine AS runtime
 

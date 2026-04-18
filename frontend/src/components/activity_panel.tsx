@@ -16,6 +16,7 @@ import { useState } from "react";
 import { Lobby } from "../hooks/use_lobby";
 import { History } from "./history";
 import { useI18n } from "../i18n";
+import { buildParticipantDrinkStats } from "../utils/drink_stats";
 
 export function ActivityPanel({
   open,
@@ -87,49 +88,14 @@ function StatsTable({ lobby }: { lobby: Lobby | undefined }) {
   );
 }
 
-type Stat = {
-  participantId: number;
-  name: string;
-  schluecke_received: number;
-  schluecke_given: number;
-  shots_received: number;
-  shots_given: number;
-  chugs: number;
-};
-
-function computeStats(lobby: Lobby): Stat[] {
-  const map = new Map<number, Stat>();
-  for (const p of lobby.participants) {
-    map.set(p.id, {
-      participantId: p.id,
-      name: p.name,
-      schluecke_received: 0,
-      schluecke_given: 0,
-      shots_received: 0,
-      shots_given: 0,
-      chugs: 0,
-    });
-  }
-
-  for (const d of lobby.drink_distributions) {
-    const receiver = map.get(d.receiver_participant_id);
-    if (receiver) {
-      receiver.schluecke_received += d.schluecke;
-      receiver.shots_received += d.shots;
-    }
-    if (d.giver_participant_id !== null) {
-      const giver = map.get(d.giver_participant_id);
-      if (giver) {
-        giver.schluecke_given += d.schluecke;
-        giver.shots_given += d.shots;
-      }
-    }
-  }
-
-  for (const c of lobby.chugs) {
-    const p = map.get(c.participant_id);
-    if (p) p.chugs += 1;
-  }
-
-  return Array.from(map.values());
+function computeStats(lobby: Lobby) {
+  return buildParticipantDrinkStats(lobby).map((row) => ({
+    participantId: row.participant.id,
+    name: row.participant.name,
+    schluecke_received: row.drunkSips,
+    schluecke_given: row.sipsGiven,
+    shots_received: row.drunkShots,
+    shots_given: row.shotsGiven,
+    chugs: row.drunkChugs,
+  }));
 }

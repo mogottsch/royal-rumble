@@ -10,24 +10,16 @@ import { HistoryContent } from "../components/history";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { Lobby, Participant } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
+import { buildParticipantDrinkStats, compareDrinkScore, ParticipantDrinkStats } from "../utils/drink_stats";
 
-type ParticipantDashboardRow = {
-  participant: Participant;
-  remainingSips: number;
-  remainingShots: number;
-  remainingChugs: number;
-  drunkSips: number;
-  drunkShots: number;
-  drunkChugs: number;
-  drinkScore: number;
-};
+type ParticipantDashboardRow = ParticipantDrinkStats;
 
 export function ViewGameDashboard() {
   const { lobby } = useLobbyContext();
   const { t } = useI18n();
 
-  const participantRows = useMemo(() => (lobby ? buildParticipantRows(lobby) : []), [lobby]);
-  const leaderboard = [...participantRows].sort(compareLeaderboardRows);
+  const participantRows = useMemo(() => (lobby ? buildParticipantDrinkStats(lobby) : []), [lobby]);
+  const leaderboard = [...participantRows].sort(compareDrinkScore);
   const entrancesLeft = lobby ? getEntrancesLeft(lobby) : 0;
   const totals = useMemo(() => buildDashboardTotals(participantRows), [participantRows]);
 
@@ -314,65 +306,6 @@ function getCurrentWrestlerName(lobby: Lobby, participant: Participant) {
   return (
     lobby.rumblers.find((rumbler) => rumbler.id === participant.rumbler_id)?.wrestler.name ?? null
   );
-}
-
-function buildParticipantRows(lobby: Lobby): ParticipantDashboardRow[] {
-  const dueMap = new Map<number, { sips: number; shots: number; chugs: number }>();
-
-  for (const participant of lobby.participants) {
-    dueMap.set(participant.id, { sips: 0, shots: 0, chugs: 0 });
-  }
-
-  for (const distribution of lobby.drink_distributions) {
-    const entry = dueMap.get(distribution.receiver_participant_id);
-    if (!entry) {
-      continue;
-    }
-    entry.sips += distribution.schluecke;
-    entry.shots += distribution.shots;
-  }
-
-  for (const chug of lobby.chugs) {
-    const entry = dueMap.get(chug.participant_id);
-    if (!entry) {
-      continue;
-    }
-    entry.chugs += 1;
-  }
-
-  return lobby.participants.map((participant) => {
-    const due = dueMap.get(participant.id) ?? { sips: 0, shots: 0, chugs: 0 };
-    const drunkSips = Math.min(due.sips, participant.drunk_sips ?? 0);
-    const drunkShots = Math.min(due.shots, participant.drunk_shots ?? 0);
-    const drunkChugs = Math.min(due.chugs, participant.drunk_chugs ?? 0);
-
-    return {
-      participant,
-      remainingSips: Math.max(0, due.sips - drunkSips),
-      remainingShots: Math.max(0, due.shots - drunkShots),
-      remainingChugs: Math.max(0, due.chugs - drunkChugs),
-      drunkSips,
-      drunkShots,
-      drunkChugs,
-      drinkScore: drunkSips + drunkShots * 3 + drunkChugs * 10,
-    };
-  });
-}
-
-function compareLeaderboardRows(left: ParticipantDashboardRow, right: ParticipantDashboardRow) {
-  if (right.drinkScore !== left.drinkScore) {
-    return right.drinkScore - left.drinkScore;
-  }
-  if (right.drunkChugs !== left.drunkChugs) {
-    return right.drunkChugs - left.drunkChugs;
-  }
-  if (right.drunkShots !== left.drunkShots) {
-    return right.drunkShots - left.drunkShots;
-  }
-  if (right.drunkSips !== left.drunkSips) {
-    return right.drunkSips - left.drunkSips;
-  }
-  return left.participant.name.localeCompare(right.participant.name);
 }
 
 function getEntrancesLeft(lobby: Lobby) {

@@ -28,8 +28,36 @@ A chaotic Royal Rumble party game with live wrestler entrances, eliminations, dr
 - `frontend/` — client app
 - `backend/laravel/` — API
 - `crawler/` — wrestler data collection
-- `docker-compose.dev.yaml` — local dev services
-- `docker-compose.prod.yaml` — prod-style compose setup
+- `docker-compose.dev.yaml` — local dev stack
+
+## Local development
+
+Start the full stack with Docker Compose:
+
+```bash
+git lfs install
+git lfs pull
+docker compose -f docker-compose.dev.yaml up -d --build
+```
+
+The wrestler images in `crawler/data/images/` are stored with Git LFS. If `git lfs pull` has not been run, the dev backend will only see pointer files instead of real image data, so wrestler portraits and thumbnails will not load.
+
+Services:
+
+- frontend (Vite): `http://127.0.0.1:5173`
+- backend API: `http://127.0.0.1:8088`
+- Soketi websocket server: `127.0.0.1:6001`
+- Postgres: `127.0.0.1:54329`
+
+The API container installs Composer dependencies, runs migrations, seeds the database, and starts Laravel automatically.
+
+The frontend container runs Vite with HMR exposed on `127.0.0.1:4784`.
+
+To stop the stack:
+
+```bash
+docker compose -f docker-compose.dev.yaml down
+```
 
 ## Frontend checks
 

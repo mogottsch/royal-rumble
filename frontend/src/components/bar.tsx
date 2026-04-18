@@ -47,29 +47,29 @@ import {
   LobbySettingsForm,
 } from "./lobby_settings_form";
 
-const adminCards: Record<string, { key: string; label: string; description: string }[]> = {
+const adminCards: Record<string, { key: string; label: string }[]> = {
   safe: [
-    { key: "safe_give_sips", label: "Pocket Pour", description: "Give out 3 sips." },
-    { key: "safe_give_shot", label: "Loaded Thumb", description: "Give out 1 shot." },
-    { key: "safe_you_and_random_sip", label: "Friendly Fire", description: "You and one random player drink 2 sips." },
-    { key: "safe_house_edge", label: "House Edge", description: "Give out 4 sips, but at least 1 must go to yourself." },
+    { key: "safe_give_sips", label: "Pocket Pour" },
+    { key: "safe_give_shot", label: "Loaded Thumb" },
+    { key: "safe_you_and_random_sip", label: "Friendly Fire" },
+    { key: "safe_house_edge", label: "House Edge" },
   ],
   group: [
-    { key: "group_everyone_sip", label: "Roll Call", description: "Everyone drinks 2 sips." },
-    { key: "group_everyone_else_sip", label: "Center Stage", description: "Everyone except you drinks 2 sips." },
-    { key: "group_cheap_seats", label: "Cheap Seats", description: "Everyone without an active wrestler drinks 2 sips." },
-    { key: "group_main_event", label: "Main Event", description: "Everyone drinks 1 shot." },
+    { key: "group_everyone_sip", label: "Roll Call" },
+    { key: "group_everyone_else_sip", label: "Center Stage" },
+    { key: "group_cheap_seats", label: "Cheap Seats" },
+    { key: "group_main_event", label: "Main Event" },
   ],
   chaos: [
-    { key: "chaos_give_sips", label: "Rainmaker", description: "Give out 8 sips." },
-    { key: "chaos_give_shots", label: "Powder Keg", description: "Give out 3 shots." },
-    { key: "chaos_everyone_sip", label: "Shockwave", description: "Everyone drinks 2 sips." },
-    { key: "chaos_everyone_else_shot", label: "Mutiny", description: "Everyone except you drinks 1 shot." },
-    { key: "chaos_you_drink_shots", label: "Self Destruct", description: "You drink 2 shots." },
-    { key: "chaos_blackout_tax", label: "Blackout Tax", description: "You drink 1 shot and everyone else drinks 1 sip." },
-    { key: "chaos_skull_crusher", label: "Skull Crusher", description: "One random other player chugs." },
-    { key: "chaos_last_call", label: "Last Call", description: "Everyone chugs." },
-    { key: "chaos_russian_roulette", label: "Russian Roulette", description: "Pick one player. Either they or you will chug." },
+    { key: "chaos_give_sips", label: "Rainmaker" },
+    { key: "chaos_give_shots", label: "Powder Keg" },
+    { key: "chaos_everyone_sip", label: "Shockwave" },
+    { key: "chaos_everyone_else_shot", label: "Mutiny" },
+    { key: "chaos_you_drink_shots", label: "Self Destruct" },
+    { key: "chaos_blackout_tax", label: "Blackout Tax" },
+    { key: "chaos_skull_crusher", label: "Skull Crusher" },
+    { key: "chaos_last_call", label: "Last Call" },
+    { key: "chaos_russian_roulette", label: "Russian Roulette" },
   ],
 };
 
@@ -99,6 +99,7 @@ export function Bar() {
 
   const visibleAdminCards = adminCards[adminChestType] ?? [];
   const selectedAdminCard = visibleAdminCards.find((card) => card.key === adminCardKey);
+  const chestMultiplier = lobby?.drink_config.chest_aggression_multiplier ?? 1;
   const baseUrl = window.location.origin;
   const shareLink = `${baseUrl}/lobbies/${lobby?.code}`;
   const lobbyExists = lobby !== undefined;
@@ -345,7 +346,7 @@ export function Bar() {
             <Select label="Card" value={adminCardKey} onChange={(event) => setAdminCardKey(String(event.target.value))}>
               {visibleAdminCards.map((card) => (
                 <MenuItem key={card.key} value={card.key}>
-                  {card.label}: {card.description}
+                  {card.label}: {getAdminCardDescription(card.key, chestMultiplier)}
                 </MenuItem>
               ))}
             </Select>
@@ -354,7 +355,7 @@ export function Bar() {
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
               <strong>{selectedAdminCard.label}</strong>
               {": "}
-              {selectedAdminCard.description}
+              {getAdminCardDescription(selectedAdminCard.key, chestMultiplier)}
             </Typography>
           )}
         </DialogContent>
@@ -384,3 +385,56 @@ const shareModalStyle = {
   ...modalStyle,
   p: 4,
 };
+
+function getAdminCardDescription(cardKey: string, multiplier: number) {
+  const s = (amount: number) => scaleChestAmount(amount, multiplier);
+  const sipLabel = (amount: number) => (amount === 1 ? "sip" : "sips");
+  const shotLabel = (amount: number) => (amount === 1 ? "shot" : "shots");
+
+  switch (cardKey) {
+    case "safe_give_sips":
+      return `Give out ${s(3)} ${sipLabel(s(3))}.`;
+    case "safe_give_shot":
+      return `Give out ${s(1)} ${shotLabel(s(1))}.`;
+    case "safe_you_and_random_sip":
+      return `You and one random player drink ${s(2)} ${sipLabel(s(2))}.`;
+    case "safe_house_edge":
+      return `Give out ${s(4)} ${sipLabel(s(4))}, but at least ${s(1)} must go to yourself.`;
+    case "group_everyone_sip":
+      return `Everyone drinks ${s(2)} ${sipLabel(s(2))}.`;
+    case "group_everyone_else_sip":
+      return `Everyone except you drinks ${s(2)} ${sipLabel(s(2))}.`;
+    case "group_cheap_seats":
+      return `Everyone without an active wrestler drinks ${s(2)} ${sipLabel(s(2))}.`;
+    case "group_main_event":
+      return `Everyone drinks ${s(1)} ${shotLabel(s(1))}.`;
+    case "chaos_give_sips":
+      return `Give out ${s(8)} ${sipLabel(s(8))}.`;
+    case "chaos_give_shots":
+      return `Give out ${s(3)} ${shotLabel(s(3))}.`;
+    case "chaos_everyone_sip":
+      return `Everyone drinks ${s(2)} ${sipLabel(s(2))}.`;
+    case "chaos_everyone_else_shot":
+      return `Everyone except you drinks ${s(1)} ${shotLabel(s(1))}.`;
+    case "chaos_you_drink_shots":
+      return `You drink ${s(2)} ${shotLabel(s(2))}.`;
+    case "chaos_blackout_tax":
+      return `You drink ${s(1)} ${shotLabel(s(1))} and everyone else drinks ${s(1)} ${sipLabel(s(1))}.`;
+    case "chaos_skull_crusher":
+      return "One random other player chugs.";
+    case "chaos_last_call":
+      return "Everyone chugs.";
+    case "chaos_russian_roulette":
+      return "Pick one player. Either they or you will chug.";
+    default:
+      return "";
+  }
+}
+
+function scaleChestAmount(amount: number, multiplier: number) {
+  if (amount === 0) {
+    return 0;
+  }
+
+  return Math.max(1, Math.round(amount * multiplier));
+}

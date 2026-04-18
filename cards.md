@@ -17,12 +17,21 @@ This document mirrors the current mystery chest implementation in:
 
 Chest amounts are scaled by `chest_aggression_multiplier`.
 
-For every non-zero `schluecke` or `shots` value, the backend applies:
+For every non-zero numeric drink amount, the backend applies:
 
 - `round(base_amount * multiplier)`
 - minimum result is `1` if the base amount was non-zero
 
-This affects numeric card values, but not special effects like chugs or target-pick logic.
+This applies to:
+
+- `schluecke`
+- `shots`
+- `self_schluecke`
+- `self_shots`
+- `minimum_self_schluecke`
+- `minimum_self_shots`
+
+This does not affect special effects like chugs or target-pick logic.
 
 ## Current cards
 
@@ -62,7 +71,9 @@ This affects numeric card values, but not special effects like chugs or target-p
 
 ### `auto`
 
-After reveal, the chooser acknowledges the card and the effect is applied automatically by the backend.
+After reveal, the backend applies the effect immediately.
+
+The chooser then acknowledges the reveal to clear the chest from the pending flow.
 
 ### `give_out`
 

@@ -10,8 +10,7 @@ body {
 
 .titantron {
   position: relative;
-  width: 100%;
-  max-width: 440px;
+  width: clamp(240px, 78vw, 420px);
   margin: 0 auto;
   z-index: 2;
 }
@@ -34,7 +33,7 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 5;
+  z-index: 1;
   mix-blend-mode: screen;
 }
 

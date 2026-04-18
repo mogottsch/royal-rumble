@@ -9,7 +9,6 @@ import { LanguageSwitcher } from "../../components/language_switcher";
 import { useI18n } from "../../i18n";
 
 const BEAM_X = [18, 50, 82] as const;
-const FLOOR_Y = 87;
 const SWEEP_MIN = 43;
 const SWEEP_MAX = 57;
 const SWEEP_DURATION_MS = 9000;
@@ -47,8 +46,9 @@ export function Landing() {
 
   const stageWidth = viewport.width || 100;
   const stageHeight = viewport.height || 100;
+  const floorY = stageHeight < 720 ? 66 : stageHeight < 900 ? 72 : 76;
   const targetXPx = (targetX / 100) * stageWidth;
-  const targetYPx = (FLOOR_Y / 100) * stageHeight;
+  const targetYPx = (floorY / 100) * stageHeight;
   const topY = -0.12 * stageHeight;
   const topHalfWidth = stageWidth * 0.065;
   const bottomHalfWidth = Math.max(stageWidth * 0.028, 28);
@@ -125,6 +125,17 @@ export function Landing() {
         />
       </svg>
       <div className="neon-floor-glow" aria-hidden="true" />
+      <div className="titantron">
+        <picture>
+          <source srcSet={logoAvif} type="image/avif" />
+          <source srcSet={logoWebp} type="image/webp" />
+          <img
+            src={logoPng}
+            className="logo logo--neon"
+            alt={t("landing.logoAlt")}
+          />
+        </picture>
+      </div>
       <Container
         maxWidth="sm"
         sx={{
@@ -132,23 +143,19 @@ export function Landing() {
           display: "flex",
           flexDirection: "column",
           position: "relative",
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
-        <Box sx={{ display: "flex", justifyContent: "flex-end", pt: 2 }}>
+        <Box
+          sx={{
+            position: "fixed",
+            top: 16,
+            right: 16,
+            zIndex: 3,
+          }}
+        >
           <LanguageSwitcher />
         </Box>
-        <div className="titantron">
-          <picture>
-            <source srcSet={logoAvif} type="image/avif" />
-            <source srcSet={logoWebp} type="image/webp" />
-            <img
-              src={logoPng}
-              className="logo logo--neon"
-              alt={t("landing.logoAlt")}
-            />
-          </picture>
-        </div>
         <Box sx={{ flexGrow: 1 }}>
           <Outlet />
         </Box>

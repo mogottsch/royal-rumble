@@ -343,6 +343,10 @@ class ChestRewardResolver
         $scaled = $card;
         $scaled["schluecke"] = $this->scaleAmount((int) ($card["schluecke"] ?? 0), $multiplier);
         $scaled["shots"] = $this->scaleAmount((int) ($card["shots"] ?? 0), $multiplier);
+        $scaled["self_schluecke"] = $this->scaleAmount((int) ($card["self_schluecke"] ?? 0), $multiplier);
+        $scaled["self_shots"] = $this->scaleAmount((int) ($card["self_shots"] ?? 0), $multiplier);
+        $scaled["minimum_self_schluecke"] = $this->scaleAmount((int) ($card["minimum_self_schluecke"] ?? 0), $multiplier);
+        $scaled["minimum_self_shots"] = $this->scaleAmount((int) ($card["minimum_self_shots"] ?? 0), $multiplier);
         if (isset($card["options"]) && is_array($card["options"])) {
             $scaled["options"] = array_map(
                 fn(array $option) => $this->scaleCard($option, $multiplier),

@@ -11,6 +11,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import safeChestIcon from "../assets/chests/safe.png";
+import groupChestIcon from "../assets/chests/group.png";
+import chaosChestIcon from "../assets/chests/chaos.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { fetchApi, participantIdHeaders } from "../api/fetcher";
@@ -117,6 +120,7 @@ export function Distribute() {
   if (adminRevealedChestResult) {
     return (
       <ChestRevealScreen
+        lobby={lobby}
         result={adminRevealedChestResult}
         onContinue={async () => {
           await acknowledgeChestReveal(
@@ -152,6 +156,7 @@ export function Distribute() {
   if (revealedChestResult) {
     return (
       <ChestRevealScreen
+        lobby={lobby}
         result={revealedChestResult}
         onContinue={async () => {
           await acknowledgeChestReveal(
@@ -341,16 +346,19 @@ function ChestChoiceForm({
         <ChestTypeCard
           title={t("distribute.chestSafe")}
           body={t("distribute.chestSafeHint")}
+          imageSrc={safeChestIcon}
           onClick={() => openChest("safe")}
         />
         <ChestTypeCard
           title={t("distribute.chestGroup")}
           body={t("distribute.chestGroupHint")}
+          imageSrc={groupChestIcon}
           onClick={() => openChest("group")}
         />
         <ChestTypeCard
           title={t("distribute.chestChaos")}
           body={t("distribute.chestChaosHint")}
+          imageSrc={chaosChestIcon}
           onClick={() => openChest("chaos")}
         />
       </Stack>
@@ -359,9 +367,11 @@ function ChestChoiceForm({
 }
 
 function ChestRevealScreen({
+  lobby,
   result,
   onContinue,
 }: {
+  lobby: Lobby;
   result: RevealedChestResult;
   onContinue: () => Promise<void>;
 }) {
@@ -559,20 +569,38 @@ function EffectChoiceScreen({
 function ChestTypeCard({
   title,
   body,
+  imageSrc,
   onClick,
 }: {
   title: string;
   body: string;
+  imageSrc: string;
   onClick: () => void;
 }) {
   return (
     <Card variant="outlined">
       <CardActionArea onClick={onClick}>
         <CardContent>
-          <Typography variant="h6">{title}</Typography>
-          <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            {body}
-          </Typography>
+          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Box
+              component="img"
+              src={imageSrc}
+              alt=""
+              aria-hidden
+              sx={{
+                width: 72,
+                height: 72,
+                flexShrink: 0,
+                objectFit: "contain",
+              }}
+            />
+            <Box sx={{ minWidth: 0 }}>
+              <Typography variant="h6">{title}</Typography>
+              <Typography variant="body2" sx={{ opacity: 0.8 }}>
+                {body}
+              </Typography>
+            </Box>
+          </Box>
         </CardContent>
       </CardActionArea>
     </Card>
@@ -602,6 +630,14 @@ function AggregateForm({
   const totalShots = pools.reduce((sum, pool) => sum + pool.shots, 0);
   const minimumSelfSchluecke = pools.reduce((sum, pool) => sum + (pool.minimumSelfSchluecke ?? 0), 0);
   const minimumSelfShots = pools.reduce((sum, pool) => sum + (pool.minimumSelfShots ?? 0), 0);
+  const showSchluecke = totalSchluecke > 0;
+  const showShots = totalShots > 0;
+  const totalSummary = formatVisibleDrinkSummary(t, totalSchluecke, totalShots);
+  const minimumSelfSummary = formatVisibleDrinkSummary(
+    t,
+    minimumSelfSchluecke,
+    minimumSelfShots,
+  );
 
   const sumSchluecke = useMemo(
     () => Object.values(alloc).reduce((s, a) => s + a.schluecke, 0),
@@ -652,22 +688,25 @@ function AggregateForm({
   };
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box
+      sx={{
+        p: 2,
+        height: "100%",
+        minHeight: 0,
+        display: "flex",
+        flexDirection: "column",
+        overflowY: "auto",
+      }}
+    >
       <Typography variant="h6" sx={{ textAlign: "center" }}>
         {t("distribute.aggregateTitle")}
       </Typography>
       <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 2 }}>
-        {t("distribute.aggregateTotal", {
-          sips: totalSchluecke,
-          shots: totalShots,
-        })}
+        {`${t("distribute.aggregateTotalLabel")}: ${totalSummary}`}
       </Typography>
       {(minimumSelfSchluecke > 0 || minimumSelfShots > 0) && (
         <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 2 }}>
-          {t("distribute.minimumSelf", {
-            sips: minimumSelfSchluecke,
-            shots: minimumSelfShots,
-          })}
+          {`${t("distribute.minimumSelfPrefix")} ${minimumSelfSummary}.`}
         </Typography>
       )}
 
@@ -696,7 +735,8 @@ function AggregateForm({
             participant={p}
             schluecke={alloc[p.id].schluecke}
             shots={alloc[p.id].shots}
-            showShots={totalShots > 0}
+            showSchluecke={showSchluecke}
+            showShots={showShots}
             canIncSchluecke={sumSchluecke < totalSchluecke}
             canIncShots={sumShots < totalShots}
             onBump={(key, delta) => bump(p.id, key, delta)}
@@ -705,10 +745,12 @@ function AggregateForm({
       </Stack>
 
       <Box sx={{ mt: 3, textAlign: "center" }}>
-        <Typography variant="body2">
-          {t("distribute.sips", { current: sumSchluecke, total: totalSchluecke })}
-        </Typography>
-        {totalShots > 0 && (
+        {showSchluecke && (
+          <Typography variant="body2">
+            {t("distribute.sips", { current: sumSchluecke, total: totalSchluecke })}
+          </Typography>
+        )}
+        {showShots && (
           <Typography variant="body2">
             {t("distribute.shots", { current: sumShots, total: totalShots })}
           </Typography>
@@ -822,6 +864,7 @@ function ParticipantRow({
   participant,
   schluecke,
   shots,
+  showSchluecke,
   showShots,
   canIncSchluecke,
   canIncShots,
@@ -830,33 +873,50 @@ function ParticipantRow({
   participant: Participant;
   schluecke: number;
   shots: number;
+  showSchluecke: boolean;
   showShots: boolean;
   canIncSchluecke: boolean;
   canIncShots: boolean;
   onBump: (key: "schluecke" | "shots", delta: number) => void;
 }) {
   const { t } = useI18n();
+  const showBothDrinkTypes = showSchluecke && showShots;
+
   return (
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "1fr auto",
-        alignItems: "center",
-        gap: 1,
+        gridTemplateColumns: "minmax(0, 1fr) auto",
+        alignItems: showBothDrinkTypes ? "start" : "center",
+        gap: { xs: 0.5, sm: 1 },
       }}
     >
-      <Typography>{participant.name}</Typography>
-      <Stack direction="row" spacing={2}>
-        <Stepper
-          label={t("distribute.sipsShort")}
-          value={schluecke}
-          canInc={canIncSchluecke}
-          onInc={() => onBump("schluecke", 1)}
-          onDec={() => onBump("schluecke", -1)}
-        />
+      <Typography sx={{ minWidth: 0, overflowWrap: "anywhere" }}>
+        {participant.name}
+      </Typography>
+      <Stack
+        direction={showBothDrinkTypes ? "column" : "row"}
+        spacing={showBothDrinkTypes ? 0.2 : { xs: 0.5, sm: 2 }}
+        sx={{
+          alignItems: "flex-end",
+          justifySelf: "end",
+          maxWidth: "100%",
+        }}
+      >
+        {showSchluecke && (
+          <Stepper
+            label={t("distribute.sipsShort")}
+            ariaContext={`${participant.name} ${t("distribute.sipsShort")}`}
+            value={schluecke}
+            canInc={canIncSchluecke}
+            onInc={() => onBump("schluecke", 1)}
+            onDec={() => onBump("schluecke", -1)}
+          />
+        )}
         {showShots && (
           <Stepper
             label={t("distribute.shotsShort")}
+            ariaContext={`${participant.name} ${t("distribute.shotsShort")}`}
             value={shots}
             canInc={canIncShots}
             onInc={() => onBump("shots", 1)}
@@ -870,33 +930,89 @@ function ParticipantRow({
 
 function Stepper({
   label,
+  ariaContext,
   value,
   canInc,
   onInc,
   onDec,
 }: {
   label: string;
+  ariaContext: string;
   value: number;
   canInc: boolean;
   onInc: () => void;
   onDec: () => void;
 }) {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-      <Typography variant="caption" sx={{ opacity: 0.7, minWidth: 32 }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: { xs: 0.25, sm: 0.5 },
+        whiteSpace: "nowrap",
+      }}
+    >
+      <Typography
+        variant="caption"
+        sx={{
+          opacity: 0.7,
+          minWidth: { xs: 24, sm: 32 },
+          fontSize: { xs: "0.65rem", sm: "0.75rem" },
+        }}
+      >
         {label}
       </Typography>
-      <IconButton size="small" onClick={onDec} disabled={value === 0}>
-        <RemoveIcon fontSize="small" />
+      <IconButton
+        aria-label={`${ariaContext} minus`}
+        size="small"
+        onClick={onDec}
+        disabled={value === 0}
+        sx={{
+          p: { xs: 0.25, sm: 0.5 },
+        }}
+      >
+        <RemoveIcon sx={{ fontSize: { xs: 16, sm: 20 } }} />
       </IconButton>
-      <Typography sx={{ minWidth: 18, textAlign: "center" }}>{value}</Typography>
-      <IconButton size="small" onClick={onInc} disabled={!canInc}>
-        <AddIcon fontSize="small" />
+      <Typography
+        sx={{
+          minWidth: { xs: 14, sm: 18 },
+          textAlign: "center",
+          fontSize: { xs: "0.9rem", sm: "1rem" },
+        }}
+      >
+        {value}
+      </Typography>
+      <IconButton
+        aria-label={`${ariaContext} plus`}
+        size="small"
+        onClick={onInc}
+        disabled={!canInc}
+        sx={{
+          p: { xs: 0.25, sm: 0.5 },
+        }}
+      >
+        <AddIcon sx={{ fontSize: { xs: 16, sm: 20 } }} />
       </IconButton>
     </Box>
   );
 }
 
+function formatVisibleDrinkSummary(
+  t: (key: string, params?: Record<string, string | number>) => string,
+  sips: number,
+  shots: number,
+) {
+  const parts: string[] = [];
+
+  if (sips > 0) {
+    parts.push(t("history.sips", { count: sips }));
+  }
+  if (shots > 0) {
+    parts.push(t("history.shots", { count: shots }));
+  }
+
+  return parts.length > 0 ? parts.join(t("history.and")) : t("history.sips", { count: 0 });
+}
 async function postChestRoll(
   lobbyCode: string,
   chestRewardId: number,

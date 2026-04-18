@@ -55,7 +55,14 @@ export function Landing() {
 
   return (
     <Box
-      sx={{ height: "100vh", display: "flex", flexDirection: "column", pb: 2 }}
+      sx={{
+        height: "100dvh",
+        minHeight: "100svh",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+        pb: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
+      }}
     >
       <svg
         className="spotlight-stage"

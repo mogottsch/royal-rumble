@@ -118,7 +118,8 @@ class ChestRewardResolver
             throw new InvalidArgumentException("Unknown chest mode.");
         }
 
-        $applied = $this->applyAutoEffect($lobby, $chestReward, $chooser, $scaled);
+        $resolvedAutoCard = $this->resolveRandomOutcome($scaled);
+        $applied = $this->applyAutoEffect($lobby, $chestReward, $chooser, $resolvedAutoCard);
 
         $this->applyResolvedAmounts($chestReward, $applied);
         $chestReward->status = ChestReward::STATUS_REVEALED_AUTO;
@@ -229,10 +230,22 @@ class ChestRewardResolver
             throw new InvalidArgumentException("Nested effect choices are not supported.");
         }
 
+        $resolvedOption = $this->resolveRandomOutcome($option);
+
+        $updatedOptions = array_map(function (array $entry) use ($choiceKey, $resolvedOption) {
+            if (($entry["key"] ?? null) !== $choiceKey) {
+                return $entry;
+            }
+
+            $entry["resolved_option"] = $resolvedOption;
+            return $entry;
+        }, $chestReward->choice_options ?? []);
+
+        $chestReward->choice_options = array_values($updatedOptions);
         $chestReward->selected_choice_key = $choiceKey;
 
-        if (($option["mode"] ?? null) === "give_out") {
-            $this->applyDistributionFields($chestReward, $option);
+        if (($resolvedOption["mode"] ?? null) === "give_out") {
+            $this->applyDistributionFields($chestReward, $resolvedOption);
             $chestReward->status = ChestReward::STATUS_PENDING_DISTRIBUTION;
             $chestReward->save();
 
@@ -241,18 +254,19 @@ class ChestRewardResolver
             return [
                 "next_status" => ChestReward::STATUS_PENDING_DISTRIBUTION,
                 "selected_choice_key" => $choiceKey,
+                "resolved_option" => $resolvedOption,
             ];
         }
 
-        if (($option["mode"] ?? null) === "target_pick") {
+        if (($resolvedOption["mode"] ?? null) === "target_pick") {
             throw new InvalidArgumentException("Target-pick effect choices are not supported yet.");
         }
 
-        if (($option["mode"] ?? null) !== "auto") {
+        if (($resolvedOption["mode"] ?? null) !== "auto") {
             throw new InvalidArgumentException("Unknown effect choice mode.");
         }
 
-        $applied = $this->applyAutoEffect($lobby, $chestReward, $chooser, $option);
+        $applied = $this->applyAutoEffect($lobby, $chestReward, $chooser, $resolvedOption);
         $this->applyResolvedAmounts($chestReward, $applied);
         $chestReward->status = ChestReward::STATUS_RESOLVED;
         $chestReward->save();
@@ -263,6 +277,7 @@ class ChestRewardResolver
             "next_status" => ChestReward::STATUS_RESOLVED,
             "selected_choice_key" => $choiceKey,
             "affected_participant_ids" => $chestReward->affected_participant_ids,
+            "resolved_option" => $resolvedOption,
         ];
     }
 
@@ -363,10 +378,18 @@ class ChestRewardResolver
         $scaled["self_shots"] = $this->scaleAmount((int) ($card["self_shots"] ?? 0), $multiplier);
         $scaled["minimum_self_schluecke"] = $this->scaleAmount((int) ($card["minimum_self_schluecke"] ?? 0), $multiplier);
         $scaled["minimum_self_shots"] = $this->scaleAmount((int) ($card["minimum_self_shots"] ?? 0), $multiplier);
+        $scaled["random_sips_max"] = $this->scaleAmount((int) ($card["random_sips_max"] ?? 0), $multiplier);
+        $scaled["random_shots_max"] = $this->scaleAmount((int) ($card["random_shots_max"] ?? 0), $multiplier);
         if (isset($card["options"]) && is_array($card["options"])) {
             $scaled["options"] = array_map(
                 fn(array $option) => $this->scaleCard($option, $multiplier),
                 $card["options"]
+            );
+        }
+        if (isset($card["random_outcomes"]) && is_array($card["random_outcomes"])) {
+            $scaled["random_outcomes"] = array_map(
+                fn(array $option) => $this->scaleCard($option, $multiplier),
+                $card["random_outcomes"]
             );
         }
         return $scaled;
@@ -396,6 +419,28 @@ class ChestRewardResolver
             ]),
             default => $card,
         };
+    }
+
+    private function resolveRandomOutcome(array $entry): array
+    {
+        $outcomes = $entry["random_outcomes"] ?? null;
+        if (!is_array($outcomes) || $outcomes === []) {
+            return $entry;
+        }
+
+        unset($entry["random_outcomes"]);
+
+        $roll = random_int(1, array_sum(array_column($outcomes, "weight")));
+        $cursor = 0;
+
+        foreach ($outcomes as $outcome) {
+            $cursor += (int) ($outcome["weight"] ?? 0);
+            if ($roll <= $cursor) {
+                return $this->resolveRandomOutcome(array_replace($entry, $outcome));
+            }
+        }
+
+        return $this->resolveRandomOutcome(array_replace($entry, $outcomes[array_key_last($outcomes)]));
     }
 
     private function scaleAmount(int $amount, float $multiplier): int
@@ -447,6 +492,7 @@ class ChestRewardResolver
             "historical_most_appearances" => $this->participantsWithMostHistoricalAppearances($participantsWithActiveWrestlers)
                 ->map(fn(Participant $participant) => $this->split($participant->id, $card))
                 ->all(),
+            "random_other" => $this->randomOtherSplit($chooser, $others, $card),
             "chooser_only" => [$this->split($chooser->id, $card)],
             "chooser_and_random_other" => $this->chooserAndRandomOther($chooser, $others, $card),
             default => throw new InvalidArgumentException("Unknown chest effect."),
@@ -468,6 +514,20 @@ class ChestRewardResolver
             $this->split($chooser->id, $card),
             $this->split($other->id, $card),
         ];
+    }
+
+    private function randomOtherSplit(
+        Participant $chooser,
+        Collection $others,
+        array $card
+    ): array {
+        if ($others->isEmpty()) {
+            return [$this->split($chooser->id, $card)];
+        }
+
+        $other = $others->random();
+
+        return [$this->split($other->id, $card)];
     }
 
     private function split(int $receiverId, array $card): array
@@ -524,6 +584,80 @@ class ChestRewardResolver
             return ["schluecke" => 0, "shots" => 0];
         }
 
+        if (($card["effect"] ?? null) === "everyone_random_shots") {
+            $affectedParticipantIds = [];
+            $totalShots = 0;
+
+            foreach ($lobby->participants()->get() as $participant) {
+                $shots = random_int(0, (int) ($card["random_shots_max"] ?? 0));
+                if ($shots === 0) {
+                    continue;
+                }
+
+                DrinkDistribution::create([
+                    "lobby_id" => $lobby->id,
+                    "elimination_id" => $chestReward->elimination_id,
+                    "offender_rumbler_id" => $chestReward->offender_rumbler_id,
+                    "victim_rumbler_id" => $chestReward->victim_rumbler_id,
+                    "giver_participant_id" => $chooser->id,
+                    "receiver_participant_id" => $participant->id,
+                    "schluecke" => 0,
+                    "shots" => $shots,
+                    "kind" => DrinkDistribution::KIND_CHEST_REWARD,
+                ]);
+
+                $totalShots += $shots;
+                $affectedParticipantIds[] = $participant->id;
+            }
+
+            $chestReward->affected_participant_ids = $affectedParticipantIds;
+
+            return ["schluecke" => 0, "shots" => $totalShots];
+        }
+
+        if (($card["effect"] ?? null) === "everyone_random_sips") {
+            $affectedParticipantIds = [];
+            $totalSips = 0;
+
+            foreach ($lobby->participants()->get() as $participant) {
+                $sips = random_int(0, (int) ($card["random_sips_max"] ?? 0));
+                if ($sips === 0) {
+                    continue;
+                }
+
+                DrinkDistribution::create([
+                    "lobby_id" => $lobby->id,
+                    "elimination_id" => $chestReward->elimination_id,
+                    "offender_rumbler_id" => $chestReward->offender_rumbler_id,
+                    "victim_rumbler_id" => $chestReward->victim_rumbler_id,
+                    "giver_participant_id" => $chooser->id,
+                    "receiver_participant_id" => $participant->id,
+                    "schluecke" => $sips,
+                    "shots" => 0,
+                    "kind" => DrinkDistribution::KIND_CHEST_REWARD,
+                ]);
+
+                $totalSips += $sips;
+                $affectedParticipantIds[] = $participant->id;
+            }
+
+            $chestReward->affected_participant_ids = $affectedParticipantIds;
+
+            return ["schluecke" => $totalSips, "shots" => 0];
+        }
+
+        if (($card["effect"] ?? null) === "chooser_chugs") {
+            Chug::create([
+                "lobby_id" => $lobby->id,
+                "participant_id" => $chooser->id,
+                "elimination_id" => $chestReward->elimination_id,
+            ]);
+
+            $chestReward->affected_participant_ids = [$chooser->id];
+
+            return ["schluecke" => 0, "shots" => 0];
+        }
+
         if (($card["effect"] ?? null) === "double_remaining_sips") {
             $result = $this->doubleRemainingSips($lobby, $chestReward, $chooser);
 
@@ -563,6 +697,10 @@ class ChestRewardResolver
         $splits = $this->buildAutoSplits($lobby, $chooser, $card);
 
         foreach ($splits as $split) {
+            if (($split["schluecke"] ?? 0) === 0 && ($split["shots"] ?? 0) === 0) {
+                continue;
+            }
+
             DrinkDistribution::create([
                 "lobby_id" => $lobby->id,
                 "elimination_id" => $chestReward->elimination_id,
@@ -577,6 +715,7 @@ class ChestRewardResolver
         }
 
         $affectedParticipantIds = collect($splits)
+            ->filter(fn(array $split) => ($split["schluecke"] ?? 0) > 0 || ($split["shots"] ?? 0) > 0)
             ->pluck("receiver_participant_id")
             ->values()
             ->all();
@@ -833,6 +972,32 @@ class ChestRewardResolver
                 ["key" => "safe_you_and_random_sip", "mode" => "auto", "weight" => 20, "effect" => "chooser_and_random_other", "schluecke" => 2, "shots" => 0],
                 ["key" => "safe_house_edge", "mode" => "give_out", "weight" => 20, "schluecke" => 4, "shots" => 0, "minimum_self_schluecke" => 1],
                 ["key" => "safe_current_body_count", "mode" => "give_out", "weight" => 12, "effect" => "current_wrestler_eliminations", "schluecke" => 0, "shots" => 0],
+                [
+                    "key" => "safe_sweet_deal",
+                    "mode" => "effect_choice",
+                    "weight" => 10,
+                    "options" => [
+                        ["key" => "give_three", "mode" => "give_out", "schluecke" => 3, "shots" => 0],
+                        ["key" => "big_pool_self_three", "mode" => "give_out", "schluecke" => 9, "shots" => 0, "minimum_self_schluecke" => 3],
+                    ],
+                ],
+                [
+                    "key" => "safe_marked_bullet",
+                    "mode" => "effect_choice",
+                    "weight" => 10,
+                    "options" => [
+                        ["key" => "give_one_shot", "mode" => "give_out", "schluecke" => 0, "shots" => 1],
+                        [
+                            "key" => "double_shot_gamble",
+                            "mode" => "auto",
+                            "random_outcomes" => [
+                                ["key" => "self_backfire", "weight" => 30, "mode" => "auto", "effect" => "chooser_only", "schluecke" => 0, "shots" => 0, "self_shots" => 2],
+                                ["key" => "random_target", "weight" => 70, "mode" => "auto", "effect" => "random_other", "schluecke" => 0, "shots" => 2],
+                            ],
+                        ],
+                    ],
+                ],
+                ["key" => "safe_current_body_count", "mode" => "give_out", "weight" => 12, "effect" => "current_wrestler_eliminations", "schluecke" => 0, "shots" => 0],
                 ["key" => "safe_stable_hands", "mode" => "give_out", "weight" => 10, "effect" => "owned_wrestler_eliminations_total", "schluecke" => 0, "shots" => 0],
                 ["key" => "safe_burned_slots", "mode" => "give_out", "weight" => 9, "effect" => "owned_wrestlers_eliminated", "schluecke" => 0, "shots" => 0],
                 ["key" => "safe_blank_check", "mode" => "give_out", "weight" => 9, "effect" => "owned_wrestlers_with_zero_eliminations", "schluecke" => 0, "shots" => 0],
@@ -844,21 +1009,38 @@ class ChestRewardResolver
                 ["key" => "group_main_event", "mode" => "auto", "weight" => 15, "effect" => "everyone", "schluecke" => 0, "shots" => 1],
                 ["key" => "group_double_undrunk_sips", "mode" => "auto", "weight" => 10, "effect" => "double_remaining_sips", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_double_undrunk_shots", "mode" => "auto", "weight" => 10, "effect" => "double_remaining_shots", "schluecke" => 0, "shots" => 0],
-                [
-                    "key" => "group_double_or_nothing",
-                    "mode" => "effect_choice",
-                    "weight" => 4,
-                    "options" => [
-                        ["key" => "double_sips", "mode" => "auto", "effect" => "double_remaining_sips", "schluecke" => 0, "shots" => 0],
-                        ["key" => "double_shots", "mode" => "auto", "effect" => "double_remaining_shots", "schluecke" => 0, "shots" => 0],
-                    ],
-                ],
                 ["key" => "group_body_count", "mode" => "auto", "weight" => 4, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_stable_hands", "mode" => "auto", "weight" => 3, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_burned_slots", "mode" => "auto", "weight" => 2, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_old_hands", "mode" => "auto", "weight" => 4, "effect" => "historical_appearances_at_least", "minimum" => 3, "schluecke" => 4, "shots" => 0],
                 ["key" => "group_edge_number", "mode" => "auto", "weight" => 3, "effect" => "historical_number_one_or_thirty", "schluecke" => 5, "shots" => 0],
                 ["key" => "group_no_rumble_resume", "mode" => "auto", "weight" => 3, "effect" => "historical_appearances_equal", "value" => 0, "schluecke" => 3, "shots" => 0],
+                [
+                    "key" => "group_double_or_nothing",
+                    "mode" => "effect_choice",
+                    "weight" => 10,
+                    "options" => [
+                        ["key" => "everyone_three_sips", "mode" => "auto", "effect" => "everyone", "schluecke" => 3, "shots" => 0],
+                        [
+                            "key" => "riot_or_ruin",
+                            "mode" => "auto",
+                            "random_outcomes" => [
+                                ["key" => "room_pays", "weight" => 70, "mode" => "auto", "effect" => "everyone_else", "schluecke" => 6, "shots" => 0],
+                                ["key" => "you_chug", "weight" => 30, "mode" => "auto", "effect" => "chooser_chugs", "schluecke" => 0, "shots" => 0],
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    "key" => "group_house_round",
+                    "mode" => "effect_choice",
+                    "weight" => 8,
+                    "options" => [
+                        ["key" => "everyone_else_three_sips", "mode" => "auto", "effect" => "everyone_else", "schluecke" => 3, "shots" => 0],
+                        ["key" => "everyone_one_shot", "mode" => "auto", "effect" => "everyone", "schluecke" => 0, "shots" => 1],
+                    ],
+                ],
+                ["key" => "group_slot_machine", "mode" => "auto", "weight" => 8, "effect" => "everyone_random_sips", "schluecke" => 0, "shots" => 0, "random_sips_max" => 8],
             ],
             "chaos" => [
                 ["key" => "chaos_give_sips", "mode" => "give_out", "weight" => 20, "schluecke" => 8, "shots" => 0],
@@ -875,6 +1057,33 @@ class ChestRewardResolver
                 ["key" => "chaos_legends_due", "mode" => "auto", "weight" => 2, "effect" => "historical_most_appearances", "schluecke" => 0, "shots" => 1],
                 ["key" => "chaos_veteran_floor", "mode" => "auto", "weight" => 2, "effect" => "historical_appearances_at_least", "minimum" => 3, "schluecke" => 0, "shots" => 1],
                 ["key" => "chaos_edge_number_tax", "mode" => "auto", "weight" => 1, "effect" => "historical_number_one_or_thirty", "schluecke" => 0, "shots" => 1],
+                [
+                    "key" => "chaos_high_treason",
+                    "mode" => "effect_choice",
+                    "weight" => 3,
+                    "options" => [
+                        ["key" => "take_the_fall", "mode" => "auto", "effect" => "chooser_only", "schluecke" => 0, "shots" => 1],
+                        ["key" => "burn_it_down", "mode" => "auto", "effect" => "everyone_chugs", "schluecke" => 0, "shots" => 0],
+                    ],
+                ],
+                [
+                    "key" => "chaos_kates_worst_nightmare",
+                    "mode" => "effect_choice",
+                    "weight" => 5,
+                    "options" => [
+                        ["key" => "take_fifty_sips", "mode" => "auto", "effect" => "chooser_only", "schluecke" => 50, "shots" => 0],
+                        ["key" => "take_one_shot", "mode" => "auto", "effect" => "chooser_only", "schluecke" => 0, "shots" => 1],
+                    ],
+                ],
+                [
+                    "key" => "chaos_loaded_dice",
+                    "mode" => "effect_choice",
+                    "weight" => 5,
+                    "options" => [
+                        ["key" => "give_six_sips", "mode" => "give_out", "schluecke" => 6, "shots" => 0],
+                        ["key" => "drink_one_and_give_six_shots", "mode" => "give_out", "schluecke" => 0, "shots" => 6, "minimum_self_shots" => 1],
+                    ],
+                ],
             ],
         ];
     }

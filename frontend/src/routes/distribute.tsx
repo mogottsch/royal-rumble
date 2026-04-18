@@ -29,6 +29,7 @@ import {
   getCardTitle,
   getChoiceOptionDescription,
   getChoiceOptionTitle,
+  getResolvedChoiceOptionDescription,
 } from "../chest_cards";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNotificationContext } from "../contexts/notification_context";
@@ -59,6 +60,7 @@ type EffectChoiceResolutionResult = {
   next_status: "pending_distribution" | "resolved";
   selected_choice_key: string;
   affected_participant_ids?: number[] | null;
+  resolved_option?: ChestChoiceOption;
 };
 
 export function Distribute() {
@@ -254,7 +256,7 @@ export function Distribute() {
         onResolved={async (result) => {
           await lobbyQuery?.refetch();
           if (result.next_status === "resolved") {
-            return;
+            navigate(`/lobbies/${lobby.code}/view-game`);
           }
         }}
       />
@@ -545,7 +547,13 @@ function EffectChoiceScreen({
       const result = await postEffectChoice(lobby.code, reward.id, option.key, actorParticipantId);
       notify(
         t("distribute.effectChoiceResolved", {
-          choice: getChoiceOptionTitle(t, reward.card_key ?? "", option),
+          choice: getResolvedChoiceOptionDescription(
+            t,
+            reward.card_key ?? "",
+            result.resolved_option
+              ? { ...option, resolved_option: result.resolved_option }
+              : option,
+          ),
         }),
         "success",
       );

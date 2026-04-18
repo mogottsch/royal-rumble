@@ -102,6 +102,7 @@ export interface ChestChoiceOption {
   self_shots?: number;
   minimum_self_schluecke?: number;
   minimum_self_shots?: number;
+  resolved_option?: ChestChoiceOption | null;
 }
 
 export interface Chug {

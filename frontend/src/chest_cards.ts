@@ -35,15 +35,19 @@ function formatCardText(
       (option) => option.key === reward.selected_choice_key,
     );
     if (selected) {
-      const rule = getChoiceOptionDescription(t, reward.card_key, selected);
-      if (!options.includeResolvedAmount || (selected.schluecke ?? 0) === 0 && (selected.shots ?? 0) === 0) {
+      const resolved = selected.resolved_option ?? selected;
+      const rule = getChoiceOptionDescription(t, reward.card_key, resolved);
+      if (
+        !options.includeResolvedAmount ||
+        ((resolved.schluecke ?? 0) === 0 && (resolved.shots ?? 0) === 0)
+      ) {
         return rule;
       }
 
       return [
         rule,
         t("distribute.cardResolvedAmount", {
-          amount: formatResolvedAmount(t, selected.schluecke, selected.shots),
+          amount: formatResolvedAmount(t, resolved.schluecke, resolved.shots),
         }),
       ].join("\n\n");
     }
@@ -102,4 +106,12 @@ export function getChoiceOptionDescription(
     minimumSelfSips: option.minimum_self_schluecke ?? 0,
     minimumSelfShots: option.minimum_self_shots ?? 0,
   });
+}
+
+export function getResolvedChoiceOptionDescription(
+  t: Translator,
+  cardKey: string,
+  option: ChestChoiceOption,
+) {
+  return getChoiceOptionDescription(t, cardKey, option.resolved_option ?? option);
 }

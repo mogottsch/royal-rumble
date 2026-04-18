@@ -60,6 +60,8 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "safe_stable_hands", label: "Stable Hands" },
     { key: "safe_burned_slots", label: "Burned Slots" },
     { key: "safe_blank_check", label: "Blank Check" },
+    { key: "safe_sweet_deal", label: "Sweet Deal" },
+    { key: "safe_marked_bullet", label: "Marked Bullet" },
   ],
   group: [
     { key: "group_everyone_sip", label: "Roll Call" },
@@ -75,6 +77,8 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "group_old_hands", label: "Old Hands" },
     { key: "group_edge_number", label: "Edge Number" },
     { key: "group_no_rumble_resume", label: "No Resume" },
+    { key: "group_house_round", label: "House Round" },
+    { key: "group_slot_machine", label: "Slot Machine" },
   ],
   chaos: [
     { key: "chaos_give_sips", label: "Rainmaker" },
@@ -91,6 +95,9 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "chaos_legends_due", label: "Legends Due" },
     { key: "chaos_veteran_floor", label: "Veteran Floor" },
     { key: "chaos_edge_number_tax", label: "Edge Number Tax" },
+    { key: "chaos_high_treason", label: "High Treason" },
+    { key: "chaos_kates_worst_nightmare", label: "Kate's Worst Nightmare" },
+    { key: "chaos_loaded_dice", label: "Loaded Dice" },
   ],
 };
 
@@ -483,6 +490,8 @@ function getAdminScaledCard(cardKey: string, multiplier: number) {
     safe_give_shot: { card_mode: "give_out", sips: 0, shots: 1 },
     safe_you_and_random_sip: { card_mode: "auto", sips: 2, shots: 0 },
     safe_house_edge: { card_mode: "give_out", sips: 4, shots: 0 },
+    safe_sweet_deal: { card_mode: "effect_choice", sips: 0, shots: 0 },
+    safe_marked_bullet: { card_mode: "effect_choice", sips: 0, shots: 0 },
     safe_current_body_count: { card_mode: "give_out", sips: 0, shots: 0 },
     safe_stable_hands: { card_mode: "give_out", sips: 0, shots: 0 },
     safe_burned_slots: { card_mode: "give_out", sips: 0, shots: 0 },
@@ -494,6 +503,8 @@ function getAdminScaledCard(cardKey: string, multiplier: number) {
     group_double_undrunk_sips: { card_mode: "auto", sips: 0, shots: 0 },
     group_double_undrunk_shots: { card_mode: "auto", sips: 0, shots: 0 },
     group_double_or_nothing: { card_mode: "effect_choice", sips: 0, shots: 0 },
+    group_house_round: { card_mode: "effect_choice", sips: 0, shots: 0 },
+    group_slot_machine: { card_mode: "auto", sips: 0, shots: 0 },
     group_body_count: { card_mode: "auto", sips: 0, shots: 0 },
     group_stable_hands: { card_mode: "auto", sips: 0, shots: 0 },
     group_burned_slots: { card_mode: "auto", sips: 0, shots: 0 },
@@ -514,6 +525,9 @@ function getAdminScaledCard(cardKey: string, multiplier: number) {
     chaos_legends_due: { card_mode: "auto", sips: 0, shots: 1 },
     chaos_veteran_floor: { card_mode: "auto", sips: 0, shots: 1 },
     chaos_edge_number_tax: { card_mode: "auto", sips: 0, shots: 1 },
+    chaos_high_treason: { card_mode: "effect_choice", sips: 0, shots: 0 },
+    chaos_kates_worst_nightmare: { card_mode: "effect_choice", sips: 0, shots: 0 },
+    chaos_loaded_dice: { card_mode: "effect_choice", sips: 0, shots: 0 },
   };
 
   const base = baseAmounts[cardKey] ?? { card_mode: "auto" as const, sips: 0, shots: 0 };

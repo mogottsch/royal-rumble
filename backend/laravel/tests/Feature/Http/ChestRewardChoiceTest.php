@@ -202,6 +202,60 @@ class ChestRewardChoiceTest extends TestCase
         ]);
     }
 
+    public function test_choice_card_random_outcome_is_resolved_once_and_persisted(): void
+    {
+        $chestReward = $this->createEffectChoiceReward([
+            [
+                "key" => "test_random_auto",
+                "mode" => "auto",
+                "random_outcomes" => [
+                    [
+                        "weight" => 100,
+                        "mode" => "auto",
+                        "effect" => "chooser_only",
+                        "schluecke" => 0,
+                        "shots" => 0,
+                        "self_shots" => 2,
+                    ],
+                ],
+            ],
+            [
+                "key" => "test_fallback",
+                "mode" => "give_out",
+                "schluecke" => 1,
+                "shots" => 0,
+            ],
+        ]);
+
+        $this->postJson(
+            route("lobbies.chestRewards.resolveChoice", [$this->lobby, $chestReward->id]),
+            ["choice_key" => "test_random_auto"],
+            ["X-Participant-Id" => (string) $this->chooser->id]
+        )
+            ->assertStatus(Response::HTTP_OK)
+            ->assertJsonPath("data.next_status", "resolved")
+            ->assertJsonPath("data.selected_choice_key", "test_random_auto")
+            ->assertJsonPath("data.resolved_option.self_shots", 2);
+
+        $this->assertDatabaseHas("chest_rewards", [
+            "id" => $chestReward->id,
+            "status" => "resolved",
+            "selected_choice_key" => "test_random_auto",
+            "pending_schluecke" => 0,
+            "pending_shots" => 0,
+        ]);
+
+        $this->assertDatabaseHas("drink_distributions", [
+            "lobby_id" => $this->lobby->id,
+            "elimination_id" => $chestReward->elimination_id,
+            "giver_participant_id" => $this->chooser->id,
+            "receiver_participant_id" => $this->chooser->id,
+            "schluecke" => 0,
+            "shots" => 2,
+            "kind" => "chest_reward",
+        ]);
+    }
+
     public function test_safe_current_body_count_uses_current_wrestler_eliminations(): void
     {
         $wrestler = Wrestler::factory()->create(["name" => "Current Killer"]);

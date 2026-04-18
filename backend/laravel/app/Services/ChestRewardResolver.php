@@ -1008,6 +1008,15 @@ class ChestRewardResolver
                 ["key" => "group_main_event", "mode" => "auto", "weight" => 15, "effect" => "everyone", "schluecke" => 0, "shots" => 1],
                 ["key" => "group_double_undrunk_sips", "mode" => "auto", "weight" => 10, "effect" => "double_remaining_sips", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_double_undrunk_shots", "mode" => "auto", "weight" => 10, "effect" => "double_remaining_shots", "schluecke" => 0, "shots" => 0],
+                [
+                    "key" => "group_double_down",
+                    "mode" => "effect_choice",
+                    "weight" => 6,
+                    "options" => [
+                        ["key" => "double_sips", "mode" => "auto", "effect" => "double_remaining_sips", "schluecke" => 0, "shots" => 0],
+                        ["key" => "double_shots", "mode" => "auto", "effect" => "double_remaining_shots", "schluecke" => 0, "shots" => 0],
+                    ],
+                ],
                 ["key" => "group_body_count", "mode" => "auto", "weight" => 4, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_stable_hands", "mode" => "auto", "weight" => 3, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_burned_slots", "mode" => "auto", "weight" => 2, "effect" => "everyone", "schluecke" => 0, "shots" => 0],

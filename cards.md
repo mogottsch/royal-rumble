@@ -61,6 +61,7 @@ This does not change chugs, target-pick logic, or debt-doubling cards.
 | `group_main_event` | Main Event | 15 | `auto` | Everyone drinks `1` shot |
 | `group_double_undrunk_sips` | Encore | 10 | `auto` | Double every player's current undrunk sips |
 | `group_double_undrunk_shots` | Double Tap | 10 | `auto` | Double every player's current undrunk shots |
+| `group_double_down` | Double Down | 6 | `effect_choice` | Choice: double every player's current undrunk sips, or double every player's current undrunk shots |
 | `group_double_or_nothing` | Double or Nothing | 10 | `effect_choice` | Choice: everyone drinks `3` sips, or roll between `everyone else drinks 6 sips` and `you chug` |
 | `group_house_round` | House Round | 8 | `effect_choice` | Choice: everyone else drinks `3` sips, or everyone drinks `1` shot |
 | `group_slot_machine` | Slot Machine | 8 | `auto` | Everyone gets a random number of `0` to `8` sips |
@@ -113,6 +114,11 @@ This does not change chugs, target-pick logic, or debt-doubling cards.
 - `riot_or_ruin`: weighted roll
 - `room_pays`: `70%`, everyone except chooser drinks `6` sips
 - `you_chug`: `30%`, chooser chugs
+
+### `group_double_down`
+
+- `double_sips`: double every player's current undrunk sips
+- `double_shots`: double every player's current undrunk shots
 
 ### `group_house_round`
 

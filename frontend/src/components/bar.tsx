@@ -31,7 +31,7 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import QRCode from "react-qr-code";
+import qrCodeModule from "react-qr-code";
 import { fetchApi } from "../api/fetcher";
 import logo from "../assets/logo_small.png";
 import { getCardRuleText } from "../chest_cards";
@@ -49,6 +49,16 @@ import {
   LobbySettings,
   LobbySettingsForm,
 } from "./lobby_settings_form";
+
+type QRCodeImportShape = typeof qrCodeModule & {
+  default?: typeof qrCodeModule;
+  QRCode?: typeof qrCodeModule;
+};
+
+const QRCodeComponent =
+  (qrCodeModule as QRCodeImportShape).default ??
+  (qrCodeModule as QRCodeImportShape).QRCode ??
+  qrCodeModule;
 
 const adminCards: Record<string, { key: string; label: string }[]> = {
   safe: [
@@ -337,7 +347,7 @@ export function Bar() {
       <Modal open={openShare} onClose={() => setOpenShare(false)}>
         <Box sx={shareModalStyle}>
           <Box sx={{ background: "white", p: 3, mb: 2 }}>
-            <QRCode value={shareLink} />
+            <QRCodeComponent value={shareLink} />
           </Box>
           <Typography variant="caption" sx={{ opacity: 0.75, mb: 0.5, alignSelf: "flex-start" }}>
             {t("bar.sharePlayerLink")}

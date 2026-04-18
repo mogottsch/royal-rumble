@@ -36,15 +36,17 @@ RUN composer install \
         --no-interaction
 
 COPY backend/laravel/ ./
+COPY backend/laravel/docker/prod/entrypoint.sh /usr/local/bin/royal-api-entrypoint
 
 COPY crawler/data/saved_superstars.json storage/app/saved_superstars.json
 COPY crawler/data/images/ storage/app/public/wrestlers/
 
 RUN composer dump-autoload --optimize --no-dev \
     && php artisan storage:link \
+    && chmod +x /usr/local/bin/royal-api-entrypoint \
     && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R ug+rwX storage bootstrap/cache
 
 EXPOSE 80
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+CMD ["royal-api-entrypoint"]

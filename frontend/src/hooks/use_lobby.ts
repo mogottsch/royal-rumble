@@ -86,6 +86,7 @@ export interface ChestReward {
   minimum_self_shots?: number;
   target_participant_id?: number | null;
   result_participant_id?: number | null;
+  affected_participant_ids?: number[] | null;
   chooser?: Participant | null;
   offender_rumbler?: Rumbler | null;
   victim_rumbler?: Rumbler | null;
@@ -135,6 +136,9 @@ export interface Participant {
   entrance_number: number;
   lobby_id: number;
   rumbler_id: number;
+  drunk_sips: number;
+  drunk_shots: number;
+  drunk_chugs: number;
 }
 
 export interface Rumbler {
@@ -154,10 +158,21 @@ export interface Wrestler {
   created_at: string;
   updated_at: string;
   name: string;
+  royal_rumble_stats?: {
+    appearances: number;
+    number_one_appearances: number;
+    number_thirty_appearances: number;
+  };
   image_url?: string;
 }
 
-export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
+export function useLobby({
+  lobbyCode,
+  pollIntervalMs = 3000,
+}: {
+  lobbyCode?: string;
+  pollIntervalMs?: number | false;
+}) {
   const [lobby, setLobby] = useState<Lobby | undefined>(undefined);
   const query = useLobbyQuery(lobbyCode);
   const { notify } = useNotificationContext();
@@ -171,7 +186,7 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
   const { echo } = useEchoContext();
 
   useEffect(() => {
-    if (!lobby || !echo) {
+    if (!lobby?.id || !echo) {
       return;
     }
     const channel = echo.channel(`lobbies.${lobby.id}`);
@@ -187,12 +202,12 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
     channel.listen(eventName, callback);
 
     return () => {
-      channel.stopListening(eventName, callback);
+      channel.stopListening(eventName);
     };
-  }, [lobby, echo]);
+  }, [lobby?.id, echo]);
 
   useEffect(() => {
-    if (!lobbyCode) {
+    if (!lobbyCode || pollIntervalMs === false) {
       return;
     }
 
@@ -203,10 +218,10 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
       }
       const data = await response.json();
       setLobby(data.data.lobby);
-    }, 3000);
+    }, pollIntervalMs);
 
     return () => window.clearInterval(interval);
-  }, [lobbyCode]);
+  }, [lobbyCode, pollIntervalMs]);
 
   useEffect(() => {
     if (query.isError) {
@@ -228,7 +243,12 @@ export function useLobby({ lobbyCode }: { lobbyCode?: string }) {
 
 function useLobbyQuery(lobbyCode?: string) {
   const queryKey = ["lobby", lobbyCode];
-  return useQuery<Lobby, any>({ queryKey, queryFn: fetchLobby, retry: false });
+  return useQuery<Lobby, any>({
+    queryKey,
+    queryFn: fetchLobby,
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
 }
 
 async function fetchLobby({ queryKey }: any): Promise<Lobby> {

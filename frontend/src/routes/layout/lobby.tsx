@@ -8,7 +8,7 @@ import { ClaimGate } from "../../components/claim_gate";
 
 export function LobbyLayout() {
   const { lobbyCode } = useParams<{ lobbyCode: string }>();
-  const { lobby, query: lobbyQuery } = useLobby({ lobbyCode });
+  const { lobby, query: lobbyQuery } = useLobby({ lobbyCode, pollIntervalMs: 3000 });
   const { claimedParticipantId, claim, clear } =
     useParticipantClaimState(lobbyCode);
 

@@ -26,9 +26,11 @@ import LanguageIcon from "@mui/icons-material/Language";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import SettingsIcon from "@mui/icons-material/Settings";
 import BugReportIcon from "@mui/icons-material/BugReport";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import { Box } from "@mui/system";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
 import { fetchApi } from "../api/fetcher";
 import logo from "../assets/logo_small.png";
@@ -59,6 +61,8 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "group_everyone_else_sip", label: "Center Stage" },
     { key: "group_cheap_seats", label: "Cheap Seats" },
     { key: "group_main_event", label: "Main Event" },
+    { key: "group_double_undrunk_sips", label: "Encore" },
+    { key: "group_double_undrunk_shots", label: "Double Tap" },
   ],
   chaos: [
     { key: "chaos_give_sips", label: "Rainmaker" },
@@ -81,6 +85,7 @@ export function Bar() {
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { t } = useI18n();
   const navigate = useNavigate();
+  const location = useLocation();
   const theme = useTheme();
   const claimedParticipant = lobby?.participants.find((p) => p.id === claimedParticipantId);
   const isAdminTester = claimedParticipant?.name === "MoritzA";
@@ -102,7 +107,9 @@ export function Bar() {
   const chestMultiplier = lobby?.drink_config.chest_aggression_multiplier ?? 1;
   const baseUrl = window.location.origin;
   const shareLink = `${baseUrl}/lobbies/${lobby?.code}`;
+  const dashboardLink = `${baseUrl}/lobbies/${lobby?.code}/dashboard`;
   const lobbyExists = lobby !== undefined;
+  const isDashboard = location.pathname.endsWith("/dashboard");
   const playingAsPrefix = t("bar.playingAs", { name: "__name__" }).split("__name__")[0];
   const playingAsSuffix = t("bar.playingAs", { name: "__name__" }).split("__name__")[1] ?? "";
 
@@ -192,18 +199,24 @@ export function Bar() {
   return (
     <>
       <AppBar position="static" sx={{ background: theme.palette.background.default, boxShadow: 0 }}>
-        <Toolbar>
+        <Toolbar
+          variant={isDashboard ? "dense" : undefined}
+          sx={{
+            minHeight: isDashboard ? "56px" : undefined,
+            px: isDashboard ? 1 : 2,
+          }}
+        >
           {lobbyExists && (
-            <IconButton size="large" edge="start" onClick={() => setOpenHistory(true)}>
+            <IconButton size={isDashboard ? "medium" : "large"} edge="start" onClick={() => setOpenHistory(true)}>
               <MenuIcon />
             </IconButton>
           )}
           <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
-            <Box component="img" sx={{ height: "10vh" }} src={logo} />
+            <Box component="img" sx={{ height: isDashboard ? 34 : "10vh" }} src={logo} />
           </Box>
           {lobbyExists && (
             <IconButton
-              size="large"
+              size={isDashboard ? "medium" : "large"}
               edge="end"
               onClick={(event) => setMenuAnchor(event.currentTarget)}
               aria-label={t("bar.more")}
@@ -250,6 +263,17 @@ export function Bar() {
         <MenuItem
           onClick={() => {
             handleCloseMenu();
+            navigate(isDashboard ? `/lobbies/${lobby?.code}/view-game` : `/lobbies/${lobby?.code}/dashboard`);
+          }}
+        >
+          <ListItemIcon>
+            {isDashboard ? <SportsEsportsIcon fontSize="small" /> : <DashboardIcon fontSize="small" />}
+          </ListItemIcon>
+          <ListItemText>{isDashboard ? t("bar.playerView") : t("bar.dashboard")}</ListItemText>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleCloseMenu();
             handleOpenSettings();
           }}
         >
@@ -289,11 +313,21 @@ export function Bar() {
       <Modal open={openShare} onClose={() => setOpenShare(false)}>
         <Box sx={shareModalStyle}>
           <Box sx={{ background: "white", p: 3, mb: 2 }}>
-            <QRCode value={document.location.href} />
+            <QRCode value={shareLink} />
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-            <Typography>{shareLink}</Typography>
+          <Typography variant="caption" sx={{ opacity: 0.75, mb: 0.5, alignSelf: "flex-start" }}>
+            {t("bar.sharePlayerLink")}
+          </Typography>
+          <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", width: "100%", gap: 1 }}>
+            <Typography sx={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{shareLink}</Typography>
             <CopyToClipboardButton text={shareLink} />
+          </Box>
+          <Typography variant="caption" sx={{ opacity: 0.75, mt: 1.5, mb: 0.5, alignSelf: "flex-start" }}>
+            {t("bar.shareDashboardLink")}
+          </Typography>
+          <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", width: "100%", gap: 1 }}>
+            <Typography sx={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{dashboardLink}</Typography>
+            <CopyToClipboardButton text={dashboardLink} />
           </Box>
           <Box sx={{ fontSize: "2rem", fontWeight: "bold", mt: 2, mb: 2 }}>{lobby?.code}</Box>
         </Box>
@@ -408,6 +442,10 @@ function getAdminCardDescription(cardKey: string, multiplier: number) {
       return `Everyone without an active wrestler drinks ${s(2)} ${sipLabel(s(2))}.`;
     case "group_main_event":
       return `Everyone drinks ${s(1)} ${shotLabel(s(1))}.`;
+    case "group_double_undrunk_sips":
+      return "Every player's undrunk sips are doubled.";
+    case "group_double_undrunk_shots":
+      return "Every player's undrunk shots are doubled.";
     case "chaos_give_sips":
       return `Give out ${s(8)} ${sipLabel(s(8))}.`;
     case "chaos_give_shots":

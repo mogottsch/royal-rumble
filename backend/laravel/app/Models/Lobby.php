@@ -114,6 +114,7 @@ class Lobby extends Model
             "chugs.participant",
             "chestRewards",
             "chestRewards.chooser",
+            "chestRewards.chooser.rumbler.wrestler",
             "chestRewards.offenderRumbler.wrestler",
             "chestRewards.victimRumbler.wrestler",
         ]);

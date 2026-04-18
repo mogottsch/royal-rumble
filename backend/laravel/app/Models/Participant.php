@@ -9,6 +9,12 @@ class Participant extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        "drunk_sips" => "integer",
+        "drunk_shots" => "integer",
+        "drunk_chugs" => "integer",
+    ];
+
     public function lobby()
     {
         return $this->belongsTo(Lobby::class);

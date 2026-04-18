@@ -20,11 +20,13 @@ import { AddEntrance } from "./routes/add_entrance";
 import { AddElimination } from "./routes/add_elimination";
 import { Distribute } from "./routes/distribute";
 import { LobbyLayout } from "./routes/layout/lobby";
+import { DashboardLobbyLayout } from "./routes/layout/dashboard_lobby";
 import { useEcho } from "./hooks/use_echo";
 import { EchoContextProvider } from "./contexts/echo_context";
 import { NotificationContextProvider } from "./contexts/notification_context";
 import { useNotifications } from "./hooks/use_notifications";
 import { NotificationDisplayer } from "./components/notification";
+import { ViewGameDashboard } from "./routes/view_game_dashboard";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +87,17 @@ const router = createBrowserRouter([
       {
         path: "distribute/:eliminationId",
         element: <Distribute />,
+      },
+    ],
+  },
+  {
+    path: "/lobbies/:lobbyCode/dashboard",
+    element: <DashboardLobbyLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "",
+        element: <ViewGameDashboard />,
       },
     ],
   },

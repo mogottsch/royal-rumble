@@ -35,6 +35,7 @@ export type RevealedChestReward = {
   shots: number;
   choiceOptions?: ChestChoiceOption[] | null;
   selectedChoiceKey?: string | null;
+  affectedParticipantIds?: number[] | null;
 };
 
 export function getPendingChestChoices(
@@ -93,6 +94,7 @@ export function getRevealedChestRewards(
       shots: reward.pending_shots,
       choiceOptions: reward.choice_options ?? null,
       selectedChoiceKey: reward.selected_choice_key ?? null,
+      affectedParticipantIds: reward.affected_participant_ids ?? null,
     }));
 }
 

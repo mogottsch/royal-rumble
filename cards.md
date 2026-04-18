@@ -31,7 +31,7 @@ This applies to:
 - `minimum_self_schluecke`
 - `minimum_self_shots`
 
-This does not affect special effects like chugs or target-pick logic.
+This does not affect special effects like chugs, target-pick logic, or cards that double current undrunk drink debt.
 
 ## Current cards
 
@@ -48,10 +48,12 @@ This does not affect special effects like chugs or target-pick logic.
 
 | Key | Title | Weight | Probability | Mode | Base effect |
 | --- | --- | ---: | ---: | --- | --- |
-| `group_everyone_sip` | Roll Call | 30 | 33.3% | `auto` | Everyone drinks `2` sips |
-| `group_everyone_else_sip` | Center Stage | 23 | 25.6% | `auto` | Everyone except you drinks `2` sips |
-| `group_cheap_seats` | Cheap Seats | 22 | 24.4% | `auto` | Everyone without an active wrestler drinks `2` sips |
-| `group_main_event` | Main Event | 15 | 16.7% | `auto` | Everyone drinks `1` shot |
+| `group_everyone_sip` | Roll Call | 25 | 25% | `auto` | Everyone drinks `2` sips |
+| `group_everyone_else_sip` | Center Stage | 20 | 20% | `auto` | Everyone except you drinks `2` sips |
+| `group_cheap_seats` | Cheap Seats | 20 | 20% | `auto` | Everyone without an active wrestler drinks `2` sips |
+| `group_main_event` | Main Event | 15 | 15% | `auto` | Everyone drinks `1` shot |
+| `group_double_undrunk_sips` | Encore | 10 | 10% | `auto` | Double every player's current undrunk sips |
+| `group_double_undrunk_shots` | Double Tap | 10 | 10% | `auto` | Double every player's current undrunk shots |
 
 ### Chaos
 
@@ -74,6 +76,11 @@ This does not affect special effects like chugs or target-pick logic.
 After reveal, the backend applies the effect immediately.
 
 The chooser then acknowledges the reveal to clear the chest from the pending flow.
+
+For `group_double_undrunk_sips` and `group_double_undrunk_shots`, the backend uses each participant's current remaining drink debt:
+
+- total assigned sips or shots
+- minus sips or shots already marked as drunk in the personal tracker
 
 ### `give_out`
 

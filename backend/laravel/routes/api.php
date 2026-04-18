@@ -28,6 +28,10 @@ Route::post("/lobbies", [LobbyController::class, "store"])->name(
 Route::patch("/lobbies/{lobby:code}/settings", [LobbyController::class, "updateSettings"])->name(
     "lobbies.updateSettings"
 );
+Route::patch("/lobbies/{lobby:code}/participants/{participant}/drink-progress", [
+    LobbyController::class,
+    "updateParticipantDrinkProgress",
+])->name("lobbies.participants.drinkProgress.update");
 Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
     "wrestlers.search"
 );

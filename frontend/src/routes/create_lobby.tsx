@@ -10,6 +10,7 @@ import {
   LobbySettings,
   LobbySettingsForm,
 } from "../components/lobby_settings_form";
+import { isTestSeedTrigger, mergeTestParticipants } from "../test_lobby_seed";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import { useI18n } from "../i18n";
 
@@ -26,6 +27,13 @@ export function CreateLobby() {
   const isParticipantNameDuplicate = participantNames.includes(newName);
 
   const addParticipant = () => {
+    if (isTestSeedTrigger(newName)) {
+      setParticipantNames((current) => mergeTestParticipants(current));
+      setNewName("");
+      setErrorMessages([]);
+      return;
+    }
+
     if (isParticipantNameEmpty) {
       setErrorMessages([t("createLobby.errorEmpty")]);
     }

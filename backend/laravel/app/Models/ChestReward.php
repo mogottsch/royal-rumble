@@ -29,6 +29,7 @@ class ChestReward extends Model
         "minimum_self_shots" => "integer",
         "target_participant_id" => "integer",
         "result_participant_id" => "integer",
+        "affected_participant_ids" => "array",
     ];
 
     public function lobby()

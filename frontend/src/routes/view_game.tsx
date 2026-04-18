@@ -124,10 +124,19 @@ export function ViewGame() {
     }),
     [claimedParticipantId, lobby?.chugs, lobby?.drink_distributions],
   );
+  const serverConsumedTotals = useMemo(
+    () => ({
+      sips: lobby?.participants.find((participant) => participant.id === claimedParticipantId)?.drunk_sips ?? 0,
+      shots: lobby?.participants.find((participant) => participant.id === claimedParticipantId)?.drunk_shots ?? 0,
+      chugs: lobby?.participants.find((participant) => participant.id === claimedParticipantId)?.drunk_chugs ?? 0,
+    }),
+    [claimedParticipantId, lobby?.participants],
+  );
   const drinkTracker = usePersonalDrinkTracker({
     lobbyCode: lobby?.code,
     claimedParticipantId: claimedParticipantId ?? undefined,
     raw: rawDueTotals,
+    serverConsumed: serverConsumedTotals,
   });
 
   useEffect(() => {

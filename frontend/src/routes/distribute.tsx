@@ -50,6 +50,7 @@ type RevealedChestResult = {
   selected_choice_key?: string | null;
   offenderName: string;
   victimName: string;
+  affectedParticipantIds?: number[] | null;
   chooserParticipantId?: number;
   adminMode?: boolean;
 };
@@ -87,6 +88,7 @@ export function Distribute() {
         shots: revealedChestRewards[0].shots,
         choice_options: revealedChestRewards[0].choiceOptions,
         selected_choice_key: revealedChestRewards[0].selectedChoiceKey,
+        affectedParticipantIds: revealedChestRewards[0].affectedParticipantIds,
         offenderName:
           revealedChestRewards[0].offender?.wrestler.name ?? t("distribute.adminTriggerOffender"),
         victimName:
@@ -377,6 +379,9 @@ function ChestRevealScreen({
 }) {
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { t } = useI18n();
+  const affectedParticipants = (result.affectedParticipantIds ?? [])
+    .map((participantId) => lobby.participants.find((participant) => participant.id === participantId))
+    .filter((participant): participant is Participant => Boolean(participant));
 
   const handleContinue = async () => {
     setKeyLoading("continueChest", true);
@@ -418,6 +423,13 @@ function ChestRevealScreen({
               selected_choice_key: result.selected_choice_key,
             })}
           </Typography>
+          {affectedParticipants.length > 0 && (
+            <Typography variant="body2" sx={{ mt: 2, opacity: 0.8 }}>
+              {t("distribute.affectedPlayers", {
+                players: affectedParticipants.map((participant) => participant.name).join(", "),
+              })}
+            </Typography>
+          )}
         </CardContent>
       </Card>
       <Button variant="contained" size="large" onClick={handleContinue}>
@@ -807,6 +819,7 @@ function buildAdminRevealResult(
     shots: reward.pending_shots,
     choice_options: reward.choice_options ?? null,
     selected_choice_key: reward.selected_choice_key ?? null,
+    affectedParticipantIds: reward.affected_participant_ids ?? null,
     offenderName: chooser?.name ?? "Admin",
     victimName: "debug trigger",
     chooserParticipantId: participantId,

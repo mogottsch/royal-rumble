@@ -9,6 +9,16 @@ type HistoryItem =
   | { group: "drink"; createdAt: string; id: string; chug: Chug };
 
 export function History({ lobby }: { lobby: Lobby | undefined }) {
+  return <HistoryContent lobby={lobby} compact={false} />;
+}
+
+export function HistoryContent({
+  lobby,
+  compact,
+}: {
+  lobby: Lobby | undefined;
+  compact: boolean;
+}) {
   const { t } = useI18n();
   if (!lobby) return null;
 
@@ -22,18 +32,20 @@ export function History({ lobby }: { lobby: Lobby | undefined }) {
         overflow: "auto",
         border: "1px solid rgba(255,255,255,0.12)",
         borderRadius: 2,
-        p: 2,
+        p: compact ? 0.75 : 2,
         background: "rgba(255,255,255,0.03)",
       }}
     >
-      <Typography variant="h6" sx={{ mb: 1.5 }}>
-        {t("history.title")}
-      </Typography>
+      {!compact && (
+        <Typography variant="h6" sx={{ mb: 1.5 }}>
+          {t("history.title")}
+        </Typography>
+      )}
 
-      <Stack spacing={1}>
+      <Stack spacing={compact ? 0.6 : 1}>
         {items.length === 0 && <Typography sx={{ opacity: 0.6 }}>{t("history.none")}</Typography>}
         {items.map((item, index) => (
-          <HistoryRow key={item.id} index={items.length - index} item={item} lobby={lobby} />
+          <HistoryRow key={item.id} index={items.length - index} item={item} lobby={lobby} compact={compact} />
         ))}
       </Stack>
     </Box>
@@ -44,10 +56,12 @@ function HistoryRow({
   index,
   item,
   lobby,
+  compact,
 }: {
   index: number;
   item: HistoryItem;
   lobby: Lobby;
+  compact: boolean;
 }) {
   const { t } = useI18n();
   const rumble = item.group === "rumble";
@@ -56,33 +70,37 @@ function HistoryRow({
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "28px auto 1fr",
-        gap: 1,
+        gridTemplateColumns: compact ? "22px auto 1fr" : "28px auto 1fr",
+        gap: compact ? 0.6 : 1,
         alignItems: "start",
         borderRadius: 1.5,
-        px: 1,
-        py: 0.75,
+        px: compact ? 0.65 : 1,
+        py: compact ? 0.5 : 0.75,
         background: rumble ? "rgba(211,47,47,0.12)" : "rgba(25,118,210,0.12)",
         border: rumble
           ? "1px solid rgba(211,47,47,0.28)"
           : "1px solid rgba(25,118,210,0.28)",
       }}
     >
-      <Typography variant="caption" sx={{ opacity: 0.5, pt: 0.2 }}>
+      <Typography variant="caption" sx={{ opacity: 0.5, pt: 0.1, fontSize: compact ? "0.6rem" : undefined }}>
         {index}.
       </Typography>
       <Chip
         label={rumble ? t("history.rumble") : t("history.drink")}
         size="small"
         sx={{
-          height: 20,
+          height: compact ? 18 : 20,
           backgroundColor: rumble ? "#d32f2f" : "#1976d2",
           color: "white",
           fontWeight: 700,
-          mt: 0.15,
+          mt: 0.1,
+          '& .MuiChip-label': {
+            px: compact ? 0.45 : undefined,
+            fontSize: compact ? "0.6rem" : undefined,
+          },
         }}
       />
-      <Typography variant="body2">
+      <Typography variant="body2" sx={{ fontSize: compact ? "0.75rem" : undefined, lineHeight: compact ? 1.3 : undefined }}>
         <HistoryDisplay item={item} lobby={lobby} />
       </Typography>
     </Box>

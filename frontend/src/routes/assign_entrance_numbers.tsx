@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchApi } from "../api/fetcher";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import { useI18n } from "../i18n";
+import { buildTestEntranceNumbers } from "../test_lobby_seed";
 
 export function AssignEntranceNumbers() {
   const navigate = useNavigate();
@@ -27,6 +28,32 @@ export function AssignEntranceNumbers() {
 
     navigate(`/lobbies/${lobby.code}/view-game`, { replace: true });
   }, [lobby, navigate]);
+
+  useEffect(() => {
+    if (!lobby) {
+      return;
+    }
+
+    let buffer = "";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key.length !== 1) {
+        return;
+      }
+
+      buffer = `${buffer}${event.key.toLowerCase()}`.slice(-4);
+      if (buffer !== "test") {
+        return;
+      }
+
+      setParticipantEntranceNumber(buildTestEntranceNumbers(lobby.participants));
+      setSelectedParticipantId(undefined);
+      setSelectedEntranceNumber(undefined);
+      buffer = "";
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lobby]);
 
   const [selectedParticipantId, setSelectedParticipantId] = useState<number>();
   const toggleParticipant = (participantId: number) => {

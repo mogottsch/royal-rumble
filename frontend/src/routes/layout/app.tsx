@@ -4,7 +4,13 @@ import { Bar } from "../../components/bar";
 import { PendingDistributionPrompt } from "../../components/pending_distribution_prompt";
 import { Outlet } from "react-router-dom";
 
-export function App() {
+export function App({
+  maxWidth = "sm",
+  showPendingPrompt = true,
+}: {
+  maxWidth?: false | "xs" | "sm" | "md" | "lg" | "xl";
+  showPendingPrompt?: boolean;
+}) {
   return (
     <Box
       sx={{
@@ -15,9 +21,9 @@ export function App() {
       }}
     >
       <Bar />
-      <PendingDistributionPrompt />
+      {showPendingPrompt ? <PendingDistributionPrompt /> : null}
       <Container
-        maxWidth="sm"
+        maxWidth={maxWidth}
         sx={{
           overflow: "hidden",
           display: "flex",

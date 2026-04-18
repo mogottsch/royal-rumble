@@ -60,6 +60,7 @@ services:
     volumes:
       - ./backend/laravel:/app
       - ./crawler/data/saved_superstars.json:/app/storage/app/saved_superstars.json:ro
+      - ./crawler/data/matches:/app/storage/app/royal_rumble_matches:ro
       - ./crawler/data/images:/app/storage/app/public/wrestlers:ro
     ports:
       - "127.0.0.1:8088:8088"

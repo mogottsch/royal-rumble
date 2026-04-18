@@ -1,6 +1,7 @@
 import { Participant } from "./hooks/use_lobby";
 
 export const TEST_PARTICIPANT_NAMES = [
+  "MoritzA",
   "Alice",
   "Bob",
   "Charlie",
@@ -10,7 +11,6 @@ export const TEST_PARTICIPANT_NAMES = [
   "Grace",
   "Hank",
   "Ivy",
-  "Jade",
 ];
 
 export function isTestSeedTrigger(value: string) {

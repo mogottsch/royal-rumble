@@ -54,6 +54,9 @@ This does not affect special effects like chugs, target-pick logic, or cards tha
 | `group_main_event` | Main Event | 15 | 15% | `auto` | Everyone drinks `1` shot |
 | `group_double_undrunk_sips` | Encore | 10 | 10% | `auto` | Double every player's current undrunk sips |
 | `group_double_undrunk_shots` | Double Tap | 10 | 10% | `auto` | Double every player's current undrunk shots |
+| `group_old_hands` | Old Hands | 4 | 3.7% | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `4` sips |
+| `group_edge_number` | Edge Number | 3 | 2.8% | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `5` sips |
+| `group_no_rumble_resume` | No Resume | 3 | 2.8% | `auto` | Everyone whose wrestler has `0` historical Rumble appearances drinks `3` sips |
 
 ### Chaos
 
@@ -68,6 +71,9 @@ This does not affect special effects like chugs, target-pick logic, or cards tha
 | `chaos_skull_crusher` | Skull Crusher | 6 | 6.7% | `auto` | One random other player chugs; if nobody else exists, you chug |
 | `chaos_last_call` | Last Call | 3 | 3.3% | `auto` | Everyone chugs |
 | `chaos_russian_roulette` | Russian Roulette | 5 | 5.6% | `target_pick` | Pick one other player; then either they or you chug at random |
+| `chaos_legends_due` | Legends Due | 2 | 2.2% | `auto` | Player or players whose wrestler has the most historical Rumble appearances drink `1` shot |
+| `chaos_veteran_floor` | Veteran Floor | 2 | 2.2% | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `1` shot |
+| `chaos_edge_number_tax` | Edge Number Tax | 1 | 1.1% | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `1` shot |
 
 ## Flow notes
 
@@ -76,6 +82,8 @@ This does not affect special effects like chugs, target-pick logic, or cards tha
 After reveal, the backend applies the effect immediately.
 
 The chooser then acknowledges the reveal to clear the chest from the pending flow.
+
+For stat-based auto cards, the reveal UI also lists exactly which participants were affected.
 
 For `group_double_undrunk_sips` and `group_double_undrunk_shots`, the backend uses each participant's current remaining drink debt:
 

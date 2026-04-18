@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 
 class ProductiveSeeder extends Seeder
 {
+    private const EXCLUDED_HISTORICAL_YEARS = [2026];
+
     private const NAME_ALIASES = [
         "alexanderrusev" => "rusev",
         "andradealmas" => "andrade",
@@ -154,8 +156,16 @@ class ProductiveSeeder extends Seeder
         $seededEntries = 0;
         $unmatchedEntries = [];
 
+        RoyalRumbleEntry::query()
+            ->whereIn("year", self::EXCLUDED_HISTORICAL_YEARS)
+            ->delete();
+
         foreach ($files as $file) {
             $year = (int) pathinfo($file->getFilename(), PATHINFO_FILENAME);
+            if (in_array($year, self::EXCLUDED_HISTORICAL_YEARS, true)) {
+                continue;
+            }
+
             $matchJson = json_decode(File::get($file->getPathname()), true);
             $wrestlers = $matchJson["wrestlers"] ?? [];
 

@@ -971,7 +971,6 @@ class ChestRewardResolver
                 ["key" => "safe_give_shot", "mode" => "give_out", "weight" => 20, "schluecke" => 0, "shots" => 1],
                 ["key" => "safe_you_and_random_sip", "mode" => "auto", "weight" => 20, "effect" => "chooser_and_random_other", "schluecke" => 2, "shots" => 0],
                 ["key" => "safe_house_edge", "mode" => "give_out", "weight" => 20, "schluecke" => 4, "shots" => 0, "minimum_self_schluecke" => 1],
-                ["key" => "safe_current_body_count", "mode" => "give_out", "weight" => 12, "effect" => "current_wrestler_eliminations", "schluecke" => 0, "shots" => 0],
                 [
                     "key" => "safe_sweet_deal",
                     "mode" => "effect_choice",

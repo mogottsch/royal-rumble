@@ -35,8 +35,12 @@ A chaotic Royal Rumble party game with live wrestler entrances, eliminations, dr
 Start the full stack with Docker Compose:
 
 ```bash
+git lfs install
+git lfs pull
 docker compose -f docker-compose.dev.yaml up -d --build
 ```
+
+The wrestler images in `crawler/data/images/` are stored with Git LFS. If `git lfs pull` has not been run, the dev backend will only see pointer files instead of real image data, so wrestler portraits and thumbnails will not load.
 
 Services:
 

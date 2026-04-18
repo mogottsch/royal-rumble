@@ -19,6 +19,7 @@ class WrestlerImageController extends Controller
         $path = $this->imagePath($wrestler->image_filename);
 
         abort_unless(file_exists($path), 404);
+        abort_unless($this->isImageFile($path), 404);
 
         return response()->file($path, [
             "Cache-Control" => "public, max-age=31536000, immutable",
@@ -31,6 +32,7 @@ class WrestlerImageController extends Controller
 
         $sourcePath = $this->imagePath($wrestler->image_filename);
         abort_unless(file_exists($sourcePath), 404);
+        abort_unless($this->isImageFile($sourcePath), 404);
 
         $thumbnailPath = $this->thumbnailPath($wrestler->id, $wrestler->updated_at?->timestamp ?? 0);
         if (!file_exists($thumbnailPath)) {
@@ -54,7 +56,12 @@ class WrestlerImageController extends Controller
 
     private function createThumbnail(string $sourcePath, string $thumbnailPath): void
     {
-        $image = imagecreatefrompng($sourcePath);
+        $contents = file_get_contents($sourcePath);
+        if ($contents === false) {
+            throw new RuntimeException("Failed to read wrestler image");
+        }
+
+        $image = @imagecreatefromstring($contents);
         if ($image === false) {
             throw new RuntimeException("Failed to read wrestler image");
         }
@@ -99,5 +106,10 @@ class WrestlerImageController extends Controller
         if ($saved === false) {
             throw new RuntimeException("Failed to write wrestler thumbnail");
         }
+    }
+
+    private function isImageFile(string $path): bool
+    {
+        return @getimagesize($path) !== false;
     }
 }

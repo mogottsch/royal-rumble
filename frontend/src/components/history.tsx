@@ -1,4 +1,5 @@
 import { Box, Chip, Stack, Typography } from "@mui/material";
+import { getCardDescription, getCardTitle } from "../chest_cards";
 import { Action, ChestReward, Chug, DrinkDistribution, Lobby } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
@@ -341,11 +342,8 @@ function summarizeChestRewards(distributions: DrinkDistribution[], lobby: Lobby)
     rewards.set(key, {
       key,
       chest: t(`distribute.chest.${reward.chest_type}`),
-      cardTitle: t(`distribute.cardTitle.${reward.card_key}`),
-      cardDescription: t(`distribute.cardDescription.${reward.card_key}`, {
-        sips: reward.pending_schluecke,
-        shots: reward.pending_shots,
-      }),
+      cardTitle: getCardTitle(t, reward.card_key),
+      cardDescription: getCardDescription(t, reward),
       elimination:
         offender && victim
           ? t("history.eliminating", { offender, victim })

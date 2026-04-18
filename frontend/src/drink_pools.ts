@@ -1,4 +1,4 @@
-import { Lobby, Rumbler } from "./hooks/use_lobby";
+import { ChestChoiceOption, Lobby, Rumbler } from "./hooks/use_lobby";
 
 export type PendingDrinkPool = {
   chestRewardId?: number;
@@ -18,6 +18,11 @@ export type PendingChestChoice = {
   victim?: Rumbler;
 };
 
+export type PendingChestFollowUp = {
+  chestRewardId: number;
+  status: "pending_effect_choice" | "pending_target_pick";
+};
+
 export type RevealedChestReward = {
   chestRewardId: number;
   eliminationId: number;
@@ -25,9 +30,11 @@ export type RevealedChestReward = {
   victim?: Rumbler;
   chestType: "safe" | "group" | "chaos";
   cardKey: string;
-  cardMode: "auto" | "give_out" | "target_pick";
+  cardMode: "auto" | "give_out" | "target_pick" | "effect_choice";
   schluecke: number;
   shots: number;
+  choiceOptions?: ChestChoiceOption[] | null;
+  selectedChoiceKey?: string | null;
 };
 
 export function getPendingChestChoices(
@@ -65,6 +72,7 @@ export function getRevealedChestRewards(
       (reward) =>
         reward.chooser_participant_id === claimedParticipantId &&
         (
+          reward.status === "revealed_effect_choice" ||
           reward.status === "revealed_auto" ||
           reward.status === "revealed_distribution" ||
           reward.status === "revealed_target_pick"
@@ -80,9 +88,34 @@ export function getRevealedChestRewards(
       victim: reward.victim_rumbler ?? undefined,
       chestType: reward.chest_type as "safe" | "group" | "chaos",
       cardKey: reward.card_key as string,
-      cardMode: reward.card_mode as "auto" | "give_out" | "target_pick",
+      cardMode: reward.card_mode as "auto" | "give_out" | "target_pick" | "effect_choice",
       schluecke: reward.pending_schluecke,
       shots: reward.pending_shots,
+      choiceOptions: reward.choice_options ?? null,
+      selectedChoiceKey: reward.selected_choice_key ?? null,
+    }));
+}
+
+export function getPendingChestFollowUps(
+  lobby: Lobby,
+  claimedParticipantId: number | null,
+): PendingChestFollowUp[] {
+  if (claimedParticipantId === null || !lobby.drink_config.mystery_chests_enabled) {
+    return [];
+  }
+
+  return lobby.chest_rewards
+    .filter(
+      (reward) =>
+        reward.chooser_participant_id === claimedParticipantId &&
+        (
+          reward.status === "pending_effect_choice" ||
+          reward.status === "pending_target_pick"
+        ),
+    )
+    .map((reward) => ({
+      chestRewardId: reward.id,
+      status: reward.status as "pending_effect_choice" | "pending_target_pick",
     }));
 }
 
@@ -163,4 +196,10 @@ export function getPendingDrinkPoolSignature(pools: PendingDrinkPool[]): string 
 
 export function getPendingChestChoiceSignature(choices: PendingChestChoice[]): string {
   return choices.map((choice) => String(choice.chestRewardId)).join("|");
+}
+
+export function getPendingChestFollowUpSignature(followUps: PendingChestFollowUp[]): string {
+  return followUps
+    .map((followUp) => `${followUp.chestRewardId}:${followUp.status}`)
+    .join("|");
 }

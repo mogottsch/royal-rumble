@@ -65,6 +65,11 @@ Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/acknowledge", [
     "acknowledge",
 ])->name("lobbies.chestRewards.acknowledge");
 
+Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-choice", [
+    ChestRewardController::class,
+    "resolveChoice",
+])->name("lobbies.chestRewards.resolveChoice");
+
 Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-target", [
     ChestRewardController::class,
     "resolveTarget",

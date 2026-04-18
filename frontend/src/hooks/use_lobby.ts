@@ -67,6 +67,8 @@ export interface ChestReward {
   chooser_participant_id: number;
   status:
     | "pending_choice"
+    | "revealed_effect_choice"
+    | "pending_effect_choice"
     | "revealed_target_pick"
     | "pending_target_pick"
     | "revealed_auto"
@@ -75,9 +77,11 @@ export interface ChestReward {
     | "resolved";
   chest_type: "safe" | "group" | "chaos" | null;
   card_key: string | null;
-  card_mode: "auto" | "give_out" | "target_pick" | null;
+  card_mode: "auto" | "give_out" | "target_pick" | "effect_choice" | null;
   pending_schluecke: number;
   pending_shots: number;
+  choice_options?: ChestChoiceOption[] | null;
+  selected_choice_key?: string | null;
   minimum_self_schluecke?: number;
   minimum_self_shots?: number;
   target_participant_id?: number | null;
@@ -85,6 +89,18 @@ export interface ChestReward {
   chooser?: Participant | null;
   offender_rumbler?: Rumbler | null;
   victim_rumbler?: Rumbler | null;
+}
+
+export interface ChestChoiceOption {
+  key: string;
+  mode: "auto" | "give_out" | "target_pick";
+  effect?: string;
+  schluecke: number;
+  shots: number;
+  self_schluecke?: number;
+  self_shots?: number;
+  minimum_self_schluecke?: number;
+  minimum_self_shots?: number;
 }
 
 export interface Chug {

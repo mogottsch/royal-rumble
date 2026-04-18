@@ -69,68 +69,53 @@ class ChestRewardResolver
         $chestReward->chest_type = $chestType;
         $chestReward->card_key = $scaled["key"];
         $chestReward->card_mode = $scaled["mode"];
+        $chestReward->selected_choice_key = null;
+        $chestReward->choice_options = null;
+
+        if ($scaled["mode"] === "effect_choice") {
+            $this->resetPendingFields($chestReward);
+            $chestReward->choice_options = array_values($scaled["options"] ?? []);
+            $chestReward->status = ChestReward::STATUS_REVEALED_EFFECT_CHOICE;
+            $chestReward->save();
+
+            LobbyUpdated::dispatch($lobby->fresh());
+
+            return $this->buildChestResponse($chestReward);
+        }
 
         if ($scaled["mode"] === "give_out") {
-            $chestReward->pending_schluecke = $scaled["schluecke"];
-            $chestReward->pending_shots = $scaled["shots"];
-            $chestReward->minimum_self_schluecke = (int) ($scaled["minimum_self_schluecke"] ?? 0);
-            $chestReward->minimum_self_shots = (int) ($scaled["minimum_self_shots"] ?? 0);
+            $this->applyDistributionFields($chestReward, $scaled);
             $chestReward->status = ChestReward::STATUS_REVEALED_DISTRIBUTION;
             $chestReward->save();
 
             LobbyUpdated::dispatch($lobby->fresh());
 
-            return [
-                "chest_reward_id" => $chestReward->id,
-                "chest_type" => $chestType,
-                "card_key" => $scaled["key"],
-                "card_mode" => $scaled["mode"],
-                "schluecke" => $scaled["schluecke"],
-                "shots" => $scaled["shots"],
-            ];
+            return $this->buildChestResponse($chestReward);
         }
 
         if ($scaled["mode"] === "target_pick") {
-            $chestReward->pending_schluecke = 0;
-            $chestReward->pending_shots = 0;
-            $chestReward->minimum_self_schluecke = 0;
-            $chestReward->minimum_self_shots = 0;
-            $chestReward->target_participant_id = null;
-            $chestReward->result_participant_id = null;
+            $this->resetPendingFields($chestReward);
             $chestReward->status = ChestReward::STATUS_REVEALED_TARGET_PICK;
             $chestReward->save();
 
             LobbyUpdated::dispatch($lobby->fresh());
 
-            return [
-                "chest_reward_id" => $chestReward->id,
-                "chest_type" => $chestType,
-                "card_key" => $scaled["key"],
-                "card_mode" => $scaled["mode"],
-                "schluecke" => 0,
-                "shots" => 0,
-            ];
+            return $this->buildChestResponse($chestReward);
+        }
+
+        if ($scaled["mode"] !== "auto") {
+            throw new InvalidArgumentException("Unknown chest mode.");
         }
 
         $this->applyAutoEffect($lobby, $chestReward, $chooser, $scaled);
 
+        $this->applyResolvedAmounts($chestReward, $scaled);
         $chestReward->status = ChestReward::STATUS_REVEALED_AUTO;
-        $chestReward->pending_schluecke = $scaled["schluecke"];
-        $chestReward->pending_shots = $scaled["shots"];
-        $chestReward->minimum_self_schluecke = 0;
-        $chestReward->minimum_self_shots = 0;
         $chestReward->save();
 
         LobbyUpdated::dispatch($lobby->fresh());
 
-        return [
-            "chest_reward_id" => $chestReward->id,
-            "chest_type" => $chestType,
-            "card_key" => $scaled["key"],
-            "card_mode" => $scaled["mode"],
-            "schluecke" => $scaled["schluecke"],
-            "shots" => $scaled["shots"],
-        ];
+        return $this->buildChestResponse($chestReward);
     }
 
     public function createAdminReward(
@@ -173,6 +158,15 @@ class ChestRewardResolver
             return ["next_status" => ChestReward::STATUS_PENDING_DISTRIBUTION];
         }
 
+        if ($chestReward->status === ChestReward::STATUS_REVEALED_EFFECT_CHOICE) {
+            $chestReward->status = ChestReward::STATUS_PENDING_EFFECT_CHOICE;
+            $chestReward->save();
+
+            LobbyUpdated::dispatch($lobby->fresh());
+
+            return ["next_status" => ChestReward::STATUS_PENDING_EFFECT_CHOICE];
+        }
+
         if ($chestReward->status === ChestReward::STATUS_REVEALED_TARGET_PICK) {
             $chestReward->status = ChestReward::STATUS_PENDING_TARGET_PICK;
             $chestReward->save();
@@ -192,6 +186,72 @@ class ChestRewardResolver
         }
 
         throw new InvalidArgumentException("This chest cannot be acknowledged right now.");
+    }
+
+    public function resolveEffectChoice(
+        Lobby $lobby,
+        ChestReward $chestReward,
+        Participant $chooser,
+        string $choiceKey
+    ): array {
+        if (!$lobby->mystery_chests_enabled) {
+            throw new InvalidArgumentException("Mystery chests are disabled in this lobby.");
+        }
+        if ($chestReward->chooser_participant_id !== $chooser->id) {
+            throw new InvalidArgumentException("You cannot resolve this chest.");
+        }
+        if ($chestReward->status !== ChestReward::STATUS_PENDING_EFFECT_CHOICE) {
+            throw new InvalidArgumentException("This chest is not waiting for a choice.");
+        }
+        if ($chestReward->card_mode !== "effect_choice") {
+            throw new InvalidArgumentException("This chest does not support effect choices.");
+        }
+
+        $option = collect($chestReward->choice_options ?? [])
+            ->first(fn(array $entry) => ($entry["key"] ?? null) === $choiceKey);
+
+        if (!is_array($option)) {
+            throw new InvalidArgumentException("Unknown effect choice.");
+        }
+
+        if (($option["mode"] ?? null) === "effect_choice") {
+            throw new InvalidArgumentException("Nested effect choices are not supported.");
+        }
+
+        $chestReward->selected_choice_key = $choiceKey;
+
+        if (($option["mode"] ?? null) === "give_out") {
+            $this->applyDistributionFields($chestReward, $option);
+            $chestReward->status = ChestReward::STATUS_PENDING_DISTRIBUTION;
+            $chestReward->save();
+
+            LobbyUpdated::dispatch($lobby->fresh());
+
+            return [
+                "next_status" => ChestReward::STATUS_PENDING_DISTRIBUTION,
+                "selected_choice_key" => $choiceKey,
+            ];
+        }
+
+        if (($option["mode"] ?? null) === "target_pick") {
+            throw new InvalidArgumentException("Target-pick effect choices are not supported yet.");
+        }
+
+        if (($option["mode"] ?? null) !== "auto") {
+            throw new InvalidArgumentException("Unknown effect choice mode.");
+        }
+
+        $this->applyAutoEffect($lobby, $chestReward, $chooser, $option);
+        $this->applyResolvedAmounts($chestReward, $option);
+        $chestReward->status = ChestReward::STATUS_RESOLVED;
+        $chestReward->save();
+
+        LobbyUpdated::dispatch($lobby->fresh());
+
+        return [
+            "next_status" => ChestReward::STATUS_RESOLVED,
+            "selected_choice_key" => $choiceKey,
+        ];
     }
 
     public function resolveTargetPick(
@@ -283,6 +343,12 @@ class ChestRewardResolver
         $scaled = $card;
         $scaled["schluecke"] = $this->scaleAmount((int) ($card["schluecke"] ?? 0), $multiplier);
         $scaled["shots"] = $this->scaleAmount((int) ($card["shots"] ?? 0), $multiplier);
+        if (isset($card["options"]) && is_array($card["options"])) {
+            $scaled["options"] = array_map(
+                fn(array $option) => $this->scaleCard($option, $multiplier),
+                $card["options"]
+            );
+        }
         return $scaled;
     }
 
@@ -417,6 +483,46 @@ class ChestRewardResolver
         }
     }
 
+    private function buildChestResponse(ChestReward $chestReward): array
+    {
+        return [
+            "chest_reward_id" => $chestReward->id,
+            "chest_type" => $chestReward->chest_type,
+            "card_key" => $chestReward->card_key,
+            "card_mode" => $chestReward->card_mode,
+            "schluecke" => (int) $chestReward->pending_schluecke,
+            "shots" => (int) $chestReward->pending_shots,
+            "choice_options" => $chestReward->choice_options,
+            "selected_choice_key" => $chestReward->selected_choice_key,
+        ];
+    }
+
+    private function resetPendingFields(ChestReward $chestReward): void
+    {
+        $chestReward->pending_schluecke = 0;
+        $chestReward->pending_shots = 0;
+        $chestReward->minimum_self_schluecke = 0;
+        $chestReward->minimum_self_shots = 0;
+        $chestReward->target_participant_id = null;
+        $chestReward->result_participant_id = null;
+    }
+
+    private function applyDistributionFields(ChestReward $chestReward, array $card): void
+    {
+        $this->resetPendingFields($chestReward);
+        $chestReward->pending_schluecke = (int) ($card["schluecke"] ?? 0);
+        $chestReward->pending_shots = (int) ($card["shots"] ?? 0);
+        $chestReward->minimum_self_schluecke = (int) ($card["minimum_self_schluecke"] ?? 0);
+        $chestReward->minimum_self_shots = (int) ($card["minimum_self_shots"] ?? 0);
+    }
+
+    private function applyResolvedAmounts(ChestReward $chestReward, array $card): void
+    {
+        $this->resetPendingFields($chestReward);
+        $chestReward->pending_schluecke = (int) ($card["schluecke"] ?? 0);
+        $chestReward->pending_shots = (int) ($card["shots"] ?? 0);
+    }
+
     private function cards(): array
     {
         return [
@@ -427,19 +533,19 @@ class ChestRewardResolver
                 ["key" => "safe_house_edge", "mode" => "give_out", "weight" => 20, "schluecke" => 4, "shots" => 0, "minimum_self_schluecke" => 1],
             ],
             "group" => [
-                ["key" => "group_everyone_sip", "mode" => "auto", "weight" => 35, "effect" => "everyone", "schluecke" => 2, "shots" => 0],
-                ["key" => "group_everyone_else_sip", "mode" => "auto", "weight" => 25, "effect" => "everyone_else", "schluecke" => 2, "shots" => 0],
-                ["key" => "group_cheap_seats", "mode" => "auto", "weight" => 25, "effect" => "participants_without_active_wrestler", "schluecke" => 2, "shots" => 0],
+                ["key" => "group_everyone_sip", "mode" => "auto", "weight" => 30, "effect" => "everyone", "schluecke" => 2, "shots" => 0],
+                ["key" => "group_everyone_else_sip", "mode" => "auto", "weight" => 23, "effect" => "everyone_else", "schluecke" => 2, "shots" => 0],
+                ["key" => "group_cheap_seats", "mode" => "auto", "weight" => 22, "effect" => "participants_without_active_wrestler", "schluecke" => 2, "shots" => 0],
                 ["key" => "group_main_event", "mode" => "auto", "weight" => 15, "effect" => "everyone", "schluecke" => 0, "shots" => 1],
             ],
             "chaos" => [
-                ["key" => "chaos_give_sips", "mode" => "give_out", "weight" => 23, "schluecke" => 8, "shots" => 0],
-                ["key" => "chaos_give_shots", "mode" => "give_out", "weight" => 20, "schluecke" => 0, "shots" => 3],
-                ["key" => "chaos_everyone_sip", "mode" => "auto", "weight" => 13, "effect" => "everyone", "schluecke" => 2, "shots" => 0],
-                ["key" => "chaos_everyone_else_shot", "mode" => "auto", "weight" => 10, "effect" => "everyone_else", "schluecke" => 0, "shots" => 1],
-                ["key" => "chaos_you_drink_shots", "mode" => "auto", "weight" => 10, "effect" => "chooser_only", "schluecke" => 0, "shots" => 2],
-                ["key" => "chaos_blackout_tax", "mode" => "auto", "weight" => 9, "effect" => "everyone_else", "schluecke" => 1, "shots" => 0, "self_shots" => 1],
-                ["key" => "chaos_skull_crusher", "mode" => "auto", "weight" => 7, "effect" => "random_other_chugs", "schluecke" => 0, "shots" => 0],
+                ["key" => "chaos_give_sips", "mode" => "give_out", "weight" => 20, "schluecke" => 8, "shots" => 0],
+                ["key" => "chaos_give_shots", "mode" => "give_out", "weight" => 18, "schluecke" => 0, "shots" => 3],
+                ["key" => "chaos_everyone_sip", "mode" => "auto", "weight" => 12, "effect" => "everyone", "schluecke" => 2, "shots" => 0],
+                ["key" => "chaos_everyone_else_shot", "mode" => "auto", "weight" => 9, "effect" => "everyone_else", "schluecke" => 0, "shots" => 1],
+                ["key" => "chaos_you_drink_shots", "mode" => "auto", "weight" => 9, "effect" => "chooser_only", "schluecke" => 0, "shots" => 2],
+                ["key" => "chaos_blackout_tax", "mode" => "auto", "weight" => 8, "effect" => "everyone_else", "schluecke" => 1, "shots" => 0, "self_shots" => 1],
+                ["key" => "chaos_skull_crusher", "mode" => "auto", "weight" => 6, "effect" => "random_other_chugs", "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_last_call", "mode" => "auto", "weight" => 3, "effect" => "everyone_chugs", "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_russian_roulette", "mode" => "target_pick", "weight" => 5, "schluecke" => 0, "shots" => 0],
             ],

@@ -123,6 +123,45 @@ class ChestRewardController extends Controller
         return response()->json(["data" => $result], Response::HTTP_CREATED);
     }
 
+    public function resolveChoice(
+        Request $request,
+        Lobby $lobby,
+        ChestReward $chestReward,
+        ChestRewardResolver $resolver
+    ) {
+        if ($chestReward->lobby_id !== $lobby->id) {
+            return response()->json(
+                ["message" => "Chest reward not found in lobby."],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        $data = $request->validate([
+            "choice_key" => ["required", "string"],
+        ]);
+
+        $chooser = $this->resolveChooser($request, $lobby);
+        if ($chooser instanceof JsonResponse) {
+            return $chooser;
+        }
+
+        try {
+            $result = $resolver->resolveEffectChoice(
+                $lobby,
+                $chestReward,
+                $chooser,
+                $data["choice_key"]
+            );
+        } catch (\InvalidArgumentException $e) {
+            return response()->json(
+                ["message" => $e->getMessage()],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        return response()->json(["data" => $result], Response::HTTP_OK);
+    }
+
     public function resolveTarget(
         Request $request,
         Lobby $lobby,

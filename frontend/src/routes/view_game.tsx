@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { Box, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { PersonalDrinkTracker } from "../components/personal_drink_tracker";
-import { getPendingChestChoices, getPendingDrinkPools } from "../drink_pools";
+import { getPendingChestChoices, getPendingChestFollowUps, getPendingDrinkPools } from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { Participant, Rumbler } from "../hooks/use_lobby";
@@ -101,7 +101,9 @@ export function ViewGame() {
   const [rows, setRows] = useState<Row[]>();
   const pendingDrinkPools = lobby ? getPendingDrinkPools(lobby, claimedParticipantId) : [];
   const pendingChestChoices = lobby ? getPendingChestChoices(lobby, claimedParticipantId) : [];
-  const pendingDrinkTaskCount = pendingDrinkPools.length + pendingChestChoices.length;
+  const pendingChestFollowUps = lobby ? getPendingChestFollowUps(lobby, claimedParticipantId) : [];
+  const pendingDrinkTaskCount =
+    pendingDrinkPools.length + pendingChestChoices.length + pendingChestFollowUps.length;
   const rawDueTotals = useMemo(
     () => ({
       sips:

@@ -10,6 +10,8 @@ class ChestReward extends Model
     use HasFactory;
 
     const STATUS_PENDING_CHOICE = "pending_choice";
+    const STATUS_REVEALED_EFFECT_CHOICE = "revealed_effect_choice";
+    const STATUS_PENDING_EFFECT_CHOICE = "pending_effect_choice";
     const STATUS_REVEALED_TARGET_PICK = "revealed_target_pick";
     const STATUS_PENDING_TARGET_PICK = "pending_target_pick";
     const STATUS_REVEALED_AUTO = "revealed_auto";
@@ -22,6 +24,7 @@ class ChestReward extends Model
     protected $casts = [
         "pending_schluecke" => "integer",
         "pending_shots" => "integer",
+        "choice_options" => "array",
         "minimum_self_schluecke" => "integer",
         "minimum_self_shots" => "integer",
         "target_participant_id" => "integer",

@@ -21,11 +21,17 @@ import {
   PendingChestChoice,
   PendingDrinkPool,
 } from "../drink_pools";
+import {
+  getCardDescription,
+  getCardTitle,
+  getChoiceOptionDescription,
+  getChoiceOptionTitle,
+} from "../chest_cards";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNotificationContext } from "../contexts/notification_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
-import { Lobby, Participant } from "../hooks/use_lobby";
+import { ChestChoiceOption, ChestReward, Lobby, Participant } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
 type Allocation = Record<number, { schluecke: number; shots: number }>;
@@ -34,9 +40,11 @@ type RevealedChestResult = {
   chest_reward_id: number;
   chest_type: "safe" | "group" | "chaos";
   card_key: string;
-  card_mode: "auto" | "give_out" | "target_pick";
+  card_mode: "auto" | "give_out" | "target_pick" | "effect_choice";
   schluecke: number;
   shots: number;
+  choice_options?: ChestChoiceOption[] | null;
+  selected_choice_key?: string | null;
   offenderName: string;
   victimName: string;
   chooserParticipantId?: number;
@@ -74,6 +82,8 @@ export function Distribute() {
         card_mode: revealedChestRewards[0].cardMode,
         schluecke: revealedChestRewards[0].schluecke,
         shots: revealedChestRewards[0].shots,
+        choice_options: revealedChestRewards[0].choiceOptions,
+        selected_choice_key: revealedChestRewards[0].selectedChoiceKey,
         offenderName:
           revealedChestRewards[0].offender?.wrestler.name ?? t("distribute.adminTriggerOffender"),
         victimName:
@@ -121,6 +131,12 @@ export function Distribute() {
             );
             return;
           }
+          if (adminRevealedChestResult.card_mode === "effect_choice") {
+            navigate(
+              `/lobbies/${lobby.code}/distribute?adminEffectChoiceChestRewardId=${adminChestRewardId}&adminParticipantId=${adminParticipantId}`,
+            );
+            return;
+          }
           if (adminRevealedChestResult.card_mode === "give_out") {
             navigate(
               `/lobbies/${lobby.code}/distribute?adminDistributionParticipantId=${adminParticipantId}`,
@@ -145,6 +161,9 @@ export function Distribute() {
           );
           await lobbyQuery?.refetch();
           if (revealedChestResult.card_mode === "target_pick") {
+            return;
+          }
+          if (revealedChestResult.card_mode === "effect_choice") {
             return;
           }
           if (revealedChestResult.card_mode === "give_out") {
@@ -174,8 +193,12 @@ export function Distribute() {
   const adminTargetChestRewardId = searchParams.get("adminTargetChestRewardId");
   const targetPickRewardId = adminTargetChestRewardId ?? null;
   const targetPickReward = targetPickRewardId
-    ? lobby.chest_rewards.find((reward) => reward.id === Number(targetPickRewardId))
-      : lobby.chest_rewards.find(
+    ? lobby.chest_rewards.find(
+        (reward) =>
+          reward.id === Number(targetPickRewardId) &&
+          reward.status === "pending_target_pick",
+      )
+    : lobby.chest_rewards.find(
         (reward) =>
           reward.chooser_participant_id === claimedParticipantId &&
           reward.status === "pending_target_pick",
@@ -187,10 +210,39 @@ export function Distribute() {
         lobby={lobby}
         chestRewardId={targetPickReward.id}
         chooserParticipantId={targetPickReward.chooser_participant_id}
-        viewerParticipantId={claimedParticipantId}
+        actorParticipantId={targetPickReward.chooser_participant_id}
         onResolved={async () => {
           await lobbyQuery?.refetch();
           navigate(`/lobbies/${lobby.code}/view-game`);
+        }}
+      />
+    );
+  }
+
+  const adminEffectChoiceChestRewardId = searchParams.get("adminEffectChoiceChestRewardId");
+  const effectChoiceReward = adminEffectChoiceChestRewardId
+    ? lobby.chest_rewards.find(
+        (reward) =>
+          reward.id === Number(adminEffectChoiceChestRewardId) &&
+          reward.status === "pending_effect_choice",
+      )
+    : lobby.chest_rewards.find(
+        (reward) =>
+          reward.chooser_participant_id === claimedParticipantId &&
+          reward.status === "pending_effect_choice",
+      );
+
+  if (effectChoiceReward) {
+    return (
+      <EffectChoiceScreen
+        lobby={lobby}
+        reward={effectChoiceReward}
+        actorParticipantId={effectChoiceReward.chooser_participant_id}
+        onResolved={async (nextStatus) => {
+          await lobbyQuery?.refetch();
+          if (nextStatus === "resolved") {
+            navigate(`/lobbies/${lobby.code}/view-game`);
+          }
         }}
       />
     );
@@ -229,7 +281,6 @@ export function Distribute() {
         lobby={lobby}
         pools={[constrainedPool]}
         giverId={effectiveParticipantId}
-        viewerId={claimedParticipantId}
         onFinish={async () => {
           await lobbyQuery?.refetch();
           navigate(`/lobbies/${lobby.code}/distribute${window.location.search}`);
@@ -243,7 +294,6 @@ export function Distribute() {
       lobby={lobby}
       pools={effectivePools}
       giverId={effectiveParticipantId}
-      viewerId={claimedParticipantId}
       onFinish={() => navigate(`/lobbies/${lobby.code}/view-game`)}
     />
   );
@@ -267,7 +317,7 @@ function ChestChoiceForm({
   const openChest = async (chestType: "safe" | "group" | "chaos") => {
     setKeyLoading("openChest", true);
     try {
-      const result = await postChestRoll(lobbyCode, choice.chestRewardId, chestType, chooserId);
+      await postChestRoll(lobbyCode, choice.chestRewardId, chestType, chooserId);
       await onResolved();
     } catch (error) {
       notify((error as Error).message, "error");
@@ -349,13 +399,22 @@ function ChestRevealScreen({
             {getCardTitle(t, result.card_key)}
           </Typography>
           <Typography variant="body1">
-            {getCardDescription(t, result.card_key, result.schluecke, result.shots)}
+            {getCardDescription(t, {
+              card_key: result.card_key,
+              card_mode: result.card_mode,
+              pending_schluecke: result.schluecke,
+              pending_shots: result.shots,
+              choice_options: result.choice_options,
+              selected_choice_key: result.selected_choice_key,
+            })}
           </Typography>
         </CardContent>
       </Card>
       <Button variant="contained" size="large" onClick={handleContinue}>
         {result.card_mode === "target_pick"
           ? t("distribute.continueToTargetPick")
+          : result.card_mode === "effect_choice"
+          ? t("distribute.continueToEffectChoice")
           : result.card_mode === "give_out"
           ? t("distribute.continueToDistribution")
           : t("distribute.continueToGame")}
@@ -368,13 +427,13 @@ function TargetPickScreen({
   lobby,
   chestRewardId,
   chooserParticipantId,
-  viewerParticipantId,
+  actorParticipantId,
   onResolved,
 }: {
   lobby: Lobby;
   chestRewardId: number;
   chooserParticipantId: number;
-  viewerParticipantId: number;
+  actorParticipantId: number;
   onResolved: () => Promise<void>;
 }) {
   const { setKeyLoading } = useLoadingAndErrorStates();
@@ -391,7 +450,7 @@ function TargetPickScreen({
         lobby.code,
         chestRewardId,
         targetParticipantId,
-        viewerParticipantId,
+        actorParticipantId,
       );
       const loser = lobby.participants.find(
         (participant) => participant.id === result.result_participant_id,
@@ -435,6 +494,68 @@ function TargetPickScreen({
   );
 }
 
+function EffectChoiceScreen({
+  lobby,
+  reward,
+  actorParticipantId,
+  onResolved,
+}: {
+  lobby: Lobby;
+  reward: ChestReward;
+  actorParticipantId: number;
+  onResolved: (nextStatus: "pending_distribution" | "resolved") => Promise<void>;
+}) {
+  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { notify } = useNotificationContext();
+  const { t } = useI18n();
+  const options = reward.choice_options ?? [];
+
+  const resolveChoice = async (option: ChestChoiceOption) => {
+    setKeyLoading(`resolveEffectChoice:${reward.id}`, true);
+    try {
+      const result = await postEffectChoice(lobby.code, reward.id, option.key, actorParticipantId);
+      notify(
+        t("distribute.effectChoiceResolved", {
+          choice: getChoiceOptionTitle(t, reward.card_key ?? "", option),
+        }),
+        "success",
+      );
+      await onResolved(result.next_status);
+    } catch (error) {
+      notify((error as Error).message, "error");
+    } finally {
+      setKeyLoading(`resolveEffectChoice:${reward.id}`, false);
+    }
+  };
+
+  return (
+    <Box sx={{ p: 2 }}>
+      <Typography variant="h6" sx={{ textAlign: "center", mb: 1 }}>
+        {getCardTitle(t, reward.card_key ?? "")}
+      </Typography>
+      <Typography variant="body2" sx={{ textAlign: "center", opacity: 0.8, mb: 3 }}>
+        {t("distribute.effectChoiceBody")}
+      </Typography>
+      <Stack spacing={2}>
+        {options.map((option) => (
+          <Card key={option.key} variant="outlined">
+            <CardActionArea onClick={() => resolveChoice(option)}>
+              <CardContent>
+                <Typography variant="h6">
+                  {getChoiceOptionTitle(t, reward.card_key ?? "", option)}
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.8, mt: 0.5 }}>
+                  {getChoiceOptionDescription(t, reward.card_key ?? "", option)}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        ))}
+      </Stack>
+    </Box>
+  );
+}
+
 function ChestTypeCard({
   title,
   body,
@@ -462,13 +583,11 @@ function AggregateForm({
   lobby,
   pools,
   giverId,
-  viewerId,
   onFinish,
 }: {
   lobby: Lobby;
   pools: PendingDrinkPool[];
   giverId: number;
-  viewerId: number;
   onFinish: () => void;
 }) {
   const { setKeyLoading } = useLoadingAndErrorStates();
@@ -522,7 +641,7 @@ function AggregateForm({
         await postDistribution(
           lobby.code,
           request,
-          viewerId,
+          giverId,
           t("distribute.failedPrefix"),
         );
       }
@@ -617,7 +736,8 @@ function buildAdminRevealResult(
     (entry) =>
       entry.id === chestRewardId &&
       entry.chooser_participant_id === participantId &&
-      (
+        (
+        entry.status === "revealed_effect_choice" ||
         entry.status === "revealed_auto" ||
         entry.status === "revealed_distribution" ||
         entry.status === "revealed_target_pick"
@@ -643,6 +763,8 @@ function buildAdminRevealResult(
     card_mode: reward.card_mode,
     schluecke: reward.pending_schluecke,
     shots: reward.pending_shots,
+    choice_options: reward.choice_options ?? null,
+    selected_choice_key: reward.selected_choice_key ?? null,
     offenderName: chooser?.name ?? "Admin",
     victimName: "debug trigger",
     chooserParticipantId: participantId,
@@ -775,31 +897,6 @@ function Stepper({
   );
 }
 
-function getCardText(
-  t: (key: string, params?: Record<string, string | number>) => string,
-  cardKey: string,
-  sips: number,
-  shots: number,
-) {
-  return getCardDescription(t, cardKey, sips, shots);
-}
-
-function getCardTitle(
-  t: (key: string, params?: Record<string, string | number>) => string,
-  cardKey: string,
-) {
-  return t(`distribute.cardTitle.${cardKey}`);
-}
-
-function getCardDescription(
-  t: (key: string, params?: Record<string, string | number>) => string,
-  cardKey: string,
-  sips: number,
-  shots: number,
-) {
-  return t(`distribute.cardDescription.${cardKey}`, { sips, shots });
-}
-
 async function postChestRoll(
   lobbyCode: string,
   chestRewardId: number,
@@ -826,9 +923,11 @@ async function postChestRoll(
     chest_reward_id: number;
     chest_type: "safe" | "group" | "chaos";
     card_key: string;
-    card_mode: "auto" | "give_out";
+    card_mode: "auto" | "give_out" | "target_pick" | "effect_choice";
     schluecke: number;
     shots: number;
+    choice_options?: ChestChoiceOption[] | null;
+    selected_choice_key?: string | null;
   };
 }
 
@@ -853,6 +952,37 @@ async function acknowledgeChestReveal(
     const text = await response.text();
     throw new Error(text);
   }
+}
+
+async function postEffectChoice(
+  lobbyCode: string,
+  chestRewardId: number,
+  choiceKey: string,
+  chooserId: number,
+) {
+  const response = await fetchApi(
+    `/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/resolve-choice`,
+    {
+      method: "POST",
+      body: JSON.stringify({ choice_key: choiceKey }),
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        ...participantIdHeaders(chooserId),
+      },
+    },
+  );
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text);
+  }
+
+  const data = await response.json();
+  return data.data as {
+    next_status: "pending_distribution" | "resolved";
+    selected_choice_key: string;
+  };
 }
 
 async function postTargetResolution(

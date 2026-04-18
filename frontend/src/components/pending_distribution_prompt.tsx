@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   getPendingChestChoiceSignature,
   getPendingChestChoices,
+  getPendingChestFollowUpSignature,
+  getPendingChestFollowUps,
   getPendingDrinkPools,
   getPendingDrinkPoolSignature,
 } from "../drink_pools";
@@ -19,28 +21,31 @@ export function PendingDistributionPrompt() {
   const { t } = useI18n();
   const [dismissedSignature, setDismissedSignature] = useState("");
   const chestChoices = lobby ? getPendingChestChoices(lobby, claimedParticipantId) : [];
+  const chestFollowUps = lobby ? getPendingChestFollowUps(lobby, claimedParticipantId) : [];
   const pools = lobby ? getPendingDrinkPools(lobby, claimedParticipantId) : [];
   const signature = [
     getPendingChestChoiceSignature(chestChoices),
+    getPendingChestFollowUpSignature(chestFollowUps),
     getPendingDrinkPoolSignature(pools),
   ].join("|");
   const isOnDistributePage = location.pathname.includes("/distribute");
   const isOpen =
     !isOnDistributePage &&
-    (chestChoices.length > 0 || pools.length > 0) &&
+    (chestChoices.length > 0 || chestFollowUps.length > 0 || pools.length > 0) &&
     signature !== dismissedSignature;
 
   useEffect(() => {
-    if (pools.length === 0 && chestChoices.length === 0) {
+    if (pools.length === 0 && chestChoices.length === 0 && chestFollowUps.length === 0) {
       setDismissedSignature("");
     }
-  }, [chestChoices.length, pools.length]);
+  }, [chestChoices.length, chestFollowUps.length, pools.length]);
 
   if (!lobby) return null;
 
   const totalSchluecke = pools.reduce((sum, pool) => sum + pool.schluecke, 0);
   const totalShots = pools.reduce((sum, pool) => sum + pool.shots, 0);
-  const totalTasks = chestChoices.length + pools.length;
+  const totalChestTasks = chestChoices.length + chestFollowUps.length;
+  const totalTasks = totalChestTasks + pools.length;
 
   return (
     <Dialog open={isOpen} onClose={() => setDismissedSignature(signature)}>
@@ -49,9 +54,9 @@ export function PendingDistributionPrompt() {
         <Typography sx={{ mb: 1 }}>
           {t("pending.body", { count: totalTasks })}
         </Typography>
-        {chestChoices.length > 0 && (
+        {totalChestTasks > 0 && (
           <Typography variant="body2" sx={{ opacity: 0.8, mb: 0.5 }}>
-            {t("pending.chests", { count: chestChoices.length })}
+            {t("pending.chests", { count: totalChestTasks })}
           </Typography>
         )}
         {pools.length > 0 && (

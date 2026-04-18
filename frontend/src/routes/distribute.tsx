@@ -11,6 +11,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import safeChestIcon from "../assets/chests/safe.png";
+import groupChestIcon from "../assets/chests/group.png";
+import chaosChestIcon from "../assets/chests/chaos.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { fetchApi, participantIdHeaders } from "../api/fetcher";
@@ -291,16 +294,19 @@ function ChestChoiceForm({
         <ChestTypeCard
           title={t("distribute.chestSafe")}
           body={t("distribute.chestSafeHint")}
+          imageSrc={safeChestIcon}
           onClick={() => openChest("safe")}
         />
         <ChestTypeCard
           title={t("distribute.chestGroup")}
           body={t("distribute.chestGroupHint")}
+          imageSrc={groupChestIcon}
           onClick={() => openChest("group")}
         />
         <ChestTypeCard
           title={t("distribute.chestChaos")}
           body={t("distribute.chestChaosHint")}
+          imageSrc={chaosChestIcon}
           onClick={() => openChest("chaos")}
         />
       </Stack>
@@ -438,20 +444,38 @@ function TargetPickScreen({
 function ChestTypeCard({
   title,
   body,
+  imageSrc,
   onClick,
 }: {
   title: string;
   body: string;
+  imageSrc: string;
   onClick: () => void;
 }) {
   return (
     <Card variant="outlined">
       <CardActionArea onClick={onClick}>
         <CardContent>
-          <Typography variant="h6">{title}</Typography>
-          <Typography variant="body2" sx={{ opacity: 0.8 }}>
-            {body}
-          </Typography>
+          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Box
+              component="img"
+              src={imageSrc}
+              alt=""
+              aria-hidden
+              sx={{
+                width: 72,
+                height: 72,
+                flexShrink: 0,
+                objectFit: "contain",
+              }}
+            />
+            <Box sx={{ minWidth: 0 }}>
+              <Typography variant="h6">{title}</Typography>
+              <Typography variant="body2" sx={{ opacity: 0.8 }}>
+                {body}
+              </Typography>
+            </Box>
+          </Box>
         </CardContent>
       </CardActionArea>
     </Card>

@@ -1053,7 +1053,7 @@ class ChestRewardResolver
                 ["key" => "chaos_russian_roulette", "mode" => "target_pick", "weight" => 5, "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_blood_price", "mode" => "auto", "weight" => 2, "effect" => "chooser_only", "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_open_tab", "mode" => "give_out", "weight" => 2, "schluecke" => 0, "shots" => 0],
-                ["key" => "chaos_legends_due", "mode" => "auto", "weight" => 2, "effect" => "historical_most_appearances", "schluecke" => 0, "shots" => 1],
+                ["key" => "chaos_legends_due", "mode" => "auto", "weight" => 2, "effect" => "historical_most_appearances", "schluecke" => 0, "shots" => 2],
                 ["key" => "chaos_veteran_floor", "mode" => "auto", "weight" => 2, "effect" => "historical_appearances_at_least", "minimum" => 3, "schluecke" => 0, "shots" => 1],
                 ["key" => "chaos_edge_number_tax", "mode" => "auto", "weight" => 1, "effect" => "historical_number_one_or_thirty", "schluecke" => 0, "shots" => 1],
                 [

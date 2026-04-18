@@ -86,7 +86,7 @@ This does not change chugs, target-pick logic, or debt-doubling cards.
 | `chaos_russian_roulette` | Russian Roulette | 5 | `target_pick` | Pick one other player; then either they or you chug at random |
 | `chaos_blood_price` | Blood Price | 2 | `auto` | You drink shots equal to the total eliminations across all wrestlers you have had this match |
 | `chaos_open_tab` | Open Tab | 2 | `give_out` | Give out sips equal to the total eliminations across all wrestlers you have had this match, and shots equal to your current wrestler's eliminations |
-| `chaos_legends_due` | Legends Due | 2 | `auto` | Player or players whose wrestler has the most historical Rumble appearances drink `1` shot |
+| `chaos_legends_due` | Legends Due | 2 | `auto` | Player or players whose wrestler has the most historical Rumble appearances drink `2` shots |
 | `chaos_veteran_floor` | Veteran Floor | 2 | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `1` shot |
 | `chaos_edge_number_tax` | Edge Number Tax | 1 | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `1` shot |
 | `chaos_high_treason` | High Treason | 3 | `effect_choice` | Choice: you drink `1` shot, or everyone chugs |

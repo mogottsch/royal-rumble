@@ -66,6 +66,7 @@ class ChestRewardResolver
         }
 
         $scaled = $preResolvedCard ?? $this->resolveCard($lobby, $chestType, null);
+        $scaled = $this->resolveDynamicCard($lobby, $chooser, $scaled);
 
         $chestReward->chest_type = $chestType;
         $chestReward->card_key = $scaled["key"];
@@ -86,6 +87,14 @@ class ChestRewardResolver
         }
 
         if ($scaled["mode"] === "give_out") {
+            if (((int) ($scaled["schluecke"] ?? 0)) === 0 && ((int) ($scaled["shots"] ?? 0)) === 0) {
+                $this->applyDistributionFields($chestReward, $scaled);
+                $chestReward->status = ChestReward::STATUS_REVEALED_AUTO;
+                $chestReward->save();
+
+                return $this->buildChestResponse($chestReward);
+            }
+
             $this->applyDistributionFields($chestReward, $scaled);
             $chestReward->status = ChestReward::STATUS_REVEALED_DISTRIBUTION;
             $chestReward->save();
@@ -253,6 +262,7 @@ class ChestRewardResolver
         return [
             "next_status" => ChestReward::STATUS_RESOLVED,
             "selected_choice_key" => $choiceKey,
+            "affected_participant_ids" => $chestReward->affected_participant_ids,
         ];
     }
 
@@ -358,6 +368,32 @@ class ChestRewardResolver
         return $scaled;
     }
 
+    private function resolveDynamicCard(Lobby $lobby, Participant $chooser, array $card): array
+    {
+        $scale = fn(int $amount) => $this->scaleAmount($amount, (float) $lobby->chest_aggression_multiplier);
+
+        return match ($card["key"] ?? null) {
+            "safe_current_body_count", "group_body_count" => array_merge($card, [
+                "schluecke" => $scale($this->currentWrestlerEliminations($chooser)),
+            ]),
+            "safe_stable_hands", "group_stable_hands", "chaos_open_tab", "chaos_blood_price" => array_merge($card, [
+                "schluecke" => $scale($this->ownedWrestlerEliminationsTotal($lobby, $chooser)),
+                "shots" => ($card["key"] ?? null) === "chaos_blood_price"
+                    ? $scale($this->ownedWrestlerEliminationsTotal($lobby, $chooser))
+                    : (($card["key"] ?? null) === "chaos_open_tab"
+                        ? $scale($this->currentWrestlerEliminations($chooser))
+                        : (int) ($card["shots"] ?? 0)),
+            ]),
+            "safe_burned_slots", "group_burned_slots" => array_merge($card, [
+                "schluecke" => $scale($this->ownedWrestlersEliminatedCount($lobby, $chooser)),
+            ]),
+            "safe_blank_check" => array_merge($card, [
+                "schluecke" => $scale($this->ownedWrestlersWithZeroEliminationsCount($lobby, $chooser)),
+            ]),
+            default => $card,
+        };
+    }
+
     private function scaleAmount(int $amount, float $multiplier): int
     {
         if ($amount === 0) {
@@ -370,12 +406,16 @@ class ChestRewardResolver
     private function buildAutoSplits(Lobby $lobby, Participant $chooser, array $card): array
     {
         $participants = $lobby->participants()->orderBy("id")->get();
-        $activeRumblerIds = $lobby->rumblers()
-            ->with("victimEliminations")
+        $activeRumblers = $lobby->rumblers()
+            ->with(["victimEliminations", "participant"])
             ->get()
             ->reject(fn(Rumbler $rumbler) => $rumbler->isEliminated())
-            ->pluck("id")
-            ->all();
+            ->values();
+        $activeRumblerIds = $activeRumblers->pluck("id")->all();
+        $participantsWithActiveWrestlers = $activeRumblers
+            ->map(fn(Rumbler $rumbler) => $rumbler->participant)
+            ->filter(fn($participant) => $participant instanceof Participant)
+            ->values();
         $others = $participants->filter(fn(Participant $participant) => $participant->id !== $chooser->id)->values();
 
         return match ($card["effect"]) {
@@ -391,16 +431,16 @@ class ChestRewardResolver
                 })
                 ->map(fn(Participant $participant) => $this->split($participant->id, $card))
                 ->all(),
-            "historical_appearances_at_least" => $this->participantsByHistoricalThreshold($participants, "appearances", (int) ($card["minimum"] ?? 0))
+            "historical_appearances_at_least" => $this->participantsByHistoricalThreshold($participantsWithActiveWrestlers, "appearances", (int) ($card["minimum"] ?? 0))
                 ->map(fn(Participant $participant) => $this->split($participant->id, $card))
                 ->all(),
-            "historical_appearances_equal" => $this->participantsByHistoricalThreshold($participants, "appearances", (int) ($card["value"] ?? 0), true)
+            "historical_appearances_equal" => $this->participantsByHistoricalThreshold($participantsWithActiveWrestlers, "appearances", (int) ($card["value"] ?? 0), true)
                 ->map(fn(Participant $participant) => $this->split($participant->id, $card))
                 ->all(),
-            "historical_number_one_or_thirty" => $this->participantsByEdgeEntrances($participants)
+            "historical_number_one_or_thirty" => $this->participantsByEdgeEntrances($participantsWithActiveWrestlers)
                 ->map(fn(Participant $participant) => $this->split($participant->id, $card))
                 ->all(),
-            "historical_most_appearances" => $this->participantsWithMostHistoricalAppearances($participants)
+            "historical_most_appearances" => $this->participantsWithMostHistoricalAppearances($participantsWithActiveWrestlers)
                 ->map(fn(Participant $participant) => $this->split($participant->id, $card))
                 ->all(),
             "chooser_only" => [$this->split($chooser->id, $card)],
@@ -610,6 +650,59 @@ class ChestRewardResolver
             : $rumbler->wrestler()->first();
     }
 
+    private function currentWrestlerEliminations(Participant $chooser): int
+    {
+        $rumbler = $chooser->relationLoaded("rumbler")
+            ? $chooser->rumbler
+            : $chooser->rumbler()->with("offenderEliminations.rumblerVictims")->first();
+
+        if (!$rumbler) {
+            return 0;
+        }
+
+        $eliminations = $rumbler->relationLoaded("offenderEliminations")
+            ? $rumbler->offenderEliminations
+            : $rumbler->offenderEliminations()->with("rumblerVictims")->get();
+
+        return $eliminations->sum(fn(Elimination $elimination) => $elimination->rumblerVictims->count());
+    }
+
+    private function ownedWrestlerEliminationsTotal(Lobby $lobby, Participant $chooser): int
+    {
+        return $this->ownedRumblers($lobby, $chooser)
+            ->sum(fn(Rumbler $rumbler) => $rumbler->offenderEliminations->sum(
+                fn(Elimination $elimination) => $elimination->rumblerVictims->count()
+            ));
+    }
+
+    private function ownedWrestlersEliminatedCount(Lobby $lobby, Participant $chooser): int
+    {
+        return $this->ownedRumblers($lobby, $chooser)
+            ->filter(fn(Rumbler $rumbler) => $rumbler->victimEliminations->isNotEmpty())
+            ->count();
+    }
+
+    private function ownedWrestlersWithZeroEliminationsCount(Lobby $lobby, Participant $chooser): int
+    {
+        return $this->ownedRumblers($lobby, $chooser)
+            ->filter(fn(Rumbler $rumbler) => $rumbler->offenderEliminations->isEmpty())
+            ->count();
+    }
+
+    private function ownedRumblers(Lobby $lobby, Participant $chooser): Collection
+    {
+        if ($chooser->entrance_number === null) {
+            return collect();
+        }
+
+        return $lobby->rumblers()
+            ->with(["offenderEliminations.rumblerVictims", "victimEliminations"])
+            ->where("entrance_number", $chooser->entrance_number)
+            ->get()
+            ->unique("id")
+            ->values();
+    }
+
     private function doubleRemainingSips(Lobby $lobby, ChestReward $chestReward, Participant $chooser): array
     {
         $total = 0;
@@ -719,9 +812,12 @@ class ChestRewardResolver
 
     private function applyResolvedAmounts(ChestReward $chestReward, array $card): void
     {
-        $this->resetPendingFields($chestReward);
         $chestReward->pending_schluecke = (int) ($card["schluecke"] ?? 0);
         $chestReward->pending_shots = (int) ($card["shots"] ?? 0);
+        $chestReward->minimum_self_schluecke = 0;
+        $chestReward->minimum_self_shots = 0;
+        $chestReward->target_participant_id = null;
+        $chestReward->result_participant_id = null;
     }
 
     private function cards(): array
@@ -732,6 +828,10 @@ class ChestRewardResolver
                 ["key" => "safe_give_shot", "mode" => "give_out", "weight" => 20, "schluecke" => 0, "shots" => 1],
                 ["key" => "safe_you_and_random_sip", "mode" => "auto", "weight" => 20, "effect" => "chooser_and_random_other", "schluecke" => 2, "shots" => 0],
                 ["key" => "safe_house_edge", "mode" => "give_out", "weight" => 20, "schluecke" => 4, "shots" => 0, "minimum_self_schluecke" => 1],
+                ["key" => "safe_current_body_count", "mode" => "give_out", "weight" => 12, "effect" => "current_wrestler_eliminations", "schluecke" => 0, "shots" => 0],
+                ["key" => "safe_stable_hands", "mode" => "give_out", "weight" => 10, "effect" => "owned_wrestler_eliminations_total", "schluecke" => 0, "shots" => 0],
+                ["key" => "safe_burned_slots", "mode" => "give_out", "weight" => 9, "effect" => "owned_wrestlers_eliminated", "schluecke" => 0, "shots" => 0],
+                ["key" => "safe_blank_check", "mode" => "give_out", "weight" => 9, "effect" => "owned_wrestlers_with_zero_eliminations", "schluecke" => 0, "shots" => 0],
             ],
             "group" => [
                 ["key" => "group_everyone_sip", "mode" => "auto", "weight" => 25, "effect" => "everyone", "schluecke" => 2, "shots" => 0],
@@ -740,6 +840,18 @@ class ChestRewardResolver
                 ["key" => "group_main_event", "mode" => "auto", "weight" => 15, "effect" => "everyone", "schluecke" => 0, "shots" => 1],
                 ["key" => "group_double_undrunk_sips", "mode" => "auto", "weight" => 10, "effect" => "double_remaining_sips", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_double_undrunk_shots", "mode" => "auto", "weight" => 10, "effect" => "double_remaining_shots", "schluecke" => 0, "shots" => 0],
+                [
+                    "key" => "group_double_or_nothing",
+                    "mode" => "effect_choice",
+                    "weight" => 4,
+                    "options" => [
+                        ["key" => "double_sips", "mode" => "auto", "effect" => "double_remaining_sips", "schluecke" => 0, "shots" => 0],
+                        ["key" => "double_shots", "mode" => "auto", "effect" => "double_remaining_shots", "schluecke" => 0, "shots" => 0],
+                    ],
+                ],
+                ["key" => "group_body_count", "mode" => "auto", "weight" => 4, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
+                ["key" => "group_stable_hands", "mode" => "auto", "weight" => 3, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
+                ["key" => "group_burned_slots", "mode" => "auto", "weight" => 2, "effect" => "everyone", "schluecke" => 0, "shots" => 0],
                 ["key" => "group_old_hands", "mode" => "auto", "weight" => 4, "effect" => "historical_appearances_at_least", "minimum" => 3, "schluecke" => 4, "shots" => 0],
                 ["key" => "group_edge_number", "mode" => "auto", "weight" => 3, "effect" => "historical_number_one_or_thirty", "schluecke" => 5, "shots" => 0],
                 ["key" => "group_no_rumble_resume", "mode" => "auto", "weight" => 3, "effect" => "historical_appearances_equal", "value" => 0, "schluecke" => 3, "shots" => 0],
@@ -754,6 +866,8 @@ class ChestRewardResolver
                 ["key" => "chaos_skull_crusher", "mode" => "auto", "weight" => 6, "effect" => "random_other_chugs", "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_last_call", "mode" => "auto", "weight" => 3, "effect" => "everyone_chugs", "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_russian_roulette", "mode" => "target_pick", "weight" => 5, "schluecke" => 0, "shots" => 0],
+                ["key" => "chaos_blood_price", "mode" => "auto", "weight" => 2, "effect" => "chooser_only", "schluecke" => 0, "shots" => 0],
+                ["key" => "chaos_open_tab", "mode" => "give_out", "weight" => 2, "schluecke" => 0, "shots" => 0],
                 ["key" => "chaos_legends_due", "mode" => "auto", "weight" => 2, "effect" => "historical_most_appearances", "schluecke" => 0, "shots" => 1],
                 ["key" => "chaos_veteran_floor", "mode" => "auto", "weight" => 2, "effect" => "historical_appearances_at_least", "minimum" => 3, "schluecke" => 0, "shots" => 1],
                 ["key" => "chaos_edge_number_tax", "mode" => "auto", "weight" => 1, "effect" => "historical_number_one_or_thirty", "schluecke" => 0, "shots" => 1],

@@ -39,41 +39,51 @@ This does not affect special effects like chugs, target-pick logic, or cards tha
 
 | Key | Title | Weight | Probability | Mode | Base effect |
 | --- | --- | ---: | ---: | --- | --- |
-| `safe_give_sips` | Pocket Pour | 40 | 40% | `give_out` | Give out `3` sips |
-| `safe_give_shot` | Loaded Thumb | 20 | 20% | `give_out` | Give out `1` shot |
-| `safe_you_and_random_sip` | Friendly Fire | 20 | 20% | `auto` | You and one random other player drink `2` sips each |
-| `safe_house_edge` | House Edge | 20 | 20% | `give_out` | Give out `4` sips, with at least `1` sip assigned to yourself |
+| `safe_give_sips` | Pocket Pour | 40 | 28.6% | `give_out` | Give out `3` sips |
+| `safe_give_shot` | Loaded Thumb | 20 | 14.3% | `give_out` | Give out `1` shot |
+| `safe_you_and_random_sip` | Friendly Fire | 20 | 14.3% | `auto` | You and one random other player drink `2` sips each |
+| `safe_house_edge` | House Edge | 20 | 14.3% | `give_out` | Give out `4` sips, with at least `1` sip assigned to yourself |
+| `safe_current_body_count` | Body Count | 12 | 8.6% | `give_out` | Give out sips equal to your current wrestler's eliminations this match |
+| `safe_stable_hands` | Stable Hands | 10 | 7.1% | `give_out` | Give out sips equal to the total eliminations across all wrestlers you have had this match |
+| `safe_burned_slots` | Burned Slots | 9 | 6.4% | `give_out` | Give out sips equal to how many of your wrestlers have already been eliminated this match |
+| `safe_blank_check` | Blank Check | 9 | 6.4% | `give_out` | Give out sips equal to how many of your wrestlers this match have `0` eliminations |
 
 ### Group
 
 | Key | Title | Weight | Probability | Mode | Base effect |
 | --- | --- | ---: | ---: | --- | --- |
-| `group_everyone_sip` | Roll Call | 25 | 22.7% | `auto` | Everyone drinks `2` sips |
-| `group_everyone_else_sip` | Center Stage | 20 | 18.2% | `auto` | Everyone except you drinks `2` sips |
-| `group_cheap_seats` | Cheap Seats | 20 | 18.2% | `auto` | Everyone without an active wrestler drinks `2` sips |
-| `group_main_event` | Main Event | 15 | 13.6% | `auto` | Everyone drinks `1` shot |
-| `group_double_undrunk_sips` | Encore | 10 | 9.1% | `auto` | Double every player's current undrunk sips |
-| `group_double_undrunk_shots` | Double Tap | 10 | 9.1% | `auto` | Double every player's current undrunk shots |
-| `group_old_hands` | Old Hands | 4 | 3.6% | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `4` sips |
-| `group_edge_number` | Edge Number | 3 | 2.7% | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `5` sips |
-| `group_no_rumble_resume` | No Resume | 3 | 2.7% | `auto` | Everyone whose wrestler has `0` historical Rumble appearances drinks `3` sips |
+| `group_everyone_sip` | Roll Call | 25 | 20.3% | `auto` | Everyone drinks `2` sips |
+| `group_everyone_else_sip` | Center Stage | 20 | 16.3% | `auto` | Everyone except you drinks `2` sips |
+| `group_cheap_seats` | Cheap Seats | 20 | 16.3% | `auto` | Everyone without an active wrestler drinks `2` sips |
+| `group_main_event` | Main Event | 15 | 12.2% | `auto` | Everyone drinks `1` shot |
+| `group_double_undrunk_sips` | Encore | 10 | 8.1% | `auto` | Double every player's current undrunk sips |
+| `group_double_undrunk_shots` | Double Tap | 10 | 8.1% | `auto` | Double every player's current undrunk shots |
+| `group_double_or_nothing` | Double or Nothing | 4 | 3.3% | `effect_choice` | Choose either: double every player's current undrunk sips, or double every player's current undrunk shots |
+| `group_body_count` | Tally Sheet | 4 | 3.3% | `auto` | Everyone drinks sips equal to your current wrestler's eliminations this match |
+| `group_stable_hands` | Deep Bench | 3 | 2.4% | `auto` | Everyone drinks sips equal to the total eliminations across all wrestlers you have had this match |
+| `group_burned_slots` | Burn Rate | 2 | 1.6% | `auto` | Everyone drinks sips equal to how many of your wrestlers have already been eliminated this match |
+| `group_old_hands` | Old Hands | 4 | 3.3% | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `4` sips |
+| `group_edge_number` | Edge Number | 3 | 2.4% | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `5` sips |
+| `group_no_rumble_resume` | No Resume | 3 | 2.4% | `auto` | Everyone whose wrestler has `0` historical Rumble appearances drinks `3` sips |
 
 ### Chaos
 
 | Key | Title | Weight | Probability | Mode | Base effect |
 | --- | --- | ---: | ---: | --- | --- |
-| `chaos_give_sips` | Rainmaker | 20 | 21.1% | `give_out` | Give out `8` sips |
-| `chaos_give_shots` | Powder Keg | 18 | 18.9% | `give_out` | Give out `3` shots |
-| `chaos_everyone_sip` | Shockwave | 12 | 12.6% | `auto` | Everyone drinks `2` sips |
-| `chaos_everyone_else_shot` | Mutiny | 9 | 9.5% | `auto` | Everyone except you drinks `1` shot |
-| `chaos_you_drink_shots` | Self Destruct | 9 | 9.5% | `auto` | You drink `2` shots |
-| `chaos_blackout_tax` | Blackout Tax | 8 | 8.4% | `auto` | You drink `1` shot and everyone else drinks `1` sip |
-| `chaos_skull_crusher` | Skull Crusher | 6 | 6.3% | `auto` | One random other player chugs; if nobody else exists, you chug |
-| `chaos_last_call` | Last Call | 3 | 3.2% | `auto` | Everyone chugs |
-| `chaos_russian_roulette` | Russian Roulette | 5 | 5.3% | `target_pick` | Pick one other player; then either they or you chug at random |
-| `chaos_legends_due` | Legends Due | 2 | 2.1% | `auto` | Player or players whose wrestler has the most historical Rumble appearances drink `1` shot |
-| `chaos_veteran_floor` | Veteran Floor | 2 | 2.1% | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `1` shot |
-| `chaos_edge_number_tax` | Edge Number Tax | 1 | 1.1% | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `1` shot |
+| `chaos_give_sips` | Rainmaker | 20 | 20.2% | `give_out` | Give out `8` sips |
+| `chaos_give_shots` | Powder Keg | 18 | 18.2% | `give_out` | Give out `3` shots |
+| `chaos_everyone_sip` | Shockwave | 12 | 12.1% | `auto` | Everyone drinks `2` sips |
+| `chaos_everyone_else_shot` | Mutiny | 9 | 9.1% | `auto` | Everyone except you drinks `1` shot |
+| `chaos_you_drink_shots` | Self Destruct | 9 | 9.1% | `auto` | You drink `2` shots |
+| `chaos_blackout_tax` | Blackout Tax | 8 | 8.1% | `auto` | You drink `1` shot and everyone else drinks `1` sip |
+| `chaos_skull_crusher` | Skull Crusher | 6 | 6.1% | `auto` | One random other player chugs; if nobody else exists, you chug |
+| `chaos_last_call` | Last Call | 3 | 3% | `auto` | Everyone chugs |
+| `chaos_russian_roulette` | Russian Roulette | 5 | 5.1% | `target_pick` | Pick one other player; then either they or you chug at random |
+| `chaos_blood_price` | Blood Price | 2 | 2% | `auto` | You drink shots equal to the total eliminations across all wrestlers you have had this match |
+| `chaos_open_tab` | Open Tab | 2 | 2% | `give_out` | Give out sips equal to the total eliminations across all wrestlers you have had this match, and shots equal to your current wrestler's eliminations |
+| `chaos_legends_due` | Legends Due | 2 | 2% | `auto` | Player or players whose wrestler has the most historical Rumble appearances drink `1` shot |
+| `chaos_veteran_floor` | Veteran Floor | 2 | 2% | `auto` | Everyone whose wrestler has at least `3` historical Rumble appearances drinks `1` shot |
+| `chaos_edge_number_tax` | Edge Number Tax | 1 | 1% | `auto` | Everyone whose wrestler has ever entered at `#1` or `#30` drinks `1` shot |
 
 ## Flow notes
 
@@ -100,7 +110,9 @@ Current special constraint:
 
 ### `effect_choice`
 
-No live chest cards currently use this mode, but the flow is implemented and available for future cards.
+Current live `effect_choice` cards:
+
+- `group_double_or_nothing`
 
 Flow:
 

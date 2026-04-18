@@ -34,6 +34,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
 import { fetchApi } from "../api/fetcher";
 import logo from "../assets/logo_small.png";
+import { getCardRuleText } from "../chest_cards";
 import { CopyToClipboardButton } from "./buttons";
 import { ActivityPanel } from "./activity_panel";
 import { LanguageSwitcher } from "./language_switcher";
@@ -55,6 +56,10 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "safe_give_shot", label: "Loaded Thumb" },
     { key: "safe_you_and_random_sip", label: "Friendly Fire" },
     { key: "safe_house_edge", label: "House Edge" },
+    { key: "safe_current_body_count", label: "Body Count" },
+    { key: "safe_stable_hands", label: "Stable Hands" },
+    { key: "safe_burned_slots", label: "Burned Slots" },
+    { key: "safe_blank_check", label: "Blank Check" },
   ],
   group: [
     { key: "group_everyone_sip", label: "Roll Call" },
@@ -63,6 +68,13 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "group_main_event", label: "Main Event" },
     { key: "group_double_undrunk_sips", label: "Encore" },
     { key: "group_double_undrunk_shots", label: "Double Tap" },
+    { key: "group_double_or_nothing", label: "Double or Nothing" },
+    { key: "group_body_count", label: "Tally Sheet" },
+    { key: "group_stable_hands", label: "Deep Bench" },
+    { key: "group_burned_slots", label: "Burn Rate" },
+    { key: "group_old_hands", label: "Old Hands" },
+    { key: "group_edge_number", label: "Edge Number" },
+    { key: "group_no_rumble_resume", label: "No Resume" },
   ],
   chaos: [
     { key: "chaos_give_sips", label: "Rainmaker" },
@@ -74,6 +86,11 @@ const adminCards: Record<string, { key: string; label: string }[]> = {
     { key: "chaos_skull_crusher", label: "Skull Crusher" },
     { key: "chaos_last_call", label: "Last Call" },
     { key: "chaos_russian_roulette", label: "Russian Roulette" },
+    { key: "chaos_blood_price", label: "Blood Price" },
+    { key: "chaos_open_tab", label: "Open Tab" },
+    { key: "chaos_legends_due", label: "Legends Due" },
+    { key: "chaos_veteran_floor", label: "Veteran Floor" },
+    { key: "chaos_edge_number_tax", label: "Edge Number Tax" },
   ],
 };
 
@@ -379,8 +396,31 @@ export function Bar() {
             <InputLabel>Card</InputLabel>
             <Select label="Card" value={adminCardKey} onChange={(event) => setAdminCardKey(String(event.target.value))}>
               {visibleAdminCards.map((card) => (
-                <MenuItem key={card.key} value={card.key}>
-                  {card.label}: {getAdminCardDescription(card.key, chestMultiplier)}
+                <MenuItem
+                  key={card.key}
+                  value={card.key}
+                  sx={{
+                    alignItems: "start",
+                    whiteSpace: "normal",
+                  }}
+                >
+                  <Box sx={{ minWidth: 0, py: 0.25 }}>
+                    <Typography sx={{ fontWeight: 700, lineHeight: 1.25 }}>
+                      {card.label}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        mt: 0.25,
+                        opacity: 0.8,
+                        whiteSpace: "normal",
+                        overflowWrap: "anywhere",
+                        lineHeight: 1.35,
+                      }}
+                    >
+                      {getAdminCardDescription(t, card.key, chestMultiplier)}
+                    </Typography>
+                  </Box>
                 </MenuItem>
               ))}
             </Select>
@@ -389,7 +429,7 @@ export function Bar() {
             <Typography variant="body2" sx={{ opacity: 0.8 }}>
               <strong>{selectedAdminCard.label}</strong>
               {": "}
-              {getAdminCardDescription(selectedAdminCard.key, chestMultiplier)}
+              {getAdminCardDescription(t, selectedAdminCard.key, chestMultiplier)}
             </Typography>
           )}
         </DialogContent>
@@ -420,53 +460,69 @@ const shareModalStyle = {
   p: 4,
 };
 
-function getAdminCardDescription(cardKey: string, multiplier: number) {
-  const s = (amount: number) => scaleChestAmount(amount, multiplier);
-  const sipLabel = (amount: number) => (amount === 1 ? "sip" : "sips");
-  const shotLabel = (amount: number) => (amount === 1 ? "shot" : "shots");
+function getAdminCardDescription(
+  t: (key: string, params?: Record<string, string | number>) => string,
+  cardKey: string,
+  multiplier: number,
+) {
+  const scaled = getAdminScaledCard(cardKey, multiplier);
 
-  switch (cardKey) {
-    case "safe_give_sips":
-      return `Give out ${s(3)} ${sipLabel(s(3))}.`;
-    case "safe_give_shot":
-      return `Give out ${s(1)} ${shotLabel(s(1))}.`;
-    case "safe_you_and_random_sip":
-      return `You and one random player drink ${s(2)} ${sipLabel(s(2))}.`;
-    case "safe_house_edge":
-      return `Give out ${s(4)} ${sipLabel(s(4))}, but at least ${s(1)} must go to yourself.`;
-    case "group_everyone_sip":
-      return `Everyone drinks ${s(2)} ${sipLabel(s(2))}.`;
-    case "group_everyone_else_sip":
-      return `Everyone except you drinks ${s(2)} ${sipLabel(s(2))}.`;
-    case "group_cheap_seats":
-      return `Everyone without an active wrestler drinks ${s(2)} ${sipLabel(s(2))}.`;
-    case "group_main_event":
-      return `Everyone drinks ${s(1)} ${shotLabel(s(1))}.`;
-    case "group_double_undrunk_sips":
-      return "Every player's undrunk sips are doubled.";
-    case "group_double_undrunk_shots":
-      return "Every player's undrunk shots are doubled.";
-    case "chaos_give_sips":
-      return `Give out ${s(8)} ${sipLabel(s(8))}.`;
-    case "chaos_give_shots":
-      return `Give out ${s(3)} ${shotLabel(s(3))}.`;
-    case "chaos_everyone_sip":
-      return `Everyone drinks ${s(2)} ${sipLabel(s(2))}.`;
-    case "chaos_everyone_else_shot":
-      return `Everyone except you drinks ${s(1)} ${shotLabel(s(1))}.`;
-    case "chaos_you_drink_shots":
-      return `You drink ${s(2)} ${shotLabel(s(2))}.`;
-    case "chaos_blackout_tax":
-      return `You drink ${s(1)} ${shotLabel(s(1))} and everyone else drinks ${s(1)} ${sipLabel(s(1))}.`;
-    case "chaos_skull_crusher":
-      return "One random other player chugs.";
-    case "chaos_last_call":
-      return "Everyone chugs.";
-    case "chaos_russian_roulette":
-      return "Pick one player. Either they or you will chug.";
-    default:
-      return "";
-  }
+  return getCardRuleText(t, {
+    card_key: cardKey,
+    card_mode: scaled.card_mode,
+    pending_schluecke: scaled.pending_schluecke,
+    pending_shots: scaled.pending_shots,
+    choice_options: null,
+    selected_choice_key: null,
+  });
+}
+
+function getAdminScaledCard(cardKey: string, multiplier: number) {
+  const baseAmounts: Record<string, { card_mode: "auto" | "give_out" | "target_pick"; sips: number; shots: number }> = {
+    safe_give_sips: { card_mode: "give_out", sips: 3, shots: 0 },
+    safe_give_shot: { card_mode: "give_out", sips: 0, shots: 1 },
+    safe_you_and_random_sip: { card_mode: "auto", sips: 2, shots: 0 },
+    safe_house_edge: { card_mode: "give_out", sips: 4, shots: 0 },
+    safe_current_body_count: { card_mode: "give_out", sips: 0, shots: 0 },
+    safe_stable_hands: { card_mode: "give_out", sips: 0, shots: 0 },
+    safe_burned_slots: { card_mode: "give_out", sips: 0, shots: 0 },
+    safe_blank_check: { card_mode: "give_out", sips: 0, shots: 0 },
+    group_everyone_sip: { card_mode: "auto", sips: 2, shots: 0 },
+    group_everyone_else_sip: { card_mode: "auto", sips: 2, shots: 0 },
+    group_cheap_seats: { card_mode: "auto", sips: 2, shots: 0 },
+    group_main_event: { card_mode: "auto", sips: 0, shots: 1 },
+    group_double_undrunk_sips: { card_mode: "auto", sips: 0, shots: 0 },
+    group_double_undrunk_shots: { card_mode: "auto", sips: 0, shots: 0 },
+    group_double_or_nothing: { card_mode: "effect_choice", sips: 0, shots: 0 },
+    group_body_count: { card_mode: "auto", sips: 0, shots: 0 },
+    group_stable_hands: { card_mode: "auto", sips: 0, shots: 0 },
+    group_burned_slots: { card_mode: "auto", sips: 0, shots: 0 },
+    group_old_hands: { card_mode: "auto", sips: 4, shots: 0 },
+    group_edge_number: { card_mode: "auto", sips: 5, shots: 0 },
+    group_no_rumble_resume: { card_mode: "auto", sips: 3, shots: 0 },
+    chaos_give_sips: { card_mode: "give_out", sips: 8, shots: 0 },
+    chaos_give_shots: { card_mode: "give_out", sips: 0, shots: 3 },
+    chaos_everyone_sip: { card_mode: "auto", sips: 2, shots: 0 },
+    chaos_everyone_else_shot: { card_mode: "auto", sips: 0, shots: 1 },
+    chaos_you_drink_shots: { card_mode: "auto", sips: 0, shots: 2 },
+    chaos_blackout_tax: { card_mode: "auto", sips: 1, shots: 1 },
+    chaos_skull_crusher: { card_mode: "auto", sips: 0, shots: 0 },
+    chaos_last_call: { card_mode: "auto", sips: 0, shots: 0 },
+    chaos_russian_roulette: { card_mode: "target_pick", sips: 0, shots: 0 },
+    chaos_blood_price: { card_mode: "auto", sips: 0, shots: 0 },
+    chaos_open_tab: { card_mode: "give_out", sips: 0, shots: 0 },
+    chaos_legends_due: { card_mode: "auto", sips: 0, shots: 1 },
+    chaos_veteran_floor: { card_mode: "auto", sips: 0, shots: 1 },
+    chaos_edge_number_tax: { card_mode: "auto", sips: 0, shots: 1 },
+  };
+
+  const base = baseAmounts[cardKey] ?? { card_mode: "auto" as const, sips: 0, shots: 0 };
+
+  return {
+    card_mode: base.card_mode,
+    pending_schluecke: scaleChestAmount(base.sips, multiplier),
+    pending_shots: scaleChestAmount(base.shots, multiplier),
+  };
 }
 
 function scaleChestAmount(amount: number, multiplier: number) {

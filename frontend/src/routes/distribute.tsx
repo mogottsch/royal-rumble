@@ -55,6 +55,12 @@ type RevealedChestResult = {
   adminMode?: boolean;
 };
 
+type EffectChoiceResolutionResult = {
+  next_status: "pending_distribution" | "resolved";
+  selected_choice_key: string;
+  affected_participant_ids?: number[] | null;
+};
+
 export function Distribute() {
   const { lobby, lobbyQuery } = useLobbyContext();
   const { claimedParticipantId } = useParticipantClaim();
@@ -245,10 +251,10 @@ export function Distribute() {
         lobby={lobby}
         reward={effectChoiceReward}
         actorParticipantId={effectChoiceReward.chooser_participant_id}
-        onResolved={async (nextStatus) => {
+        onResolved={async (result) => {
           await lobbyQuery?.refetch();
-          if (nextStatus === "resolved") {
-            navigate(`/lobbies/${lobby.code}/view-game`);
+          if (result.next_status === "resolved") {
+            return;
           }
         }}
       />
@@ -413,7 +419,7 @@ function ChestRevealScreen({
           <Typography variant="h4" sx={{ mt: 1, mb: 1 }}>
             {getCardTitle(t, result.card_key)}
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
             {getCardDescription(t, {
               card_key: result.card_key,
               card_mode: result.card_mode,
@@ -421,6 +427,7 @@ function ChestRevealScreen({
               pending_shots: result.shots,
               choice_options: result.choice_options,
               selected_choice_key: result.selected_choice_key,
+              affectedParticipantNames: affectedParticipants.map((participant) => participant.name),
             })}
           </Typography>
           {affectedParticipants.length > 0 && (
@@ -525,7 +532,7 @@ function EffectChoiceScreen({
   lobby: Lobby;
   reward: ChestReward;
   actorParticipantId: number;
-  onResolved: (nextStatus: "pending_distribution" | "resolved") => Promise<void>;
+  onResolved: (result: EffectChoiceResolutionResult) => Promise<void>;
 }) {
   const { setKeyLoading } = useLoadingAndErrorStates();
   const { notify } = useNotificationContext();
@@ -542,7 +549,7 @@ function EffectChoiceScreen({
         }),
         "success",
       );
-      await onResolved(result.next_status);
+      await onResolved(result);
     } catch (error) {
       notify((error as Error).message, "error");
     } finally {
@@ -1108,10 +1115,7 @@ async function postEffectChoice(
   }
 
   const data = await response.json();
-  return data.data as {
-    next_status: "pending_distribution" | "resolved";
-    selected_choice_key: string;
-  };
+  return data.data as EffectChoiceResolutionResult;
 }
 
 async function postTargetResolution(

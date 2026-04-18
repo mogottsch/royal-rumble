@@ -9,6 +9,8 @@ class RoyalRumbleEntry extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $casts = [
         "year" => "integer",
         "entrance_number" => "integer",

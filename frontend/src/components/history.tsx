@@ -15,9 +15,11 @@ export function History({ lobby }: { lobby: Lobby | undefined }) {
 export function HistoryContent({
   lobby,
   compact,
+  showTitle = !compact,
 }: {
   lobby: Lobby | undefined;
   compact: boolean;
+  showTitle?: boolean;
 }) {
   const { t } = useI18n();
   if (!lobby) return null;
@@ -36,7 +38,7 @@ export function HistoryContent({
         background: "rgba(255,255,255,0.03)",
       }}
     >
-      {!compact && (
+      {showTitle && (
         <Typography variant="h6" sx={{ mb: 1.5 }}>
           {t("history.title")}
         </Typography>
@@ -361,7 +363,12 @@ function summarizeChestRewards(distributions: DrinkDistribution[], lobby: Lobby)
       key,
       chest: t(`distribute.chest.${reward.chest_type}`),
       cardTitle: getCardTitle(t, reward.card_key),
-      cardDescription: getCardDescription(t, reward),
+      cardDescription: getCardDescription(t, {
+        ...reward,
+        affectedParticipantNames: (reward.affected_participant_ids ?? [])
+          .map((participantId) => lobby.participants.find((participant) => participant.id === participantId)?.name)
+          .filter((name): name is string => Boolean(name)),
+      }),
       elimination:
         offender && victim
           ? t("history.eliminating", { offender, victim })

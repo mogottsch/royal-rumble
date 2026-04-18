@@ -198,8 +198,6 @@ export function WrestlerPreviewTile({
   imageUrl?: string;
   selected?: boolean;
 }) {
-  const { t } = useI18n();
-
   return (
     <Box
       sx={{
@@ -209,8 +207,7 @@ export function WrestlerPreviewTile({
         backgroundColor: selected ? "rgba(255, 255, 255, 0.12)" : tileStyles.backgroundColor,
       }}
     >
-      <ParticipantName name={t("viewGame.npc")} />
-      <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} size={IMAGE_SIZE} />
+      <WrestlerImage imageUrl={imageUrl} alt={name} size={IMAGE_SIZE} />
       <WrestlerName name={name} />
     </Box>
   );
@@ -227,8 +224,6 @@ export function WrestlerPickerTile({
   selected?: boolean;
   onClick?: () => void;
 }) {
-  const { t } = useI18n();
-
   return (
     <Box
       sx={{
@@ -240,8 +235,7 @@ export function WrestlerPickerTile({
       }}
       onClick={onClick}
     >
-      <ParticipantName name={t("viewGame.npc")} />
-      <WrestlerImage imageUrl={imageUrl} alt={t("viewGame.wrestlerAlt")} size={IMAGE_SIZE} />
+      <WrestlerImage imageUrl={imageUrl} alt={name} size={IMAGE_SIZE} />
       <WrestlerName name={name} />
     </Box>
   );

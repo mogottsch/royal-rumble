@@ -107,6 +107,7 @@ export function Distribute() {
   if (adminRevealedChestResult) {
     return (
       <ChestRevealScreen
+        lobby={lobby}
         result={adminRevealedChestResult}
         onContinue={async () => {
           await acknowledgeChestReveal(
@@ -136,6 +137,7 @@ export function Distribute() {
   if (revealedChestResult) {
     return (
       <ChestRevealScreen
+        lobby={lobby}
         result={revealedChestResult}
         onContinue={async () => {
           await acknowledgeChestReveal(
@@ -309,9 +311,11 @@ function ChestChoiceForm({
 }
 
 function ChestRevealScreen({
+  lobby,
   result,
   onContinue,
 }: {
+  lobby: Lobby;
   result: RevealedChestResult;
   onContinue: () => Promise<void>;
 }) {
@@ -349,7 +353,13 @@ function ChestRevealScreen({
             {getCardTitle(t, result.card_key)}
           </Typography>
           <Typography variant="body1">
-            {getCardDescription(t, result.card_key, result.schluecke, result.shots)}
+            {getCardDescription(
+              t,
+              result.card_key,
+              result.schluecke,
+              result.shots,
+              lobby.drink_config.chest_aggression_multiplier,
+            )}
           </Typography>
         </CardContent>
       </Card>
@@ -885,8 +895,24 @@ function getCardDescription(
   cardKey: string,
   sips: number,
   shots: number,
+  multiplier = 1,
 ) {
+  if (cardKey === "chaos_blackout_tax") {
+    return t(`distribute.cardDescription.${cardKey}`, {
+      sips,
+      shots: scaleChestAmount(1, multiplier),
+    });
+  }
+
   return t(`distribute.cardDescription.${cardKey}`, { sips, shots });
+}
+
+function scaleChestAmount(amount: number, multiplier: number) {
+  if (amount === 0) {
+    return 0;
+  }
+
+  return Math.max(1, Math.round(amount * multiplier));
 }
 
 async function postChestRoll(

@@ -28,6 +28,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import CloseIcon from "@mui/icons-material/Close";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -346,6 +347,11 @@ export function Bar() {
 
       <Modal open={openShare} onClose={() => setOpenShare(false)}>
         <Box sx={shareModalStyle}>
+          <Box sx={{ display: "flex", width: "100%", justifyContent: "flex-end", mb: 1 }}>
+            <IconButton onClick={() => setOpenShare(false)} size="small" aria-label={t("common.close")}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
           <Box sx={{ background: "white", p: 3, mb: 2 }}>
             <QRCodeComponent value={shareLink} />
           </Box>

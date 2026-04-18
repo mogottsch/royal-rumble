@@ -756,6 +756,7 @@ function ParticipantRow({
         {showSchluecke && (
           <Stepper
             label={t("distribute.sipsShort")}
+            ariaContext={`${participant.name} ${t("distribute.sipsShort")}`}
             value={schluecke}
             canInc={canIncSchluecke}
             onInc={() => onBump("schluecke", 1)}
@@ -765,6 +766,7 @@ function ParticipantRow({
         {showShots && (
           <Stepper
             label={t("distribute.shotsShort")}
+            ariaContext={`${participant.name} ${t("distribute.shotsShort")}`}
             value={shots}
             canInc={canIncShots}
             onInc={() => onBump("shots", 1)}
@@ -778,12 +780,14 @@ function ParticipantRow({
 
 function Stepper({
   label,
+  ariaContext,
   value,
   canInc,
   onInc,
   onDec,
 }: {
   label: string;
+  ariaContext: string;
   value: number;
   canInc: boolean;
   onInc: () => void;
@@ -809,6 +813,7 @@ function Stepper({
         {label}
       </Typography>
       <IconButton
+        aria-label={`${ariaContext} minus`}
         size="small"
         onClick={onDec}
         disabled={value === 0}
@@ -828,6 +833,7 @@ function Stepper({
         {value}
       </Typography>
       <IconButton
+        aria-label={`${ariaContext} plus`}
         size="small"
         onClick={onInc}
         disabled={!canInc}

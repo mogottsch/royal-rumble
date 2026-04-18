@@ -344,7 +344,7 @@ const translations: Record<Language, TranslationDict> = {
     "distribute.chestChaosHint": "Großer Swing, kann zurückfeuern",
     "distribute.aggregateTitle": "Gesammelte Drinks verteilen",
     "distribute.aggregateTotalLabel": "Gesamt",
-    "distribute.minimumSelfPrefix": "Du musst dir selbst mindestens",
+    "distribute.minimumSelfPrefix": "Davon mindestens für dich selbst:",
     "distribute.aggregateTotal": ({ sips, shots }) => `Gesamt: ${sips} Schlücke${Number(shots) > 0 ? ` und ${shots} Shots` : ""}`,
     "distribute.minimumSelf": ({ sips, shots }) => `Du musst dir selbst mindestens ${sips} Schlücke${Number(shots) > 0 ? ` und ${shots} Shots` : ""} geben.`,
     "distribute.aggregateElimination": ({ id, offender, victim }) => `Elim. #${id}: ${offender} hat ${victim} eliminiert`,

@@ -46,7 +46,12 @@ class WrestlerImageController extends Controller
 
     private function imagePath(string $imageFilename): string
     {
-        return Storage::disk("public")->path("wrestlers/" . $imageFilename);
+        $storagePath = Storage::disk("public")->path("wrestlers/" . $imageFilename);
+        if (file_exists($storagePath)) {
+            return $storagePath;
+        }
+
+        return base_path("seed-data/wrestlers/" . $imageFilename);
     }
 
     private function thumbnailPath(int $wrestlerId, int $version): string

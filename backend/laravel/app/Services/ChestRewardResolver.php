@@ -293,8 +293,12 @@ class ChestRewardResolver
             "elimination_id" => $chestReward->elimination_id,
         ]);
 
+        $loser->drunk_chugs = ((int) $loser->drunk_chugs) + 1;
+        $loser->save();
+
         $chestReward->target_participant_id = $target->id;
         $chestReward->result_participant_id = $loser->id;
+        $chestReward->affected_participant_ids = [$loser->id];
         $chestReward->status = ChestReward::STATUS_RESOLVED;
         $chestReward->save();
 

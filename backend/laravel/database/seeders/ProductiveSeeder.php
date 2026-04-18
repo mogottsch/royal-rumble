@@ -91,7 +91,7 @@ class ProductiveSeeder extends Seeder
 
     public function run()
     {
-        if (!File::exists(storage_path("app/saved_superstars.json"))) {
+        if (!File::exists($this->savedSuperstarsPath())) {
             return;
         }
 
@@ -126,7 +126,7 @@ class ProductiveSeeder extends Seeder
             return 0;
         }
 
-        $wrestlersRaw = File::get(storage_path("app/saved_superstars.json"));
+        $wrestlersRaw = File::get($this->savedSuperstarsPath());
         $wrestlersJson = json_decode($wrestlersRaw, true);
         $wrestlers = [];
 
@@ -144,7 +144,7 @@ class ProductiveSeeder extends Seeder
 
     private function seedRoyalRumbleEntries(): array
     {
-        $directory = storage_path("app/royal_rumble_matches");
+        $directory = $this->royalRumbleMatchesPath();
 
         if (!File::isDirectory($directory)) {
             return [0, []];
@@ -234,5 +234,25 @@ class ProductiveSeeder extends Seeder
         $normalized = $this->normalizeName($name);
 
         return self::NAME_ALIASES[$normalized] ?? $normalized;
+    }
+
+    private function savedSuperstarsPath(): string
+    {
+        $storagePath = storage_path("app/saved_superstars.json");
+        if (File::exists($storagePath)) {
+            return $storagePath;
+        }
+
+        return base_path("seed-data/saved_superstars.json");
+    }
+
+    private function royalRumbleMatchesPath(): string
+    {
+        $storagePath = storage_path("app/royal_rumble_matches");
+        if (File::isDirectory($storagePath)) {
+            return $storagePath;
+        }
+
+        return base_path("seed-data/royal_rumble_matches");
     }
 }

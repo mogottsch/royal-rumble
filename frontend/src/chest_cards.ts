@@ -36,7 +36,7 @@ function formatCardText(
     );
     if (selected) {
       const rule = getChoiceOptionDescription(t, reward.card_key, selected);
-      if (!options.includeResolvedAmount) {
+      if (!options.includeResolvedAmount || (selected.schluecke ?? 0) === 0 && (selected.shots ?? 0) === 0) {
         return rule;
       }
 
@@ -55,10 +55,16 @@ function formatCardText(
     return rule;
   }
 
+  const sips = reward.pending_schluecke ?? 0;
+  const shots = reward.pending_shots ?? 0;
+  if (sips === 0 && shots === 0) {
+    return rule;
+  }
+
   return [
     rule,
     t("distribute.cardResolvedAmount", {
-      amount: formatResolvedAmount(t, reward.pending_schluecke ?? 0, reward.pending_shots ?? 0),
+      amount: formatResolvedAmount(t, sips, shots),
     }),
   ].join("\n\n");
 }

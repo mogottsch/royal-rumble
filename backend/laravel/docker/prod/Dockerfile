@@ -39,7 +39,10 @@ COPY backend/laravel/ ./
 COPY backend/laravel/docker/prod/entrypoint.sh /usr/local/bin/royal-api-entrypoint
 
 COPY crawler/data/saved_superstars.json storage/app/saved_superstars.json
+COPY crawler/data/saved_superstars.json seed-data/saved_superstars.json
+COPY crawler/data/matches/ seed-data/royal_rumble_matches/
 COPY crawler/data/images/ storage/app/public/wrestlers/
+COPY crawler/data/images/ seed-data/wrestlers/
 
 RUN composer dump-autoload --optimize --no-dev \
     && php artisan storage:link \

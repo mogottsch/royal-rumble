@@ -478,7 +478,7 @@ function getAdminCardDescription(
 }
 
 function getAdminScaledCard(cardKey: string, multiplier: number) {
-  const baseAmounts: Record<string, { card_mode: "auto" | "give_out" | "target_pick"; sips: number; shots: number }> = {
+  const baseAmounts: Record<string, { card_mode: "auto" | "give_out" | "target_pick" | "effect_choice"; sips: number; shots: number }> = {
     safe_give_sips: { card_mode: "give_out", sips: 3, shots: 0 },
     safe_give_shot: { card_mode: "give_out", sips: 0, shots: 1 },
     safe_you_and_random_sip: { card_mode: "auto", sips: 2, shots: 0 },

@@ -1,3 +1,4 @@
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Box } from "@mui/material";
 import { Participant, Rumbler, Wrestler } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
@@ -64,13 +65,13 @@ function EntranceNumber({ number }: { number?: number }) {
   );
 }
 
-function WrestlerName({ name }: { name?: string }) {
+function WrestlerName({ name, selected = false }: { name?: string; selected?: boolean }) {
   return (
     <Box
       sx={{
         width: "100%",
         height: "30px",
-        backgroundColor: "#1a1919",
+        backgroundColor: selected ? "rgba(11, 46, 26, 0.96)" : "#1a1919",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -78,8 +79,15 @@ function WrestlerName({ name }: { name?: string }) {
         fontWeight: 400,
         fontSize: "12px",
         color: "#fff",
-        boxShadow: "0 -1px 100px #ff0000,0 -1px 5px #ff0000",
-        textShadow: `
+        boxShadow: selected
+          ? "0 -1px 100px rgba(34, 197, 94, 0.6), 0 -1px 5px rgba(74, 222, 128, 0.8)"
+          : "0 -1px 100px #ff0000,0 -1px 5px #ff0000",
+        textShadow: selected
+          ? `
+          0 0 4px rgba(134, 239, 172, 0.9),
+          0 0 8px rgba(34, 197, 94, 0.8)
+        `
+          : `
           0 0 4px #ff0000,
           0 0 8px #ff0000
         `,
@@ -114,7 +122,39 @@ const tileStyles = {
   overflow: "hidden",
   border: "1px solid #7b7b7b",
   fontWeight: 200,
+  position: "relative",
+  transition: "transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease, background-color 120ms ease",
 } as const;
+
+const selectedTileStyles = {
+  borderColor: "success.main",
+  boxShadow: "0 0 0 2px rgba(74, 222, 128, 0.24), 0 0 18px rgba(34, 197, 94, 0.42)",
+  backgroundColor: "rgba(22, 101, 52, 0.22)",
+  transform: "translateY(-1px)",
+} as const;
+
+function SelectedBadge() {
+  return (
+    <Box
+      sx={{
+        position: "absolute",
+        top: 6,
+        right: 6,
+        width: 24,
+        height: 24,
+        borderRadius: "999px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        bgcolor: "rgba(22, 101, 52, 0.95)",
+        color: "#fff",
+        boxShadow: "0 0 0 1px rgba(255,255,255,0.16), 0 4px 12px rgba(0,0,0,0.35)",
+      }}
+    >
+      <CheckCircleIcon sx={{ fontSize: 16 }} />
+    </Box>
+  );
+}
 
 export function WrestlerTile({
   participant,
@@ -134,13 +174,12 @@ export function WrestlerTile({
     <Box
       sx={{
         ...tileStyles,
+        ...(selected ? selectedTileStyles : {}),
         cursor: onClick ? "pointer" : "default",
-        borderColor: selected ? "primary.main" : tileStyles.border,
-        boxShadow: selected ? "0 0 0 2px rgba(255,255,255,0.15), 0 0 18px rgba(255, 60, 90, 0.35)" : undefined,
-        backgroundColor: selected ? "rgba(255, 255, 255, 0.12)" : tileStyles.backgroundColor,
       }}
       onClick={onClick}
     >
+      {selected ? <SelectedBadge /> : null}
       <ParticipantName name={participant?.name ?? t("viewGame.npc")} />
       {wrestler ? (
         <WrestlerImage
@@ -151,7 +190,7 @@ export function WrestlerTile({
       ) : (
         <EntranceNumber number={participant?.entrance_number} />
       )}
-      <WrestlerName name={wrestler?.name} />
+      <WrestlerName name={wrestler?.name} selected={selected} />
     </Box>
   );
 }
@@ -202,13 +241,12 @@ export function WrestlerPreviewTile({
     <Box
       sx={{
         ...tileStyles,
-        borderColor: selected ? "primary.main" : tileStyles.border,
-        boxShadow: selected ? "0 0 0 2px rgba(255,255,255,0.15), 0 0 18px rgba(255, 60, 90, 0.35)" : undefined,
-        backgroundColor: selected ? "rgba(255, 255, 255, 0.12)" : tileStyles.backgroundColor,
+        ...(selected ? selectedTileStyles : {}),
       }}
     >
+      {selected ? <SelectedBadge /> : null}
       <WrestlerImage imageUrl={imageUrl} alt={name} size={IMAGE_SIZE} />
-      <WrestlerName name={name} />
+      <WrestlerName name={name} selected={selected} />
     </Box>
   );
 }
@@ -228,15 +266,14 @@ export function WrestlerPickerTile({
     <Box
       sx={{
         ...tileStyles,
+        ...(selected ? selectedTileStyles : {}),
         cursor: "pointer",
-        borderColor: selected ? "primary.main" : tileStyles.border,
-        boxShadow: selected ? "0 0 0 2px rgba(255,255,255,0.15), 0 0 18px rgba(255, 60, 90, 0.35)" : undefined,
-        backgroundColor: selected ? "rgba(255, 255, 255, 0.12)" : tileStyles.backgroundColor,
       }}
       onClick={onClick}
     >
+      {selected ? <SelectedBadge /> : null}
       <WrestlerImage imageUrl={imageUrl} alt={name} size={IMAGE_SIZE} />
-      <WrestlerName name={name} />
+      <WrestlerName name={name} selected={selected} />
     </Box>
   );
 }

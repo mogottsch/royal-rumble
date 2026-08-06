@@ -50,9 +50,10 @@ RUN mkdir -p \
         /tmp/caddy/config \
         /tmp/caddy/data \
     && php artisan storage:link \
-    && chown -R www-data:www-data storage bootstrap/cache /tmp/caddy
+    && chown -R www-data:www-data storage bootstrap/cache /tmp/caddy \
+    && setcap -r /usr/local/bin/frankenphp
 
-USER www-data
+USER 82:82
 
 EXPOSE 8080
 

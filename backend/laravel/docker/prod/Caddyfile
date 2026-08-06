@@ -8,6 +8,8 @@
     root * /var/www/html/public
     encode zstd br gzip
 
+    header -X-Powered-By
+
     @health path /api/health
     @readiness path /api/readiness
     header @health Cache-Control "no-store"

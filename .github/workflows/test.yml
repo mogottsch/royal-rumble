@@ -81,6 +81,12 @@ jobs:
     defaults:
       run:
         working-directory: frontend
+    env:
+      VITE_BACKEND_URL: http://localhost:8088
+      VITE_PUSHER_HOST: localhost
+      VITE_PUSHER_PORT: "6001"
+      VITE_PUSHER_SCHEME: http
+      VITE_PUSHER_APP_KEY: dummy
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -100,7 +106,6 @@ jobs:
           VITE_PUSHER_HOST: ws.suffroyale.com
           VITE_PUSHER_PORT: "443"
           VITE_PUSHER_SCHEME: https
-          VITE_PUSHER_APP_KEY: dummy
 
   crawler:
     runs-on: ubuntu-latest

@@ -52,7 +52,6 @@ jobs:
         working-directory: backend/laravel
     env:
       APP_ENV: testing
-      APP_KEY: base64:skC6515ruMK0nTrlg5sy6w8SLjOmBjaZRiXUL/uDWr0=
       BROADCAST_DRIVER: "null"
       CACHE_DRIVER: array
       DB_CONNECTION: pgsql
@@ -71,6 +70,8 @@ jobs:
           extensions: mbstring, intl, iconv, pdo_pgsql, bcmath, pcntl
           coverage: none
       - run: composer install --prefer-dist --no-interaction --no-progress
+      - name: Generate ephemeral application key
+        run: echo "APP_KEY=base64:$(openssl rand -base64 32)" >> "$GITHUB_ENV"
       - name: Run migrations on PostgreSQL
         run: php artisan migrate:fresh --force
       - name: Run Pest on PostgreSQL

@@ -3,7 +3,8 @@
         {
             "name": "Yokozuna",
             "cm_id": 846,
-            "id": "e8f573a6-7d79-42a0-8742-0bba4d82fc1e"
+            "id": "e8f573a6-7d79-42a0-8742-0bba4d82fc1e",
+            "entrance_number": 27
         },
         {
             "name": "Mr. Fuji",
@@ -13,147 +14,176 @@
         {
             "name": "Bob Backlund",
             "cm_id": 959,
-            "id": "74f00e6e-2445-414c-8f41-364824485115"
+            "id": "74f00e6e-2445-414c-8f41-364824485115",
+            "entrance_number": 2
         },
         {
             "name": "Brian Knobbs",
             "cm_id": 633,
-            "id": "4670a60b-66ae-4434-94a2-a86d68393381"
+            "id": "4670a60b-66ae-4434-94a2-a86d68393381",
+            "entrance_number": 5
         },
         {
             "name": "Carlos Colon",
             "cm_id": 148,
-            "id": "e2068118-44f3-45d5-a32b-236e03d7ab59"
+            "id": "e2068118-44f3-45d5-a32b-236e03d7ab59",
+            "entrance_number": 24
         },
         {
             "name": "Damien DeMento",
             "cm_id": 3462,
-            "id": "04870483-f2ad-4ba0-89db-23ffb04a0a3f"
+            "id": "04870483-f2ad-4ba0-89db-23ffb04a0a3f",
+            "entrance_number": 17
         },
         {
             "name": "Earthquake",
             "cm_id": 339,
-            "id": "a36ccdc7-dfb6-43d3-ab61-e82af9d2808e"
+            "id": "a36ccdc7-dfb6-43d3-ab61-e82af9d2808e",
+            "entrance_number": 23
         },
         {
             "name": "El Matador",
             "cm_id": 93,
-            "id": "01785bc1-6dd9-409a-afa2-c72365272802"
+            "id": "01785bc1-6dd9-409a-afa2-c72365272802",
+            "entrance_number": 25
         },
         {
             "name": "Fatu",
             "cm_id": 303,
-            "id": "6a421d5e-07c4-45c8-b368-c43279660402"
+            "id": "6a421d5e-07c4-45c8-b368-c43279660402",
+            "entrance_number": 22
         },
         {
             "name": "Irwin R. Schyster",
             "cm_id": 893,
-            "id": "93ee4912-90e5-4da6-8957-a4b1d29be0c8"
+            "id": "93ee4912-90e5-4da6-8957-a4b1d29be0c8",
+            "entrance_number": 18
         },
         {
             "name": "Jerry Lawler",
             "cm_id": 937,
-            "id": "d3e837e1-f1f4-4f7a-b3f3-7939ea8260f7"
+            "id": "d3e837e1-f1f4-4f7a-b3f3-7939ea8260f7",
+            "entrance_number": 7
         },
         {
             "name": "Jerry Sags",
             "cm_id": 558,
-            "id": "8316ec39-cf5f-480d-94f0-955d307fedc0"
+            "id": "8316ec39-cf5f-480d-94f0-955d307fedc0",
+            "entrance_number": 20
         },
         {
             "name": "Koko B. Ware",
             "cm_id": 57,
-            "id": "40640f9f-7a6a-4f0f-90d6-ecb2f8e4d2db"
+            "id": "40640f9f-7a6a-4f0f-90d6-ecb2f8e4d2db",
+            "entrance_number": 12
         },
         {
             "name": "Max Moon",
             "cm_id": 876,
-            "id": "fa33080a-b8f7-4d5f-af42-a0a973469c1c"
+            "id": "fa33080a-b8f7-4d5f-af42-a0a973469c1c",
+            "entrance_number": 8
         },
         {
             "name": "Mr. Perfect",
             "cm_id": 1015,
-            "id": "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671"
+            "id": "a4a7e605-6b4c-4b0a-8be2-84f5e57ef671",
+            "entrance_number": 10
         },
         {
             "name": "Owen Hart",
             "cm_id": 277,
-            "id": "8b76d7ab-8c07-48da-8575-8b9aef4f6086"
+            "id": "8b76d7ab-8c07-48da-8575-8b9aef4f6086",
+            "entrance_number": 28
         },
         {
             "name": "Papa Shango",
             "cm_id": 901,
-            "id": "b8d21c3e-e7da-42e8-912d-121d39e29612"
+            "id": "b8d21c3e-e7da-42e8-912d-121d39e29612",
+            "entrance_number": 3
         },
         {
             "name": "Randy Savage",
             "cm_id": 640,
-            "id": "5f939635-9e05-4060-b180-e2934330302c"
+            "id": "5f939635-9e05-4060-b180-e2934330302c",
+            "entrance_number": 30
         },
         {
             "name": "Repo Man",
             "cm_id": 1069,
-            "id": "771cc5b1-41d9-4482-ac7f-900902b1fa9a"
+            "id": "771cc5b1-41d9-4482-ac7f-900902b1fa9a",
+            "entrance_number": 29
         },
         {
             "name": "Ric Flair",
             "cm_id": 1091,
-            "id": "8fc740c3-7811-4ddb-ab38-cdb06f86a200"
+            "id": "8fc740c3-7811-4ddb-ab38-cdb06f86a200",
+            "entrance_number": 1
         },
         {
             "name": "Rick Martel",
             "cm_id": 1010,
-            "id": "a31b8cae-e191-4af2-acb2-29d54f876018"
+            "id": "a31b8cae-e191-4af2-acb2-29d54f876018",
+            "entrance_number": 26
         },
         {
             "name": "Samu",
             "cm_id": 1094,
-            "id": "1f7b952c-f5a9-4326-819b-d8aae01b75f4"
+            "id": "1f7b952c-f5a9-4326-819b-d8aae01b75f4",
+            "entrance_number": 13
         },
         {
             "name": "Skinner",
             "cm_id": 247,
-            "id": "d70193b9-d078-4162-b7c7-691e85fc4912"
+            "id": "d70193b9-d078-4162-b7c7-691e85fc4912",
+            "entrance_number": 11
         },
         {
             "name": "Tatanka",
             "cm_id": 186,
-            "id": "833220ae-c0f6-46ca-84b4-a335e8b4b671"
+            "id": "833220ae-c0f6-46ca-84b4-a335e8b4b671",
+            "entrance_number": 19
         },
         {
             "name": "Ted DiBiase",
             "cm_id": 1034,
-            "id": "4936e1a8-663b-4665-a75f-33e59d7c7ec5"
+            "id": "4936e1a8-663b-4665-a75f-33e59d7c7ec5",
+            "entrance_number": 4
         },
         {
             "name": "Tenryu",
             "cm_id": 748,
-            "id": "80432fca-4ae9-4509-8214-675f671d924e"
+            "id": "80432fca-4ae9-4509-8214-675f671d924e",
+            "entrance_number": 9
         },
         {
             "name": "Terry Taylor",
             "cm_id": 1058,
-            "id": "db08e450-a944-4317-9e8e-dd84ab4ff202"
+            "id": "db08e450-a944-4317-9e8e-dd84ab4ff202",
+            "entrance_number": 16
         },
         {
             "name": "The Berzerker",
             "cm_id": 1532,
-            "id": "85efcadc-d271-435f-b611-364e1a07eeeb"
+            "id": "85efcadc-d271-435f-b611-364e1a07eeeb",
+            "entrance_number": 14
         },
         {
             "name": "The Undertaker",
             "cm_id": 761,
-            "id": "9ce78713-f047-4763-895b-375926c250fd"
+            "id": "9ce78713-f047-4763-895b-375926c250fd",
+            "entrance_number": 15
         },
         {
             "name": "Typhoon",
             "cm_id": 886,
-            "id": "6246d4c9-d875-4282-9819-167061c39062"
+            "id": "6246d4c9-d875-4282-9819-167061c39062",
+            "entrance_number": 21
         },
         {
             "name": "Virgil",
             "cm_id": 456,
-            "id": "2fd396b7-fb12-4163-bd4d-9511f18d8314"
+            "id": "2fd396b7-fb12-4163-bd4d-9511f18d8314",
+            "entrance_number": 6
         }
     ],
     "eliminations": [
@@ -435,5 +465,17 @@
             "raw": "- Yokozuna eliminates Randy Savage",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(1993)",
+        "source_revision_id": 1367248633,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

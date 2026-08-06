@@ -12,6 +12,7 @@ use App\Models\Offender;
 use App\Models\Rumbler;
 use App\Models\Victim;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 
 class EliminationRecorder
@@ -20,40 +21,53 @@ class EliminationRecorder
         private ActionRecorder $actionRecorder,
         private EntranceNumberAssigner $entranceNumberAssigner,
         private ChestRewardResolver $chestRewardResolver
-    ) {
-    }
+    ) {}
 
     public function record(
         Lobby $lobby,
         Collection $victims,
         Collection $offenders
-    ) {
-        $this->validateRumblers($lobby, $offenders, $victims);
+    ): Elimination {
+        return DB::transaction(function () use ($lobby, $victims, $offenders): Elimination {
+            Lobby::query()->whereKey($lobby->id)->lockForUpdate()->firstOrFail();
 
-        $elimination = $this->createElimination($offenders, $victims);
+            $lockedRumblers = Rumbler::query()
+                ->whereIn('id', $victims->pluck('id')->merge($offenders->pluck('id'))->unique())
+                ->lockForUpdate()
+                ->get()
+                ->load('participant')
+                ->keyBy('id');
 
-        $this->recordChugs($lobby, $elimination, $victims);
-        $this->recordNpcPenalties($lobby, $elimination, $offenders, $victims);
-        $this->chestRewardResolver->createPendingRewards($lobby, $elimination, $offenders, $victims);
+            $victims = $victims->map(fn (Rumbler $rumbler) => $lockedRumblers->get($rumbler->id));
+            $offenders = $offenders->map(fn (Rumbler $rumbler) => $lockedRumblers->get($rumbler->id));
 
-        $this->assignNewEntranceNumbers($lobby, $victims);
+            $this->validateRumblers($lobby, $victims, $offenders);
 
-        $this->actionRecorder->recordElimination($lobby, $elimination);
+            $elimination = $this->createElimination($offenders, $victims);
 
-        return $elimination;
+            $this->recordChugs($lobby, $elimination, $victims);
+            $this->recordNpcPenalties($lobby, $elimination, $offenders, $victims);
+            $this->chestRewardResolver->createPendingRewards($lobby, $elimination, $offenders, $victims);
+
+            $this->assignNewEntranceNumbers($lobby, $victims);
+
+            $this->actionRecorder->recordElimination($lobby, $elimination);
+
+            return $elimination;
+        }, 3);
     }
 
     private function recordChugs(Lobby $lobby, Elimination $elimination, Collection $victims): void
     {
         foreach ($victims as $victim) {
             $participant = $victim->participant;
-            if (!$participant) {
+            if (! $participant) {
                 continue;
             }
             Chug::create([
-                "lobby_id" => $lobby->id,
-                "participant_id" => $participant->id,
-                "elimination_id" => $elimination->id,
+                'lobby_id' => $lobby->id,
+                'participant_id' => $participant->id,
+                'elimination_id' => $elimination->id,
             ]);
         }
     }
@@ -78,15 +92,15 @@ class EliminationRecorder
             foreach ($victims as $victim) {
                 foreach ($participants as $participant) {
                     DrinkDistribution::create([
-                        "lobby_id" => $lobby->id,
-                        "elimination_id" => $elimination->id,
-                        "offender_rumbler_id" => $offender->id,
-                        "victim_rumbler_id" => $victim->id,
-                        "giver_participant_id" => null,
-                        "receiver_participant_id" => $participant->id,
-                        "schluecke" => $schluecke,
-                        "shots" => $shots,
-                        "kind" => DrinkDistribution::KIND_NPC_ELIMINATION_PENALTY,
+                        'lobby_id' => $lobby->id,
+                        'elimination_id' => $elimination->id,
+                        'offender_rumbler_id' => $offender->id,
+                        'victim_rumbler_id' => $victim->id,
+                        'giver_participant_id' => null,
+                        'receiver_participant_id' => $participant->id,
+                        'schluecke' => $schluecke,
+                        'shots' => $shots,
+                        'kind' => DrinkDistribution::KIND_NPC_ELIMINATION_PENALTY,
                     ]);
                 }
             }
@@ -98,13 +112,13 @@ class EliminationRecorder
         Collection $victims,
         Collection $offenders
     ) {
-        if (!$this->isRumblerCollection($offenders)) {
+        if (! $this->isRumblerCollection($offenders)) {
             throw new EliminationRecorderException(
                 EliminationRecorderErrorCode::OFFENDERS_NOT_RUMBLERS
             );
         }
 
-        if (!$this->isRumblerCollection($victims)) {
+        if (! $this->isRumblerCollection($victims)) {
             throw new EliminationRecorderException(
                 EliminationRecorderErrorCode::VICTIMS_NOT_RUMBLERS
             );
@@ -154,7 +168,8 @@ class EliminationRecorder
 
     private function isEliminated(Rumbler $rumbler): bool
     {
-        $rumbler = $rumbler->fresh("victimEliminations");
+        $rumbler = $rumbler->fresh('victimEliminations');
+
         return $rumbler->isEliminated();
     }
 
@@ -162,13 +177,13 @@ class EliminationRecorder
         Collection $offenders,
         Collection $victims
     ): Elimination {
-        $elimination = new Elimination();
+        $elimination = new Elimination;
         $elimination->save();
 
         $this->recordOffenders($elimination, $offenders);
         $this->recordVictims($elimination, $victims);
 
-        $elimination->fresh(["rumblerOffenders", "rumblerVictims"]);
+        $elimination->fresh(['rumblerOffenders', 'rumblerVictims']);
 
         return $elimination;
     }
@@ -186,15 +201,16 @@ class EliminationRecorder
         Elimination $elimination,
         $rumbler
     ): Offender {
-        if (!$rumbler instanceof Rumbler) {
+        if (! $rumbler instanceof Rumbler) {
             throw new InvalidArgumentException(
-                "Rumbler must be an instance of Rumbler"
+                'Rumbler must be an instance of Rumbler'
             );
         }
 
-        $offender = new Offender();
+        $offender = new Offender;
         $offender->elimination()->associate($elimination);
         $offender->rumbler()->associate($rumbler);
+        $offender->participant()->associate($rumbler->participant);
         $offender->save();
 
         return $offender;
@@ -211,13 +227,13 @@ class EliminationRecorder
 
     private function createVictim(Elimination $elimination, $rumbler): Victim
     {
-        if (!$rumbler instanceof Rumbler) {
+        if (! $rumbler instanceof Rumbler) {
             throw new InvalidArgumentException(
-                "Rumbler must be an instance of Rumbler"
+                'Rumbler must be an instance of Rumbler'
             );
         }
 
-        $victim = new Victim();
+        $victim = new Victim;
         $victim->elimination()->associate($elimination);
         $victim->rumbler()->associate($rumbler);
         $victim->save();
@@ -228,7 +244,7 @@ class EliminationRecorder
     private function assignNewEntranceNumbers(Lobby $lobby, Collection $victims)
     {
         foreach ($victims as $rumbler) {
-            if (!$rumbler->participant) {
+            if (! $rumbler->participant) {
                 continue;
             }
 

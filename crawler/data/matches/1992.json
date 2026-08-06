@@ -3,152 +3,182 @@
         {
             "name": "Ric Flair",
             "cm_id": 1091,
-            "id": "cc439c47-8013-42b1-b06f-668ab55af1aa"
+            "id": "cc439c47-8013-42b1-b06f-668ab55af1aa",
+            "entrance_number": 3
         },
         {
             "name": "Col. Mustafa",
             "cm_id": 858,
-            "id": "c0848adb-fe23-4053-9183-85d54c8f7828"
+            "id": "c0848adb-fe23-4053-9183-85d54c8f7828",
+            "entrance_number": 24
         },
         {
             "name": "El Matador",
             "cm_id": 93,
-            "id": "3a7b246a-7b46-4a73-b797-c9ac811261dc"
+            "id": "3a7b246a-7b46-4a73-b797-c9ac811261dc",
+            "entrance_number": 7
         },
         {
             "name": "Greg Valentine",
             "cm_id": 104,
-            "id": "e106f806-0cd7-4bf2-a1be-8e0be8ad40c7"
+            "id": "e106f806-0cd7-4bf2-a1be-8e0be8ad40c7",
+            "entrance_number": 11
         },
         {
             "name": "Haku",
             "cm_id": 694,
-            "id": "7e8490d2-e894-4d33-b204-7cc998b0cf73"
+            "id": "7e8490d2-e894-4d33-b204-7cc998b0cf73",
+            "entrance_number": 5
         },
         {
             "name": "Hercules",
             "cm_id": 1500,
-            "id": "d61b9fbe-9fbd-4949-905f-88b929af18cb"
+            "id": "d61b9fbe-9fbd-4949-905f-88b929af18cb",
+            "entrance_number": 14
         },
         {
             "name": "Hulk Hogan",
             "cm_id": 504,
-            "id": "21d6d315-7cfd-4593-bf4f-01578eae6d20"
+            "id": "21d6d315-7cfd-4593-bf4f-01578eae6d20",
+            "entrance_number": 26
         },
         {
             "name": "Irwin R. Schyster",
             "cm_id": 893,
-            "id": "711984c1-e3a3-400c-ae1d-2f536d57a97f"
+            "id": "711984c1-e3a3-400c-ae1d-2f536d57a97f",
+            "entrance_number": 18
         },
         {
             "name": "Jake Roberts",
             "cm_id": 36,
-            "id": "f30b0e61-7056-42ab-a6ff-8df155b47264"
+            "id": "f30b0e61-7056-42ab-a6ff-8df155b47264",
+            "entrance_number": 16
         },
         {
             "name": "Jerry Sags",
             "cm_id": 558,
-            "id": "261decb5-b056-49a4-a7ab-74a07679053a"
+            "id": "261decb5-b056-49a4-a7ab-74a07679053a",
+            "entrance_number": 4
         },
         {
             "name": "Jim Duggan",
             "cm_id": 1107,
-            "id": "80b91a8f-4ca0-4692-8c67-d370243b0cc7"
+            "id": "80b91a8f-4ca0-4692-8c67-d370243b0cc7",
+            "entrance_number": 17
         },
         {
             "name": "Jimmy Snuka",
             "cm_id": 461,
-            "id": "fccf5539-6a61-46ee-a200-3f7e00dc1ebd"
+            "id": "fccf5539-6a61-46ee-a200-3f7e00dc1ebd",
+            "entrance_number": 19
         },
         {
             "name": "Nikolai Volkoff",
             "cm_id": 1097,
-            "id": "5ec588ce-1c7d-4b52-a4cd-e77740ca90b4"
+            "id": "5ec588ce-1c7d-4b52-a4cd-e77740ca90b4",
+            "entrance_number": 12
         },
         {
             "name": "Randy Savage",
             "cm_id": 640,
-            "id": "d4a0b002-7e9d-4ba0-8197-6ba58ff75059"
+            "id": "d4a0b002-7e9d-4ba0-8197-6ba58ff75059",
+            "entrance_number": 21
         },
         {
             "name": "Repo Man",
             "cm_id": 1069,
-            "id": "1f0b9b94-6741-4da0-97e3-23df783b5d6a"
+            "id": "1f0b9b94-6741-4da0-97e3-23df783b5d6a",
+            "entrance_number": 10
         },
         {
             "name": "Rick Martel",
             "cm_id": 1010,
-            "id": "8b3ca8ea-0fad-4f3c-a189-84216793f491"
+            "id": "8b3ca8ea-0fad-4f3c-a189-84216793f491",
+            "entrance_number": 25
         },
         {
             "name": "Roddy Piper",
             "cm_id": 51,
-            "id": "a410240f-66f5-4cc5-945b-3356ec3e102d"
+            "id": "a410240f-66f5-4cc5-945b-3356ec3e102d",
+            "entrance_number": 15
         },
         {
             "name": "Sgt. Slaughter",
             "cm_id": 587,
-            "id": "d309cb5f-989b-4941-85ac-5de54fc08f36"
+            "id": "d309cb5f-989b-4941-85ac-5de54fc08f36",
+            "entrance_number": 28
         },
         {
             "name": "Shawn Michaels",
             "cm_id": 796,
-            "id": "d8c81890-b962-4c01-ab13-3f5bbfdc55c5"
+            "id": "d8c81890-b962-4c01-ab13-3f5bbfdc55c5",
+            "entrance_number": 6
         },
         {
             "name": "Sid Justice",
             "cm_id": 1016,
-            "id": "7713cd86-132a-48e2-ad72-26702aab8380"
+            "id": "7713cd86-132a-48e2-ad72-26702aab8380",
+            "entrance_number": 29
         },
         {
             "name": "Skinner",
             "cm_id": 247,
-            "id": "026cb9eb-6961-4207-b728-ae8942035352"
+            "id": "026cb9eb-6961-4207-b728-ae8942035352",
+            "entrance_number": 27
         },
         {
             "name": "Ted DiBiase",
             "cm_id": 1034,
-            "id": "f5141622-bda8-4365-b747-64e431a2adef"
+            "id": "f5141622-bda8-4365-b747-64e431a2adef",
+            "entrance_number": 2
         },
         {
             "name": "The Barbarian",
             "cm_id": 413,
-            "id": "13c5d756-8e7a-41f3-a2b4-5539d7ec48bf"
+            "id": "13c5d756-8e7a-41f3-a2b4-5539d7ec48bf",
+            "entrance_number": 8
         },
         {
             "name": "The Berzerker",
             "cm_id": 1532,
-            "id": "40015ea1-1384-49e0-9f7d-dbaaca86bfdd"
+            "id": "40015ea1-1384-49e0-9f7d-dbaaca86bfdd",
+            "entrance_number": 22
         },
         {
             "name": "The Big Boss Man",
             "cm_id": 690,
-            "id": "ed9d82bd-ca89-4b8f-8939-c75ab04551e0"
+            "id": "ed9d82bd-ca89-4b8f-8939-c75ab04551e0",
+            "entrance_number": 13
         },
         {
             "name": "The British Bulldog",
             "cm_id": 862,
-            "id": "dd08e0c0-0958-4ff2-8e37-a7f42eaa9791"
+            "id": "dd08e0c0-0958-4ff2-8e37-a7f42eaa9791",
+            "entrance_number": 1
         },
         {
             "name": "The Texas Tornado",
             "cm_id": 1039,
-            "id": "b7d8acc3-77b7-43e4-8158-18f5c87d1b1b"
+            "id": "b7d8acc3-77b7-43e4-8158-18f5c87d1b1b",
+            "entrance_number": 9
         },
         {
             "name": "The Undertaker",
             "cm_id": 761,
-            "id": "f5027298-b0b4-4a51-9583-7aef3baa5bdd"
+            "id": "f5027298-b0b4-4a51-9583-7aef3baa5bdd",
+            "entrance_number": 20
         },
         {
             "name": "The Warlord",
             "cm_id": 1480,
-            "id": "84758556-c6b4-4454-a312-0c3952885668"
+            "id": "84758556-c6b4-4454-a312-0c3952885668",
+            "entrance_number": 30
         },
         {
             "name": "Virgil",
             "cm_id": 456,
-            "id": "29e4260a-7e74-4e22-979e-b76bc34a4ddc"
+            "id": "29e4260a-7e74-4e22-979e-b76bc34a4ddc",
+            "entrance_number": 23
         }
     ],
     "eliminations": [
@@ -418,5 +448,17 @@
             "raw": "- Ric Flair eliminates Sid Justice",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(1992)",
+        "source_revision_id": 1367248526,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

@@ -19,14 +19,14 @@ class LobbyRumbleController extends Controller
         Lobby $lobby,
         EntranceRecorder $entranceRecorder
     ) {
-        $wrestler_id = $request->validated()["wrestler_id"];
+        $wrestler_id = $request->validated()['wrestler_id'];
         $wrestler = Wrestler::findOrFail($wrestler_id);
 
         try {
             $rumbler = $entranceRecorder->record($lobby, $wrestler);
         } catch (EntranceRecorderException $e) {
             return response()->json(
-                ["message" => $e->getMessage()],
+                ['message' => $e->getMessage()],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
@@ -42,11 +42,10 @@ class LobbyRumbleController extends Controller
         $victim_ids = $request->victim_ids;
         $offender_ids = $request->offender_ids;
 
-        if (!$victim_ids || !$offender_ids) {
+        if (! $victim_ids || ! $offender_ids) {
             return response()->json(
                 [
-                    "message" =>
-                        "You must provide at least one victim and one offender",
+                    'message' => 'You must provide at least one victim and one offender',
                 ],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
@@ -54,23 +53,23 @@ class LobbyRumbleController extends Controller
 
         $victimRumblers = $lobby
             ->rumblers()
-            ->whereIn("id", $victim_ids)
+            ->whereIn('id', $victim_ids)
             ->get();
         $offenderRumblers = $lobby
             ->rumblers()
-            ->whereIn("id", $offender_ids)
+            ->whereIn('id', $offender_ids)
             ->get();
 
         if ($victimRumblers->count() !== count($victim_ids)) {
             return response()->json(
-                ["message" => "One or more victims could not be found"],
+                ['message' => 'One or more victims could not be found'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
 
         if ($offenderRumblers->count() !== count($offender_ids)) {
             return response()->json(
-                ["message" => "One or more offenders could not be found"],
+                ['message' => 'One or more offenders could not be found'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
@@ -83,13 +82,13 @@ class LobbyRumbleController extends Controller
             );
         } catch (EliminationRecorderException $e) {
             return response()->json(
-                ["message" => $e->getMessage()],
+                ['message' => $e->getMessage()],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
 
         return response()->json(
-            ["elimination_id" => $elimination->id],
+            ['elimination_id' => $elimination->id],
             Response::HTTP_CREATED
         );
     }

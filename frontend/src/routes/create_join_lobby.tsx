@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { css } from "@emotion/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { InputField } from "../components/form";
 import { PrimaryButton } from "../components/buttons";
 import { useI18n } from "../i18n";
@@ -10,9 +11,17 @@ export default function CreateJoinLobby() {
   const currentYear = new Date().getFullYear();
   const [lobbyCode, setLobbyCode] = useState("");
   const { t } = useI18n();
+  const navigate = useNavigate();
+  const normalizedCode = lobbyCode.trim().toUpperCase();
 
   const updateLobbyCode = (value: string) => {
     setLobbyCode(value.toUpperCase());
+  };
+
+  const joinLobby = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!normalizedCode) return;
+    navigate(`/lobbies/${encodeURIComponent(normalizedCode)}`);
   };
 
   return (
@@ -45,7 +54,7 @@ export default function CreateJoinLobby() {
         </div>
       </Box>
 
-      <Box>
+      <Box component="form" onSubmit={joinLobby}>
         <InputField
           label={t("landing.lobbyCode")}
           htmlFor="lobby-code"
@@ -55,7 +64,8 @@ export default function CreateJoinLobby() {
         />
         <PrimaryButton
           sx={{ mt: 2 }}
-          href={`/lobbies/${lobbyCode}`}
+          type="submit"
+          disabled={!normalizedCode}
           css={css`
             width: 100%;
           `}

@@ -6,7 +6,7 @@ import { PersonalDrinkTracker } from "../components/personal_drink_tracker";
 import { getPendingChestChoices, getPendingChestFollowUps, getPendingDrinkPools } from "../drink_pools";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
-import { Participant, Rumbler } from "../hooks/use_lobby";
+import { Lobby, Participant, Rumbler } from "../hooks/use_lobby";
 import { usePersonalDrinkTracker } from "../hooks/use_personal_drink_tracker";
 import { useI18n } from "../i18n";
 import { WrestlerTile } from "../components/wrestler_tile";
@@ -29,7 +29,7 @@ const ActionButtons = ({
   pendingDrinkPoolsCount,
   onOpenDistribute,
 }: {
-  lobby: any;
+  lobby: Lobby;
   pendingDrinkPoolsCount: number;
   onOpenDistribute: () => void;
 }) => {

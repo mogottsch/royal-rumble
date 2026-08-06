@@ -4,7 +4,7 @@ import { Lobby } from "../hooks/use_lobby";
 
 export type StateContextType = {
   lobby?: Lobby;
-  lobbyQuery?: UseQueryResult<Lobby, any>;
+  lobbyQuery?: UseQueryResult<Lobby, Error>;
 };
 
 export const LobbyContext = createContext<StateContextType>({

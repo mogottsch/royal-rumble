@@ -5,7 +5,38 @@ use App\Http\Controllers\DrinkDistributionController;
 use App\Http\Controllers\LobbyController;
 use App\Http\Controllers\LobbyRumbleController;
 use App\Http\Controllers\WrestlerController;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
+
+Route::get('/health', fn () => response()->json(['status' => 'ok']))
+    ->name('health');
+
+Route::get('/readiness', function () {
+    try {
+        DB::select('select 1');
+        $migrator = app('migrator');
+        $migrationFiles = array_keys($migrator->getMigrationFiles(database_path('migrations')));
+        $ranMigrations = $migrator->repositoryExists()
+            ? $migrator->getRepository()->getRan()
+            : [];
+        $ready = Schema::hasTable('lobbies')
+            && Schema::hasColumns('offenders', ['participant_id'])
+            && Schema::hasColumns('royal_rumble_entries', ['entrance_order_verified'])
+            && array_diff($migrationFiles, $ranMigrations) === [];
+
+        return response()->json(
+            ['status' => $ready ? 'ready' : 'not_ready'],
+            $ready ? Response::HTTP_OK : Response::HTTP_SERVICE_UNAVAILABLE
+        );
+    } catch (Throwable) {
+        return response()->json(
+            ['status' => 'not_ready'],
+            Response::HTTP_SERVICE_UNAVAILABLE
+        );
+    }
+})->name('readiness');
 
 /*
 |--------------------------------------------------------------------------
@@ -19,72 +50,68 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::middleware('auth:sanctum')->group(function () {
-Route::get("/lobbies/{lobby:code}", [LobbyController::class, "get"])->name(
-    "lobbies.get"
+Route::get('/lobbies/{lobby:code}', [LobbyController::class, 'get'])->name(
+    'lobbies.get'
 );
-Route::post("/lobbies", [LobbyController::class, "store"])->name(
-    "lobbies.store"
+Route::post('/lobbies', [LobbyController::class, 'store'])->name(
+    'lobbies.store'
 );
-Route::patch("/lobbies/{lobby:code}/settings", [LobbyController::class, "updateSettings"])->name(
-    "lobbies.updateSettings"
+Route::patch('/lobbies/{lobby:code}/settings', [LobbyController::class, 'updateSettings'])->name(
+    'lobbies.updateSettings'
 );
-Route::patch("/lobbies/{lobby:code}/participants/{participant}/drink-progress", [
+Route::patch('/lobbies/{lobby:code}/participants/{participant}/drink-progress', [
     LobbyController::class,
-    "updateParticipantDrinkProgress",
-])->name("lobbies.participants.drinkProgress.update");
-Route::get("/wrestlers/search", [WrestlerController::class, "search"])->name(
-    "wrestlers.search"
+    'updateParticipantDrinkProgress',
+])->name('lobbies.participants.drinkProgress.update');
+Route::get('/wrestlers/search', [WrestlerController::class, 'search'])->name(
+    'wrestlers.search'
 );
-Route::post("/wrestlers", [WrestlerController::class, "create"])->name(
-    "wrestlers.create"
+Route::post('/wrestlers', [WrestlerController::class, 'create'])->name(
+    'wrestlers.create'
 );
 
-Route::post("/lobbies/{lobby:code}/entrance", [
+Route::post('/lobbies/{lobby:code}/entrance', [
     LobbyRumbleController::class,
-    "entrance",
-])->name("lobbies.entrance");
+    'entrance',
+])->name('lobbies.entrance');
 
-Route::post("/lobbies/{lobby:code}/entrance-numbers", [
+Route::post('/lobbies/{lobby:code}/entrance-numbers', [
     LobbyController::class,
-    "assignEntranceNumbers",
-])->name("lobbies.assignEntranceNumbers");
+    'assignEntranceNumbers',
+])->name('lobbies.assignEntranceNumbers');
 
-Route::post("/lobbies/{lobby:code}/elimination", [
+Route::post('/lobbies/{lobby:code}/elimination', [
     LobbyRumbleController::class,
-    "elimination",
-])->name("lobbies.elimination");
+    'elimination',
+])->name('lobbies.elimination');
 
-Route::post("/lobbies/{lobby:code}/distributions", [
+Route::post('/lobbies/{lobby:code}/distributions', [
     DrinkDistributionController::class,
-    "store",
-])->name("lobbies.distributions.store");
+    'store',
+])->name('lobbies.distributions.store');
 
-Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/roll", [
+Route::post('/lobbies/{lobby:code}/chest-rewards/{chestReward}/roll', [
     ChestRewardController::class,
-    "roll",
-])->name("lobbies.chestRewards.roll");
+    'roll',
+])->name('lobbies.chestRewards.roll');
 
-Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/acknowledge", [
+Route::post('/lobbies/{lobby:code}/chest-rewards/{chestReward}/acknowledge', [
     ChestRewardController::class,
-    "acknowledge",
-])->name("lobbies.chestRewards.acknowledge");
+    'acknowledge',
+])->name('lobbies.chestRewards.acknowledge');
 
-Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-choice", [
+Route::post('/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-choice', [
     ChestRewardController::class,
-    "resolveChoice",
-])->name("lobbies.chestRewards.resolveChoice");
+    'resolveChoice',
+])->name('lobbies.chestRewards.resolveChoice');
 
-Route::post("/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-target", [
+Route::post('/lobbies/{lobby:code}/chest-rewards/{chestReward}/resolve-target', [
     ChestRewardController::class,
-    "resolveTarget",
-])->name("lobbies.chestRewards.resolveTarget");
+    'resolveTarget',
+])->name('lobbies.chestRewards.resolveTarget');
 
-Route::post("/lobbies/{lobby:code}/admin/chest-rewards/trigger", [
+Route::post('/lobbies/{lobby:code}/admin/chest-rewards/trigger', [
     ChestRewardController::class,
-    "adminTrigger",
-])->name("lobbies.admin.chestRewards.trigger");
+    'adminTrigger',
+])->name('lobbies.admin.chestRewards.trigger');
 // });
-//
-Route::get("/test/", function () {
-    return env("PUSHER_HOST");
-});

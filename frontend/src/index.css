@@ -44,6 +44,18 @@ body {
   will-change: transform;
 }
 
+.spotlight-sweep {
+  animation: spotlight-sweep 9s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes spotlight-sweep {
+  from { transform: translateX(-7vw); }
+  to { transform: translateX(7vw); }
+}
+
 @keyframes neon-flicker {
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
     opacity: 1;
@@ -128,4 +140,13 @@ body {
   letter-spacing: 0.28rem;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.56);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

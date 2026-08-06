@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Victim extends Pivot
 {
-    protected $table = "victims";
+    protected $table = 'victims';
 
     public function elimination()
     {

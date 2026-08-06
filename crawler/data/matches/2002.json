@@ -3,82 +3,98 @@
         {
             "name": "Triple H",
             "cm_id": 496,
-            "id": "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a"
+            "id": "4a2c6a4f-837d-4ecf-9589-e62d24f3dc2a",
+            "entrance_number": 22
         },
         {
             "name": "Albert",
             "cm_id": 580,
-            "id": "48d4fc63-3367-4042-b023-03079a567473"
+            "id": "48d4fc63-3367-4042-b023-03079a567473",
+            "entrance_number": 17
         },
         {
             "name": "Al Snow",
             "cm_id": 179,
-            "id": "bf02d1bd-9dcf-4532-83ce-d646f81d2f37"
+            "id": "bf02d1bd-9dcf-4532-83ce-d646f81d2f37",
+            "entrance_number": 6
         },
         {
             "name": "Billy Gunn",
             "cm_id": 1081,
-            "id": "2cbe2ed3-a6b1-45b1-86cb-e5f10ca28585"
+            "id": "2cbe2ed3-a6b1-45b1-86cb-e5f10ca28585",
+            "entrance_number": 7
         },
         {
             "name": "Booker T",
             "cm_id": 642,
-            "id": "ada18679-c7d7-4147-8df6-5b84a684d958"
+            "id": "ada18679-c7d7-4147-8df6-5b84a684d958",
+            "entrance_number": 30
         },
         {
             "name": "Bradshaw",
             "cm_id": 193,
-            "id": "63e90ea6-3cd7-481f-90f1-bd51b9d0ce54"
+            "id": "63e90ea6-3cd7-481f-90f1-bd51b9d0ce54",
+            "entrance_number": 4
         },
         {
             "name": "Christian",
             "cm_id": 820,
-            "id": "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0"
+            "id": "5aee6e10-d25d-494d-8aa9-f1f97f88d0b0",
+            "entrance_number": 13
         },
         {
             "name": "Chuck",
             "cm_id": 74,
-            "id": "f9d7f06d-4b81-4532-ab36-f46e9435b5f4"
+            "id": "f9d7f06d-4b81-4532-ab36-f46e9435b5f4",
+            "entrance_number": 15
         },
         {
             "name": "Diamond Dallas Page",
             "cm_id": 18,
-            "id": "68e96bca-20e6-42b3-8eb0-579a9414dc76"
+            "id": "68e96bca-20e6-42b3-8eb0-579a9414dc76",
+            "entrance_number": 14
         },
         {
             "name": "Faarooq",
             "cm_id": 715,
-            "id": "7fc11cc2-ea7d-48ad-bc60-20dcc6215e22"
+            "id": "7fc11cc2-ea7d-48ad-bc60-20dcc6215e22",
+            "entrance_number": 24
         },
         {
             "name": "Goldust",
             "cm_id": 917,
-            "id": "a31af3bd-bab4-49b3-a4b4-ac2b8df01826"
+            "id": "a31af3bd-bab4-49b3-a4b4-ac2b8df01826",
+            "entrance_number": 2
         },
         {
             "name": "Jeff Hardy",
             "cm_id": 891,
-            "id": "c9b66207-6dc7-49de-8619-aeeb2921ab90"
+            "id": "c9b66207-6dc7-49de-8619-aeeb2921ab90",
+            "entrance_number": 10
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "25f17036-9257-4ea6-bfd0-441e665646d4"
+            "id": "25f17036-9257-4ea6-bfd0-441e665646d4",
+            "entrance_number": 28
         },
         {
             "name": "Kurt Angle",
             "cm_id": 540,
-            "id": "2aee6158-1e93-4eef-a273-8592312e8a27"
+            "id": "2aee6158-1e93-4eef-a273-8592312e8a27",
+            "entrance_number": 26
         },
         {
             "name": "Lance Storm",
             "cm_id": 311,
-            "id": "3d097a79-a9de-49ea-bd6d-4c9228ccbc60"
+            "id": "3d097a79-a9de-49ea-bd6d-4c9228ccbc60",
+            "entrance_number": 5
         },
         {
             "name": "Matt Hardy",
             "cm_id": 99,
-            "id": "8274e435-54f8-452f-a427-20960ae7c06e"
+            "id": "8274e435-54f8-452f-a427-20960ae7c06e",
+            "entrance_number": 9
         },
         {
             "name": "Lita",
@@ -88,72 +104,86 @@
         {
             "name": "Maven",
             "cm_id": 355,
-            "id": "f3c97477-3848-4cb1-8310-9696a13c5029"
+            "id": "f3c97477-3848-4cb1-8310-9696a13c5029",
+            "entrance_number": 11
         },
         {
             "name": "Mr. Perfect",
             "cm_id": 1015,
-            "id": "3410ef6f-6d8d-4780-95aa-a0dd7b6b7132"
+            "id": "3410ef6f-6d8d-4780-95aa-a0dd7b6b7132",
+            "entrance_number": 25
         },
         {
             "name": "Perry Saturn",
             "cm_id": 430,
-            "id": "32618c01-c9aa-44a5-a895-3e65c8429c67"
+            "id": "32618c01-c9aa-44a5-a895-3e65c8429c67",
+            "entrance_number": 18
         },
         {
             "name": "Rikishi",
             "cm_id": 303,
-            "id": "b131eef1-92a8-4c33-bc72-a67bdd47b805"
+            "id": "b131eef1-92a8-4c33-bc72-a67bdd47b805",
+            "entrance_number": 1
         },
         {
             "name": "Rob Van Dam",
             "cm_id": 866,
-            "id": "34ff08af-9de1-4009-a119-cd7d0c4fdcb8"
+            "id": "34ff08af-9de1-4009-a119-cd7d0c4fdcb8",
+            "entrance_number": 29
         },
         {
             "name": "Scotty 2 Hotty",
             "cm_id": 527,
-            "id": "2c282066-4712-4dac-8f39-b942e26afd80"
+            "id": "2c282066-4712-4dac-8f39-b942e26afd80",
+            "entrance_number": 12
         },
         {
             "name": "Steve Austin",
             "cm_id": 635,
-            "id": "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f"
+            "id": "41c554c6-5a7b-40e1-95c7-2c389ddfcb1f",
+            "entrance_number": 19
         },
         {
             "name": "Test",
             "cm_id": 1047,
-            "id": "6a2179c7-8f51-4873-b09b-243242449be7"
+            "id": "6a2179c7-8f51-4873-b09b-243242449be7",
+            "entrance_number": 21
         },
         {
             "name": "The Big Bossman",
             "cm_id": 690,
-            "id": "7b025b5e-c972-491c-9184-34ef5ea17e13"
+            "id": "7b025b5e-c972-491c-9184-34ef5ea17e13",
+            "entrance_number": 3
         },
         {
             "name": "The Big Show",
             "cm_id": 712,
-            "id": "cfac4e5d-263c-4944-ae2f-b7a8577b80fb"
+            "id": "cfac4e5d-263c-4944-ae2f-b7a8577b80fb",
+            "entrance_number": 27
         },
         {
             "name": "The Godfather",
             "cm_id": 901,
-            "id": "c946dfc5-565d-419d-89bd-b6bf03b08db6"
+            "id": "c946dfc5-565d-419d-89bd-b6bf03b08db6",
+            "entrance_number": 16
         },
         {
             "name": "The Hurricane",
             "cm_id": 464,
-            "id": "bd8f5a70-b5a1-4fdc-a71b-76d83acb5e05"
+            "id": "bd8f5a70-b5a1-4fdc-a71b-76d83acb5e05",
+            "entrance_number": 23
         },
         {
             "name": "The Undertaker",
             "cm_id": 761,
-            "id": "09aee091-190a-45a7-9d45-36966fbf3e66"
+            "id": "09aee091-190a-45a7-9d45-36966fbf3e66",
+            "entrance_number": 8
         },
         {
             "name": "Val Venis",
             "cm_id": 588,
-            "id": "bfc13388-3fbd-4dc7-9103-e9a5ef034698"
+            "id": "bfc13388-3fbd-4dc7-9103-e9a5ef034698",
+            "entrance_number": 20
         }
     ],
     "eliminations": [
@@ -434,5 +464,17 @@
             "raw": "- Triple H eliminates Kurt Angle ",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2002)",
+        "source_revision_id": 1367249395,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

@@ -1,22 +1,15 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 export function useNotifications(): NotificationData {
-  const [text, setText] = useState<string | undefined>(undefined);
-  const [type, setType] = useState<"success" | "error" | undefined>(undefined);
+  const [text, setText] = useState<string>();
+  const [type, setType] = useState<"success" | "error">();
+  const notify = useCallback((nextText: string, nextType: "success" | "error") => {
+    setText(nextText);
+    setType(nextType);
+  }, []);
+  const clear = useCallback(() => setText(undefined), []);
 
-  const notify = (text: string, type: "success" | "error") => {
-    setText(text);
-    setType(type);
-  };
-
-  return {
-    text,
-    type,
-    notify,
-    clear: () => {
-      setText(undefined);
-    },
-  };
+  return useMemo(() => ({ text, type, notify, clear }), [clear, notify, text, type]);
 }
 
 export interface NotificationData {

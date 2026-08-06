@@ -15,22 +15,22 @@ class CreateLobbyTest extends TestCase
     public function test_create_lobby()
     {
         $body = [
-            "participants" => ["Mo", "Kate", "Niklas", "Markus"],
+            'participants' => ['Mo', 'Kate', 'Niklas', 'Markus'],
         ];
-        $response = $this->post(route("lobbies.store"), $body);
+        $response = $this->post(route('lobbies.store'), $body);
 
         $response->assertStatus(Response::HTTP_CREATED);
         $response->assertJsonStructure([
-            "data" => ["lobby" => ["id", "participants", "code"]],
+            'data' => ['lobby' => ['id', 'participants', 'code']],
         ]);
     }
 
     public function test_malfomed_request()
     {
         $body = [
-            "participants" => "Mo",
+            'participants' => 'Mo',
         ];
-        $response = $this->postJson(route("lobbies.store"), $body);
+        $response = $this->postJson(route('lobbies.store'), $body);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
     }

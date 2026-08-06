@@ -3,152 +3,182 @@
         {
             "name": "The Undertaker",
             "cm_id": 761,
-            "id": "f260bcd2-3672-4f71-979e-51312379fdcd"
+            "id": "f260bcd2-3672-4f71-979e-51312379fdcd",
+            "entrance_number": 30
         },
         {
             "name": "Carlito",
             "cm_id": 208,
-            "id": "57f6fb40-c6ee-43a5-b670-e58cfa614e04"
+            "id": "57f6fb40-c6ee-43a5-b670-e58cfa614e04",
+            "entrance_number": 27
         },
         {
             "name": "Chavo Guerrero",
             "cm_id": 895,
-            "id": "fbf537e3-5c23-4d2f-bd2a-78019c81c313"
+            "id": "fbf537e3-5c23-4d2f-bd2a-78019c81c313",
+            "entrance_number": 25
         },
         {
             "name": "Chris Benoit",
             "cm_id": 574,
-            "id": "fe697388-ffca-4b06-bdd1-d0248be346a1"
+            "id": "fe697388-ffca-4b06-bdd1-d0248be346a1",
+            "entrance_number": 17
         },
         {
             "name": "Chris Masters",
             "cm_id": 592,
-            "id": "ec78c6cf-de70-4972-9b0d-c0101f7b8dac"
+            "id": "ec78c6cf-de70-4972-9b0d-c0101f7b8dac",
+            "entrance_number": 24
         },
         {
             "name": "CM Punk",
             "cm_id": 80,
-            "id": "b340ec6c-4882-44ce-b9b6-aab7d2444280"
+            "id": "b340ec6c-4882-44ce-b9b6-aab7d2444280",
+            "entrance_number": 11
         },
         {
             "name": "Edge",
             "cm_id": 932,
-            "id": "51626837-32f4-4ef5-acc4-5fbbca76f738"
+            "id": "51626837-32f4-4ef5-acc4-5fbbca76f738",
+            "entrance_number": 5
         },
         {
             "name": "Finlay",
             "cm_id": 154,
-            "id": "7e815c15-25fd-47d3-8bdd-cb484a384bc8"
+            "id": "7e815c15-25fd-47d3-8bdd-cb484a384bc8",
+            "entrance_number": 2
         },
         {
             "name": "Gregory Helms",
             "cm_id": 464,
-            "id": "f99e81ec-86b9-4858-bed2-c8c2ad21c70c"
+            "id": "f99e81ec-86b9-4858-bed2-c8c2ad21c70c",
+            "entrance_number": 8
         },
         {
             "name": "Hardcore Holly",
             "cm_id": 55,
-            "id": "76c183e7-c5f1-40d5-b195-d01ffb425c52"
+            "id": "76c183e7-c5f1-40d5-b195-d01ffb425c52",
+            "entrance_number": 22
         },
         {
             "name": "Jeff Hardy",
             "cm_id": 891,
-            "id": "dd0c19b5-0acd-4761-8a8a-621993f2a666"
+            "id": "dd0c19b5-0acd-4761-8a8a-621993f2a666",
+            "entrance_number": 14
         },
         {
             "name": "Johnny Nitro",
             "cm_id": 1099,
-            "id": "41905c12-875b-4837-8d1a-3754091ee0b5"
+            "id": "41905c12-875b-4837-8d1a-3754091ee0b5",
+            "entrance_number": 20
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "f7e80a03-afdf-4cbc-bcca-d8e4a93b284b"
+            "id": "f7e80a03-afdf-4cbc-bcca-d8e4a93b284b",
+            "entrance_number": 10
         },
         {
             "name": "Kenny Dykstra",
             "cm_id": 1195,
-            "id": "746940b6-3351-4a4f-99ee-367da77cc4e2"
+            "id": "746940b6-3351-4a4f-99ee-367da77cc4e2",
+            "entrance_number": 3
         },
         {
             "name": "Kevin Thorn",
             "cm_id": 1080,
-            "id": "fd161cea-d6c0-4221-b277-52f5f4e6ca12"
+            "id": "fd161cea-d6c0-4221-b277-52f5f4e6ca12",
+            "entrance_number": 21
         },
         {
             "name": "King Booker",
             "cm_id": 642,
-            "id": "06414f3a-12ab-4ad4-9c40-9192816a7923"
+            "id": "06414f3a-12ab-4ad4-9c40-9192816a7923",
+            "entrance_number": 12
         },
         {
             "name": "Matt Hardy",
             "cm_id": 99,
-            "id": "b13fd502-1e82-437c-9d56-53ea2eda0162"
+            "id": "b13fd502-1e82-437c-9d56-53ea2eda0162",
+            "entrance_number": 4
         },
         {
             "name": "Montel Vontavious Porter",
             "cm_id": 561,
-            "id": "a0924633-90c4-44f9-a477-f524cdd62523"
+            "id": "a0924633-90c4-44f9-a477-f524cdd62523",
+            "entrance_number": 26
         },
         {
             "name": "Randy Orton",
             "cm_id": 998,
-            "id": "ec86f7b8-20fa-4c3d-b215-3855ebfdf3be"
+            "id": "ec86f7b8-20fa-4c3d-b215-3855ebfdf3be",
+            "entrance_number": 16
         },
         {
             "name": "Ric Flair",
             "cm_id": 1091,
-            "id": "5f9c1c0d-e924-4ab5-a88f-40689da197c3"
+            "id": "5f9c1c0d-e924-4ab5-a88f-40689da197c3",
+            "entrance_number": 1
         },
         {
             "name": "Rob Van Dam",
             "cm_id": 866,
-            "id": "139b0c59-770b-4122-af5f-f1fa1fc5475e"
+            "id": "139b0c59-770b-4122-af5f-f1fa1fc5475e",
+            "entrance_number": 18
         },
         {
             "name": "Sabu",
             "cm_id": 271,
-            "id": "1e657e88-3376-4e3b-9158-958504ae783c"
+            "id": "1e657e88-3376-4e3b-9158-958504ae783c",
+            "entrance_number": 7
         },
         {
             "name": "Shawn Michaels",
             "cm_id": 796,
-            "id": "5650c998-1c8a-409f-ae60-19c48495ae0e"
+            "id": "5650c998-1c8a-409f-ae60-19c48495ae0e",
+            "entrance_number": 23
         },
         {
             "name": "Shelton Benjamin",
             "cm_id": 823,
-            "id": "1e87cf4a-636d-49d4-9ab0-6bc5faf0ca87"
+            "id": "1e87cf4a-636d-49d4-9ab0-6bc5faf0ca87",
+            "entrance_number": 9
         },
         {
             "name": "Super Crazy",
             "cm_id": 164,
-            "id": "ac0584b6-1499-4f95-b9ca-4a9f382a6af8"
+            "id": "ac0584b6-1499-4f95-b9ca-4a9f382a6af8",
+            "entrance_number": 13
         },
         {
             "name": "The Great Khali",
             "cm_id": 2011,
-            "id": "531c8619-cd41-488e-b723-709d5bdb7659"
+            "id": "531c8619-cd41-488e-b723-709d5bdb7659",
+            "entrance_number": 28
         },
         {
             "name": "The Miz",
             "cm_id": 1590,
-            "id": "4202ecda-ecb5-4d1e-8f8c-0c9617bdbec9"
+            "id": "4202ecda-ecb5-4d1e-8f8c-0c9617bdbec9",
+            "entrance_number": 29
         },
         {
             "name": "The Sandman",
             "cm_id": 69,
-            "id": "cca55c13-9830-4587-9818-5d05610a9ce1"
+            "id": "cca55c13-9830-4587-9818-5d05610a9ce1",
+            "entrance_number": 15
         },
         {
             "name": "Tommy Dreamer",
             "cm_id": 487,
-            "id": "cb849476-f749-4e14-b0b7-4f6dee19eb5c"
+            "id": "cb849476-f749-4e14-b0b7-4f6dee19eb5c",
+            "entrance_number": 6
         },
         {
             "name": "Viscera",
             "cm_id": 1077,
-            "id": "3b93e81c-7217-467a-8c1a-81cff783792f"
+            "id": "3b93e81c-7217-467a-8c1a-81cff783792f",
+            "entrance_number": 19
         }
     ],
     "eliminations": [
@@ -439,5 +469,17 @@
             "raw": "- The Undertaker eliminates Shawn Michaels",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2007)",
+        "source_revision_id": 1367954997,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

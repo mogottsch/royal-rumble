@@ -12,9 +12,10 @@ class RoyalRumbleEntry extends Model
     protected $guarded = [];
 
     protected $casts = [
-        "year" => "integer",
-        "entrance_number" => "integer",
-        "source_cm_id" => "integer",
+        'year' => 'integer',
+        'entrance_number' => 'integer',
+        'entrance_order_verified' => 'boolean',
+        'source_cm_id' => 'integer',
     ];
 
     public function wrestler()

@@ -17,21 +17,14 @@ class EntranceNumberAssignerException extends Exception
     public function message(): string
     {
         return match ($this->errorCode) {
-            EntranceNumberAssignerErrorCode::NOT_ALL_PARTICIPANTS_HAVE_AN_ENTRANCE_NUMBER
-                => "Not all participants have an entrance number.",
-            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_UNIQUE
-                => "Entrance numbers are not unique.",
-            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_POSITIVE
-                => "Entrance numbers have to be positive.",
-            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_SEQUENTIAL
-                => "Entrance numbers have to go from 1 to the number of participants.",
-            EntranceNumberAssignerErrorCode::UNEXPECTED_NUMBER_OF_PARTICIPANTS
-                => "The number of participants in the lobby is not equal to the number of entrance numbers given.",
-            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE
-                => "Entrance numbers have to start with 1.",
-            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_EXCEED_RUMBLE_SIZE
-                => "Entrance numbers cannot exceed the rumble size.",
-            default => "Unknown error.",
+            EntranceNumberAssignerErrorCode::NOT_ALL_PARTICIPANTS_HAVE_AN_ENTRANCE_NUMBER => 'Not all participants have an entrance number.',
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_UNIQUE => 'Entrance numbers are not unique.',
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_POSITIVE => 'Entrance numbers have to be positive.',
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_SEQUENTIAL => 'Entrance numbers have to go from 1 to the number of participants.',
+            EntranceNumberAssignerErrorCode::UNEXPECTED_NUMBER_OF_PARTICIPANTS => 'The number of participants in the lobby is not equal to the number of entrance numbers given.',
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE => 'Entrance numbers have to start with 1.',
+            EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_EXCEED_RUMBLE_SIZE => 'Entrance numbers cannot exceed the rumble size.',
+            default => 'Unknown error.',
         };
     }
 }

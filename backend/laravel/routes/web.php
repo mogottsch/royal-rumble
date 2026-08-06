@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\WrestlerImageController;
-use App\Models\Lobby;
-use App\Models\Wrestler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,25 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return view("welcome");
 // });
 
-Route::get("storage/wrestlers/{wrestler}", [WrestlerImageController::class, "show"])->name(
-    "wrestlers.image"
+Route::get('storage/wrestlers/{wrestler}', [WrestlerImageController::class, 'show'])->name(
+    'wrestlers.image'
 );
-Route::get("storage/wrestlers/{wrestler}/thumbnail.webp", [WrestlerImageController::class, "thumbnail"])->name(
-    "wrestlers.thumbnail"
+Route::get('storage/wrestlers/{wrestler}/thumbnail.webp', [WrestlerImageController::class, 'thumbnail'])->name(
+    'wrestlers.thumbnail'
 );
-
-Route::get("debug/wrestlers", function () {
-    $wrestlers = Wrestler::orderBy("created_at", "desc")->get();
-
-    return $wrestlers;
-});
-
-Route::get("debug/lobbies", function () {
-    $lobbies = Lobby::orderBy("created_at", "desc")->get();
-
-    return $lobbies;
-});
-
-Route::get("debug/phpinfo", function () {
-    return phpinfo();
-});

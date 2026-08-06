@@ -11,27 +11,29 @@ class Lobby extends Model
     use HasFactory;
 
     protected $casts = [
-        "mystery_chests_enabled" => "boolean",
-        "chest_aggression_multiplier" => "float",
+        'mystery_chests_enabled' => 'boolean',
+        'chest_aggression_multiplier' => 'float',
     ];
 
     public static function make()
     {
-        $lobby = new Lobby();
+        $lobby = new Lobby;
         $lobby->initialize();
         $lobby->save();
+
         return $lobby;
     }
 
     private function initialize()
     {
-        $this->code = (new LobbyCodeGenerator())->generate();
+        $this->code = (new LobbyCodeGenerator)->generate();
     }
 
     public static function create()
     {
         $lobby = self::make();
         $lobby->save();
+
         return $lobby;
     }
 
@@ -68,19 +70,19 @@ class Lobby extends Model
     public function getDrinkConfig(): array
     {
         return [
-            "schluecke_per_elimination" => $this->schluecke_per_elimination,
-            "shots_per_elimination" => $this->shots_per_elimination,
-            "schluecke_on_npc_elimination" => $this->schluecke_on_npc_elimination,
-            "shots_on_npc_elimination" => $this->shots_on_npc_elimination,
-            "mystery_chests_enabled" => $this->mystery_chests_enabled,
-            "chest_aggression_multiplier" => $this->chest_aggression_multiplier,
+            'schluecke_per_elimination' => $this->schluecke_per_elimination,
+            'shots_per_elimination' => $this->shots_per_elimination,
+            'schluecke_on_npc_elimination' => $this->schluecke_on_npc_elimination,
+            'shots_on_npc_elimination' => $this->shots_on_npc_elimination,
+            'mystery_chests_enabled' => $this->mystery_chests_enabled,
+            'chest_aggression_multiplier' => $this->chest_aggression_multiplier,
         ];
     }
 
     public function getSettings(): array
     {
         return [
-            "rumble_size" => $this->rumble_size,
+            'rumble_size' => $this->rumble_size,
             ...$this->getDrinkConfig(),
         ];
     }
@@ -95,28 +97,28 @@ class Lobby extends Model
     public function loadFrontendEssentials()
     {
         $this->loadMissing([
-            "participants",
-            "rumblers",
-            "rumblers.wrestler",
-            "rumblers.participant",
-            "actions",
-            "actions.rumbler.wrestler",
-            "actions.elimination.rumblerVictims.wrestler",
-            "actions.elimination.rumblerVictims.participant",
-            "actions.elimination.rumblerOffenders.wrestler",
-            "actions.elimination.rumblerOffenders.participant",
-            "drinkDistributions",
-            "drinkDistributions.receiver",
-            "drinkDistributions.giver",
-            "drinkDistributions.offenderRumbler.wrestler",
-            "drinkDistributions.victimRumbler.wrestler",
-            "chugs",
-            "chugs.participant",
-            "chestRewards",
-            "chestRewards.chooser",
-            "chestRewards.chooser.rumbler.wrestler",
-            "chestRewards.offenderRumbler.wrestler",
-            "chestRewards.victimRumbler.wrestler",
+            'participants',
+            'rumblers',
+            'rumblers.wrestler',
+            'rumblers.participant',
+            'actions',
+            'actions.rumbler.wrestler',
+            'actions.elimination.rumblerVictims.wrestler',
+            'actions.elimination.rumblerVictims.participant',
+            'actions.elimination.rumblerOffenders.wrestler',
+            'actions.elimination.rumblerOffenders.participant',
+            'drinkDistributions',
+            'drinkDistributions.receiver',
+            'drinkDistributions.giver',
+            'drinkDistributions.offenderRumbler.wrestler',
+            'drinkDistributions.victimRumbler.wrestler',
+            'chugs',
+            'chugs.participant',
+            'chestRewards',
+            'chestRewards.chooser',
+            'chestRewards.chooser.rumbler.wrestler',
+            'chestRewards.offenderRumbler.wrestler',
+            'chestRewards.victimRumbler.wrestler',
         ]);
     }
 }

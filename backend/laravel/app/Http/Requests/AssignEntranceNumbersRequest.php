@@ -9,8 +9,8 @@ class AssignEntranceNumbersRequest extends FormRequest
     public function rules()
     {
         return [
-            "participantEntranceNumbers" => ["required", "array"],
-            "participantEntranceNumbers.*" => ["required", "integer", "min:1"],
+            'participantEntranceNumbers' => ['required', 'array'],
+            'participantEntranceNumbers.*' => ['required', 'integer', 'min:1'],
         ];
     }
 }

@@ -3,152 +3,182 @@
         {
             "name": "Sheamus",
             "cm_id": 2641,
-            "id": "b3cf3f36-3602-4988-8e6a-0252b5f6c030"
+            "id": "b3cf3f36-3602-4988-8e6a-0252b5f6c030",
+            "entrance_number": 22
         },
         {
             "name": "Alex Riley",
             "cm_id": 5662,
-            "id": "e45c2ae2-e58f-4dcb-ab0d-edf1d5a2262c"
+            "id": "e45c2ae2-e58f-4dcb-ab0d-edf1d5a2262c",
+            "entrance_number": 2
         },
         {
             "name": "Booker T",
             "cm_id": 642,
-            "id": "ac235af5-0949-42e7-a031-6d00ebf283ed"
+            "id": "ac235af5-0949-42e7-a031-6d00ebf283ed",
+            "entrance_number": 17
         },
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "d54fe37a-5993-4138-a576-8436750dc793"
+            "id": "d54fe37a-5993-4138-a576-8436750dc793",
+            "entrance_number": 29
         },
         {
             "name": "Cody Rhodes",
             "cm_id": 3686,
-            "id": "3a9baf7e-d427-46da-a48d-7c3f404cffa8"
+            "id": "3a9baf7e-d427-46da-a48d-7c3f404cffa8",
+            "entrance_number": 4
         },
         {
             "name": "David Otunga",
             "cm_id": 8000,
-            "id": "990acc15-0ca0-4ae6-8b56-0c4fd77e349c"
+            "id": "990acc15-0ca0-4ae6-8b56-0c4fd77e349c",
+            "entrance_number": 27
         },
         {
             "name": "Dolph Ziggler",
             "cm_id": 2515,
-            "id": "d962d24c-ff96-4fa2-9cb2-5f808f19b1f3"
+            "id": "d962d24c-ff96-4fa2-9cb2-5f808f19b1f3",
+            "entrance_number": 18
         },
         {
             "name": "Epico",
             "cm_id": 4441,
-            "id": "78946e5e-71b2-40c1-829d-571bcf0d67dc"
+            "id": "78946e5e-71b2-40c1-829d-571bcf0d67dc",
+            "entrance_number": 10
         },
         {
             "name": "Ezekiel Jackson",
             "cm_id": 4710,
-            "id": "506ce00b-7667-4cba-b6be-99aa9b882304"
+            "id": "506ce00b-7667-4cba-b6be-99aa9b882304",
+            "entrance_number": 13
         },
         {
             "name": "Hunico",
             "cm_id": 3669,
-            "id": "aab6da0d-45cf-4f22-974f-c56b2df4e810"
+            "id": "aab6da0d-45cf-4f22-974f-c56b2df4e810",
+            "entrance_number": 16
         },
         {
             "name": "Jack Swagger",
             "cm_id": 4071,
-            "id": "551ac3d1-29a0-447d-b634-edfbe43d2522"
+            "id": "551ac3d1-29a0-447d-b634-edfbe43d2522",
+            "entrance_number": 25
         },
         {
             "name": "Jerry Lawler",
             "cm_id": 937,
-            "id": "c9165073-ed8a-4691-aa30-6709444e4a2d"
+            "id": "c9165073-ed8a-4691-aa30-6709444e4a2d",
+            "entrance_number": 12
         },
         {
             "name": "Jey Uso",
             "cm_id": 7350,
-            "id": "f545a2a9-013b-4aa4-9097-be839420f560"
+            "id": "f545a2a9-013b-4aa4-9097-be839420f560",
+            "entrance_number": 24
         },
         {
             "name": "Jim Duggan",
             "cm_id": 1107,
-            "id": "0e913b91-a04e-4458-9b12-0f6f9d4bfe84"
+            "id": "0e913b91-a04e-4458-9b12-0f6f9d4bfe84",
+            "entrance_number": 19
         },
         {
             "name": "Jinder Mahal",
             "cm_id": 6171,
-            "id": "be30658f-98ce-4619-8b6e-d8ea0e42f486"
+            "id": "be30658f-98ce-4619-8b6e-d8ea0e42f486",
+            "entrance_number": 14
         },
         {
             "name": "Justin Gabriel",
             "cm_id": 8016,
-            "id": "bfb063d2-1561-42f1-b010-b028bf06f3fc"
+            "id": "bfb063d2-1561-42f1-b010-b028bf06f3fc",
+            "entrance_number": 5
         },
         {
             "name": "Kharma",
             "cm_id": 3643,
-            "id": "ec29fa8a-69dc-4616-a6a1-ece861310145"
+            "id": "ec29fa8a-69dc-4616-a6a1-ece861310145",
+            "entrance_number": 21
         },
         {
             "name": "Kofi Kingston",
             "cm_id": 3687,
-            "id": "cc72e422-c271-4248-80ec-423a390f339b"
+            "id": "cc72e422-c271-4248-80ec-423a390f339b",
+            "entrance_number": 11
         },
         {
             "name": "Michael Cole",
             "cm_id": 1125,
-            "id": "919d3ffd-01c3-4db4-9d64-a29fdaacf049"
+            "id": "919d3ffd-01c3-4db4-9d64-a29fdaacf049",
+            "entrance_number": 20
         },
         {
             "name": "Mick Foley",
             "cm_id": 6,
-            "id": "e10250d7-666c-45fc-adb5-6da8e014ddb3"
+            "id": "e10250d7-666c-45fc-adb5-6da8e014ddb3",
+            "entrance_number": 7
         },
         {
             "name": "Primo",
             "cm_id": 1860,
-            "id": "ffca8831-6109-496d-b7c1-dbc3dfe9903d"
+            "id": "ffca8831-6109-496d-b7c1-dbc3dfe9903d",
+            "entrance_number": 6
         },
         {
             "name": "R-Truth",
             "cm_id": 200,
-            "id": "1379cc62-2518-463f-af32-c76a5af44373"
+            "id": "1379cc62-2518-463f-af32-c76a5af44373",
+            "entrance_number": 3
         },
         {
             "name": "Randy Orton",
             "cm_id": 998,
-            "id": "496b6b0f-7880-415c-ba0f-0bb8a34fa249"
+            "id": "496b6b0f-7880-415c-ba0f-0bb8a34fa249",
+            "entrance_number": 28
         },
         {
             "name": "Ricardo Rodriguez",
             "cm_id": 5368,
-            "id": "f4bb6079-540e-45b5-8e8b-e45c6d6e8d11"
+            "id": "f4bb6079-540e-45b5-8e8b-e45c6d6e8d11",
+            "entrance_number": 8
         },
         {
             "name": "Santino Marella",
             "cm_id": 3689,
-            "id": "1ea1d6fe-a2cb-460f-871f-47f84a0164af"
+            "id": "1ea1d6fe-a2cb-460f-871f-47f84a0164af",
+            "entrance_number": 9
         },
         {
             "name": "The Big Show",
             "cm_id": 712,
-            "id": "a36edcd7-c8c2-43f3-8901-cc09c1a73f4b"
+            "id": "a36edcd7-c8c2-43f3-8901-cc09c1a73f4b",
+            "entrance_number": 30
         },
         {
             "name": "The Great Khali",
             "cm_id": 2011,
-            "id": "df59755d-00be-40c5-98f3-33adbf88a8e0"
+            "id": "df59755d-00be-40c5-98f3-33adbf88a8e0",
+            "entrance_number": 15
         },
         {
             "name": "The Miz",
             "cm_id": 1590,
-            "id": "b0ea0ab8-c002-4dfe-b992-beb6daadd5fe"
+            "id": "b0ea0ab8-c002-4dfe-b992-beb6daadd5fe",
+            "entrance_number": 1
         },
         {
             "name": "The Road Dogg",
             "cm_id": 760,
-            "id": "e62e78a9-b151-4d9a-9225-55a6e2d6ff09"
+            "id": "e62e78a9-b151-4d9a-9225-55a6e2d6ff09",
+            "entrance_number": 23
         },
         {
             "name": "Wade Barrett",
             "cm_id": 2849,
-            "id": "ac3f7c61-cde9-4328-82f6-499a9a18dfbe"
+            "id": "ac3f7c61-cde9-4328-82f6-499a9a18dfbe",
+            "entrance_number": 26
         }
     ],
     "eliminations": [
@@ -447,5 +477,17 @@
             "raw": "- Sheamus eliminates Chris Jericho",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2012)",
+        "source_revision_id": 1365263933,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

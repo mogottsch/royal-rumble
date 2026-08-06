@@ -9,13 +9,9 @@ import { LanguageSwitcher } from "../../components/language_switcher";
 import { useI18n } from "../../i18n";
 
 const BEAM_X = [18, 50, 82] as const;
-const SWEEP_MIN = 43;
-const SWEEP_MAX = 57;
-const SWEEP_DURATION_MS = 9000;
-
 export function Landing() {
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
-  const [targetX, setTargetX] = useState(50);
+  const targetX = 50;
   const { t } = useI18n();
 
   useEffect(() => {
@@ -28,21 +24,6 @@ export function Landing() {
     return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
-  useEffect(() => {
-    let frameId = 0;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const progress = (now - start) / SWEEP_DURATION_MS;
-      const wave = (Math.sin(progress * Math.PI * 2) + 1) / 2;
-      setTargetX(SWEEP_MIN + (SWEEP_MAX - SWEEP_MIN) * wave);
-      frameId = window.requestAnimationFrame(tick);
-    };
-
-    frameId = window.requestAnimationFrame(tick);
-
-    return () => window.cancelAnimationFrame(frameId);
-  }, []);
 
   const stageWidth = viewport.width || 100;
   const stageHeight = viewport.height || 100;
@@ -93,43 +74,45 @@ export function Landing() {
              <feGaussianBlur stdDeviation="12" />
            </filter>
          </defs>
-        {BEAM_X.map((beamX, index) => {
-          const anchorX = (beamX / 100) * stageWidth;
-          const points = [
-            `${anchorX - topHalfWidth},${topY}`,
-            `${anchorX + topHalfWidth},${topY}`,
-            `${targetXPx + bottomHalfWidth},${targetYPx}`,
-            `${targetXPx - bottomHalfWidth},${targetYPx}`,
-          ].join(" ");
+        <g className="spotlight-sweep">
+          {BEAM_X.map((beamX, index) => {
+            const anchorX = (beamX / 100) * stageWidth;
+            const points = [
+              `${anchorX - topHalfWidth},${topY}`,
+              `${anchorX + topHalfWidth},${topY}`,
+              `${targetXPx + bottomHalfWidth},${targetYPx}`,
+              `${targetXPx - bottomHalfWidth},${targetYPx}`,
+            ].join(" ");
 
-          return (
-            <polygon
-              key={index}
-              className="spotlight-beam"
-              points={points}
-              fill="url(#spotlight-beam-gradient)"
-              filter="url(#spotlight-blur)"
-            />
-          );
-        })}
-        <ellipse
-          className="spotlight-pool"
-          cx={targetXPx}
-          cy={targetYPx}
-          rx={stageWidth * 0.12}
-          ry={stageHeight * 0.04}
-          fill="url(#spotlight-pool-gradient)"
-          filter="url(#spotlight-pool-blur)"
-        />
-        <ellipse
-          className="spotlight-core"
-          cx={targetXPx}
-          cy={targetYPx}
-          rx={stageWidth * 0.052}
-          ry={stageHeight * 0.018}
-          fill="url(#spotlight-core-gradient)"
-          filter="url(#spotlight-pool-blur)"
-        />
+            return (
+              <polygon
+                key={index}
+                className="spotlight-beam"
+                points={points}
+                fill="url(#spotlight-beam-gradient)"
+                filter="url(#spotlight-blur)"
+              />
+            );
+          })}
+          <ellipse
+            className="spotlight-pool"
+            cx={targetXPx}
+            cy={targetYPx}
+            rx={stageWidth * 0.12}
+            ry={stageHeight * 0.04}
+            fill="url(#spotlight-pool-gradient)"
+            filter="url(#spotlight-pool-blur)"
+          />
+          <ellipse
+            className="spotlight-core"
+            cx={targetXPx}
+            cy={targetYPx}
+            rx={stageWidth * 0.052}
+            ry={stageHeight * 0.018}
+            fill="url(#spotlight-core-gradient)"
+            filter="url(#spotlight-pool-blur)"
+          />
+        </g>
       </svg>
       <div className="neon-floor-glow" aria-hidden="true" />
       <div className="titantron">

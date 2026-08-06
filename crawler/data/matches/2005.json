@@ -3,27 +3,32 @@
         {
             "name": "Batista",
             "cm_id": 962,
-            "id": "ea7a94cf-74dd-49da-a511-5887a932e4d1"
+            "id": "ea7a94cf-74dd-49da-a511-5887a932e4d1",
+            "entrance_number": 28
         },
         {
             "name": "Booker T",
             "cm_id": 642,
-            "id": "a2fa9c5f-0780-431d-afe7-8528c1c57cef"
+            "id": "a2fa9c5f-0780-431d-afe7-8528c1c57cef",
+            "entrance_number": 10
         },
         {
             "name": "Charlie Haas",
             "cm_id": 534,
-            "id": "a39befb5-0076-4722-a546-c9f3d8167391"
+            "id": "a39befb5-0076-4722-a546-c9f3d8167391",
+            "entrance_number": 16
         },
         {
             "name": "Chris Benoit",
             "cm_id": 574,
-            "id": "60e1a095-f045-4d84-bdfb-ac2b4a0eeea5"
+            "id": "60e1a095-f045-4d84-bdfb-ac2b4a0eeea5",
+            "entrance_number": 2
         },
         {
             "name": "Christian",
             "cm_id": 820,
-            "id": "998d0d1b-1546-493b-a96b-701040ab8209"
+            "id": "998d0d1b-1546-493b-a96b-701040ab8209",
+            "entrance_number": 29
         },
         {
             "name": "Tyson Tomko",
@@ -33,127 +38,152 @@
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "0d77a5d6-002a-45bb-88b0-47793c6a3999"
+            "id": "0d77a5d6-002a-45bb-88b0-47793c6a3999",
+            "entrance_number": 11
         },
         {
             "name": "Daniel Puder",
             "cm_id": 1612,
-            "id": "83208687-a7f3-4cd7-8648-bfb5eadc77f3"
+            "id": "83208687-a7f3-4cd7-8648-bfb5eadc77f3",
+            "entrance_number": 3
         },
         {
             "name": "Eddie Guerrero",
             "cm_id": 497,
-            "id": "54c80392-56ad-48a2-baac-0a24ca3c48e7"
+            "id": "54c80392-56ad-48a2-baac-0a24ca3c48e7",
+            "entrance_number": 1
         },
         {
             "name": "Edge",
             "cm_id": 932,
-            "id": "377d6ae0-c490-4352-84f5-a376783264ee"
+            "id": "377d6ae0-c490-4352-84f5-a376783264ee",
+            "entrance_number": 7
         },
         {
             "name": "Gene Snitsky",
             "cm_id": 1168,
-            "id": "ce89e37a-d34d-4cdd-9f90-c713e85dca34"
+            "id": "ce89e37a-d34d-4cdd-9f90-c713e85dca34",
+            "entrance_number": 26
         },
         {
             "name": "Hardcore Holly",
             "cm_id": 55,
-            "id": "dc1f480e-d138-4478-8d7d-3558fc8ad67a"
+            "id": "dc1f480e-d138-4478-8d7d-3558fc8ad67a",
+            "entrance_number": 4
         },
         {
             "name": "John Cena",
             "cm_id": 691,
-            "id": "6ef01cb8-c190-4378-b52f-3026f31df29d"
+            "id": "6ef01cb8-c190-4378-b52f-3026f31df29d",
+            "entrance_number": 25
         },
         {
             "name": "Jonathan Coachman",
             "cm_id": 469,
-            "id": "5934db28-2332-4604-9b58-63d8f073246a"
+            "id": "5934db28-2332-4604-9b58-63d8f073246a",
+            "entrance_number": 21
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "fe250d04-c36e-4adc-81d6-5a8fd4024bde"
+            "id": "fe250d04-c36e-4adc-81d6-5a8fd4024bde",
+            "entrance_number": 27
         },
         {
             "name": "Kenzo Suzuki",
             "cm_id": 1105,
-            "id": "f9516d2e-1b69-412e-ae72-d4d05a4534a0"
+            "id": "f9516d2e-1b69-412e-ae72-d4d05a4534a0",
+            "entrance_number": 6
         },
         {
             "name": "Kurt Angle",
             "cm_id": 540,
-            "id": "8bcccac8-9a49-408b-b21a-12648d4041a7"
+            "id": "8bcccac8-9a49-408b-b21a-12648d4041a7",
+            "entrance_number": 20
         },
         {
             "name": "Luther Reigns",
             "cm_id": 920,
-            "id": "1b26b6f4-329d-438c-acec-fcfb82a085e3"
+            "id": "1b26b6f4-329d-438c-acec-fcfb82a085e3",
+            "entrance_number": 12
         },
         {
             "name": "Mark Jindrak",
             "cm_id": 241,
-            "id": "9fa51b5e-d412-46af-a32c-709f8fe07a5c"
+            "id": "9fa51b5e-d412-46af-a32c-709f8fe07a5c",
+            "entrance_number": 22
         },
         {
             "name": "Muhammad Hassan",
             "cm_id": 299,
-            "id": "52e41142-d3de-49f1-86e4-ee3805da00d3"
+            "id": "52e41142-d3de-49f1-86e4-ee3805da00d3",
+            "entrance_number": 13
         },
         {
             "name": "Orlando Jordan",
             "cm_id": 286,
-            "id": "ba003155-7cf4-4372-a6e3-e0ac71a4075e"
+            "id": "ba003155-7cf4-4372-a6e3-e0ac71a4075e",
+            "entrance_number": 14
         },
         {
             "name": "Paul London",
             "cm_id": 972,
-            "id": "4750bdd3-457f-4634-9176-6338e0b51655"
+            "id": "4750bdd3-457f-4634-9176-6338e0b51655",
+            "entrance_number": 24
         },
         {
             "name": "Rene Dupree",
             "cm_id": 813,
-            "id": "f4978d8e-c323-4678-ba49-ef9e3e99761b"
+            "id": "f4978d8e-c323-4678-ba49-ef9e3e99761b",
+            "entrance_number": 17
         },
         {
             "name": "Rey Mysterio",
             "cm_id": 604,
-            "id": "8ad57e04-815b-45df-b39f-2a0c781aed7d"
+            "id": "8ad57e04-815b-45df-b39f-2a0c781aed7d",
+            "entrance_number": 8
         },
         {
             "name": "Ric Flair",
             "cm_id": 1091,
-            "id": "536235ab-4e65-4839-8d31-15a0e7dc02e1"
+            "id": "536235ab-4e65-4839-8d31-15a0e7dc02e1",
+            "entrance_number": 30
         },
         {
             "name": "Scotty 2 Hotty",
             "cm_id": 527,
-            "id": "9dba0ba7-34b7-4bea-a217-8c3433af58ad"
+            "id": "9dba0ba7-34b7-4bea-a217-8c3433af58ad",
+            "entrance_number": 15
         },
         {
             "name": "Shawn Michaels",
             "cm_id": 796,
-            "id": "a48ebda5-e83c-428d-a579-4b0c6287b452"
+            "id": "a48ebda5-e83c-428d-a579-4b0c6287b452",
+            "entrance_number": 19
         },
         {
             "name": "Shelton Benjamin",
             "cm_id": 823,
-            "id": "ad35b557-60c2-4b13-8b76-953e329dcb33"
+            "id": "ad35b557-60c2-4b13-8b76-953e329dcb33",
+            "entrance_number": 9
         },
         {
             "name": "Simon Dean",
             "cm_id": 192,
-            "id": "85290930-871e-4cae-8414-27726cafe5f3"
+            "id": "85290930-871e-4cae-8414-27726cafe5f3",
+            "entrance_number": 18
         },
         {
             "name": "The Hurricane",
             "cm_id": 464,
-            "id": "b202aa04-ab3c-4424-9c0d-21b8dca73a52"
+            "id": "b202aa04-ab3c-4424-9c0d-21b8dca73a52",
+            "entrance_number": 5
         },
         {
             "name": "Viscera",
             "cm_id": 1077,
-            "id": "c819d49d-1598-441d-9aa2-ab7e63dc49f7"
+            "id": "c819d49d-1598-441d-9aa2-ab7e63dc49f7",
+            "entrance_number": 23
         }
     ],
     "eliminations": [
@@ -442,5 +472,17 @@
             "raw": "- Batista eliminates John Cena",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2005)",
+        "source_revision_id": 1367249655,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

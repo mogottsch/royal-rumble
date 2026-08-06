@@ -13,6 +13,7 @@ class Rumbler extends Model
     {
         return $this->belongsTo(Lobby::class);
     }
+
     public function wrestler()
     {
         return $this->belongsTo(Wrestler::class);
@@ -25,12 +26,12 @@ class Rumbler extends Model
 
     public function offenderEliminations()
     {
-        return $this->belongsToMany(Elimination::class, "offenders");
+        return $this->belongsToMany(Elimination::class, 'offenders');
     }
 
     public function victimEliminations()
     {
-        return $this->belongsToMany(Elimination::class, "victims");
+        return $this->belongsToMany(Elimination::class, 'victims');
     }
 
     public function isEliminated()

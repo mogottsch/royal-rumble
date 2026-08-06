@@ -33,7 +33,7 @@ import { Box } from "@mui/system";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import qrCodeModule from "react-qr-code";
-import { fetchApi } from "../api/fetcher";
+import { apiJson } from "../api/fetcher";
 import logo from "../assets/logo_small.png";
 import { getCardRuleText } from "../chest_cards";
 import { CopyToClipboardButton } from "./buttons";
@@ -43,7 +43,6 @@ import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_st
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
 import { useNotificationContext } from "../contexts/notification_context";
-import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
 import { useI18n } from "../i18n";
 import {
   getLobbySettings,
@@ -118,7 +117,7 @@ export function Bar() {
   const { lobby, lobbyQuery } = useLobbyContext();
   const { claimedParticipantId, clear } = useParticipantClaim();
   const { notify } = useNotificationContext();
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
   const { t } = useI18n();
   const navigate = useNavigate();
   const location = useLocation();
@@ -161,18 +160,11 @@ export function Bar() {
     if (!lobby || !settings) return;
     setKeyLoading("updateLobbySettings", true);
     try {
-      const response = await fetchApi(`/lobbies/${lobby.code}/settings`, {
+      await apiJson(`/lobbies/${encodeURIComponent(lobby.code)}/settings`, {
         method: "PATCH",
-        headers: {
-          accept: "application/json",
-          "content-type": "application/json",
-        },
+        headers: { "content-type": "application/json" },
         body: JSON.stringify(settings),
       });
-      if (!response.ok) {
-        const data = await response.json().catch(() => null);
-        throw new Error(data?.message ?? t("lobbySettings.saveFailed"));
-      }
       await lobbyQuery?.refetch();
       setOpenSettings(false);
       notify(t("lobbySettings.saved"), "success");
@@ -198,26 +190,21 @@ export function Bar() {
 
     setKeyLoading("triggerAdminChest", true);
     try {
-      const response = await fetchApi(`/lobbies/${lobby.code}/admin/chest-rewards/trigger`, {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "content-type": "application/json",
-          "X-Participant-Id": String(claimedParticipantId),
+      const data = await apiJson<{ data: { chest_reward_id: number } }>(
+        `/lobbies/${encodeURIComponent(lobby.code)}/admin/chest-rewards/trigger`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "X-Participant-Id": String(claimedParticipantId),
+          },
+          body: JSON.stringify({
+            participant_id: adminParticipantId,
+            chest_type: adminChestType,
+            card_key: adminCardKey,
+          }),
         },
-        body: JSON.stringify({
-          participant_id: adminParticipantId,
-          chest_type: adminChestType,
-          card_key: adminCardKey,
-        }),
-      });
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => null);
-        throw new Error(data?.message ?? "Failed to trigger card");
-      }
-
-      const data = await response.json();
+      );
 
       await lobbyQuery?.refetch();
       setOpenAdminChest(false);
@@ -243,12 +230,12 @@ export function Bar() {
           }}
         >
           {lobbyExists && (
-            <IconButton size={isDashboard ? "medium" : "large"} edge="start" onClick={() => setOpenHistory(true)}>
+            <IconButton size={isDashboard ? "medium" : "large"} edge="start" onClick={() => setOpenHistory(true)} aria-label={t("bar.history")}>
               <MenuIcon />
             </IconButton>
           )}
           <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
-            <Box component="img" sx={{ height: isDashboard ? 34 : "10vh" }} src={logo} />
+            <Box component="img" sx={{ height: isDashboard ? 34 : "10vh" }} src={logo} alt="Suff Royale" />
           </Box>
           {lobbyExists && (
             <IconButton
@@ -346,29 +333,32 @@ export function Bar() {
         )}
       </Menu>
 
-      <Modal open={openShare} onClose={() => setOpenShare(false)}>
-        <Box sx={shareModalStyle}>
+      <Modal open={openShare} onClose={() => setOpenShare(false)} aria-labelledby="share-lobby-title">
+        <Box sx={shareModalStyle} role="dialog" aria-modal="true" aria-labelledby="share-lobby-title">
+          <Typography id="share-lobby-title" variant="h6" sx={{ alignSelf: "flex-start" }}>
+            {t("bar.share")}
+          </Typography>
           <Box sx={{ display: "flex", width: "100%", justifyContent: "flex-end", mb: 1 }}>
             <IconButton onClick={() => setOpenShare(false)} size="small" aria-label={t("common.close")}>
               <CloseIcon />
             </IconButton>
           </Box>
-          <Box sx={{ background: "white", p: 3, mb: 2 }}>
-            <QRCodeComponent value={shareLink} />
+          <Box sx={{ background: "white", p: { xs: 1.5, sm: 3 }, mb: 2, width: "min(304px, 100%)" }}>
+            <QRCodeComponent value={shareLink} style={{ width: "100%", height: "auto", display: "block" }} />
           </Box>
           <Typography variant="caption" sx={{ opacity: 0.75, mb: 0.5, alignSelf: "flex-start" }}>
             {t("bar.sharePlayerLink")}
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", width: "100%", gap: 1 }}>
             <Typography sx={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{shareLink}</Typography>
-            <CopyToClipboardButton text={shareLink} />
+            <CopyToClipboardButton text={shareLink} label={t("bar.copyPlayerLink")} />
           </Box>
           <Typography variant="caption" sx={{ opacity: 0.75, mt: 1.5, mb: 0.5, alignSelf: "flex-start" }}>
             {t("bar.shareDashboardLink")}
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", width: "100%", gap: 1 }}>
             <Typography sx={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{dashboardLink}</Typography>
-            <CopyToClipboardButton text={dashboardLink} />
+            <CopyToClipboardButton text={dashboardLink} label={t("bar.copyDashboardLink")} />
           </Box>
           <Box sx={{ fontSize: "2rem", fontWeight: "bold", mt: 2, mb: 2 }}>{lobby?.code}</Box>
         </Box>
@@ -481,7 +471,10 @@ const modalStyle = {
 
 const shareModalStyle = {
   ...modalStyle,
-  p: 4,
+  p: { xs: 2, sm: 4 },
+  width: "min(420px, calc(100vw - 24px))",
+  maxHeight: "calc(100dvh - 24px)",
+  overflowY: "auto",
 };
 
 function getAdminCardDescription(

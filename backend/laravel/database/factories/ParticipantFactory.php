@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Participant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Participant>
+ * @extends Factory<Participant>
  */
 class ParticipantFactory extends Factory
 {
@@ -17,7 +18,7 @@ class ParticipantFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->name,
+            'name' => $this->faker->name,
         ];
     }
 }

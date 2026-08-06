@@ -228,9 +228,9 @@ function DistributionGroupDisplay({
   }
 
   const giver = first.giver?.name ?? first.giver_participant_id ?? "NPC";
-  const totals = summarizePerReceiver(distributions);
-  const eliminations = summarizeEliminations(distributions);
-  const chestRewards = summarizeChestRewards(distributions, lobby);
+  const totals = summarizePerReceiver(distributions, t);
+  const eliminations = summarizeEliminations(distributions, t);
+  const chestRewards = summarizeChestRewards(distributions, lobby, t);
 
   if (first.kind === "chest_reward") {
     const primaryReward = chestRewards[0];
@@ -285,12 +285,16 @@ function DistributionGroupDisplay({
 
 function NpcDistributionGroupDisplay({ distributions }: { distributions: DrinkDistribution[] }) {
   const { t } = useI18n();
-  const totals = summarizePerReceiver(distributions);
+  const totals = summarizePerReceiver(distributions, t);
   return <>{t("history.npcPenalty", { totals: joinButLast(totals, ", ", t("history.and")) })}</>;
 }
 
-function summarizePerReceiver(distributions: DrinkDistribution[]): string[] {
-  const { t } = useI18n();
+type TranslationFunction = (key: string, params?: Record<string, string | number>) => string;
+
+function summarizePerReceiver(
+  distributions: DrinkDistribution[],
+  t: TranslationFunction,
+): string[] {
   const perReceiver = new Map<string, { sips: number; shots: number }>();
 
   for (const distribution of distributions) {
@@ -311,8 +315,10 @@ function summarizePerReceiver(distributions: DrinkDistribution[]): string[] {
   });
 }
 
-function summarizeEliminations(distributions: DrinkDistribution[]): string[] {
-  const { t } = useI18n();
+function summarizeEliminations(
+  distributions: DrinkDistribution[],
+  t: TranslationFunction,
+): string[] {
   const summaries = new Map<string, string>();
 
   for (const distribution of distributions) {
@@ -326,8 +332,11 @@ function summarizeEliminations(distributions: DrinkDistribution[]): string[] {
   return Array.from(summaries.values());
 }
 
-function summarizeChestRewards(distributions: DrinkDistribution[], lobby: Lobby) {
-  const { t } = useI18n();
+function summarizeChestRewards(
+  distributions: DrinkDistribution[],
+  lobby: Lobby,
+  t: TranslationFunction,
+) {
   const rewards = new Map<
     string,
       {

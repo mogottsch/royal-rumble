@@ -14,25 +14,25 @@ class UpdateParticipantDrinkProgressTest extends TestCase
         $participant = $lobby->participants()->firstOrFail();
 
         $response = $this->patchJson(
-            route("lobbies.participants.drinkProgress.update", [
-                "lobby" => $lobby,
-                "participant" => $participant,
+            route('lobbies.participants.drinkProgress.update', [
+                'lobby' => $lobby,
+                'participant' => $participant,
             ]),
             [
-                "drunk_sips" => 7,
-                "drunk_shots" => 2,
-                "drunk_chugs" => 1,
+                'drunk_sips' => 7,
+                'drunk_shots' => 2,
+                'drunk_chugs' => 1,
             ],
-            ["X-Participant-Id" => (string) $participant->id]
+            ['X-Participant-Id' => (string) $participant->id]
         );
 
         $response->assertStatus(Response::HTTP_OK);
-        $this->assertDatabaseHas("participants", [
-            "id" => $participant->id,
-            "lobby_id" => $lobby->id,
-            "drunk_sips" => 7,
-            "drunk_shots" => 2,
-            "drunk_chugs" => 1,
+        $this->assertDatabaseHas('participants', [
+            'id' => $participant->id,
+            'lobby_id' => $lobby->id,
+            'drunk_sips' => 7,
+            'drunk_shots' => 2,
+            'drunk_chugs' => 1,
         ]);
     }
 
@@ -43,16 +43,16 @@ class UpdateParticipantDrinkProgressTest extends TestCase
         $participant = $otherLobby->participants()->firstOrFail();
 
         $response = $this->patchJson(
-            route("lobbies.participants.drinkProgress.update", [
-                "lobby" => $lobby,
-                "participant" => $participant,
+            route('lobbies.participants.drinkProgress.update', [
+                'lobby' => $lobby,
+                'participant' => $participant,
             ]),
             [
-                "drunk_sips" => 1,
-                "drunk_shots" => 0,
-                "drunk_chugs" => 0,
+                'drunk_sips' => 1,
+                'drunk_shots' => 0,
+                'drunk_chugs' => 0,
             ],
-            ["X-Participant-Id" => (string) $participant->id]
+            ['X-Participant-Id' => (string) $participant->id]
         );
 
         $response->assertStatus(Response::HTTP_NOT_FOUND);
@@ -66,16 +66,16 @@ class UpdateParticipantDrinkProgressTest extends TestCase
         $otherParticipant = $participants[1];
 
         $response = $this->patchJson(
-            route("lobbies.participants.drinkProgress.update", [
-                "lobby" => $lobby,
-                "participant" => $participant,
+            route('lobbies.participants.drinkProgress.update', [
+                'lobby' => $lobby,
+                'participant' => $participant,
             ]),
             [
-                "drunk_sips" => 1,
-                "drunk_shots" => 0,
-                "drunk_chugs" => 0,
+                'drunk_sips' => 1,
+                'drunk_shots' => 0,
+                'drunk_chugs' => 0,
             ],
-            ["X-Participant-Id" => (string) $otherParticipant->id]
+            ['X-Participant-Id' => (string) $otherParticipant->id]
         );
 
         $response->assertStatus(Response::HTTP_FORBIDDEN);

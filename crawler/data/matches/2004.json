@@ -3,67 +3,80 @@
         {
             "name": "Chris Benoit",
             "cm_id": 574,
-            "id": "5b6723e7-ab5e-4d05-acd5-5deb14e49596"
+            "id": "5b6723e7-ab5e-4d05-acd5-5deb14e49596",
+            "entrance_number": 1
         },
         {
             "name": "Billy Gunn",
             "cm_id": 1081,
-            "id": "9b17becb-13b7-4737-adcd-bde68a61647b"
+            "id": "9b17becb-13b7-4737-adcd-bde68a61647b",
+            "entrance_number": 27
         },
         {
             "name": "Booker T",
             "cm_id": 642,
-            "id": "58667541-f26c-4f7f-80a0-0deb7cb189fa"
+            "id": "58667541-f26c-4f7f-80a0-0deb7cb189fa",
+            "entrance_number": 11
         },
         {
             "name": "Bradshaw",
             "cm_id": 193,
-            "id": "f951e246-81c9-453a-a530-afbb55874543"
+            "id": "f951e246-81c9-453a-a530-afbb55874543",
+            "entrance_number": 5
         },
         {
             "name": "Charlie Haas",
             "cm_id": 534,
-            "id": "45f83c08-739d-47d4-997b-dbfde981da2b"
+            "id": "45f83c08-739d-47d4-997b-dbfde981da2b",
+            "entrance_number": 26
         },
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "6c583d4d-dbe5-4cbd-b1a2-2119ce5c8e5f"
+            "id": "6c583d4d-dbe5-4cbd-b1a2-2119ce5c8e5f",
+            "entrance_number": 25
         },
         {
             "name": "Christian",
             "cm_id": 820,
-            "id": "51d2a5f8-52d1-45f3-a517-64e704eb07d2"
+            "id": "51d2a5f8-52d1-45f3-a517-64e704eb07d2",
+            "entrance_number": 22
         },
         {
             "name": "Ernest Miller",
             "cm_id": 764,
-            "id": "0851417d-cf94-4ae5-8e1d-135439808ffd"
+            "id": "0851417d-cf94-4ae5-8e1d-135439808ffd",
+            "entrance_number": 18
         },
         {
             "name": "Goldberg",
             "cm_id": 658,
-            "id": "f1132c7c-56bc-4112-8771-06fb684456e2"
+            "id": "f1132c7c-56bc-4112-8771-06fb684456e2",
+            "entrance_number": 30
         },
         {
             "name": "John Cena",
             "cm_id": 691,
-            "id": "76e58c97-87ed-4daf-abaf-6a1c71544d83"
+            "id": "76e58c97-87ed-4daf-abaf-6a1c71544d83",
+            "entrance_number": 28
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "52257ae2-af1d-487e-942b-e4f792064eb8"
+            "id": "52257ae2-af1d-487e-942b-e4f792064eb8",
+            "entrance_number": 12
         },
         {
             "name": "Kurt Angle",
             "cm_id": 540,
-            "id": "67289b17-f402-4aa1-9bee-2e5d211611b7"
+            "id": "67289b17-f402-4aa1-9bee-2e5d211611b7",
+            "entrance_number": 19
         },
         {
             "name": "Mark Henry",
             "cm_id": 437,
-            "id": "1f64b1e1-bf35-4178-ab8b-83d2575c84ae"
+            "id": "1f64b1e1-bf35-4178-ab8b-83d2575c84ae",
+            "entrance_number": 3
         },
         {
             "name": "Theodore Long",
@@ -73,87 +86,104 @@
         {
             "name": "Matt Hardy",
             "cm_id": 99,
-            "id": "6a327357-90ae-4a2a-ad7e-bd562a59445c"
+            "id": "6a327357-90ae-4a2a-ad7e-bd562a59445c",
+            "entrance_number": 7
         },
         {
             "name": "Matt Morgan",
             "cm_id": 1004,
-            "id": "d68248d4-8aa8-4725-956a-cad854758e07"
+            "id": "d68248d4-8aa8-4725-956a-cad854758e07",
+            "entrance_number": 9
         },
         {
             "name": "Mick Foley",
             "cm_id": 6,
-            "id": "f57abf33-29b1-4a82-8ec7-48353efe3d46"
+            "id": "f57abf33-29b1-4a82-8ec7-48353efe3d46",
+            "entrance_number": 21
         },
         {
             "name": "Nunzio",
             "cm_id": 342,
-            "id": "b21592af-b489-4e40-ac22-240f92e86f0f"
+            "id": "b21592af-b489-4e40-ac22-240f92e86f0f",
+            "entrance_number": 23
         },
         {
             "name": "Randy Orton",
             "cm_id": 998,
-            "id": "64f4874a-9dc0-4f91-909a-cb75887c12fa"
+            "id": "64f4874a-9dc0-4f91-909a-cb75887c12fa",
+            "entrance_number": 2
         },
         {
             "name": "Rene Dupree",
             "cm_id": 813,
-            "id": "e95a67ee-75f2-410a-88cf-76899f3677c0"
+            "id": "e95a67ee-75f2-410a-88cf-76899f3677c0",
+            "entrance_number": 15
         },
         {
             "name": "Rhyno",
             "cm_id": 410,
-            "id": "c2c59e82-e4d5-4145-84f0-9d204a350c48"
+            "id": "c2c59e82-e4d5-4145-84f0-9d204a350c48",
+            "entrance_number": 6
         },
         {
             "name": "Rico",
             "cm_id": 728,
-            "id": "4c26c62f-ddea-40e1-a4db-814a59f464b5"
+            "id": "4c26c62f-ddea-40e1-a4db-814a59f464b5",
+            "entrance_number": 20
         },
         {
             "name": "Rikishi",
             "cm_id": 303,
-            "id": "bd1eb81c-0769-42c1-adab-6040e4ab9702"
+            "id": "bd1eb81c-0769-42c1-adab-6040e4ab9702",
+            "entrance_number": 14
         },
         {
             "name": "Rob Van Dam",
             "cm_id": 866,
-            "id": "13137333-e590-4271-9caf-68c53a85cd1b"
+            "id": "13137333-e590-4271-9caf-68c53a85cd1b",
+            "entrance_number": 29
         },
         {
             "name": "Scott Steiner",
             "cm_id": 844,
-            "id": "2619e802-a219-4243-86cf-4ec29147203c"
+            "id": "2619e802-a219-4243-86cf-4ec29147203c",
+            "entrance_number": 8
         },
         {
             "name": "Shelton Benjamin",
             "cm_id": 823,
-            "id": "92bf28cf-ac0b-4107-bf3b-c4e086b36a02"
+            "id": "92bf28cf-ac0b-4107-bf3b-c4e086b36a02",
+            "entrance_number": 17
         },
         {
             "name": "Spike Dudley",
             "cm_id": 162,
-            "id": "949d0b49-b122-494e-9e6c-43ea12de7762"
+            "id": "949d0b49-b122-494e-9e6c-43ea12de7762",
+            "entrance_number": 13
         },
         {
             "name": "Tajiri",
             "cm_id": 54,
-            "id": "3b969cb0-1841-49fe-aa7f-66973ce64281"
+            "id": "3b969cb0-1841-49fe-aa7f-66973ce64281",
+            "entrance_number": 4
         },
         {
             "name": "The A-Train",
             "cm_id": 580,
-            "id": "90ea7c3c-8961-40a8-8708-266db52e0b52"
+            "id": "90ea7c3c-8961-40a8-8708-266db52e0b52",
+            "entrance_number": 16
         },
         {
             "name": "The Big Show",
             "cm_id": 712,
-            "id": "77ae7f1c-e976-45a5-83d5-cacd1f9724a1"
+            "id": "77ae7f1c-e976-45a5-83d5-cacd1f9724a1",
+            "entrance_number": 24
         },
         {
             "name": "The Hurricane",
             "cm_id": 464,
-            "id": "ed7b16af-b943-420a-9666-5dd18333065f"
+            "id": "ed7b16af-b943-420a-9666-5dd18333065f",
+            "entrance_number": 10
         }
     ],
     "eliminations": [
@@ -437,5 +467,17 @@
             "raw": "- Chris Benoit eliminates The Big Show",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2004)",
+        "source_revision_id": 1367249573,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

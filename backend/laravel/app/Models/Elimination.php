@@ -16,11 +16,12 @@ class Elimination extends Model
 
     public function rumblerVictims()
     {
-        return $this->belongsToMany(Rumbler::class, "victims");
+        return $this->belongsToMany(Rumbler::class, 'victims');
     }
 
     public function rumblerOffenders()
     {
-        return $this->belongsToMany(Rumbler::class, "offenders");
+        return $this->belongsToMany(Rumbler::class, 'offenders')
+            ->withPivot('participant_id');
     }
 }

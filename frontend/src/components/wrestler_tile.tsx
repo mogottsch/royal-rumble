@@ -1,5 +1,5 @@
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Box } from "@mui/material";
+import { Box, ButtonBase } from "@mui/material";
 import { Participant, Rumbler, Wrestler } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
@@ -170,28 +170,37 @@ export function WrestlerTile({
   const { t } = useI18n();
   const wrestler = rumbler?.wrestler as WrestlerWithThumbnail | undefined;
 
-  return (
-    <Box
-      sx={{
-        ...tileStyles,
-        ...(selected ? selectedTileStyles : {}),
-        cursor: onClick ? "pointer" : "default",
-      }}
-      onClick={onClick}
-    >
+  const content = (
+    <>
       {selected ? <SelectedBadge /> : null}
       <ParticipantName name={participant?.name ?? t("viewGame.npc")} />
       {wrestler ? (
         <WrestlerImage
           imageUrl={wrestler.thumbnail_url ?? wrestler.image_url}
-          alt={t("viewGame.wrestlerAlt")}
+          alt={wrestler.name}
           size={IMAGE_SIZE}
         />
       ) : (
-        <EntranceNumber number={participant?.entrance_number} />
+        <EntranceNumber number={participant?.entrance_number ?? undefined} />
       )}
       <WrestlerName name={wrestler?.name} selected={selected} />
-    </Box>
+    </>
+  );
+
+  const styles = {
+    ...tileStyles,
+    ...(selected ? selectedTileStyles : {}),
+    cursor: onClick ? "pointer" : "default",
+    width: "calc(100% - 10px)",
+    "&:focus-visible": { outline: "3px solid", outlineColor: "primary.main", outlineOffset: 2 },
+  };
+
+  return onClick ? (
+    <ButtonBase sx={styles} onClick={onClick} aria-pressed={selected}>
+      {content}
+    </ButtonBase>
+  ) : (
+    <Box sx={styles}>{content}</Box>
   );
 }
 
@@ -263,17 +272,21 @@ export function WrestlerPickerTile({
   onClick?: () => void;
 }) {
   return (
-    <Box
+    <ButtonBase
       sx={{
         ...tileStyles,
         ...(selected ? selectedTileStyles : {}),
         cursor: "pointer",
+        width: "calc(100% - 10px)",
+        "&:focus-visible": { outline: "3px solid", outlineColor: "primary.main", outlineOffset: 2 },
       }}
       onClick={onClick}
+      aria-pressed={selected}
+      aria-label={name}
     >
       {selected ? <SelectedBadge /> : null}
       <WrestlerImage imageUrl={imageUrl} alt={name} size={IMAGE_SIZE} />
       <WrestlerName name={name} selected={selected} />
-    </Box>
+    </ButtonBase>
   );
 }

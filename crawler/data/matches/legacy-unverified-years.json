@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "years": {
+    "1991": "Wikipedia entrant Randy Savage is absent from the preserved Cagematch wrestler objects.",
+    "1994": "Wikipedia entrant Bastion Booger is absent from the preserved Cagematch wrestler objects.",
+    "1998": "Wikipedia entrant Skull is absent from the preserved Cagematch wrestler objects.",
+    "2015": "Wikipedia entrant Erick Rowan is absent from the preserved Cagematch wrestler objects.",
+    "2017": "The preserved Cagematch data contains two indistinguishable Enzo Amore objects.",
+    "2023": "Wikipedia assigns draw 17 to Rey Mysterio, who did not enter and is absent from the preserved Cagematch wrestler objects."
+  },
+  "fallback": "legacy_result_order",
+  "warning": "Array positions in these files are not verified entrance order and must not be treated as authoritative."
+}

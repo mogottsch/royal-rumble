@@ -32,7 +32,7 @@ class EntranceNumberAssigner
         array $participantsEntranceNumbersMap
     ) {
         if (
-            !$this->correctNumberOfParticipants(
+            ! $this->correctNumberOfParticipants(
                 $lobby,
                 $participantsEntranceNumbersMap
             )
@@ -43,7 +43,7 @@ class EntranceNumberAssigner
         }
 
         if (
-            !$this->allParticipantsHaveAnEntranceNumber(
+            ! $this->allParticipantsHaveAnEntranceNumber(
                 $lobby,
                 $participantsEntranceNumbersMap
             )
@@ -54,14 +54,14 @@ class EntranceNumberAssigner
         }
 
         if (
-            !$this->allEntranceNumbersAreUnique($participantsEntranceNumbersMap)
+            ! $this->allEntranceNumbersAreUnique($participantsEntranceNumbersMap)
         ) {
             throw new EntranceNumberAssignerException(
                 EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_ARE_NOT_UNIQUE
             );
         }
         if (
-            !$this->allEntranceNumbersArePositive(
+            ! $this->allEntranceNumbersArePositive(
                 $participantsEntranceNumbersMap
             )
         ) {
@@ -70,7 +70,7 @@ class EntranceNumberAssigner
             );
         }
         if (
-            !$this->allEntranceNumbersAreSequential(
+            ! $this->allEntranceNumbersAreSequential(
                 $participantsEntranceNumbersMap
             )
         ) {
@@ -80,7 +80,7 @@ class EntranceNumberAssigner
         }
 
         if (
-            !$this->entranceNumbersStartWithOne($participantsEntranceNumbersMap)
+            ! $this->entranceNumbersStartWithOne($participantsEntranceNumbersMap)
         ) {
             throw new EntranceNumberAssignerException(
                 EntranceNumberAssignerErrorCode::ENTRANCE_NUMBERS_DO_NOT_START_WITH_ONE
@@ -88,7 +88,7 @@ class EntranceNumberAssigner
         }
 
         if (
-            !$this->allEntranceNumbersFitRumbleSize(
+            ! $this->allEntranceNumbersFitRumbleSize(
                 $lobby,
                 $participantsEntranceNumbersMap
             )
@@ -112,10 +112,11 @@ class EntranceNumberAssigner
         array $participantsEntranceNumbersMap
     ) {
         foreach ($lobby->participants as $participant) {
-            if (!isset($participantsEntranceNumbersMap[$participant->id])) {
+            if (! isset($participantsEntranceNumbersMap[$participant->id])) {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -134,6 +135,7 @@ class EntranceNumberAssigner
                 return false;
             }
         }
+
         return true;
     }
 
@@ -146,6 +148,7 @@ class EntranceNumberAssigner
             1,
             count($participantsEntranceNumbersMap)
         );
+
         return $sortedEntranceNumbers === $expectedEntranceNumbers;
     }
 
@@ -164,7 +167,7 @@ class EntranceNumberAssigner
 
     public function getNextRumblerEntranceNumber(Lobby $lobby): ?int
     {
-        $nRumblers = $lobby->fresh("rumblers")->rumblers->count();
+        $nRumblers = $lobby->fresh('rumblers')->rumblers->count();
 
         if ($nRumblers >= (int) $lobby->rumble_size) {
             return null;
@@ -185,14 +188,15 @@ class EntranceNumberAssigner
         $nextParticipantEntranceNumber =
             $this->getHighestParticipantEntranceNumber($lobby) +
             self::NEXT_OFFSET;
+
         return max($nextParticipantEntranceNumber, $nextRumblerEntranceNumber);
     }
 
     private function getHighestParticipantEntranceNumber(Lobby $lobby)
     {
         return $lobby
-            ->fresh("participants")
-            ->participants->max("entrance_number");
+            ->fresh('participants')
+            ->participants->max('entrance_number');
     }
 
     public function assignParticipantNextEntranceNumber(

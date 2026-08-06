@@ -3,32 +3,38 @@
         {
             "name": "Randy Orton",
             "cm_id": 998,
-            "id": "6ba738d6-bca2-4aa4-967c-4a75da4c6ffa"
+            "id": "6ba738d6-bca2-4aa4-967c-4a75da4c6ffa",
+            "entrance_number": 8
         },
         {
             "name": "Carlito",
             "cm_id": 208,
-            "id": "d76e7303-75d5-4534-b217-0309dc78f78a"
+            "id": "d76e7303-75d5-4534-b217-0309dc78f78a",
+            "entrance_number": 3
         },
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "f739749f-88a5-4297-9f34-52ff4b77b689"
+            "id": "f739749f-88a5-4297-9f34-52ff4b77b689",
+            "entrance_number": 11
         },
         {
             "name": "CM Punk",
             "cm_id": 80,
-            "id": "163ad1ad-fab7-4a45-bc5a-7d485caaef24"
+            "id": "163ad1ad-fab7-4a45-bc5a-7d485caaef24",
+            "entrance_number": 18
         },
         {
             "name": "Cody Rhodes",
             "cm_id": 3686,
-            "id": "e14bfe51-37b7-42ec-9190-9a5d89692835"
+            "id": "e14bfe51-37b7-42ec-9190-9a5d89692835",
+            "entrance_number": 15
         },
         {
             "name": "Finlay",
             "cm_id": 154,
-            "id": "fdf8ea1f-840b-4bbf-99b3-baceeed4e9f9"
+            "id": "fdf8ea1f-840b-4bbf-99b3-baceeed4e9f9",
+            "entrance_number": 14
         },
         {
             "name": "Hornswoggle",
@@ -38,22 +44,26 @@
         {
             "name": "John Morrison",
             "cm_id": 1099,
-            "id": "25195b01-7f9c-4d9b-9533-773b776b166b"
+            "id": "25195b01-7f9c-4d9b-9533-773b776b166b",
+            "entrance_number": 2
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "c4c7eaa9-1703-49ed-ae3c-9396839db9e5"
+            "id": "c4c7eaa9-1703-49ed-ae3c-9396839db9e5",
+            "entrance_number": 23
         },
         {
             "name": "Kofi Kingston",
             "cm_id": 3687,
-            "id": "625ba596-e6b7-4ab1-bde9-d91375bdc8da"
+            "id": "625ba596-e6b7-4ab1-bde9-d91375bdc8da",
+            "entrance_number": 22
         },
         {
             "name": "Mark Henry",
             "cm_id": 437,
-            "id": "1e5c721a-21b6-4d19-826f-389b58b43078"
+            "id": "1e5c721a-21b6-4d19-826f-389b58b43078",
+            "entrance_number": 19
         },
         {
             "name": "Tony Atlas",
@@ -63,42 +73,50 @@
         {
             "name": "Mike Knox",
             "cm_id": 173,
-            "id": "97e331f5-3744-460a-8006-1372a49d5303"
+            "id": "97e331f5-3744-460a-8006-1372a49d5303",
+            "entrance_number": 12
         },
         {
             "name": "R-Truth",
             "cm_id": 200,
-            "id": "828a238e-2c6a-4c7f-9212-1871f35853b6"
+            "id": "828a238e-2c6a-4c7f-9212-1871f35853b6",
+            "entrance_number": 24
         },
         {
             "name": "Rey Mysterio",
             "cm_id": 604,
-            "id": "b142a3ec-1a7e-4cb8-9b39-39b11ac9a256"
+            "id": "b142a3ec-1a7e-4cb8-9b39-39b11ac9a256",
+            "entrance_number": 1
         },
         {
             "name": "Santino Marella",
             "cm_id": 3689,
-            "id": "bfd5a7a1-c37e-47cf-b809-eff6933a5f44"
+            "id": "bfd5a7a1-c37e-47cf-b809-eff6933a5f44",
+            "entrance_number": 28
         },
         {
             "name": "Shelton Benjamin",
             "cm_id": 823,
-            "id": "4a1d7132-96de-49b1-82d2-b779477567f1"
+            "id": "4a1d7132-96de-49b1-82d2-b779477567f1",
+            "entrance_number": 20
         },
         {
             "name": "Ted DiBiase",
             "cm_id": 4247,
-            "id": "a465a33e-6840-4fa8-9261-dec798a50366"
+            "id": "a465a33e-6840-4fa8-9261-dec798a50366",
+            "entrance_number": 10
         },
         {
             "name": "The Big Show",
             "cm_id": 712,
-            "id": "ed46b693-d9ba-4eaa-a371-de53a869e5cf"
+            "id": "ed46b693-d9ba-4eaa-a371-de53a869e5cf",
+            "entrance_number": 30
         },
         {
             "name": "The Brian Kendrick",
             "cm_id": 106,
-            "id": "5ee2caeb-1f41-490e-9f52-f707be3dc750"
+            "id": "5ee2caeb-1f41-490e-9f52-f707be3dc750",
+            "entrance_number": 26
         },
         {
             "name": "Ezekiel Jackson",
@@ -108,42 +126,50 @@
         {
             "name": "Jim Duggan",
             "cm_id": 1107,
-            "id": "a8a70df1-d403-48f0-a0c4-3142da8877b3"
+            "id": "a8a70df1-d403-48f0-a0c4-3142da8877b3",
+            "entrance_number": 29
         },
         {
             "name": "JTG",
             "cm_id": 2717,
-            "id": "63bcb3e4-160a-40c6-8d2b-cb4f8054f12a"
+            "id": "63bcb3e4-160a-40c6-8d2b-cb4f8054f12a",
+            "entrance_number": 9
         },
         {
             "name": "The Great Khali",
             "cm_id": 2011,
-            "id": "e7c2dd7d-b2de-402f-bcbb-a2d5a66def91"
+            "id": "e7c2dd7d-b2de-402f-bcbb-a2d5a66def91",
+            "entrance_number": 5
         },
         {
             "name": "The Miz",
             "cm_id": 1590,
-            "id": "5cd7e501-ca1d-40e6-8e98-4eaa5b9c9b91"
+            "id": "5cd7e501-ca1d-40e6-8e98-4eaa5b9c9b91",
+            "entrance_number": 13
         },
         {
             "name": "The Undertaker",
             "cm_id": 761,
-            "id": "69f220c1-3482-4db6-887b-bf6d9d65b7ee"
+            "id": "69f220c1-3482-4db6-887b-bf6d9d65b7ee",
+            "entrance_number": 16
         },
         {
             "name": "Triple H",
             "cm_id": 496,
-            "id": "c323ee1d-79fe-4de8-81cc-1f459662d3ed"
+            "id": "c323ee1d-79fe-4de8-81cc-1f459662d3ed",
+            "entrance_number": 7
         },
         {
             "name": "Vladimir Kozlov",
             "cm_id": 2817,
-            "id": "6db31646-ba9b-43e4-8c1e-c571e9e4e301"
+            "id": "6db31646-ba9b-43e4-8c1e-c571e9e4e301",
+            "entrance_number": 6
         },
         {
             "name": "William Regal",
             "cm_id": 594,
-            "id": "c1468d61-ddf8-4aa7-b206-07b69a17c42d"
+            "id": "c1468d61-ddf8-4aa7-b206-07b69a17c42d",
+            "entrance_number": 21
         },
         {
             "name": "Layla",
@@ -153,22 +179,26 @@
         {
             "name": "Dolph Ziggler",
             "cm_id": 2515,
-            "id": "f0189314-9389-4c45-a12c-bd150b85a0b7"
+            "id": "f0189314-9389-4c45-a12c-bd150b85a0b7",
+            "entrance_number": 27
         },
         {
             "name": "Goldust",
             "cm_id": 917,
-            "id": "3fe5206b-c4ff-4865-9196-86977c960bf7"
+            "id": "3fe5206b-c4ff-4865-9196-86977c960bf7",
+            "entrance_number": 17
         },
         {
             "name": "Montel Vontavious Porter",
             "cm_id": 561,
-            "id": "057c547a-5ac7-42c3-91a0-0abfea25d0f3"
+            "id": "057c547a-5ac7-42c3-91a0-0abfea25d0f3",
+            "entrance_number": 4
         },
         {
             "name": "Rob Van Dam",
             "cm_id": 866,
-            "id": "0f4e696a-d16c-4abb-b6b4-5aaf52734957"
+            "id": "0f4e696a-d16c-4abb-b6b4-5aaf52734957",
+            "entrance_number": 25
         }
     ],
     "eliminations": [
@@ -446,5 +476,17 @@
             "raw": "- Randy Orton eliminates Triple H",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2009)",
+        "source_revision_id": 1367987773,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

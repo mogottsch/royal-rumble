@@ -2,11 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Lobby;
 use App\Services\LobbyCodeGenerator;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Lobby>
+ * @extends Factory<Lobby>
  */
 class LobbyFactory extends Factory
 {
@@ -17,10 +18,11 @@ class LobbyFactory extends Factory
      */
     public function definition()
     {
-        $lobbyCodeGenerator = new LobbyCodeGenerator();
+        $lobbyCodeGenerator = new LobbyCodeGenerator;
+
         return [
-            "code" => $lobbyCodeGenerator->generate(),
-            "rumble_size" => 30,
+            'code' => $lobbyCodeGenerator->generate(),
+            'rumble_size' => 30,
         ];
     }
 }

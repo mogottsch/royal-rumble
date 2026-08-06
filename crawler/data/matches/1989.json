@@ -3,152 +3,182 @@
         {
             "name": "Big John Studd",
             "cm_id": 310,
-            "id": "37d60744-b7c6-47c0-bb6f-33c43bd23aac"
+            "id": "37d60744-b7c6-47c0-bb6f-33c43bd23aac",
+            "entrance_number": 27
         },
         {
             "name": "Akeem",
             "cm_id": 522,
-            "id": "e118f7db-28f4-4b0c-87aa-dea00ec4772c"
+            "id": "e118f7db-28f4-4b0c-87aa-dea00ec4772c",
+            "entrance_number": 23
         },
         {
             "name": "Andre The Giant",
             "cm_id": 926,
-            "id": "3f9aa37b-147a-4f40-ac24-d462c51ae073"
+            "id": "3f9aa37b-147a-4f40-ac24-d462c51ae073",
+            "entrance_number": 3
         },
         {
             "name": "Arn Anderson",
             "cm_id": 479,
-            "id": "a3bd355b-c9e4-4928-bbe7-d6e135d53887"
+            "id": "a3bd355b-c9e4-4928-bbe7-d6e135d53887",
+            "entrance_number": 16
         },
         {
             "name": "Ax",
             "cm_id": 806,
-            "id": "0a982cd8-946e-4dd5-8ada-7aaf01ab8166"
+            "id": "0a982cd8-946e-4dd5-8ada-7aaf01ab8166",
+            "entrance_number": 1
         },
         {
             "name": "Bad News Brown",
             "cm_id": 528,
-            "id": "15082c21-7d18-4232-a6c1-aa60a87ce408"
+            "id": "15082c21-7d18-4232-a6c1-aa60a87ce408",
+            "entrance_number": 13
         },
         {
             "name": "Brutus Beefcake",
             "cm_id": 689,
-            "id": "4be81cf2-dbe2-471c-8a0b-36887bf147d8"
+            "id": "4be81cf2-dbe2-471c-8a0b-36887bf147d8",
+            "entrance_number": 24
         },
         {
             "name": "Butch",
             "cm_id": 1032,
-            "id": "66f912a9-ebf4-4822-b308-90e7ac96dc56"
+            "id": "66f912a9-ebf4-4822-b308-90e7ac96dc56",
+            "entrance_number": 10
         },
         {
             "name": "Greg Valentine",
             "cm_id": 104,
-            "id": "7a8ce391-2c4a-415f-9929-e52cc11936ee"
+            "id": "7a8ce391-2c4a-415f-9929-e52cc11936ee",
+            "entrance_number": 6
         },
         {
             "name": "Hercules",
             "cm_id": 1500,
-            "id": "815144a1-132b-41d0-ab9c-e650953f3a84"
+            "id": "815144a1-132b-41d0-ab9c-e650953f3a84",
+            "entrance_number": 28
         },
         {
             "name": "Hulk Hogan",
             "cm_id": 504,
-            "id": "515e05ad-6d30-4353-b4a9-7949367aaa2f"
+            "id": "515e05ad-6d30-4353-b4a9-7949367aaa2f",
+            "entrance_number": 18
         },
         {
             "name": "Jake Roberts",
             "cm_id": 36,
-            "id": "785762cb-889d-4660-a59e-d35880ac2fd1"
+            "id": "785762cb-889d-4660-a59e-d35880ac2fd1",
+            "entrance_number": 7
         },
         {
             "name": "Koko B. Ware",
             "cm_id": 57,
-            "id": "a040672a-1b32-4a02-9802-33a500a8e0c4"
+            "id": "a040672a-1b32-4a02-9802-33a500a8e0c4",
+            "entrance_number": 20
         },
         {
             "name": "Luke",
             "cm_id": 88,
-            "id": "f15c9e78-6edd-43b7-9a2a-62127906ebaa"
+            "id": "f15c9e78-6edd-43b7-9a2a-62127906ebaa",
+            "entrance_number": 19
         },
         {
             "name": "Marty Jannetty",
             "cm_id": 988,
-            "id": "6d4e8b30-060d-4336-8eab-e9359ec9cd5d"
+            "id": "6d4e8b30-060d-4336-8eab-e9359ec9cd5d",
+            "entrance_number": 14
         },
         {
             "name": "Mr. Perfect",
             "cm_id": 1015,
-            "id": "a7c37640-2b95-41b2-bed7-80a8b97be638"
+            "id": "a7c37640-2b95-41b2-bed7-80a8b97be638",
+            "entrance_number": 4
         },
         {
             "name": "Randy Savage",
             "cm_id": 640,
-            "id": "c6b2bfc8-f43f-4edb-8938-eae8986a4cdc"
+            "id": "c6b2bfc8-f43f-4edb-8938-eae8986a4cdc",
+            "entrance_number": 15
         },
         {
             "name": "Rick Martel",
             "cm_id": 1010,
-            "id": "39bbde19-1e31-42f9-9b57-00a460104802"
+            "id": "39bbde19-1e31-42f9-9b57-00a460104802",
+            "entrance_number": 29
         },
         {
             "name": "Ron Bass",
             "cm_id": 1031,
-            "id": "61838051-4ae3-47fc-8ffb-efd13eeaa560"
+            "id": "61838051-4ae3-47fc-8ffb-efd13eeaa560",
+            "entrance_number": 8
         },
         {
             "name": "Ronnie Garvin",
             "cm_id": 1017,
-            "id": "129558d2-885c-413d-b873-fc81f90ea28f"
+            "id": "129558d2-885c-413d-b873-fc81f90ea28f",
+            "entrance_number": 5
         },
         {
             "name": "Shawn Michaels",
             "cm_id": 796,
-            "id": "31107f75-078b-4b40-bc52-2be68ee2b454"
+            "id": "31107f75-078b-4b40-bc52-2be68ee2b454",
+            "entrance_number": 9
         },
         {
             "name": "Smash",
             "cm_id": 1069,
-            "id": "6e40d986-563c-4b63-9a44-c9334b5d1e70"
+            "id": "6e40d986-563c-4b63-9a44-c9334b5d1e70",
+            "entrance_number": 2
         },
         {
             "name": "Ted DiBiase",
             "cm_id": 1034,
-            "id": "dd2f7f93-1136-4a83-8987-3a81cfb6e524"
+            "id": "dd2f7f93-1136-4a83-8987-3a81cfb6e524",
+            "entrance_number": 30
         },
         {
             "name": "The Barbarian",
             "cm_id": 413,
-            "id": "f6c5a808-d455-4c28-b4e7-fb3509afa283"
+            "id": "f6c5a808-d455-4c28-b4e7-fb3509afa283",
+            "entrance_number": 26
         },
         {
             "name": "The Big Boss Man",
             "cm_id": 690,
-            "id": "6aafe013-8ac8-49d7-a100-f9faeec26e3e"
+            "id": "6aafe013-8ac8-49d7-a100-f9faeec26e3e",
+            "entrance_number": 22
         },
         {
             "name": "The Honky Tonk Man",
             "cm_id": 156,
-            "id": "7a15abaf-c873-418e-9c79-538a564381d2"
+            "id": "7a15abaf-c873-418e-9c79-538a564381d2",
+            "entrance_number": 11
         },
         {
             "name": "The Red Rooster",
             "cm_id": 1058,
-            "id": "4e83743e-b38d-4e77-9f66-a5e142f23536"
+            "id": "4e83743e-b38d-4e77-9f66-a5e142f23536",
+            "entrance_number": 25
         },
         {
             "name": "The Warlord",
             "cm_id": 1480,
-            "id": "2922e677-0280-4151-8e83-fd1b0acc43e9"
+            "id": "2922e677-0280-4151-8e83-fd1b0acc43e9",
+            "entrance_number": 21
         },
         {
             "name": "Tito Santana",
             "cm_id": 93,
-            "id": "fcf77260-9f53-47d8-af73-0f7f3ac40860"
+            "id": "fcf77260-9f53-47d8-af73-0f7f3ac40860",
+            "entrance_number": 12
         },
         {
             "name": "Tully Blanchard",
             "cm_id": 378,
-            "id": "9c65d4e6-9273-4d5e-bdcb-84d1ecef1ee0"
+            "id": "9c65d4e6-9273-4d5e-bdcb-84d1ecef1ee0",
+            "entrance_number": 17
         }
     ],
     "eliminations": [
@@ -421,5 +451,17 @@
             "raw": "- Big John Studd eliminates Ted DiBiase ",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(1989)",
+        "source_revision_id": 1367248178,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

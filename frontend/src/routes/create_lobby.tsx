@@ -2,7 +2,7 @@ import { Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { JSX, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchApi } from "../api/fetcher";
+import { apiJson } from "../api/fetcher";
 import { PrimaryButton } from "../components/buttons";
 import { InputField } from "../components/form";
 import {
@@ -11,8 +11,10 @@ import {
   LobbySettingsForm,
 } from "../components/lobby_settings_form";
 import { isTestSeedTrigger, mergeTestParticipants } from "../test_lobby_seed";
-import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
+import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import { useI18n } from "../i18n";
+import { useNotificationContext } from "../contexts/notification_context";
+import type { Lobby } from "../hooks/use_lobby";
 
 export function CreateLobby() {
   const [newName, setNewName] = useState("");
@@ -20,8 +22,10 @@ export function CreateLobby() {
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
   const [settings, setSettings] = useState<LobbySettings>(getDefaultLobbySettings());
   const navigate = useNavigate();
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
   const { t } = useI18n();
+  const { notify } = useNotificationContext();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isParticipantNameEmpty = newName === "";
   const isParticipantNameDuplicate = participantNames.includes(newName);
@@ -53,15 +57,22 @@ export function CreateLobby() {
       setErrorMessages([t("createLobby.errorMinParticipants")]);
       return;
     }
+    if (isSubmitting) return;
     setErrorMessages([]);
-      setKeyLoading("createLobby", true);
-      const lobby = await postCreateLobby(
-        participantNames,
-        settings,
-        t("createLobby.errorFailed", { statusText: responseStatusToken }),
+    setIsSubmitting(true);
+    setKeyLoading("createLobby", true);
+    try {
+      const lobby = await postCreateLobby(participantNames, settings);
+      navigate(`/lobbies/${lobby.code}/assign-entrance-numbers`);
+    } catch (error) {
+      notify(
+        t("createLobby.errorFailed", { statusText: (error as Error).message }),
+        "error",
       );
-    setKeyLoading("createLobby", false);
-    navigate(`/lobbies/${lobby.code}/assign-entrance-numbers`);
+    } finally {
+      setIsSubmitting(false);
+      setKeyLoading("createLobby", false);
+    }
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -125,7 +136,7 @@ export function CreateLobby() {
       >
         <PrimaryButton
           onClick={createLobby}
-          disabled={participantNames.length < 2}
+          disabled={participantNames.length < 2 || isSubmitting}
         >
           {t("createLobby.continue")}
         </PrimaryButton>
@@ -143,23 +154,12 @@ const NameBox = ({ children }: { children: JSX.Element | string }) => (
 async function postCreateLobby(
   participants: string[],
   settings: LobbySettings,
-  errorTemplate: string,
-) {
+): Promise<Lobby> {
   const body = JSON.stringify({ participants, ...settings });
-  const response = await fetchApi("/lobbies", {
+  const data = await apiJson<{ data: { lobby: Lobby } }>("/lobbies", {
     method: "POST",
     body,
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
+    headers: { "content-type": "application/json" },
   });
-
-  if (!response.ok) {
-    throw new Error(errorTemplate.replace(responseStatusToken, response.statusText));
-  }
-  const data = await response.json();
   return data.data.lobby;
 }
-
-const responseStatusToken = "__status_text__";

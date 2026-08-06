@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEliminationRequest;
 use App\Http\Requests\UpdateEliminationRequest;
 use App\Models\Elimination;
+use Illuminate\Http\Response;
 
 class EliminationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,8 +22,7 @@ class EliminationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEliminationRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(StoreEliminationRequest $request)
     {
@@ -32,8 +32,7 @@ class EliminationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Elimination  $elimination
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Elimination $elimination)
     {
@@ -43,9 +42,7 @@ class EliminationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateEliminationRequest  $request
-     * @param  \App\Models\Elimination  $elimination
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(UpdateEliminationRequest $request, Elimination $elimination)
     {
@@ -55,8 +52,7 @@ class EliminationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Elimination  $elimination
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Elimination $elimination)
     {

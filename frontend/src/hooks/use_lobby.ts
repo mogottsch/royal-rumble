@@ -1,14 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchApi } from "../api/fetcher";
+import { ApiError, apiJson } from "../api/fetcher";
 import { useEchoContext } from "../contexts/echo_context";
 import { useNotificationContext } from "../contexts/notification_context";
 
 export interface Lobby {
   id: number;
-  created_at: string;
-  updated_at: string;
   code: string;
   participants: Participant[];
   rumblers: Rumbler[];
@@ -30,14 +28,8 @@ export interface DrinkConfig {
   chest_aggression_multiplier: number;
 }
 
-export interface LobbySettings {
+export interface LobbySettings extends DrinkConfig {
   rumble_size: number;
-  schluecke_per_elimination: number;
-  shots_per_elimination: number;
-  schluecke_on_npc_elimination: number;
-  shots_on_npc_elimination: number;
-  mystery_chests_enabled: boolean;
-  chest_aggression_multiplier: number;
 }
 
 export interface DrinkDistribution {
@@ -62,8 +54,8 @@ export interface ChestReward {
   id: number;
   lobby_id: number;
   elimination_id: number;
-  offender_rumbler_id: number;
-  victim_rumbler_id: number;
+  offender_rumbler_id: number | null;
+  victim_rumbler_id: number | null;
   chooser_participant_id: number;
   status:
     | "pending_choice"
@@ -131,12 +123,12 @@ export interface Elimination {
 
 export interface Participant {
   id: number;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
   name: string;
-  entrance_number: number;
+  entrance_number: number | null;
   lobby_id: number;
-  rumbler_id: number;
+  rumbler_id: number | null;
   drunk_sips: number;
   drunk_shots: number;
   drunk_chugs: number;
@@ -144,20 +136,21 @@ export interface Participant {
 
 export interface Rumbler {
   id: number;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
   entrance_number: number;
   lobby_id: number;
   wrestler_id: number;
   wrestler: Wrestler;
   is_eliminated: boolean;
   participant: Participant | null;
+  pivot?: { participant_id?: number | null };
 }
 
 export interface Wrestler {
   id: number;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
   name: string;
   royal_rumble_stats?: {
     appearances: number;
@@ -165,6 +158,7 @@ export interface Wrestler {
     number_thirty_appearances: number;
   };
   image_url?: string;
+  thumbnail_url?: string;
 }
 
 export function useLobby({
@@ -174,67 +168,58 @@ export function useLobby({
   lobbyCode?: string;
   pollIntervalMs?: number | false;
 }) {
-  const [lobby, setLobby] = useState<Lobby | undefined>(undefined);
-  const query = useLobbyQuery(lobbyCode);
+  const queryClient = useQueryClient();
+  const query = useQuery<Lobby, Error>({
+    queryKey: ["lobby", lobbyCode],
+    queryFn: ({ signal }) => fetchLobby(lobbyCode, signal),
+    enabled: Boolean(lobbyCode),
+    retry: false,
+    refetchOnWindowFocus: false,
+    refetchInterval: pollIntervalMs,
+  });
+  const { echo } = useEchoContext();
   const { notify } = useNotificationContext();
   const navigate = useNavigate();
-  useEffect(() => {
-    if (query.data) {
-      setLobby(query.data);
-    }
-  }, [query.data]);
-
-  const { echo } = useEchoContext();
+  const lastBackgroundError = useRef<string | undefined>(undefined);
 
   useEffect(() => {
-    if (!lobby?.id || !echo) {
-      return;
-    }
-    const channel = echo.channel(`lobbies.${lobby.id}`);
-    const callback = (e: any) => {
-      if ("lobby" in e) {
-        setLobby(e.lobby);
-        return;
-      }
-      console.info("Unknown event", e);
-    };
+    const lobbyId = query.data?.id;
+    if (!lobbyId || !echo || !lobbyCode) return;
 
+    const channel = echo.channel(`lobbies.${lobbyId}`);
     const eventName = ".lobby-updated";
-    channel.listen(eventName, callback);
-
-    return () => {
-      channel.stopListening(eventName);
+    const callback = () => {
+      void queryClient.invalidateQueries({ queryKey: ["lobby", lobbyCode], exact: true });
     };
-  }, [lobby?.id, echo]);
+    channel.listen(eventName, callback);
+    return () => {
+      channel.stopListening(eventName, callback);
+      echo.leave(`lobbies.${lobbyId}`);
+    };
+  }, [echo, lobbyCode, query.data?.id, queryClient]);
 
   useEffect(() => {
-    if (!lobbyCode || pollIntervalMs === false) {
+    if (!query.isError) {
+      lastBackgroundError.current = undefined;
       return;
     }
 
-    const interval = window.setInterval(async () => {
-      const response = await fetchApi("/lobbies/" + lobbyCode);
-      if (!response.ok) {
-        return;
-      }
-      const data = await response.json();
-      setLobby(data.data.lobby);
-    }, pollIntervalMs);
-
-    return () => window.clearInterval(interval);
-  }, [lobbyCode, pollIntervalMs]);
-
-  useEffect(() => {
-    if (query.isError) {
-      setLobby(undefined);
-      const error = query.error as Error;
-      notify(error.message, "error");
-      navigate("/");
+    const isNotFound =
+      query.error.cause instanceof ApiError && query.error.cause.status === 404;
+    if (!query.data || isNotFound) {
+      notify(query.error.message, "error");
+      navigate("/", { replace: true });
+      return;
     }
-  }, [query.isError]);
+
+    if (lastBackgroundError.current !== query.error.message) {
+      lastBackgroundError.current = query.error.message;
+      notify(query.error.message, "error");
+    }
+  }, [navigate, notify, query.data, query.error, query.isError]);
 
   return {
-    lobby,
+    lobby: query.data,
     isLoading: query.isLoading,
     isError: query.isError,
     error: query.error,
@@ -242,28 +227,18 @@ export function useLobby({
   };
 }
 
-function useLobbyQuery(lobbyCode?: string) {
-  const queryKey = ["lobby", lobbyCode];
-  return useQuery<Lobby, any>({
-    queryKey,
-    queryFn: fetchLobby,
-    retry: false,
-    refetchOnWindowFocus: false,
-  });
-}
-
-async function fetchLobby({ queryKey }: any): Promise<Lobby> {
-  const lobbyCode = queryKey[1];
-  if (!lobbyCode) {
-    throw new Error("No lobby code provided");
+async function fetchLobby(lobbyCode: string | undefined, signal: AbortSignal): Promise<Lobby> {
+  if (!lobbyCode) throw new Error("No lobby code provided");
+  try {
+    const data = await apiJson<{ data: { lobby: Lobby } }>(
+      `/lobbies/${encodeURIComponent(lobbyCode)}`,
+      { signal },
+    );
+    return data.data.lobby;
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) {
+      throw new Error("Lobby not found", { cause: error });
+    }
+    throw error;
   }
-  const response = await fetchApi("/lobbies/" + lobbyCode);
-  if (response.status === 404) {
-    throw new Error("Lobby not found");
-  }
-  if (!response.ok) {
-    throw new Error("Failed to fetch lobby");
-  }
-  const data = await response.json();
-  return data.data.lobby;
 }

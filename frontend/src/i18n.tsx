@@ -69,6 +69,8 @@ const translations: Record<Language, TranslationDict> = {
     "bar.playingAs": ({ name }) => `Playing as ${name}`,
     "bar.copyUnsupported": "Your browser does not support copying to clipboard",
     "bar.copied": "Copied to clipboard",
+    "bar.copyPlayerLink": "Copy player link",
+    "bar.copyDashboardLink": "Copy dashboard link",
     "bar.share": "Share lobby",
     "bar.dashboard": "Dashboard",
     "bar.playerView": "Player view",
@@ -150,9 +152,10 @@ const translations: Record<Language, TranslationDict> = {
     "addEntrance.loading": "Loading...",
     "addEntrance.selectWrestler": "Please select a wrestler",
     "addEntrance.addedWrestler": ({ name }) => `Added ${name}`,
-    "addEntrance.createOption": ({ name }) => `Add \"${name}\"`,
+    "addEntrance.createOption": ({ name }) => `Add "${name}"`,
     "addEntrance.label": "Wrestler",
     "addEntrance.noResults": "No wrestlers found.",
+    "addEntrance.searchFailed": "Wrestler search failed",
     "addEntrance.submit": "Add entrance",
     "addEntrance.dialogTitle": "Add a new wrestler",
     "addEntrance.dialogLabel": "Name",
@@ -407,6 +410,8 @@ const translations: Record<Language, TranslationDict> = {
     "bar.playingAs": ({ name }) => `Du spielst als ${name}`,
     "bar.copyUnsupported": "Dein Browser unterstützt das Kopieren in die Zwischenablage nicht",
     "bar.copied": "In die Zwischenablage kopiert",
+    "bar.copyPlayerLink": "Spieler-Link kopieren",
+    "bar.copyDashboardLink": "Dashboard-Link kopieren",
     "bar.share": "Lobby teilen",
     "bar.dashboard": "Dashboard",
     "bar.playerView": "Spieleransicht",
@@ -488,9 +493,10 @@ const translations: Record<Language, TranslationDict> = {
     "addEntrance.loading": "Lade...",
     "addEntrance.selectWrestler": "Bitte wähle einen Wrestler aus",
     "addEntrance.addedWrestler": ({ name }) => `${name} hinzugefügt`,
-    "addEntrance.createOption": ({ name }) => `\"${name}\" hinzufügen`,
+    "addEntrance.createOption": ({ name }) => `"${name}" hinzufügen`,
     "addEntrance.label": "Wrestler",
     "addEntrance.noResults": "Keine Wrestler gefunden.",
+    "addEntrance.searchFailed": "Wrestler-Suche fehlgeschlagen",
     "addEntrance.submit": "Wrestler hinzufügen",
     "addEntrance.dialogTitle": "Neuen Wrestler hinzufügen",
     "addEntrance.dialogLabel": "Name",
@@ -664,6 +670,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    document.documentElement.lang = language;
   }, [language]);
 
   const value = useMemo<I18nContextType>(() => {

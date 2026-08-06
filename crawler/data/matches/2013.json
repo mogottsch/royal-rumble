@@ -3,152 +3,182 @@
         {
             "name": "John Cena",
             "cm_id": 691,
-            "id": "0629d0f3-97a3-4313-9735-5cf0015af0f6"
+            "id": "0629d0f3-97a3-4313-9735-5cf0015af0f6",
+            "entrance_number": 19
         },
         {
             "name": "Antonio Cesaro",
             "cm_id": 257,
-            "id": "ecfcec38-b455-4466-943c-212d07da60e3"
+            "id": "ecfcec38-b455-4466-943c-212d07da60e3",
+            "entrance_number": 22
         },
         {
             "name": "Bo Dallas",
             "cm_id": 7311,
-            "id": "8dc69b91-7bdb-494d-a46c-3439c3dc2efa"
+            "id": "8dc69b91-7bdb-494d-a46c-3439c3dc2efa",
+            "entrance_number": 16
         },
         {
             "name": "Brodus Clay",
             "cm_id": 4258,
-            "id": "92fe9a4d-45e4-499b-b7a1-74741d2ac474"
+            "id": "92fe9a4d-45e4-499b-b7a1-74741d2ac474",
+            "entrance_number": 13
         },
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "f8250a49-8bc1-4f91-85ca-c144bfd3d9fe"
+            "id": "f8250a49-8bc1-4f91-85ca-c144bfd3d9fe",
+            "entrance_number": 2
         },
         {
             "name": "Cody Rhodes",
             "cm_id": 3686,
-            "id": "17164a84-a68b-4ef3-9eca-ca2439c81566"
+            "id": "17164a84-a68b-4ef3-9eca-ca2439c81566",
+            "entrance_number": 3
         },
         {
             "name": "Damien Sandow",
             "cm_id": 636,
-            "id": "3583daad-1d7e-4263-92ed-15436af9fdc2"
+            "id": "3583daad-1d7e-4263-92ed-15436af9fdc2",
+            "entrance_number": 20
         },
         {
             "name": "Daniel Bryan",
             "cm_id": 86,
-            "id": "404f98aa-aba0-4b64-86d2-064ba7a3b562"
+            "id": "404f98aa-aba0-4b64-86d2-064ba7a3b562",
+            "entrance_number": 21
         },
         {
             "name": "Darren Young",
             "cm_id": 2040,
-            "id": "23928d3d-39a6-4f89-b60f-3c6479942286"
+            "id": "23928d3d-39a6-4f89-b60f-3c6479942286",
+            "entrance_number": 15
         },
         {
             "name": "David Otunga",
             "cm_id": 8000,
-            "id": "e593d5fe-994c-4969-8ce9-a8c6de881533"
+            "id": "e593d5fe-994c-4969-8ce9-a8c6de881533",
+            "entrance_number": 9
         },
         {
             "name": "Dolph Ziggler",
             "cm_id": 2515,
-            "id": "f691e481-7691-4154-848b-8c95b9adf91a"
+            "id": "f691e481-7691-4154-848b-8c95b9adf91a",
+            "entrance_number": 1
         },
         {
             "name": "Drew McIntyre",
             "cm_id": 2879,
-            "id": "687ce307-1d38-4f05-bac0-d8d2e6bc32f3"
+            "id": "687ce307-1d38-4f05-bac0-d8d2e6bc32f3",
+            "entrance_number": 6
         },
         {
             "name": "Goldust",
             "cm_id": 917,
-            "id": "c782f75e-0590-4ae6-a623-f6a1c64cd252"
+            "id": "c782f75e-0590-4ae6-a623-f6a1c64cd252",
+            "entrance_number": 8
         },
         {
             "name": "Heath Slater",
             "cm_id": 3296,
-            "id": "48664ba6-c0ab-48bd-95e7-b379fff80cd2"
+            "id": "48664ba6-c0ab-48bd-95e7-b379fff80cd2",
+            "entrance_number": 10
         },
         {
             "name": "Jinder Mahal",
             "cm_id": 6171,
-            "id": "b35498d2-92bb-4ede-b17c-fb869d68c00b"
+            "id": "b35498d2-92bb-4ede-b17c-fb869d68c00b",
+            "entrance_number": 27
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "36513069-9808-4a4d-846b-c3f1458e844c"
+            "id": "36513069-9808-4a4d-846b-c3f1458e844c",
+            "entrance_number": 24
         },
         {
             "name": "Kofi Kingston",
             "cm_id": 3687,
-            "id": "c053a3eb-6078-4bcf-bc7a-30f7db8fe330"
+            "id": "c053a3eb-6078-4bcf-bc7a-30f7db8fe330",
+            "entrance_number": 4
         },
         {
             "name": "Randy Orton",
             "cm_id": 998,
-            "id": "635d4fd3-abc4-4b36-8f8d-e5070901835a"
+            "id": "635d4fd3-abc4-4b36-8f8d-e5070901835a",
+            "entrance_number": 26
         },
         {
             "name": "Rey Mysterio",
             "cm_id": 604,
-            "id": "3070c66b-b016-484f-b019-00110cc760c6"
+            "id": "3070c66b-b016-484f-b019-00110cc760c6",
+            "entrance_number": 14
         },
         {
             "name": "Ryback",
             "cm_id": 2624,
-            "id": "2cdb6df3-2a25-4022-8c8c-5aa82f311f1c"
+            "id": "2cdb6df3-2a25-4022-8c8c-5aa82f311f1c",
+            "entrance_number": 30
         },
         {
             "name": "Santino Marella",
             "cm_id": 3689,
-            "id": "b7e2d3a5-c36c-44dc-b39a-f046fec5e854"
+            "id": "b7e2d3a5-c36c-44dc-b39a-f046fec5e854",
+            "entrance_number": 5
         },
         {
             "name": "Sheamus",
             "cm_id": 2641,
-            "id": "2cf68949-9f13-4883-aff5-c9b188e2aa76"
+            "id": "2cf68949-9f13-4883-aff5-c9b188e2aa76",
+            "entrance_number": 11
         },
         {
             "name": "Sin Cara",
             "cm_id": 2736,
-            "id": "22aeafc9-8741-48f5-ba3c-cb9be1142355"
+            "id": "22aeafc9-8741-48f5-ba3c-cb9be1142355",
+            "entrance_number": 29
         },
         {
             "name": "Tensai",
             "cm_id": 580,
-            "id": "6a3ca749-9d72-4fcc-b993-46866827d04e"
+            "id": "6a3ca749-9d72-4fcc-b993-46866827d04e",
+            "entrance_number": 12
         },
         {
             "name": "The Godfather",
             "cm_id": 901,
-            "id": "30e8af16-de27-49fc-9de1-4d1cbd626227"
+            "id": "30e8af16-de27-49fc-9de1-4d1cbd626227",
+            "entrance_number": 17
         },
         {
             "name": "The Great Khali",
             "cm_id": 2011,
-            "id": "67bb6a54-c013-488f-9825-5f702522c7d6"
+            "id": "67bb6a54-c013-488f-9825-5f702522c7d6",
+            "entrance_number": 23
         },
         {
             "name": "The Miz",
             "cm_id": 1590,
-            "id": "0c67fe94-ab8c-4840-a636-3cd4b1f19a4d"
+            "id": "0c67fe94-ab8c-4840-a636-3cd4b1f19a4d",
+            "entrance_number": 28
         },
         {
             "name": "Titus O'Neil",
             "cm_id": 8881,
-            "id": "c46e9d58-d004-407e-87ca-4e9a23257943"
+            "id": "c46e9d58-d004-407e-87ca-4e9a23257943",
+            "entrance_number": 7
         },
         {
             "name": "Wade Barrett",
             "cm_id": 2849,
-            "id": "ae75d6ac-bbe7-4105-ae63-b9400e5dc8e3"
+            "id": "ae75d6ac-bbe7-4105-ae63-b9400e5dc8e3",
+            "entrance_number": 18
         },
         {
             "name": "Zack Ryder",
             "cm_id": 2750,
-            "id": "060175e9-4176-4f2d-a5ae-3292f9c024df"
+            "id": "060175e9-4176-4f2d-a5ae-3292f9c024df",
+            "entrance_number": 25
         }
     ],
     "eliminations": [
@@ -438,5 +468,17 @@
             "raw": "- John Cena eliminates Ryback",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2013)",
+        "source_revision_id": 1364484591,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

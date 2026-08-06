@@ -4,7 +4,7 @@ import HistoryIcon from "@mui/icons-material/History";
 import LoginIcon from "@mui/icons-material/Login";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
 import SportsKabaddiIcon from "@mui/icons-material/SportsKabaddi";
-import { Box, Card, CardContent, Chip, Divider, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Card, CardContent, Chip, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import { useMemo } from "react";
 import { HistoryContent } from "../components/history";
 import { useLobbyContext } from "../contexts/lobby_context";
@@ -28,7 +28,7 @@ export function ViewGameDashboard() {
   }
 
   return (
-    <Stack spacing={2} sx={{ minHeight: 0, py: 1, px: { xs: 0, md: 1.5 } }}>
+    <Stack spacing={2} sx={{ flex: 1, minHeight: 0, overflowY: "auto", py: 1, px: { xs: 0, md: 1.5 } }}>
       <Box
         sx={{
           display: "grid",

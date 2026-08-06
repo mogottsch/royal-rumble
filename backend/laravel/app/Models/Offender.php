@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Offender extends Pivot
 {
-    protected $table = "offenders";
+    protected $table = 'offenders';
 
     public function elimination()
     {
@@ -16,5 +16,10 @@ class Offender extends Pivot
     public function rumbler()
     {
         return $this->belongsTo(Rumbler::class);
+    }
+
+    public function participant()
+    {
+        return $this->belongsTo(Participant::class);
     }
 }

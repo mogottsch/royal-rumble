@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Wrestler;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Wrestler>
+ * @extends Factory<Wrestler>
  */
 class WrestlerFactory extends Factory
 {
@@ -17,9 +18,9 @@ class WrestlerFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->name,
-            "created_at" => now(),
-            "updated_at" => now(),
+            'name' => $this->faker->name,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

@@ -3,12 +3,14 @@
         {
             "name": "Edge",
             "cm_id": 932,
-            "id": "927bb57d-ec8b-4927-ba85-df46e1f5b3f0"
+            "id": "927bb57d-ec8b-4927-ba85-df46e1f5b3f0",
+            "entrance_number": 1
         },
         {
             "name": "AJ Styles",
             "cm_id": 801,
-            "id": "3931499d-c87c-4fb8-88b0-892b4b1cdf38"
+            "id": "3931499d-c87c-4fb8-88b0-892b4b1cdf38",
+            "entrance_number": 25
         },
         {
             "name": "Omos",
@@ -18,142 +20,170 @@
         {
             "name": "Big E",
             "cm_id": 8880,
-            "id": "23a6014d-a6eb-4116-b65d-dee6e36654a5"
+            "id": "23a6014d-a6eb-4116-b65d-dee6e36654a5",
+            "entrance_number": 10
         },
         {
             "name": "Bobby Lashley",
             "cm_id": 1194,
-            "id": "588272dc-a6dc-40f0-bba5-5478286fad70"
+            "id": "588272dc-a6dc-40f0-bba5-5478286fad70",
+            "entrance_number": 22
         },
         {
             "name": "Braun Strowman",
             "cm_id": 16167,
-            "id": "10856da3-9b0d-4890-aa84-de25db4b677a"
+            "id": "10856da3-9b0d-4890-aa84-de25db4b677a",
+            "entrance_number": 30
         },
         {
             "name": "Carlito",
             "cm_id": 208,
-            "id": "7723fdcf-297e-4314-ad03-590936724ee9"
+            "id": "7723fdcf-297e-4314-ad03-590936724ee9",
+            "entrance_number": 8
         },
         {
             "name": "Cesaro",
             "cm_id": 257,
-            "id": "35a53018-ddab-4a25-9b6e-0e9fe9f31fdc"
+            "id": "35a53018-ddab-4a25-9b6e-0e9fe9f31fdc",
+            "entrance_number": 28
         },
         {
             "name": "Christian",
             "cm_id": 820,
-            "id": "e5ecc4ff-4d99-4fd7-89ed-612d7ff6afdb"
+            "id": "e5ecc4ff-4d99-4fd7-89ed-612d7ff6afdb",
+            "entrance_number": 24
         },
         {
             "name": "Damian Priest",
             "cm_id": 16337,
-            "id": "88316894-18ee-4b7a-90a2-113c39a921cc"
+            "id": "88316894-18ee-4b7a-90a2-113c39a921cc",
+            "entrance_number": 14
         },
         {
             "name": "Daniel Bryan",
             "cm_id": 86,
-            "id": "7a428742-5070-4021-8d64-25d6e56f70e1"
+            "id": "7a428742-5070-4021-8d64-25d6e56f70e1",
+            "entrance_number": 17
         },
         {
             "name": "Dolph Ziggler",
             "cm_id": 2515,
-            "id": "f596981e-694e-4628-a15c-fdda84a9751a"
+            "id": "f596981e-694e-4628-a15c-fdda84a9751a",
+            "entrance_number": 6
         },
         {
             "name": "Dominik Mysterio",
             "cm_id": 22500,
-            "id": "3bd63e04-95fa-4976-a36c-054a232d4b33"
+            "id": "3bd63e04-95fa-4976-a36c-054a232d4b33",
+            "entrance_number": 21
         },
         {
             "name": "Elias",
             "cm_id": 7461,
-            "id": "09fd23cd-9746-4295-9a04-622a2d0178c4"
+            "id": "09fd23cd-9746-4295-9a04-622a2d0178c4",
+            "entrance_number": 13
         },
         {
             "name": "Hurricane Helms",
             "cm_id": 464,
-            "id": "a64d7756-e097-4ad8-b9ee-3f5c06816a8d"
+            "id": "a64d7756-e097-4ad8-b9ee-3f5c06816a8d",
+            "entrance_number": 23
         },
         {
             "name": "Jeff Hardy",
             "cm_id": 891,
-            "id": "c8e14fd9-1d0d-4865-9f9f-60681d1759b4"
+            "id": "c8e14fd9-1d0d-4865-9f9f-60681d1759b4",
+            "entrance_number": 5
         },
         {
             "name": "John Morrison",
             "cm_id": 1099,
-            "id": "ced1ae12-aa2a-4f8e-bf35-c78bd5c0c439"
+            "id": "ced1ae12-aa2a-4f8e-bf35-c78bd5c0c439",
+            "entrance_number": 11
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "e8454708-2c14-40fa-bbed-302cd2657ad5"
+            "id": "e8454708-2c14-40fa-bbed-302cd2657ad5",
+            "entrance_number": 18
         },
         {
             "name": "King Corbin",
             "cm_id": 12474,
-            "id": "2105bd19-a93c-4c64-bd02-6002c0b6cc5c"
+            "id": "2105bd19-a93c-4c64-bd02-6002c0b6cc5c",
+            "entrance_number": 19
         },
         {
             "name": "Mustafa Ali",
             "cm_id": 7145,
-            "id": "ab574096-9f91-461f-9c52-03483c347007"
+            "id": "ab574096-9f91-461f-9c52-03483c347007",
+            "entrance_number": 4
         },
         {
             "name": "Otis",
             "cm_id": 17854,
-            "id": "007ee589-d109-42ec-811d-0f27a2a2dbef"
+            "id": "007ee589-d109-42ec-811d-0f27a2a2dbef",
+            "entrance_number": 20
         },
         {
             "name": "Randy Orton",
             "cm_id": 998,
-            "id": "77e6faa5-3c10-48ee-a37a-8867fd4768da"
+            "id": "77e6faa5-3c10-48ee-a37a-8867fd4768da",
+            "entrance_number": 2
         },
         {
             "name": "Rey Mysterio",
             "cm_id": 604,
-            "id": "68ee7890-8114-4e89-ae33-f713a0e0b180"
+            "id": "68ee7890-8114-4e89-ae33-f713a0e0b180",
+            "entrance_number": 26
         },
         {
             "name": "Ricochet",
             "cm_id": 3827,
-            "id": "5d390266-37a9-4ae6-b494-3ccf8d1f9cc4"
+            "id": "5d390266-37a9-4ae6-b494-3ccf8d1f9cc4",
+            "entrance_number": 12
         },
         {
             "name": "Riddle",
             "cm_id": 16686,
-            "id": "17ee4a97-be26-49ee-a3bf-01a533588ddd"
+            "id": "17ee4a97-be26-49ee-a3bf-01a533588ddd",
+            "entrance_number": 16
         },
         {
             "name": "Sami Zayn",
             "cm_id": 1523,
-            "id": "8d5948a5-7d2d-4417-aa30-0d4a56ddb37a"
+            "id": "8d5948a5-7d2d-4417-aa30-0d4a56ddb37a",
+            "entrance_number": 3
         },
         {
             "name": "Seth Rollins",
             "cm_id": 2250,
-            "id": "c59c6b28-7a3a-469a-aba0-debf67eb4bea"
+            "id": "c59c6b28-7a3a-469a-aba0-debf67eb4bea",
+            "entrance_number": 29
         },
         {
             "name": "Sheamus",
             "cm_id": 2641,
-            "id": "5ee1adf2-a20f-4609-8a98-c24cbc6ea345"
+            "id": "5ee1adf2-a20f-4609-8a98-c24cbc6ea345",
+            "entrance_number": 27
         },
         {
             "name": "Shinsuke Nakamura",
             "cm_id": 56,
-            "id": "b494bd36-47fc-44a2-b6f1-9825d4081e13"
+            "id": "b494bd36-47fc-44a2-b6f1-9825d4081e13",
+            "entrance_number": 7
         },
         {
             "name": "The Miz",
             "cm_id": 1590,
-            "id": "2be62a20-1ddb-488c-824b-83918ad097c0"
+            "id": "2be62a20-1ddb-488c-824b-83918ad097c0",
+            "entrance_number": 15
         },
         {
             "name": "Xavier Woods",
             "cm_id": 4955,
-            "id": "8b9778ea-afca-4cd1-9ab8-a5c88b563bdc"
+            "id": "8b9778ea-afca-4cd1-9ab8-a5c88b563bdc",
+            "entrance_number": 9
         }
     ],
     "eliminations": [
@@ -444,5 +474,17 @@
             "raw": "- Edge eliminates Randy Orton",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "men",
+        "label": "Men's Royal Rumble match entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2021)",
+        "source_revision_id": 1364302726,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

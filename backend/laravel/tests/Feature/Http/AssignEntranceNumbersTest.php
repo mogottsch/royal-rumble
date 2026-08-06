@@ -10,7 +10,7 @@ class AssignEntranceNumbersTest extends TestCase
 {
     private Lobby $lobby;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->lobby = Lobby::factory()
@@ -27,20 +27,20 @@ class AssignEntranceNumbersTest extends TestCase
             $this->lobby->participants[3]->id => 4,
         ];
         $body = [
-            "participantEntranceNumbers" => $participantsEntranceNumbersMap,
+            'participantEntranceNumbers' => $participantsEntranceNumbersMap,
         ];
         $response = $this->post(
-            route("lobbies.assignEntranceNumbers", $this->lobby),
+            route('lobbies.assignEntranceNumbers', $this->lobby),
             $body
         );
 
-        $this->lobby = $this->lobby->fresh("participants");
+        $this->lobby = $this->lobby->fresh('participants');
 
         $response->assertStatus(Response::HTTP_OK);
         $this->assertEquals(
             $participantsEntranceNumbersMap,
             $this->lobby->participants
-                ->pluck("entrance_number", "id")
+                ->pluck('entrance_number', 'id')
                 ->toArray()
         );
     }
@@ -53,10 +53,10 @@ class AssignEntranceNumbersTest extends TestCase
             $this->lobby->participants[2]->id => 3,
         ];
         $body = [
-            "participantEntranceNumbers" => $participantsEntranceNumbersMap,
+            'participantEntranceNumbers' => $participantsEntranceNumbersMap,
         ];
         $response = $this->post(
-            route("lobbies.assignEntranceNumbers", $this->lobby),
+            route('lobbies.assignEntranceNumbers', $this->lobby),
             $body
         );
 
@@ -66,10 +66,10 @@ class AssignEntranceNumbersTest extends TestCase
     public function test_malformed_request()
     {
         $body = [
-            "participantEntranceNumbers" => "not a map",
+            'participantEntranceNumbers' => 'not a map',
         ];
         $response = $this->postJson(
-            route("lobbies.assignEntranceNumbers", $this->lobby),
+            route('lobbies.assignEntranceNumbers', $this->lobby),
             $body
         );
 

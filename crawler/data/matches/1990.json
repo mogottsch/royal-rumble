@@ -3,152 +3,182 @@
         {
             "name": "Hulk Hogan",
             "cm_id": 504,
-            "id": "c506fde7-8066-41b8-b087-2c1b629a0967"
+            "id": "c506fde7-8066-41b8-b087-2c1b629a0967",
+            "entrance_number": 25
         },
         {
             "name": "Akeem",
             "cm_id": 522,
-            "id": "08ce63da-43b1-4f4c-9668-5545f64bce82"
+            "id": "08ce63da-43b1-4f4c-9668-5545f64bce82",
+            "entrance_number": 16
         },
         {
             "name": "Andre The Giant",
             "cm_id": 926,
-            "id": "01de2038-d758-4791-b994-8c564f3febfe"
+            "id": "01de2038-d758-4791-b994-8c564f3febfe",
+            "entrance_number": 11
         },
         {
             "name": "Ax",
             "cm_id": 806,
-            "id": "e47d2ac0-bac2-4867-9ff9-8d65d34bad5c"
+            "id": "e47d2ac0-bac2-4867-9ff9-8d65d34bad5c",
+            "entrance_number": 13
         },
         {
             "name": "Bad News Brown",
             "cm_id": 528,
-            "id": "201ba30a-5ac2-438e-a816-8d9cbc4f3953"
+            "id": "201ba30a-5ac2-438e-a816-8d9cbc4f3953",
+            "entrance_number": 9
         },
         {
             "name": "Bret Hart",
             "cm_id": 565,
-            "id": "a0e81367-0e57-45c8-b5f2-2c1952934100"
+            "id": "a0e81367-0e57-45c8-b5f2-2c1952934100",
+            "entrance_number": 8
         },
         {
             "name": "Dino Bravo",
             "cm_id": 318,
-            "id": "3487eac3-e193-491a-85f6-079867f2b478"
+            "id": "3487eac3-e193-491a-85f6-079867f2b478",
+            "entrance_number": 18
         },
         {
             "name": "Dusty Rhodes",
             "cm_id": 495,
-            "id": "99798275-647e-4369-a0c2-0900b3ad020f"
+            "id": "99798275-647e-4369-a0c2-0900b3ad020f",
+            "entrance_number": 10
         },
         {
             "name": "Earthquake",
             "cm_id": 339,
-            "id": "6ca57fd7-dfea-4c41-aecd-39fc07aed868"
+            "id": "6ca57fd7-dfea-4c41-aecd-39fc07aed868",
+            "entrance_number": 19
         },
         {
             "name": "Haku",
             "cm_id": 694,
-            "id": "a50daf4e-c264-4c86-9597-e41461236b4b"
+            "id": "a50daf4e-c264-4c86-9597-e41461236b4b",
+            "entrance_number": 14
         },
         {
             "name": "Hercules",
             "cm_id": 1500,
-            "id": "0bc22241-6e7a-447a-94a4-92ec7743c6fa"
+            "id": "0bc22241-6e7a-447a-94a4-92ec7743c6fa",
+            "entrance_number": 29
         },
         {
             "name": "Jake Roberts",
             "cm_id": 36,
-            "id": "9c2d8aca-f71b-499e-a93d-1d637baabace"
+            "id": "9c2d8aca-f71b-499e-a93d-1d637baabace",
+            "entrance_number": 4
         },
         {
             "name": "Jimmy Snuka",
             "cm_id": 461,
-            "id": "ab12c4e8-5c6a-42cb-8447-6654d021a65b"
+            "id": "ab12c4e8-5c6a-42cb-8447-6654d021a65b",
+            "entrance_number": 17
         },
         {
             "name": "Jim Neidhart",
             "cm_id": 518,
-            "id": "dc6296d1-7d1b-4241-83e7-d79e0d16e742"
+            "id": "dc6296d1-7d1b-4241-83e7-d79e0d16e742",
+            "entrance_number": 20
         },
         {
             "name": "Koko B. Ware",
             "cm_id": 57,
-            "id": "4ac5971e-bb3a-4f3e-8f84-8dd7b2400139"
+            "id": "4ac5971e-bb3a-4f3e-8f84-8dd7b2400139",
+            "entrance_number": 2
         },
         {
             "name": "Marty Jannetty",
             "cm_id": 988,
-            "id": "d4ad5eab-2364-48c2-8efb-6f1ed88c4c62"
+            "id": "d4ad5eab-2364-48c2-8efb-6f1ed88c4c62",
+            "entrance_number": 3
         },
         {
             "name": "Mr. Perfect",
             "cm_id": 1015,
-            "id": "b1b360e4-71c2-47a5-9479-daf69b3f4770"
+            "id": "b1b360e4-71c2-47a5-9479-daf69b3f4770",
+            "entrance_number": 30
         },
         {
             "name": "Randy Savage",
             "cm_id": 640,
-            "id": "0d14919f-a820-4144-974f-8cb0a8c2e4ac"
+            "id": "0d14919f-a820-4144-974f-8cb0a8c2e4ac",
+            "entrance_number": 5
         },
         {
             "name": "Rick Martel",
             "cm_id": 1010,
-            "id": "81db099f-4935-4cd4-bd4e-65f93893b3a0"
+            "id": "81db099f-4935-4cd4-bd4e-65f93893b3a0",
+            "entrance_number": 22
         },
         {
             "name": "Rick Rude",
             "cm_id": 630,
-            "id": "8dbbeb51-4455-4fdc-90f3-b7c173a59a10"
+            "id": "8dbbeb51-4455-4fdc-90f3-b7c173a59a10",
+            "entrance_number": 28
         },
         {
             "name": "Roddy Piper",
             "cm_id": 51,
-            "id": "128c25c9-e610-4b43-b6a3-1a763ee2de01"
+            "id": "128c25c9-e610-4b43-b6a3-1a763ee2de01",
+            "entrance_number": 6
         },
         {
             "name": "Shawn Michaels",
             "cm_id": 796,
-            "id": "32121659-c82d-4219-bae3-c7ed0252ed14"
+            "id": "32121659-c82d-4219-bae3-c7ed0252ed14",
+            "entrance_number": 26
         },
         {
             "name": "Smash",
             "cm_id": 1069,
-            "id": "e6015c8a-b68d-4ead-96d1-4070170843ec"
+            "id": "e6015c8a-b68d-4ead-96d1-4070170843ec",
+            "entrance_number": 15
         },
         {
             "name": "Ted DiBiase",
             "cm_id": 1034,
-            "id": "bf57b03c-3063-4726-981e-0a1975b9ac90"
+            "id": "bf57b03c-3063-4726-981e-0a1975b9ac90",
+            "entrance_number": 1
         },
         {
             "name": "The Barbarian",
             "cm_id": 413,
-            "id": "b3d4e72c-83d7-4abc-bc15-5a121409e8fa"
+            "id": "b3d4e72c-83d7-4abc-bc15-5a121409e8fa",
+            "entrance_number": 27
         },
         {
             "name": "The Honky Tonk Man",
             "cm_id": 156,
-            "id": "6ca60add-c63b-472e-a486-f0a532133107"
+            "id": "6ca60add-c63b-472e-a486-f0a532133107",
+            "entrance_number": 24
         },
         {
             "name": "The Red Rooster",
             "cm_id": 1058,
-            "id": "279e576d-6cb1-41d3-81f3-4ba472c0dfbd"
+            "id": "279e576d-6cb1-41d3-81f3-4ba472c0dfbd",
+            "entrance_number": 12
         },
         {
             "name": "The Ultimate Warrior",
             "cm_id": 84,
-            "id": "d5065339-3b3d-43f4-8040-215da649a860"
+            "id": "d5065339-3b3d-43f4-8040-215da649a860",
+            "entrance_number": 21
         },
         {
             "name": "The Warlord",
             "cm_id": 1480,
-            "id": "3749530e-16ae-4a74-9c0f-7c0bf6911230"
+            "id": "3749530e-16ae-4a74-9c0f-7c0bf6911230",
+            "entrance_number": 7
         },
         {
             "name": "Tito Santana",
             "cm_id": 93,
-            "id": "e7022dc5-e9b8-4e84-84c6-7a54dc59d1e2"
+            "id": "e7022dc5-e9b8-4e84-84c6-7a54dc59d1e2",
+            "entrance_number": 23
         }
     ],
     "eliminations": [
@@ -452,5 +482,17 @@
             "raw": "- Hulk Hogan eliminates Mr. Perfect",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(1990)",
+        "source_revision_id": 1367248299,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

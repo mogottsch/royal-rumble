@@ -14,7 +14,7 @@ export function useEcho() {
       import.meta.env.VITE_PUSHER_PORT ?? embeddedPort ?? (forceTLS ? 443 : 80),
     );
     window.Pusher = Pusher;
-    let laravelEcho = new Echo<"pusher">({
+    const laravelEcho = new Echo<"pusher">({
       broadcaster: "pusher",
       key: import.meta.env.VITE_PUSHER_APP_KEY,
       wsHost,
@@ -27,6 +27,11 @@ export function useEcho() {
       enabledTransports: forceTLS ? ["wss"] : ["ws"],
     });
     setEcho(laravelEcho);
+
+    return () => {
+      laravelEcho.disconnect();
+      setEcho(undefined);
+    };
   }, []);
 
   return echo;
@@ -34,6 +39,6 @@ export function useEcho() {
 
 declare global {
   interface Window {
-    Pusher: any;
+    Pusher: typeof Pusher;
   }
 }

@@ -6,7 +6,7 @@ import { App } from "./app";
 
 export function DashboardLobbyLayout() {
   const { lobbyCode } = useParams<{ lobbyCode: string }>();
-  const { lobby, query: lobbyQuery } = useLobby({ lobbyCode, pollIntervalMs: false });
+  const { lobby, query: lobbyQuery } = useLobby({ lobbyCode, pollIntervalMs: 5000 });
 
   return (
     <ParticipantClaimProvider

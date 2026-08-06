@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Wrestler } from "../hooks/use_lobby";
 import { useWrestlers } from "../hooks/use_wrestlers";
 import { useNotificationContext } from "../contexts/notification_context";
-import { fetchApi } from "../api/fetcher";
-import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
+import { apiJson } from "../api/fetcher";
+import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -30,6 +30,7 @@ export function AddEntrance() {
   const [searchTerm, setSearchTerm] = useState("");
   const deferredSearchTerm = useDeferredValue(searchTerm);
   const [open, toggleOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [dialogValue, setDialogValue] = useState({
     name: "",
@@ -42,10 +43,10 @@ export function AddEntrance() {
     toggleOpen(false);
   };
 
-  const { wrestlers: searchedWrestlers, isLoading } = useWrestlers({
+  const { wrestlers: searchedWrestlers, isLoading, isError, error } = useWrestlers({
     searchTerm: deferredSearchTerm,
   });
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
   const { notify } = useNotificationContext();
   const { t } = useI18n();
 
@@ -54,6 +55,7 @@ export function AddEntrance() {
   const displayedWrestlers = searchedWrestlers.slice(0, 24);
 
   const addEntrance = async () => {
+    if (isSubmitting) return;
     if (selectedWrestler === null) {
       notify(t("addEntrance.selectWrestler"), "error");
       return;
@@ -63,6 +65,7 @@ export function AddEntrance() {
       throw new Error(t("addEntrance.errorMissingId"));
     }
 
+    setIsSubmitting(true);
     setKeyLoading("addEntrance", true);
     try {
       await postEntrance(lobby.code, selectedWrestler.id);
@@ -71,6 +74,7 @@ export function AddEntrance() {
       notify(error.message, "error");
       return;
     } finally {
+      setIsSubmitting(false);
       setKeyLoading("addEntrance", false);
     }
     await lobbyQuery?.refetch();
@@ -128,7 +132,11 @@ export function AddEntrance() {
           >
             {t("addEntrance.createOption", { name: searchTerm || "..." })}
           </Button>
-          {deferredSearchTerm.trim().length >= 2 && searchedWrestlers.length === 0 && !isLoading ? (
+          {isError ? (
+            <Typography color="error" role="alert">
+              {`${t("addEntrance.searchFailed")}: ${error?.message ?? ""}`}
+            </Typography>
+          ) : deferredSearchTerm.trim().length >= 2 && searchedWrestlers.length === 0 && !isLoading ? (
             <Typography sx={{ opacity: 0.7 }}>{t("addEntrance.noResults")}</Typography>
           ) : (
             <Box
@@ -178,7 +186,7 @@ export function AddEntrance() {
             `}
             size="large"
             onClick={addEntrance}
-            disabled={selectedWrestler === null}
+            disabled={selectedWrestler === null || isSubmitting}
           >
             {t("addEntrance.submit")}
           </Button>
@@ -229,39 +237,18 @@ export function AddEntrance() {
 }
 
 async function postEntrance(lobbyCode: string, wrestlerId: number) {
-  const body = JSON.stringify({ wrestler_id: wrestlerId });
-  const response = await fetchApi(`lobbies/${lobbyCode}/entrance`, {
+  await apiJson(`lobbies/${encodeURIComponent(lobbyCode)}/entrance`, {
     method: "POST",
-    body,
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
+    body: JSON.stringify({ wrestler_id: wrestlerId }),
+    headers: { "content-type": "application/json" },
   });
-
-  if (!response.ok) {
-    const error = await response.json();
-    const message = error.message || response.statusText;
-    throw new Error(message);
-  }
 }
 
 async function postWrestler(name: string): Promise<Wrestler> {
-  const body = JSON.stringify({ name });
-  const response = await fetchApi(`wrestlers`, {
+  const data = await apiJson<{ data: { wrestler: Wrestler } }>("wrestlers", {
     method: "POST",
-    body,
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
+    body: JSON.stringify({ name }),
+    headers: { "content-type": "application/json" },
   });
-
-  if (!response.ok) {
-    const error = await response.json();
-    const message = error.message || response.statusText;
-    throw new Error(message);
-  }
-  const data = await response.json();
-  return data.data.wrestler as Wrestler;
+  return data.data.wrestler;
 }

@@ -10,8 +10,9 @@ class Action extends Model
 {
     use HasFactory;
 
-    const TYPE_ELIMINATION = "elimination";
-    const TYPE_ENTRANCE = "entrance";
+    const TYPE_ELIMINATION = 'elimination';
+
+    const TYPE_ENTRANCE = 'entrance';
 
     public function lobby()
     {
@@ -36,6 +37,6 @@ class Action extends Model
         if ($this->rumbler_id) {
             return self::TYPE_ENTRANCE;
         }
-        throw new Exception("Action has no type");
+        throw new Exception('Action has no type');
     }
 }

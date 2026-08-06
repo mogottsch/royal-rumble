@@ -3,152 +3,182 @@
         {
             "name": "Shawn Michaels",
             "cm_id": 796,
-            "id": "e3965a45-e716-4a16-a001-e77e1fa5a246"
+            "id": "e3965a45-e716-4a16-a001-e77e1fa5a246",
+            "entrance_number": 18
         },
         {
             "name": "Aldo Montoya",
             "cm_id": 896,
-            "id": "0bd6346b-d569-48e4-afda-dcadedbd2479"
+            "id": "0bd6346b-d569-48e4-afda-dcadedbd2479",
+            "entrance_number": 21
         },
         {
             "name": "Barry Horowitz",
             "cm_id": 444,
-            "id": "f461765f-c263-48be-8bc2-4fac3648ba92"
+            "id": "f461765f-c263-48be-8bc2-4fac3648ba92",
+            "entrance_number": 25
         },
         {
             "name": "Bob Backlund",
             "cm_id": 959,
-            "id": "81a8f2f6-d66d-4e6c-b2db-43860f61634c"
+            "id": "81a8f2f6-d66d-4e6c-b2db-43860f61634c",
+            "entrance_number": 3
         },
         {
             "name": "Bob Holly",
             "cm_id": 55,
-            "id": "591de981-a054-4e7a-9734-5b486bc28af2"
+            "id": "591de981-a054-4e7a-9734-5b486bc28af2",
+            "entrance_number": 5
         },
         {
             "name": "Diesel",
             "cm_id": 429,
-            "id": "013f0124-7b55-4972-88ba-015dbf169f0b"
+            "id": "013f0124-7b55-4972-88ba-015dbf169f0b",
+            "entrance_number": 22
         },
         {
             "name": "Dory Funk Jr.",
             "cm_id": 181,
-            "id": "c6fca103-68e6-46ef-8567-feb2d40f350a"
+            "id": "c6fca103-68e6-46ef-8567-feb2d40f350a",
+            "entrance_number": 8
         },
         {
             "name": "Doug Gilbert",
             "cm_id": 68,
-            "id": "1b19b23e-d466-4859-abdb-3147118a0e39"
+            "id": "1b19b23e-d466-4859-abdb-3147118a0e39",
+            "entrance_number": 14
         },
         {
             "name": "Duke Droese",
             "cm_id": 344,
-            "id": "abecc3af-b900-4668-b3a7-563ed8a95d69"
+            "id": "abecc3af-b900-4668-b3a7-563ed8a95d69",
+            "entrance_number": 30
         },
         {
             "name": "Fatu",
             "cm_id": 303,
-            "id": "e65fd876-2ad5-4856-99c2-81d99a4d7a74"
+            "id": "e65fd876-2ad5-4856-99c2-81d99a4d7a74",
+            "entrance_number": 26
         },
         {
             "name": "Hakushi",
             "cm_id": 362,
-            "id": "a4695f08-d543-4169-81f6-aa15d3bac296"
+            "id": "a4695f08-d543-4169-81f6-aa15d3bac296",
+            "entrance_number": 19
         },
         {
             "name": "Henry O. Godwinn",
             "cm_id": 945,
-            "id": "a349e2e1-feb5-4470-ba0e-b06a3ef845ad"
+            "id": "a349e2e1-feb5-4470-ba0e-b06a3ef845ad",
+            "entrance_number": 2
         },
         {
             "name": "Hunter Hearst Helmsley",
             "cm_id": 496,
-            "id": "090875c2-f565-42b4-8d43-11191970b380"
+            "id": "090875c2-f565-42b4-8d43-11191970b380",
+            "entrance_number": 1
         },
         {
             "name": "Isaac Yankem DDS",
             "cm_id": 379,
-            "id": "9837fa53-0dc4-455f-a42e-6687b22473cb"
+            "id": "9837fa53-0dc4-455f-a42e-6687b22473cb",
+            "entrance_number": 27
         },
         {
             "name": "Jake Roberts",
             "cm_id": 36,
-            "id": "1ab4e541-3923-4291-8291-e6c307c1b7bf"
+            "id": "1ab4e541-3923-4291-8291-e6c307c1b7bf",
+            "entrance_number": 7
         },
         {
             "name": "Jerry Lawler",
             "cm_id": 937,
-            "id": "e2a6dbe7-f544-4d3a-a93c-d403db2d1301"
+            "id": "e2a6dbe7-f544-4d3a-a93c-d403db2d1301",
+            "entrance_number": 4
         },
         {
             "name": "Kama",
             "cm_id": 901,
-            "id": "40bfb0b1-02e0-4472-af08-cc6802990a6c"
+            "id": "40bfb0b1-02e0-4472-af08-cc6802990a6c",
+            "entrance_number": 23
         },
         {
             "name": "King Mabel",
             "cm_id": 1077,
-            "id": "3ffc8522-279a-4d0e-adc6-f3ac220a273f"
+            "id": "3ffc8522-279a-4d0e-adc6-f3ac220a273f",
+            "entrance_number": 6
         },
         {
             "name": "Marty Jannetty",
             "cm_id": 988,
-            "id": "dd0a554a-2e9d-44ba-8dfd-ed5ed565f96f"
+            "id": "dd0a554a-2e9d-44ba-8dfd-ed5ed565f96f",
+            "entrance_number": 28
         },
         {
             "name": "Owen Hart",
             "cm_id": 277,
-            "id": "f8929321-7237-4ba3-a3a3-2d8c48db2b19"
+            "id": "f8929321-7237-4ba3-a3a3-2d8c48db2b19",
+            "entrance_number": 17
         },
         {
             "name": "Savio Vega",
             "cm_id": 224,
-            "id": "c77bafb9-afc5-4740-b0f5-422f48fe58c9"
+            "id": "c77bafb9-afc5-4740-b0f5-422f48fe58c9",
+            "entrance_number": 12
         },
         {
             "name": "Squat Team 1",
             "cm_id": 1389,
-            "id": "2ae6eebb-3ecb-4c27-a844-1f7be868fec1"
+            "id": "2ae6eebb-3ecb-4c27-a844-1f7be868fec1",
+            "entrance_number": 15
         },
         {
             "name": "Squat Team 2",
             "cm_id": 1390,
-            "id": "fae85629-d20a-488e-a71f-b266ffdd0ad3"
+            "id": "fae85629-d20a-488e-a71f-b266ffdd0ad3",
+            "entrance_number": 16
         },
         {
             "name": "Takao Omori",
             "cm_id": 581,
-            "id": "b628ce12-0c4c-4731-b01f-a976050ccd24"
+            "id": "b628ce12-0c4c-4731-b01f-a976050ccd24",
+            "entrance_number": 11
         },
         {
             "name": "Tatanka",
             "cm_id": 186,
-            "id": "6860b473-8f1f-406c-ac88-5f9812a6b39a"
+            "id": "6860b473-8f1f-406c-ac88-5f9812a6b39a",
+            "entrance_number": 20
         },
         {
             "name": "The 1-2-3 Kid",
             "cm_id": 1063,
-            "id": "1e451a25-8a2b-4e9d-8730-c7b0f767de6a"
+            "id": "1e451a25-8a2b-4e9d-8730-c7b0f767de6a",
+            "entrance_number": 10
         },
         {
             "name": "The British Bulldog",
             "cm_id": 862,
-            "id": "2653b650-2f17-4afe-8f33-81eb26eed9ff"
+            "id": "2653b650-2f17-4afe-8f33-81eb26eed9ff",
+            "entrance_number": 29
         },
         {
             "name": "The Ringmaster",
             "cm_id": 635,
-            "id": "85a8bbf0-dbdd-4541-8737-db0e0dbaa161"
+            "id": "85a8bbf0-dbdd-4541-8737-db0e0dbaa161",
+            "entrance_number": 24
         },
         {
             "name": "Vader",
             "cm_id": 132,
-            "id": "533d00d6-7750-4264-a141-d3fddfb77e41"
+            "id": "533d00d6-7750-4264-a141-d3fddfb77e41",
+            "entrance_number": 13
         },
         {
             "name": "Yokozuna",
             "cm_id": 846,
-            "id": "88f2cf51-685e-4e16-b6a1-fde9ddf22d27"
+            "id": "88f2cf51-685e-4e16-b6a1-fde9ddf22d27",
+            "entrance_number": 9
         }
     ],
     "eliminations": [
@@ -434,5 +464,17 @@
             "raw": "- Shawn Michaels eliminates Diesel",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(1996)",
+        "source_revision_id": 1367762085,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

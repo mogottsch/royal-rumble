@@ -2,17 +2,17 @@
 
 use App\Services\LobbyCodeGenerator;
 
-$lobbyCodeGenerator = new LobbyCodeGenerator();
+$lobbyCodeGenerator = new LobbyCodeGenerator;
 
-beforeEach(fn() => ($this->lobbyCodeGenerator = new LobbyCodeGenerator()));
+beforeEach(fn () => ($this->lobbyCodeGenerator = new LobbyCodeGenerator));
 
-it("should generate a string", function () use ($lobbyCodeGenerator) {
+it('should generate a string', function () use ($lobbyCodeGenerator) {
     $lobbyCode = $lobbyCodeGenerator->generate();
 
     $this->assertIsString($lobbyCode);
 });
 
-it("should generate a string of specific length", function () use (
+it('should generate a string of specific length', function () use (
     $lobbyCodeGenerator
 ) {
     $lobbyCode = $lobbyCodeGenerator->generate();
@@ -20,7 +20,7 @@ it("should generate a string of specific length", function () use (
     $this->assertEquals(LobbyCodeGenerator::CODE_LENGTH, strlen($lobbyCode));
 });
 
-it("should generate a string with specific chars", function () use (
+it('should generate a string with specific chars', function () use (
     $lobbyCodeGenerator
 ) {
     $lobbyCode = $lobbyCodeGenerator->generate();

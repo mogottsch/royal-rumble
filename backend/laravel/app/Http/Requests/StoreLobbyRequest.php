@@ -9,29 +9,36 @@ class StoreLobbyRequest extends FormRequest
     public function rules()
     {
         return [
-            "participants" => ["required", "array"],
-            "rumble_size" => ["nullable", "integer", "min:1", "max:100"],
-            "schluecke_per_elimination" => ["nullable", "integer", "min:0", "max:100"],
-            "shots_per_elimination" => ["nullable", "integer", "min:0", "max:100"],
-            "schluecke_on_npc_elimination" => ["nullable", "integer", "min:0", "max:100"],
-            "shots_on_npc_elimination" => ["nullable", "integer", "min:0", "max:100"],
-            "mystery_chests_enabled" => ["nullable", "boolean"],
-            "chest_aggression_multiplier" => ["nullable", "numeric", "min:0.25", "max:3"],
+            'participants' => ['required', 'array', 'min:2', 'max:100'],
+            'participants.*' => [
+                'required',
+                'string',
+                'max:100',
+                'not_regex:/^\\s*$/u',
+                'distinct',
+            ],
+            'rumble_size' => ['nullable', 'integer', 'min:1', 'max:100'],
+            'schluecke_per_elimination' => ['nullable', 'integer', 'min:0', 'max:100'],
+            'shots_per_elimination' => ['nullable', 'integer', 'min:0', 'max:100'],
+            'schluecke_on_npc_elimination' => ['nullable', 'integer', 'min:0', 'max:100'],
+            'shots_on_npc_elimination' => ['nullable', 'integer', 'min:0', 'max:100'],
+            'mystery_chests_enabled' => ['nullable', 'boolean'],
+            'chest_aggression_multiplier' => ['nullable', 'numeric', 'min:0.25', 'max:3'],
         ];
     }
 
     public function after(): array
     {
         return [function ($validator) {
-            $participants = $this->input("participants", []);
-            $rumbleSize = $this->input("rumble_size", 30);
-            if (!is_array($participants)) {
+            $participants = $this->input('participants', []);
+            $rumbleSize = $this->input('rumble_size', 30);
+            if (! is_array($participants)) {
                 return;
             }
             if ((int) $rumbleSize < count($participants)) {
                 $validator->errors()->add(
-                    "rumble_size",
-                    "Rumble size cannot be lower than the number of participants."
+                    'rumble_size',
+                    'Rumble size cannot be lower than the number of participants.'
                 );
             }
         }];

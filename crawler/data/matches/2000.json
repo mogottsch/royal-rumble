@@ -3,82 +3,98 @@
         {
             "name": "The Rock",
             "cm_id": 960,
-            "id": "6271a8da-7a2c-49dd-b428-0ce22645c8a3"
+            "id": "6271a8da-7a2c-49dd-b428-0ce22645c8a3",
+            "entrance_number": 24
         },
         {
             "name": "Albert",
             "cm_id": 580,
-            "id": "7c6ff6c8-6ad9-4101-97a1-fa706566d85e"
+            "id": "7c6ff6c8-6ad9-4101-97a1-fa706566d85e",
+            "entrance_number": 22
         },
         {
             "name": "Al Snow",
             "cm_id": 179,
-            "id": "40468239-9f81-43d9-a678-e09a1f4dfca3"
+            "id": "40468239-9f81-43d9-a678-e09a1f4dfca3",
+            "entrance_number": 20
         },
         {
             "name": "Bob Backlund",
             "cm_id": 959,
-            "id": "eb6dafcd-589c-4ac2-9c02-d1ea2fc2bdd7"
+            "id": "eb6dafcd-589c-4ac2-9c02-d1ea2fc2bdd7",
+            "entrance_number": 14
         },
         {
             "name": "Bradshaw",
             "cm_id": 193,
-            "id": "262b99e1-0634-4001-a28a-04e3640decf4"
+            "id": "262b99e1-0634-4001-a28a-04e3640decf4",
+            "entrance_number": 27
         },
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "0df098a1-042c-4a1b-bf1a-f2ddb1259c3c"
+            "id": "0df098a1-042c-4a1b-bf1a-f2ddb1259c3c",
+            "entrance_number": 15
         },
         {
             "name": "Christian",
             "cm_id": 820,
-            "id": "b3615fcc-f00a-456a-8d39-eca89db1294a"
+            "id": "b3615fcc-f00a-456a-8d39-eca89db1294a",
+            "entrance_number": 4
         },
         {
             "name": "Chyna",
             "cm_id": 641,
-            "id": "2044f761-5d6c-4372-8852-e9fee57a4be1"
+            "id": "2044f761-5d6c-4372-8852-e9fee57a4be1",
+            "entrance_number": 17
         },
         {
             "name": "Crash Holly",
             "cm_id": 157,
-            "id": "66ddf01e-694b-44c4-8b68-a5d46465e28a"
+            "id": "66ddf01e-694b-44c4-8b68-a5d46465e28a",
+            "entrance_number": 16
         },
         {
             "name": "D-Lo Brown",
             "cm_id": 422,
-            "id": "da078717-bb51-4b6d-8117-f05946528a2a"
+            "id": "da078717-bb51-4b6d-8117-f05946528a2a",
+            "entrance_number": 1
         },
         {
             "name": "Edge",
             "cm_id": 932,
-            "id": "6606ebfc-9f67-4673-b9b7-64d77bcc9e6d"
+            "id": "6606ebfc-9f67-4673-b9b7-64d77bcc9e6d",
+            "entrance_number": 13
         },
         {
             "name": "Faarooq",
             "cm_id": 715,
-            "id": "7d2c468d-e885-4fd9-8f0f-a642a749b996"
+            "id": "7d2c468d-e885-4fd9-8f0f-a642a749b996",
+            "entrance_number": 18
         },
         {
             "name": "Gangrel",
             "cm_id": 282,
-            "id": "e1ea7126-4417-4780-bf89-ff774f504bb8"
+            "id": "e1ea7126-4417-4780-bf89-ff774f504bb8",
+            "entrance_number": 12
         },
         {
             "name": "Grandmaster Sexay",
             "cm_id": 1037,
-            "id": "c4f5b5fb-b783-427d-b147-281e1a84dbd8"
+            "id": "c4f5b5fb-b783-427d-b147-281e1a84dbd8",
+            "entrance_number": 2
         },
         {
             "name": "Hardcore Holly",
             "cm_id": 55,
-            "id": "14bb59c6-b96a-4e53-afe9-2c3b152a7873"
+            "id": "14bb59c6-b96a-4e53-afe9-2c3b152a7873",
+            "entrance_number": 23
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "38798dd4-d8fe-4d43-aea1-31fc523bb5e3"
+            "id": "38798dd4-d8fe-4d43-aea1-31fc523bb5e3",
+            "entrance_number": 28
         },
         {
             "name": "Tori",
@@ -88,72 +104,86 @@
         {
             "name": "Mosh",
             "cm_id": 389,
-            "id": "6e0c396d-f3ef-41b6-ad1b-a687b627f323"
+            "id": "6e0c396d-f3ef-41b6-ad1b-a687b627f323",
+            "entrance_number": 3
         },
         {
             "name": "Mr. Ass",
             "cm_id": 1081,
-            "id": "d0048786-4cad-4f6b-91fc-afa0cd071800"
+            "id": "d0048786-4cad-4f6b-91fc-afa0cd071800",
+            "entrance_number": 25
         },
         {
             "name": "Rikishi",
             "cm_id": 303,
-            "id": "41924198-3783-4f07-89f6-b92e54ccf545"
+            "id": "41924198-3783-4f07-89f6-b92e54ccf545",
+            "entrance_number": 5
         },
         {
             "name": "Scotty 2 Hotty",
             "cm_id": 527,
-            "id": "7e2a1180-a551-401d-a562-58fa42154426"
+            "id": "7e2a1180-a551-401d-a562-58fa42154426",
+            "entrance_number": 6
         },
         {
             "name": "Steve Blackman",
             "cm_id": 537,
-            "id": "0423899d-779e-4fa9-9ee6-e3c6ac74b3ec"
+            "id": "0423899d-779e-4fa9-9ee6-e3c6ac74b3ec",
+            "entrance_number": 7
         },
         {
             "name": "Test",
             "cm_id": 1047,
-            "id": "41480d57-f960-45ba-870a-b6ecd0fc2d35"
+            "id": "41480d57-f960-45ba-870a-b6ecd0fc2d35",
+            "entrance_number": 10
         },
         {
             "name": "The Big Bossman",
             "cm_id": 690,
-            "id": "5c8c2a55-cb68-41a7-987b-620346ffa54f"
+            "id": "5c8c2a55-cb68-41a7-987b-620346ffa54f",
+            "entrance_number": 9
         },
         {
             "name": "The Big Show",
             "cm_id": 712,
-            "id": "c550df35-1069-4f79-ad5f-b2ce81dc73e9"
+            "id": "c550df35-1069-4f79-ad5f-b2ce81dc73e9",
+            "entrance_number": 26
         },
         {
             "name": "The British Bulldog",
             "cm_id": 862,
-            "id": "1856af4e-d358-4526-ab6d-e6d099ce2583"
+            "id": "1856af4e-d358-4526-ab6d-e6d099ce2583",
+            "entrance_number": 11
         },
         {
             "name": "The Godfather",
             "cm_id": 901,
-            "id": "060b36b9-da1e-44d2-9983-05f38e20588b"
+            "id": "060b36b9-da1e-44d2-9983-05f38e20588b",
+            "entrance_number": 29
         },
         {
             "name": "The Road Dogg",
             "cm_id": 760,
-            "id": "1945bd63-8f42-4ac7-9af1-1b4ba77092ba"
+            "id": "1945bd63-8f42-4ac7-9af1-1b4ba77092ba",
+            "entrance_number": 19
         },
         {
             "name": "Val Venis",
             "cm_id": 588,
-            "id": "b4a405f4-fdbe-4808-bdb3-392ab7749755"
+            "id": "b4a405f4-fdbe-4808-bdb3-392ab7749755",
+            "entrance_number": 21
         },
         {
             "name": "Viscera",
             "cm_id": 1077,
-            "id": "eb298a54-069c-4d3c-8203-c994735b66a3"
+            "id": "eb298a54-069c-4d3c-8203-c994735b66a3",
+            "entrance_number": 8
         },
         {
             "name": "X-Pac",
             "cm_id": 1063,
-            "id": "9be38423-7320-4189-9f0f-ec217977d096"
+            "id": "9be38423-7320-4189-9f0f-ec217977d096",
+            "entrance_number": 30
         }
     ],
     "eliminations": [
@@ -440,5 +470,17 @@
             "raw": "- The Rock eliminates The Big Show",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2000)",
+        "source_revision_id": 1367249193,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

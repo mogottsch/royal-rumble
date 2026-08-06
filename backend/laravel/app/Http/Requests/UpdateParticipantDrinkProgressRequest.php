@@ -14,9 +14,9 @@ class UpdateParticipantDrinkProgressRequest extends FormRequest
     public function rules()
     {
         return [
-            "drunk_sips" => ["required", "integer", "min:0", "max:1000"],
-            "drunk_shots" => ["required", "integer", "min:0", "max:1000"],
-            "drunk_chugs" => ["required", "integer", "min:0", "max:1000"],
+            'drunk_sips' => ['required', 'integer', 'min:0', 'max:1000'],
+            'drunk_shots' => ['required', 'integer', 'min:0', 'max:1000'],
+            'drunk_chugs' => ['required', 'integer', 'min:0', 'max:1000'],
         ];
     }
 }

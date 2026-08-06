@@ -8,17 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table("chest_rewards", function (Blueprint $table) {
-            $table->foreignId("offender_rumbler_id")->nullable()->change();
-            $table->foreignId("victim_rumbler_id")->nullable()->change();
+        Schema::table('chest_rewards', function (Blueprint $table) {
+            $table->foreignId('offender_rumbler_id')->nullable()->change();
+            $table->foreignId('victim_rumbler_id')->nullable()->change();
         });
     }
 
     public function down(): void
     {
-        Schema::table("chest_rewards", function (Blueprint $table) {
-            $table->foreignId("offender_rumbler_id")->nullable(false)->change();
-            $table->foreignId("victim_rumbler_id")->nullable(false)->change();
+        Schema::table('chest_rewards', function (Blueprint $table) {
+            $table->foreignId('offender_rumbler_id')->nullable(false)->change();
+            $table->foreignId('victim_rumbler_id')->nullable(false)->change();
         });
     }
 };

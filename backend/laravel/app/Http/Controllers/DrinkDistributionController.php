@@ -20,37 +20,37 @@ class DrinkDistributionController extends Controller
         DrinkDistributionRecorder $recorder
     ) {
         $data = $request->validate([
-            "chest_reward_id" => ["nullable", "integer"],
-            "elimination_id" => ["required", "integer"],
-            "offender_rumbler_id" => ["required", "integer"],
-            "victim_rumbler_id" => ["required", "integer"],
-            "splits" => ["required", "array", "min:1"],
-            "splits.*.receiver_participant_id" => ["required", "integer"],
-            "splits.*.schluecke" => ["nullable", "integer", "min:0"],
-            "splits.*.shots" => ["nullable", "integer", "min:0"],
+            'chest_reward_id' => ['nullable', 'integer', 'min:1'],
+            'elimination_id' => ['required_without:chest_reward_id', 'integer'],
+            'offender_rumbler_id' => ['required_without:chest_reward_id', 'integer'],
+            'victim_rumbler_id' => ['required_without:chest_reward_id', 'integer'],
+            'splits' => ['required', 'array', 'min:1'],
+            'splits.*.receiver_participant_id' => ['required', 'integer'],
+            'splits.*.schluecke' => ['nullable', 'integer', 'min:0'],
+            'splits.*.shots' => ['nullable', 'integer', 'min:0'],
         ]);
 
-        $giverId = (int) $request->header("X-Participant-Id", 0);
+        $giverId = (int) $request->header('X-Participant-Id', 0);
         if ($giverId <= 0) {
             return response()->json(
-                ["message" => "Missing X-Participant-Id header."],
+                ['message' => 'Missing X-Participant-Id header.'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
 
-        $giver = Participant::where("lobby_id", $lobby->id)->find($giverId);
-        if (!$giver) {
+        $giver = Participant::where('lobby_id', $lobby->id)->find($giverId);
+        if (! $giver) {
             return response()->json(
-                ["message" => "Giver participant not found in lobby."],
+                ['message' => 'Giver participant not found in lobby.'],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
 
-        if (!empty($data["chest_reward_id"])) {
-            $chestReward = ChestReward::where("lobby_id", $lobby->id)->find($data["chest_reward_id"]);
-            if (!$chestReward) {
+        if (! empty($data['chest_reward_id'])) {
+            $chestReward = ChestReward::where('lobby_id', $lobby->id)->find($data['chest_reward_id']);
+            if (! $chestReward) {
                 return response()->json(
-                    ["message" => "Chest reward not found."],
+                    ['message' => 'Chest reward not found.'],
                     Response::HTTP_NOT_FOUND
                 );
             }
@@ -60,11 +60,11 @@ class DrinkDistributionController extends Controller
                     $lobby,
                     $chestReward,
                     $giver,
-                    $data["splits"]
+                    $data['splits']
                 );
             } catch (DrinkDistributionException $e) {
                 return response()->json(
-                    ["message" => $e->getMessage(), "code" => $e->errorCode->name],
+                    ['message' => $e->getMessage(), 'code' => $e->errorCode->name],
                     Response::HTTP_UNPROCESSABLE_ENTITY
                 );
             }
@@ -72,13 +72,17 @@ class DrinkDistributionController extends Controller
             return response(status: Response::HTTP_CREATED);
         }
 
-        $elimination = Elimination::find($data["elimination_id"]);
-        $offender = Rumbler::where("lobby_id", $lobby->id)->find($data["offender_rumbler_id"]);
-        $victim = Rumbler::where("lobby_id", $lobby->id)->find($data["victim_rumbler_id"]);
+        $offender = Rumbler::where('lobby_id', $lobby->id)->find($data['offender_rumbler_id']);
+        $victim = Rumbler::where('lobby_id', $lobby->id)->find($data['victim_rumbler_id']);
+        $elimination = Elimination::query()
+            ->whereKey($data['elimination_id'])
+            ->whereHas('rumblerOffenders', fn ($query) => $query->where('rumblers.lobby_id', $lobby->id))
+            ->whereHas('rumblerVictims', fn ($query) => $query->where('rumblers.lobby_id', $lobby->id))
+            ->first();
 
-        if (!$elimination || !$offender || !$victim) {
+        if (! $elimination || ! $offender || ! $victim) {
             return response()->json(
-                ["message" => "Elimination, offender or victim not found."],
+                ['message' => 'Elimination, offender or victim not found.'],
                 Response::HTTP_NOT_FOUND
             );
         }
@@ -90,11 +94,11 @@ class DrinkDistributionController extends Controller
                 $offender,
                 $victim,
                 $giver,
-                $data["splits"]
+                $data['splits']
             );
         } catch (DrinkDistributionException $e) {
             return response()->json(
-                ["message" => $e->getMessage(), "code" => $e->errorCode->name],
+                ['message' => $e->getMessage(), 'code' => $e->errorCode->name],
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }

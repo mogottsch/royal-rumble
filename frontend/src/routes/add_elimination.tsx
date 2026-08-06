@@ -1,12 +1,13 @@
 import { Box, Button, Divider } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchApi } from "../api/fetcher";
 import { useLobbyContext } from "../contexts/lobby_context";
-import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
+import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import { Rumbler } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 import { WrestlerTile } from "../components/wrestler_tile";
+import { useNotificationContext } from "../contexts/notification_context";
+import { apiJson } from "../api/fetcher";
 
 export function AddElimination() {
   const { lobby } = useLobbyContext();
@@ -14,7 +15,9 @@ export function AddElimination() {
   const { t } = useI18n();
   const [victimIds, setVictimIds] = useState<number[]>([]);
   const [offenderIds, setOffenderIds] = useState<number[]>([]);
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
+  const { notify } = useNotificationContext();
 
   if (!lobby) return null;
 
@@ -41,15 +44,18 @@ export function AddElimination() {
 
   const addElimination = async () => {
     if (victims.length === 0 || offenders.length === 0) return;
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setKeyLoading("addElimination", true);
-    await postElimination(
-      lobby.code,
-      offenders,
-      victims,
-      t("addElimination.errorFailedPrefix"),
-    );
-    setKeyLoading("addElimination", false);
-    navigate(`/lobbies/${lobby.code}/view-game`);
+    try {
+      await postElimination(lobby.code, offenders, victims);
+      navigate(`/lobbies/${lobby.code}/view-game`);
+    } catch (error) {
+      notify(`${t("addElimination.errorFailedPrefix")}: ${(error as Error).message}`, "error");
+    } finally {
+      setIsSubmitting(false);
+      setKeyLoading("addElimination", false);
+    }
   };
 
   return (
@@ -71,16 +77,13 @@ export function AddElimination() {
             }}
           >
             {activeRumblers.map((rumbler) => (
-              <Box
+              <WrestlerTile
                 key={rumbler.id}
+                participant={rumbler.participant ?? undefined}
+                rumbler={rumbler}
+                selected={offenderIds.includes(rumbler.id)}
                 onClick={() => toggleOffender(rumbler)}
-              >
-                <WrestlerTile
-                  participant={rumbler.participant ?? undefined}
-                  rumbler={rumbler}
-                  selected={offenderIds.includes(rumbler.id)}
-                />
-              </Box>
+              />
             ))}
           </Box>
         </Box>
@@ -93,16 +96,13 @@ export function AddElimination() {
           }}
         >
           {activeRumblers.map((rumbler) => (
-            <Box
+            <WrestlerTile
               key={rumbler.id}
+              participant={rumbler.participant ?? undefined}
+              rumbler={rumbler}
+              selected={victimIds.includes(rumbler.id)}
               onClick={() => toggleVictim(rumbler)}
-            >
-              <WrestlerTile
-                participant={rumbler.participant ?? undefined}
-                rumbler={rumbler}
-                selected={victimIds.includes(rumbler.id)}
-              />
-            </Box>
+            />
           ))}
         </Box>
       </Box>
@@ -112,7 +112,7 @@ export function AddElimination() {
           variant="contained"
           size="large"
           onClick={addElimination}
-          disabled={victimIds.length === 0 || offenderIds.length === 0}
+          disabled={victimIds.length === 0 || offenderIds.length === 0 || isSubmitting}
         >
           {t("addElimination.submit")}
         </Button>
@@ -134,23 +134,14 @@ async function postElimination(
   lobbyCode: string,
   offenders: Rumbler[],
   victims: Rumbler[],
-  errorPrefix: string,
 ) {
   const body = JSON.stringify({
     victim_ids: victims.map((rumbler) => rumbler.id),
     offender_ids: offenders.map((rumbler) => rumbler.id),
   });
-  const response = await fetchApi(`lobbies/${lobbyCode}/elimination`, {
+  return apiJson<{ elimination_id: number }>(`lobbies/${lobbyCode}/elimination`, {
     method: "POST",
     body,
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
+    headers: { "content-type": "application/json" },
   });
-
-  if (!response.ok) {
-    throw new Error(`${errorPrefix}: ${response.statusText}`);
-  }
-  return (await response.json()) as { elimination_id: number };
 }

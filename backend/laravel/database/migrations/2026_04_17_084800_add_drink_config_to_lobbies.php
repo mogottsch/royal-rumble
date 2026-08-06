@@ -8,22 +8,22 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table("lobbies", function (Blueprint $table) {
-            $table->unsignedSmallInteger("schluecke_per_elimination")->default(2);
-            $table->unsignedSmallInteger("shots_per_elimination")->default(0);
-            $table->unsignedSmallInteger("schluecke_on_npc_elimination")->default(0);
-            $table->unsignedSmallInteger("shots_on_npc_elimination")->default(0);
+        Schema::table('lobbies', function (Blueprint $table) {
+            $table->unsignedSmallInteger('schluecke_per_elimination')->default(2);
+            $table->unsignedSmallInteger('shots_per_elimination')->default(0);
+            $table->unsignedSmallInteger('schluecke_on_npc_elimination')->default(0);
+            $table->unsignedSmallInteger('shots_on_npc_elimination')->default(0);
         });
     }
 
     public function down(): void
     {
-        Schema::table("lobbies", function (Blueprint $table) {
+        Schema::table('lobbies', function (Blueprint $table) {
             $table->dropColumn([
-                "schluecke_per_elimination",
-                "shots_per_elimination",
-                "schluecke_on_npc_elimination",
-                "shots_on_npc_elimination",
+                'schluecke_per_elimination',
+                'shots_per_elimination',
+                'schluecke_on_npc_elimination',
+                'shots_on_npc_elimination',
             ]);
         });
     }

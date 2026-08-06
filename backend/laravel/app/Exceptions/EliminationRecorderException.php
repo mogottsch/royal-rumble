@@ -19,11 +19,9 @@ class EliminationRecorderException extends Exception
     public function message(): string
     {
         return match ($this->errorCode) {
-            EliminationRecorderErrorCode::OFFENDERS_NOT_RUMBLERS
-                => "Some of the items in the list of offenders are not rumblers.",
-            EliminationRecorderErrorCode::VICTIMS_NOT_RUMBLERS
-                => "Some of the items in the list of victims are not rumblers.",
-            default => "Unknown error.",
+            EliminationRecorderErrorCode::OFFENDERS_NOT_RUMBLERS => 'Some of the items in the list of offenders are not rumblers.',
+            EliminationRecorderErrorCode::VICTIMS_NOT_RUMBLERS => 'Some of the items in the list of victims are not rumblers.',
+            default => 'Unknown error.',
         };
     }
 }

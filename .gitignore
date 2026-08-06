@@ -1,5 +1,16 @@
 *.db
 .env
+.env.*
+!.env.example
 .prod.env
 .dev.env
-node_modules
+node_modules/
+.pi-subagents/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage/
+playwright-report/
+test-results/

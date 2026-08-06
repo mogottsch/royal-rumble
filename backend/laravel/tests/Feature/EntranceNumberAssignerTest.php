@@ -2,23 +2,21 @@
 
 namespace Tests\Feature;
 
-use App\Exceptions\EntranceNumberAssignerErrorCode;
 use App\Exceptions\EntranceNumberAssignerException;
 use App\Models\Lobby;
 use App\Services\EntranceNumberAssigner;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class EntranceNumberAssignerTest extends TestCase
 {
     private EntranceNumberAssigner $entranceNumberAssigner;
+
     private Lobby $lobby;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
-        $this->entranceNumberAssigner = new EntranceNumberAssigner();
+        $this->entranceNumberAssigner = new EntranceNumberAssigner;
         $this->lobby = Lobby::factory()
             ->hasParticipants(4)
             ->create();
@@ -41,7 +39,7 @@ class EntranceNumberAssignerTest extends TestCase
         $this->assertEquals(
             $participantsEntranceNumbersMap,
             $this->lobby->participants
-                ->pluck("entrance_number", "id")
+                ->pluck('entrance_number', 'id')
                 ->toArray()
         );
     }

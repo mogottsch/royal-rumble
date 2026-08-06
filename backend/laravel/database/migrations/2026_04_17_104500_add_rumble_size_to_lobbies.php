@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table("lobbies", function (Blueprint $table) {
-            $table->unsignedSmallInteger("rumble_size")->default(30);
+        Schema::table('lobbies', function (Blueprint $table) {
+            $table->unsignedSmallInteger('rumble_size')->default(30);
         });
     }
 
     public function down(): void
     {
-        Schema::table("lobbies", function (Blueprint $table) {
-            $table->dropColumn("rumble_size");
+        Schema::table('lobbies', function (Blueprint $table) {
+            $table->dropColumn('rumble_size');
         });
     }
 };

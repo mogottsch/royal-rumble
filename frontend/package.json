@@ -3,11 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest",
+    "e2e": "playwright test",
+    "audit:dependencies": "node scripts/audit-dependencies.mjs",
+    "e2e:stack": "../scripts/run-e2e.sh",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,25 +25,32 @@
     "@mui/icons-material": "^9.0.0",
     "@mui/material": "^9.0.0",
     "@tanstack/react-query": "^5.99.0",
-    "@tanstack/react-query-devtools": "^5.99.0",
     "laravel-echo": "^2.3.4",
     "pusher-js": "^8.5.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-qr-code": "^2.0.18",
-    "react-router-dom": "^7.14.1"
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@playwright/test": "^1.62.1",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.0",
     "eslint": "^10.0.0",
-    "@eslint/js": "^10.0.0",
-    "typescript-eslint": "^8.40.0",
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-react-refresh": "^0.5.0",
     "globals": "^17.0.0",
+    "jsdom": "26.1.0",
     "typescript": "^6.0.0",
-    "vite": "^8.0.0"
-  }
+    "typescript-eslint": "^8.40.0",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.10"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

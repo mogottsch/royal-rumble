@@ -1,12 +1,12 @@
-import urllib.request
+import io
 import urllib.parse
 from bs4 import BeautifulSoup
 from pathlib import Path
+from PIL import Image, PngImagePlugin, UnidentifiedImageError
 import aiohttp
 import aiofiles
 import asyncio
 from aiohttp import ClientSession
-import re
 from pathvalidate import sanitize_filename
 import json
 
@@ -57,54 +57,67 @@ async def search_and_download_with_session(
 
 async def fetch_json_with_session(session: ClientSession, url: str) -> dict:
     async with session.get(url) as response:
+        response.raise_for_status()
         return await response.json()
 
 
 async def fetch_soup_with_session(session: ClientSession, url: str) -> BeautifulSoup:
     async with session.get(url) as response:
+        response.raise_for_status()
         html = await response.text()
         return BeautifulSoup(html, "html.parser")
 
 
+def is_supported_image(content: bytes) -> bool:
+    if not content or len(content) > 20 * 1024 * 1024:
+        return False
+    PngImagePlugin.MAX_TEXT_CHUNK = 64 * 1024 * 1024
+    PngImagePlugin.MAX_TEXT_MEMORY = 128 * 1024 * 1024
+    try:
+        with Image.open(io.BytesIO(content)) as image:
+            image.verify()
+            return image.format in {"PNG", "JPEG", "GIF", "WEBP"}
+    except (UnidentifiedImageError, OSError, ValueError):
+        return False
+
+
 async def download_image_to_file_with_session(
     session: ClientSession, url: str, file_path: Path
-):
+) -> None:
     async with session.get(url) as response:
-        if response.status == 200:
-            async with aiofiles.open(file_path, mode="wb") as f:
-                await f.write(await response.read())
+        response.raise_for_status()
+        content = await response.read()
+
+    if not is_supported_image(content):
+        raise ValueError(f"Downloaded content from {url} is not a supported image")
+
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = file_path.with_suffix(file_path.suffix + ".part")
+    try:
+        async with aiofiles.open(temporary_path, mode="wb") as image_file:
+            await image_file.write(content)
+        temporary_path.replace(file_path)
+    finally:
+        temporary_path.unlink(missing_ok=True)
 
 
 async def fetch_superstars(session: ClientSession) -> dict:
     return await fetch_json_with_session(session, SUPERSTARS_URL)
 
 
-def get_image_url_for_superstar(superstar: dict) -> str:
-    image_html = superstar["image"]
-    # Look for the 540w version (highest resolution)
-    url_match = re.search(r'/f/styles/wwe_1_1_540__composite[^"]+\.png', image_html)
-    assert url_match is not None, f"Could not find image URL in {image_html}"
-    image_url = url_match.group(0)
-    return BASE_URL + image_url
-
-
 async def start():
-    (ROOT_DIR / "images").mkdir(exist_ok=True)
+    (ROOT_DIR / "data" / "images").mkdir(parents=True, exist_ok=True)
 
     async with aiohttp.ClientSession() as session:
         superstars = await fetch_superstars(session)
         saved_superstars = []
         for superstar in superstars["talent"]:
-            image_url = get_image_url_for_superstar(superstar)
-            print(image_url)
-
-            # raise NotImplementedError("This code is not complete")
             name = sanitize_filename(superstar["name"])
-
             file_name = f"{name}.png"
             file_path = ROOT_DIR / "data" / "images" / file_name
-            if file_path.exists():
-                print(f"Skipping {name} as file already exists")
+
+            if file_path.exists() and is_supported_image(file_path.read_bytes()):
+                print(f"Skipping {name} as a validated file already exists")
                 saved_superstars.append(
                     {
                         "name": name,
@@ -113,6 +126,7 @@ async def start():
                 )
                 continue
 
+            file_path.unlink(missing_ok=True)
             try:
                 superstar_link = BASE_URL + superstar["link"]
                 soup = await fetch_soup_with_session(session, superstar_link)

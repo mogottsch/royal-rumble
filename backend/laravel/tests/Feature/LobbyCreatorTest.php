@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Services\LobbyCreator;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use InvalidArgumentException;
 use Tests\TestCase;
 
@@ -12,7 +10,7 @@ class LobbyCreatorTest extends TestCase
 {
     private LobbyCreator $lobbyCreator;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->lobbyCreator = $this->app->make(LobbyCreator::class);
@@ -20,17 +18,17 @@ class LobbyCreatorTest extends TestCase
 
     public function test_creates_lobby_with_names()
     {
-        $names = collect(["John", "Jane", "Jack"]);
+        $names = collect(['John', 'Jane', 'Jack']);
         $lobby = $this->lobbyCreator->createWithParticipants($names);
 
-        $this->assertEquals($names, $lobby->participants->pluck("name"));
+        $this->assertEquals($names, $lobby->participants->pluck('name'));
     }
 
     public function test_throws_exception_if_name_is_empty()
     {
         $this->expectException(InvalidArgumentException::class);
         $this->lobbyCreator->createWithParticipants(
-            collect(["John", "", "Jack"])
+            collect(['John', '', 'Jack'])
         );
     }
 
@@ -44,7 +42,7 @@ class LobbyCreatorTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->lobbyCreator->createWithParticipants(
-            collect(["John", "John", "Jack"])
+            collect(['John', 'John', 'Jack'])
         );
     }
 }

@@ -1,0 +1,17 @@
+{
+    auto_https off
+    admin off
+    frankenphp
+}
+
+:8080 {
+    root * /var/www/html/public
+    encode zstd br gzip
+
+    @health path /api/health
+    @readiness path /api/readiness
+    header @health Cache-Control "no-store"
+    header @readiness Cache-Control "no-store"
+
+    php_server
+}

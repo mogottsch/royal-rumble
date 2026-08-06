@@ -3,32 +3,38 @@
         {
             "name": "Triple H",
             "cm_id": 496,
-            "id": "10401693-2022-4d87-9f53-4ecae8266f02"
+            "id": "10401693-2022-4d87-9f53-4ecae8266f02",
+            "entrance_number": 30
         },
         {
             "name": "AJ Styles",
             "cm_id": 801,
-            "id": "f380f02b-91a7-4bde-85d9-a5c0319ba4de"
+            "id": "f380f02b-91a7-4bde-85d9-a5c0319ba4de",
+            "entrance_number": 3
         },
         {
             "name": "Alberto Del Rio",
             "cm_id": 1407,
-            "id": "566bdf8e-cc60-41dc-8dd9-8295c2814a49"
+            "id": "566bdf8e-cc60-41dc-8dd9-8295c2814a49",
+            "entrance_number": 26
         },
         {
             "name": "Braun Strowman",
             "cm_id": 16167,
-            "id": "8e9e9645-e5bb-4d43-852d-fb718a4f0593"
+            "id": "8e9e9645-e5bb-4d43-852d-fb718a4f0593",
+            "entrance_number": 17
         },
         {
             "name": "Bray Wyatt",
             "cm_id": 7659,
-            "id": "01a1341f-d1c3-43c4-ad9e-60a51a577e4a"
+            "id": "01a1341f-d1c3-43c4-ad9e-60a51a577e4a",
+            "entrance_number": 27
         },
         {
             "name": "Brock Lesnar",
             "cm_id": 669,
-            "id": "05e03a1c-3c4b-4e60-a159-27b6ca60c84e"
+            "id": "05e03a1c-3c4b-4e60-a159-27b6ca60c84e",
+            "entrance_number": 23
         },
         {
             "name": "Paul Heyman",
@@ -38,12 +44,14 @@
         {
             "name": "Chris Jericho",
             "cm_id": 758,
-            "id": "5a74e239-130e-4382-8d03-bc2511047eac"
+            "id": "5a74e239-130e-4382-8d03-bc2511047eac",
+            "entrance_number": 6
         },
         {
             "name": "Curtis Axel",
             "cm_id": 5271,
-            "id": "c1610904-b9c8-4724-9862-c35a050d9bc1"
+            "id": "c1610904-b9c8-4724-9862-c35a050d9bc1",
+            "entrance_number": 5
         },
         {
             "name": "Adam Rose",
@@ -63,42 +71,50 @@
         {
             "name": "Dean Ambrose",
             "cm_id": 3940,
-            "id": "4b55355f-0a88-40ab-a89b-8b2102a4302a"
+            "id": "4b55355f-0a88-40ab-a89b-8b2102a4302a",
+            "entrance_number": 19
         },
         {
             "name": "Dolph Ziggler",
             "cm_id": 2515,
-            "id": "235eaa8f-f844-425a-947c-6ac903021dea"
+            "id": "235eaa8f-f844-425a-947c-6ac903021dea",
+            "entrance_number": 28
         },
         {
             "name": "Erick Rowan",
             "cm_id": 9368,
-            "id": "bc9411df-5ae0-4e1e-93a2-13318ad80342"
+            "id": "bc9411df-5ae0-4e1e-93a2-13318ad80342",
+            "entrance_number": 21
         },
         {
             "name": "Goldust",
             "cm_id": 917,
-            "id": "e1c5bafd-4b6a-424e-ba9e-bb5ce48c7d5b"
+            "id": "e1c5bafd-4b6a-424e-ba9e-bb5ce48c7d5b",
+            "entrance_number": 8
         },
         {
             "name": "Jack Swagger",
             "cm_id": 4071,
-            "id": "7ec606e8-2eff-4120-9252-f34736dc773a"
+            "id": "7ec606e8-2eff-4120-9252-f34736dc773a",
+            "entrance_number": 24
         },
         {
             "name": "Kane",
             "cm_id": 379,
-            "id": "d52c23dc-e792-464a-ac0e-3a236a03bc5d"
+            "id": "d52c23dc-e792-464a-ac0e-3a236a03bc5d",
+            "entrance_number": 7
         },
         {
             "name": "Kevin Owens",
             "cm_id": 1499,
-            "id": "bc87864a-085e-42e3-a4ee-d0068715dc67"
+            "id": "bc87864a-085e-42e3-a4ee-d0068715dc67",
+            "entrance_number": 18
         },
         {
             "name": "Kofi Kingston",
             "cm_id": 3687,
-            "id": "ec942bd8-05e9-47e5-8c8a-de5632cbbb7a"
+            "id": "ec942bd8-05e9-47e5-8c8a-de5632cbbb7a",
+            "entrance_number": 10
         },
         {
             "name": "Big E",
@@ -113,72 +129,86 @@
         {
             "name": "Luke Harper",
             "cm_id": 5244,
-            "id": "b93f828e-d7b4-4bec-81fe-d16a4090e0dc"
+            "id": "b93f828e-d7b4-4bec-81fe-d16a4090e0dc",
+            "entrance_number": 13
         },
         {
             "name": "Mark Henry",
             "cm_id": 437,
-            "id": "b65b9006-00ce-4df6-bed1-ffd7fa343c76"
+            "id": "b65b9006-00ce-4df6-bed1-ffd7fa343c76",
+            "entrance_number": 22
         },
         {
             "name": "Neville",
             "cm_id": 3497,
-            "id": "564d84b0-9144-4765-84df-060032f4cf75"
+            "id": "564d84b0-9144-4765-84df-060032f4cf75",
+            "entrance_number": 16
         },
         {
             "name": "R-Truth",
             "cm_id": 200,
-            "id": "3c3ec0d5-d3b1-435e-b6d6-4cdf7fa8d704"
+            "id": "3c3ec0d5-d3b1-435e-b6d6-4cdf7fa8d704",
+            "entrance_number": 12
         },
         {
             "name": "Roman Reigns",
             "cm_id": 9967,
-            "id": "9d5c16d0-2667-4d54-aba7-458df36ed6ff"
+            "id": "9d5c16d0-2667-4d54-aba7-458df36ed6ff",
+            "entrance_number": 1
         },
         {
             "name": "Rusev",
             "cm_id": 10610,
-            "id": "7965ffe8-2dab-4226-bef4-0f4551d5694b"
+            "id": "7965ffe8-2dab-4226-bef4-0f4551d5694b",
+            "entrance_number": 2
         },
         {
             "name": "Ryback",
             "cm_id": 2624,
-            "id": "08c4f121-cde6-4d46-963d-6a515fd01333"
+            "id": "08c4f121-cde6-4d46-963d-6a515fd01333",
+            "entrance_number": 9
         },
         {
             "name": "Sami Zayn",
             "cm_id": 1523,
-            "id": "3560c1d1-b6c5-4d81-85bb-fc39082767d5"
+            "id": "3560c1d1-b6c5-4d81-85bb-fc39082767d5",
+            "entrance_number": 20
         },
         {
             "name": "Sheamus",
             "cm_id": 2641,
-            "id": "0c741747-a757-4d53-8fb0-e869aed2dbc7"
+            "id": "0c741747-a757-4d53-8fb0-e869aed2dbc7",
+            "entrance_number": 29
         },
         {
             "name": "Stardust",
             "cm_id": 3686,
-            "id": "6eea7b54-39fe-4923-b9cb-51ee3f3ba375"
+            "id": "6eea7b54-39fe-4923-b9cb-51ee3f3ba375",
+            "entrance_number": 14
         },
         {
             "name": "The Big Show",
             "cm_id": 712,
-            "id": "9714f70c-6788-4f17-a8ec-422c36159b69"
+            "id": "9714f70c-6788-4f17-a8ec-422c36159b69",
+            "entrance_number": 15
         },
         {
             "name": "The Miz",
             "cm_id": 1590,
-            "id": "0adeec3e-6c7d-4529-b6e9-a4fa597d7545"
+            "id": "0adeec3e-6c7d-4529-b6e9-a4fa597d7545",
+            "entrance_number": 25
         },
         {
             "name": "Titus O'Neil",
             "cm_id": 8881,
-            "id": "39082d1d-0e6a-4024-9c01-710eb6ad17c1"
+            "id": "39082d1d-0e6a-4024-9c01-710eb6ad17c1",
+            "entrance_number": 11
         },
         {
             "name": "Tyler Breeze",
             "cm_id": 9500,
-            "id": "26740a64-76e6-46ac-ae83-9cd063eb220e"
+            "id": "26740a64-76e6-46ac-ae83-9cd063eb220e",
+            "entrance_number": 4
         }
     ],
     "eliminations": [
@@ -478,5 +508,17 @@
             "raw": "- Triple H eliminates Dean Ambrose (61:42)",
             "is_valid": true
         }
-    ]
+    ],
+    "entrance_order": {
+        "status": "verified",
+        "match": "open",
+        "label": "Royal Rumble entrances and eliminations",
+        "source_url": "https://en.wikipedia.org/wiki/Royal_Rumble_(2016)",
+        "source_revision_id": 1348387945,
+        "retrieved_from": "Wikimedia Action API",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "changes": "Draw-to-entrant facts mapped onto existing Cagematch wrestler records; result and elimination data preserved.",
+        "entrant_count": 30
+    }
 }

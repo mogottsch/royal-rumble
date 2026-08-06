@@ -1,18 +1,19 @@
 <?php
+
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Wrestler extends Model
 {
     use HasFactory;
 
-    protected $appends = ["image_url", "thumbnail_url", "royal_rumble_stats"];
+    protected $appends = ['image_url', 'thumbnail_url', 'royal_rumble_stats'];
 
     protected $casts = [
-        "cm_id" => "integer",
+        'cm_id' => 'integer',
     ];
 
     public function royalRumbleEntries()
@@ -23,42 +24,44 @@ class Wrestler extends Model
     protected function imageUrl(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->image_filename === null
+            get: fn () => $this->image_filename === null
                 ? null
-                : route("wrestlers.image", ["wrestler" => $this->id])
+                : route('wrestlers.image', ['wrestler' => $this->id])
         );
     }
 
     protected function thumbnailUrl(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->image_filename === null
+            get: fn () => $this->image_filename === null
                 ? null
-                : route("wrestlers.thumbnail", ["wrestler" => $this->id])
+                : route('wrestlers.thumbnail', ['wrestler' => $this->id])
         );
     }
 
     protected function royalRumbleStats(): Attribute
     {
         return Attribute::make(get: function () {
-            $entries = $this->relationLoaded("royalRumbleEntries")
+            $entries = $this->relationLoaded('royalRumbleEntries')
                 ? $this->royalRumbleEntries
-                : $this->royalRumbleEntries()->get(["entrance_number"]);
+                : $this->royalRumbleEntries()->get(['entrance_number', 'entrance_order_verified']);
 
             $appearances = $entries->count();
 
             if ($appearances === 0) {
                 return [
-                    "appearances" => 0,
-                    "number_one_appearances" => 0,
-                    "number_thirty_appearances" => 0,
+                    'appearances' => 0,
+                    'number_one_appearances' => 0,
+                    'number_thirty_appearances' => 0,
                 ];
             }
 
+            $verifiedEntries = $entries->where('entrance_order_verified', true);
+
             return [
-                "appearances" => $appearances,
-                "number_one_appearances" => $entries->where("entrance_number", 1)->count(),
-                "number_thirty_appearances" => $entries->where("entrance_number", 30)->count(),
+                'appearances' => $appearances,
+                'number_one_appearances' => $verifiedEntries->where('entrance_number', 1)->count(),
+                'number_thirty_appearances' => $verifiedEntries->where('entrance_number', 30)->count(),
             ];
         });
     }

@@ -16,7 +16,7 @@ import groupChestIcon from "../assets/chests/group.png";
 import chaosChestIcon from "../assets/chests/chaos.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { fetchApi, participantIdHeaders } from "../api/fetcher";
+import { apiJson, participantIdHeaders } from "../api/fetcher";
 import {
   getPendingChestChoices,
   getPendingDrinkPools,
@@ -34,7 +34,7 @@ import {
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNotificationContext } from "../contexts/notification_context";
 import { useParticipantClaim } from "../contexts/participant_claim_context";
-import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
+import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import { ChestChoiceOption, ChestReward, Lobby, Participant } from "../hooks/use_lobby";
 import { useI18n } from "../i18n";
 
@@ -153,7 +153,7 @@ export function Distribute() {
           }
           if (adminRevealedChestResult.card_mode === "give_out") {
             navigate(
-              `/lobbies/${lobby.code}/distribute?adminDistributionParticipantId=${adminParticipantId}`,
+              `/lobbies/${lobby.code}/distribute?adminParticipantId=${adminParticipantId}`,
             );
             return;
           }
@@ -300,6 +300,7 @@ export function Distribute() {
           await lobbyQuery?.refetch();
           navigate(`/lobbies/${lobby.code}/distribute${window.location.search}`);
         }}
+        onRecover={async () => { await lobbyQuery?.refetch(); }}
       />
     );
   }
@@ -310,6 +311,7 @@ export function Distribute() {
       pools={effectivePools}
       giverId={effectiveParticipantId}
       onFinish={() => navigate(`/lobbies/${lobby.code}/view-game`)}
+      onRecover={async () => { await lobbyQuery?.refetch(); }}
     />
   );
 }
@@ -325,11 +327,14 @@ function ChestChoiceForm({
   lobbyCode: string;
   onResolved: () => Promise<void>;
 }) {
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
   const { notify } = useNotificationContext();
   const { t } = useI18n();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const openChest = async (chestType: "safe" | "group" | "chaos") => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setKeyLoading("openChest", true);
     try {
       await postChestRoll(lobbyCode, choice.chestRewardId, chestType, chooserId);
@@ -337,6 +342,7 @@ function ChestChoiceForm({
     } catch (error) {
       notify((error as Error).message, "error");
     } finally {
+      setIsSubmitting(false);
       setKeyLoading("openChest", false);
     }
   };
@@ -358,18 +364,21 @@ function ChestChoiceForm({
           body={t("distribute.chestSafeHint")}
           imageSrc={safeChestIcon}
           onClick={() => openChest("safe")}
+          disabled={isSubmitting}
         />
         <ChestTypeCard
           title={t("distribute.chestGroup")}
           body={t("distribute.chestGroupHint")}
           imageSrc={groupChestIcon}
           onClick={() => openChest("group")}
+          disabled={isSubmitting}
         />
         <ChestTypeCard
           title={t("distribute.chestChaos")}
           body={t("distribute.chestChaosHint")}
           imageSrc={chaosChestIcon}
           onClick={() => openChest("chaos")}
+          disabled={isSubmitting}
         />
       </Stack>
     </Box>
@@ -385,17 +394,24 @@ function ChestRevealScreen({
   result: RevealedChestResult;
   onContinue: () => Promise<void>;
 }) {
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
+  const { notify } = useNotificationContext();
   const { t } = useI18n();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const affectedParticipants = (result.affectedParticipantIds ?? [])
     .map((participantId) => lobby.participants.find((participant) => participant.id === participantId))
     .filter((participant): participant is Participant => Boolean(participant));
 
   const handleContinue = async () => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setKeyLoading("continueChest", true);
     try {
       await onContinue();
+    } catch (error) {
+      notify((error as Error).message, "error");
     } finally {
+      setIsSubmitting(false);
       setKeyLoading("continueChest", false);
     }
   };
@@ -441,7 +457,7 @@ function ChestRevealScreen({
           )}
         </CardContent>
       </Card>
-      <Button variant="contained" size="large" onClick={handleContinue}>
+      <Button variant="contained" size="large" onClick={handleContinue} disabled={isSubmitting}>
         {result.card_mode === "target_pick"
           ? t("distribute.continueToTargetPick")
           : result.card_mode === "effect_choice"
@@ -467,14 +483,17 @@ function TargetPickScreen({
   actorParticipantId: number;
   onResolved: () => Promise<void>;
 }) {
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
   const { notify } = useNotificationContext();
   const { t } = useI18n();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const chooser = lobby.participants.find((participant) => participant.id === chooserParticipantId);
   const options = lobby.participants.filter((participant) => participant.id !== chooserParticipantId);
 
   const pickTarget = async (targetParticipantId: number) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setKeyLoading("resolveRussianRoulette", true);
     try {
       const result = await postTargetResolution(
@@ -496,6 +515,7 @@ function TargetPickScreen({
     } catch (error) {
       notify((error as Error).message, "error");
     } finally {
+      setIsSubmitting(false);
       setKeyLoading("resolveRussianRoulette", false);
     }
   };
@@ -513,7 +533,7 @@ function TargetPickScreen({
       <Stack spacing={2}>
         {options.map((participant) => (
           <Card key={participant.id} variant="outlined">
-            <CardActionArea onClick={() => pickTarget(participant.id)}>
+            <CardActionArea onClick={() => pickTarget(participant.id)} disabled={isSubmitting}>
               <CardContent>
                 <Typography variant="h6">{participant.name}</Typography>
               </CardContent>
@@ -536,12 +556,15 @@ function EffectChoiceScreen({
   actorParticipantId: number;
   onResolved: (result: EffectChoiceResolutionResult) => Promise<void>;
 }) {
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
   const { notify } = useNotificationContext();
   const { t } = useI18n();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const options = reward.choice_options ?? [];
 
   const resolveChoice = async (option: ChestChoiceOption) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setKeyLoading(`resolveEffectChoice:${reward.id}`, true);
     try {
       const result = await postEffectChoice(lobby.code, reward.id, option.key, actorParticipantId);
@@ -561,6 +584,7 @@ function EffectChoiceScreen({
     } catch (error) {
       notify((error as Error).message, "error");
     } finally {
+      setIsSubmitting(false);
       setKeyLoading(`resolveEffectChoice:${reward.id}`, false);
     }
   };
@@ -576,7 +600,7 @@ function EffectChoiceScreen({
       <Stack spacing={2}>
         {options.map((option) => (
           <Card key={option.key} variant="outlined">
-            <CardActionArea onClick={() => resolveChoice(option)}>
+            <CardActionArea onClick={() => resolveChoice(option)} disabled={isSubmitting}>
               <CardContent>
                 <Typography variant="h6">
                   {getChoiceOptionTitle(t, reward.card_key ?? "", option)}
@@ -598,15 +622,17 @@ function ChestTypeCard({
   body,
   imageSrc,
   onClick,
+  disabled = false,
 }: {
   title: string;
   body: string;
   imageSrc: string;
   onClick: () => void;
+  disabled?: boolean;
 }) {
   return (
     <Card variant="outlined">
-      <CardActionArea onClick={onClick}>
+      <CardActionArea onClick={onClick} disabled={disabled}>
         <CardContent>
           <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
             <Box
@@ -639,14 +665,18 @@ function AggregateForm({
   pools,
   giverId,
   onFinish,
+  onRecover,
 }: {
   lobby: Lobby;
   pools: PendingDrinkPool[];
   giverId: number;
-  onFinish: () => void;
+  onFinish: () => void | Promise<void>;
+  onRecover: () => Promise<void>;
 }) {
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
+  const { notify } = useNotificationContext();
   const { t } = useI18n();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [alloc, setAlloc] = useState<Allocation>(() =>
     Object.fromEntries(
       lobby.participants.map((p) => [p.id, { schluecke: 0, shots: 0 }]),
@@ -689,6 +719,7 @@ function AggregateForm({
     key: "schluecke" | "shots",
     delta: number,
   ) => {
+    if (isSubmitting) return;
     setAlloc((prev) => {
       const current = prev[participantId];
       const next = Math.max(0, current[key] + delta);
@@ -697,25 +728,30 @@ function AggregateForm({
   };
 
   const submit = async () => {
+    if (isSubmitting) return;
     const requests = buildDistributionRequests(pools, alloc);
+    setIsSubmitting(true);
     setKeyLoading("distribute", true);
     try {
       for (const request of requests) {
-        await postDistribution(
-          lobby.code,
-          request,
-          giverId,
-          t("distribute.failedPrefix"),
-        );
+        await postDistribution(lobby.code, request, giverId);
       }
+      await onFinish();
+    } catch (error) {
+      notify(`${t("distribute.failedPrefix")}: ${(error as Error).message}`, "error");
+      setAlloc(Object.fromEntries(
+        lobby.participants.map((participant) => [participant.id, { schluecke: 0, shots: 0 }]),
+      ));
+      await onRecover();
     } finally {
+      setIsSubmitting(false);
       setKeyLoading("distribute", false);
     }
-    onFinish();
   };
 
   return (
     <Box
+      aria-busy={isSubmitting}
       sx={{
         p: 2,
         height: "100%",
@@ -766,6 +802,7 @@ function AggregateForm({
             showShots={showShots}
             canIncSchluecke={sumSchluecke < totalSchluecke}
             canIncShots={sumShots < totalShots}
+            disabled={isSubmitting}
             onBump={(key, delta) => bump(p.id, key, delta)}
           />
         ))}
@@ -785,10 +822,10 @@ function AggregateForm({
       </Box>
 
       <Stack spacing={1} sx={{ mt: 3 }}>
-        <Button variant="contained" size="large" disabled={!canSubmit} onClick={submit}>
+        <Button variant="contained" size="large" disabled={!canSubmit || isSubmitting} onClick={submit}>
           {t("common.confirm")}
         </Button>
-        <Button size="small" onClick={onFinish}>
+        <Button size="small" onClick={onFinish} disabled={isSubmitting}>
           {t("distribute.skip")}
         </Button>
       </Stack>
@@ -896,6 +933,7 @@ function ParticipantRow({
   showShots,
   canIncSchluecke,
   canIncShots,
+  disabled,
   onBump,
 }: {
   participant: Participant;
@@ -905,6 +943,7 @@ function ParticipantRow({
   showShots: boolean;
   canIncSchluecke: boolean;
   canIncShots: boolean;
+  disabled: boolean;
   onBump: (key: "schluecke" | "shots", delta: number) => void;
 }) {
   const { t } = useI18n();
@@ -937,6 +976,7 @@ function ParticipantRow({
             ariaContext={`${participant.name} ${t("distribute.sipsShort")}`}
             value={schluecke}
             canInc={canIncSchluecke}
+            disabled={disabled}
             onInc={() => onBump("schluecke", 1)}
             onDec={() => onBump("schluecke", -1)}
           />
@@ -947,6 +987,7 @@ function ParticipantRow({
             ariaContext={`${participant.name} ${t("distribute.shotsShort")}`}
             value={shots}
             canInc={canIncShots}
+            disabled={disabled}
             onInc={() => onBump("shots", 1)}
             onDec={() => onBump("shots", -1)}
           />
@@ -961,6 +1002,7 @@ function Stepper({
   ariaContext,
   value,
   canInc,
+  disabled,
   onInc,
   onDec,
 }: {
@@ -968,6 +1010,7 @@ function Stepper({
   ariaContext: string;
   value: number;
   canInc: boolean;
+  disabled: boolean;
   onInc: () => void;
   onDec: () => void;
 }) {
@@ -994,7 +1037,7 @@ function Stepper({
         aria-label={`${ariaContext} minus`}
         size="small"
         onClick={onDec}
-        disabled={value === 0}
+        disabled={disabled || value === 0}
         sx={{
           p: { xs: 0.25, sm: 0.5 },
         }}
@@ -1014,7 +1057,7 @@ function Stepper({
         aria-label={`${ariaContext} plus`}
         size="small"
         onClick={onInc}
-        disabled={!canInc}
+        disabled={disabled || !canInc}
         sx={{
           p: { xs: 0.25, sm: 0.5 },
         }}
@@ -1047,32 +1090,18 @@ async function postChestRoll(
   chestType: "safe" | "group" | "chaos",
   chooserId: number,
 ) {
-  const response = await fetchApi(`/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/roll`, {
-    method: "POST",
-    body: JSON.stringify({ chest_type: chestType }),
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-      ...participantIdHeaders(chooserId),
+  const data = await apiJson<{ data: RevealedChestResult }>(
+    `/lobbies/${encodeURIComponent(lobbyCode)}/chest-rewards/${chestRewardId}/roll`,
+    {
+      method: "POST",
+      body: JSON.stringify({ chest_type: chestType }),
+      headers: {
+        "content-type": "application/json",
+        ...participantIdHeaders(chooserId),
+      },
     },
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text);
-  }
-
-  const data = await response.json();
-  return data.data as {
-    chest_reward_id: number;
-    chest_type: "safe" | "group" | "chaos";
-    card_key: string;
-    card_mode: "auto" | "give_out" | "target_pick" | "effect_choice";
-    schluecke: number;
-    shots: number;
-    choice_options?: ChestChoiceOption[] | null;
-    selected_choice_key?: string | null;
-  };
+  );
+  return data.data;
 }
 
 async function acknowledgeChestReveal(
@@ -1080,22 +1109,16 @@ async function acknowledgeChestReveal(
   chestRewardId: number,
   chooserId: number,
 ) {
-  const response = await fetchApi(
-    `/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/acknowledge`,
+  await apiJson(
+    `/lobbies/${encodeURIComponent(lobbyCode)}/chest-rewards/${chestRewardId}/acknowledge`,
     {
       method: "POST",
       headers: {
-        accept: "application/json",
         "content-type": "application/json",
         ...participantIdHeaders(chooserId),
       },
     },
   );
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text);
-  }
 }
 
 async function postEffectChoice(
@@ -1104,26 +1127,18 @@ async function postEffectChoice(
   choiceKey: string,
   chooserId: number,
 ) {
-  const response = await fetchApi(
-    `/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/resolve-choice`,
+  const data = await apiJson<{ data: EffectChoiceResolutionResult }>(
+    `/lobbies/${encodeURIComponent(lobbyCode)}/chest-rewards/${chestRewardId}/resolve-choice`,
     {
       method: "POST",
       body: JSON.stringify({ choice_key: choiceKey }),
       headers: {
-        accept: "application/json",
         "content-type": "application/json",
         ...participantIdHeaders(chooserId),
       },
     },
   );
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text);
-  }
-
-  const data = await response.json();
-  return data.data as EffectChoiceResolutionResult;
+  return data.data;
 }
 
 async function postTargetResolution(
@@ -1132,26 +1147,17 @@ async function postTargetResolution(
   targetParticipantId: number,
   viewerParticipantId: number,
 ) {
-  const response = await fetchApi(
-    `/lobbies/${lobbyCode}/chest-rewards/${chestRewardId}/resolve-target`,
-    {
-      method: "POST",
-      body: JSON.stringify({ target_participant_id: targetParticipantId }),
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-        ...participantIdHeaders(viewerParticipantId),
-      },
+  const data = await apiJson<{
+    data: { target_participant_id: number; result_participant_id: number };
+  }>(`/lobbies/${encodeURIComponent(lobbyCode)}/chest-rewards/${chestRewardId}/resolve-target`, {
+    method: "POST",
+    body: JSON.stringify({ target_participant_id: targetParticipantId }),
+    headers: {
+      "content-type": "application/json",
+      ...participantIdHeaders(viewerParticipantId),
     },
-  );
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text);
-  }
-
-  const data = await response.json();
-  return data.data as { target_participant_id: number; result_participant_id: number };
+  });
+  return data.data;
 }
 
 async function postDistribution(
@@ -1168,19 +1174,13 @@ async function postDistribution(
     }[];
   },
   giverId: number,
-  errorPrefix = "Distribution failed",
 ) {
-  const response = await fetchApi(`/lobbies/${lobbyCode}/distributions`, {
+  await apiJson(`/lobbies/${encodeURIComponent(lobbyCode)}/distributions`, {
     method: "POST",
     body: JSON.stringify(body),
     headers: {
-      accept: "application/json",
       "content-type": "application/json",
       ...participantIdHeaders(giverId),
     },
   });
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`${errorPrefix}: ${text}`);
-  }
 }

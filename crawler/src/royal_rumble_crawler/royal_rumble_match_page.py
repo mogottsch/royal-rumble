@@ -80,11 +80,19 @@ class Wrestler:
     name: str
     cm_id: int
     id: uuid.UUID
+    entrance_number: int | None
 
-    def __init__(self: "Wrestler", name: str, cm_id: int, id: uuid.UUID):
+    def __init__(
+        self: "Wrestler",
+        name: str,
+        cm_id: int,
+        id: uuid.UUID,
+        entrance_number: int | None = None,
+    ):
         self.name = name
         self.cm_id = cm_id
         self.id = id
+        self.entrance_number = entrance_number
 
     def __repr__(self):
         return f"Wrestler(name={self.name}, cm_id={self.cm_id})"
@@ -93,11 +101,14 @@ class Wrestler:
         return self.__repr__()
 
     def __dict__(self):
-        return {
+        data = {
             "name": self.name,
             "cm_id": self.cm_id,
             "id": str(self.id),
         }
+        if self.entrance_number is not None:
+            data["entrance_number"] = self.entrance_number
+        return data
 
 
 def extract_wrestlers(results):

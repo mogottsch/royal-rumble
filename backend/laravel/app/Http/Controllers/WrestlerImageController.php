@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 class WrestlerImageController extends Controller
 {
     private const THUMBNAIL_SIZE = 160;
+
     private const THUMBNAIL_QUALITY = 82;
 
     public function show(Wrestler $wrestler): BinaryFileResponse
@@ -22,7 +23,7 @@ class WrestlerImageController extends Controller
         abort_unless($this->isImageFile($path), 404);
 
         return response()->file($path, [
-            "Cache-Control" => "public, max-age=31536000, immutable",
+            'Cache-Control' => 'public, max-age=31536000, immutable',
         ]);
     }
 
@@ -35,23 +36,23 @@ class WrestlerImageController extends Controller
         abort_unless($this->isImageFile($sourcePath), 404);
 
         $thumbnailPath = $this->thumbnailPath($wrestler->id, $wrestler->updated_at?->timestamp ?? 0);
-        if (!file_exists($thumbnailPath)) {
+        if (! file_exists($thumbnailPath)) {
             $this->createThumbnail($sourcePath, $thumbnailPath);
         }
 
         return response()->file($thumbnailPath, [
-            "Cache-Control" => "public, max-age=31536000, immutable",
+            'Cache-Control' => 'public, max-age=31536000, immutable',
         ]);
     }
 
     private function imagePath(string $imageFilename): string
     {
-        $storagePath = Storage::disk("public")->path("wrestlers/" . $imageFilename);
+        $storagePath = Storage::disk('public')->path('wrestlers/'.$imageFilename);
         if (file_exists($storagePath)) {
             return $storagePath;
         }
 
-        return base_path("seed-data/wrestlers/" . $imageFilename);
+        return base_path('seed-data/wrestlers/'.$imageFilename);
     }
 
     private function thumbnailPath(int $wrestlerId, int $version): string
@@ -63,12 +64,12 @@ class WrestlerImageController extends Controller
     {
         $contents = file_get_contents($sourcePath);
         if ($contents === false) {
-            throw new RuntimeException("Failed to read wrestler image");
+            throw new RuntimeException('Failed to read wrestler image');
         }
 
         $image = @imagecreatefromstring($contents);
         if ($image === false) {
-            throw new RuntimeException("Failed to read wrestler image");
+            throw new RuntimeException('Failed to read wrestler image');
         }
 
         $sourceWidth = imagesx($image);
@@ -80,7 +81,7 @@ class WrestlerImageController extends Controller
         $thumbnail = imagecreatetruecolor(self::THUMBNAIL_SIZE, self::THUMBNAIL_SIZE);
         if ($thumbnail === false) {
             imagedestroy($image);
-            throw new RuntimeException("Failed to allocate thumbnail image");
+            throw new RuntimeException('Failed to allocate thumbnail image');
         }
 
         imagealphablending($thumbnail, false);
@@ -99,7 +100,7 @@ class WrestlerImageController extends Controller
         );
 
         $directory = dirname($thumbnailPath);
-        if (!is_dir($directory)) {
+        if (! is_dir($directory)) {
             mkdir($directory, 0775, true);
         }
 
@@ -109,7 +110,7 @@ class WrestlerImageController extends Controller
         imagedestroy($image);
 
         if ($saved === false) {
-            throw new RuntimeException("Failed to write wrestler thumbnail");
+            throw new RuntimeException('Failed to write wrestler thumbnail');
         }
     }
 

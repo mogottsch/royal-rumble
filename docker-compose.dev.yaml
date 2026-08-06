@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: royal
       POSTGRES_DB: royal
     ports:
-      - "127.0.0.1:54329:5432"
+      - "127.0.0.1:${RR_DB_PORT:-54329}:5432"
     volumes:
       - db:/var/lib/postgresql/data
     healthcheck:
@@ -23,7 +23,12 @@ services:
       SOKETI_DEFAULT_APP_KEY: app-key
       SOKETI_DEFAULT_APP_SECRET: app-secret
     ports:
-      - "127.0.0.1:6001:6001"
+      - "127.0.0.1:${RR_WS_PORT:-6001}:6001"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:6001',r=>process.exit(r.statusCode < 500 ? 0 : 1)).on('error',()=>process.exit(1))"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
 
   api:
     build:
@@ -33,7 +38,7 @@ services:
       db:
         condition: service_healthy
       soketi:
-        condition: service_started
+        condition: service_healthy
     environment:
       APP_ENV: local
       APP_DEBUG: "true"
@@ -50,6 +55,7 @@ services:
       CACHE_DRIVER: file
       QUEUE_CONNECTION: sync
       SESSION_DRIVER: file
+      SEED_DATA_PATH: /seed-data
       PUSHER_HOST: soketi
       PUSHER_PORT: 6001
       PUSHER_APP_ID: app-id
@@ -59,19 +65,24 @@ services:
       PUSHER_APP_CLUSTER: mt1
     volumes:
       - ./backend/laravel:/app
-      - ./crawler/data/saved_superstars.json:/app/storage/app/saved_superstars.json:ro
-      - ./crawler/data/matches:/app/storage/app/royal_rumble_matches:ro
-      - ./crawler/data/images:/app/storage/app/public/wrestlers:ro
+      - ./crawler/data/saved_superstars.json:/seed-data/saved_superstars.json:ro
+      - ./crawler/data/matches:/seed-data/royal_rumble_matches:ro
+      - ./crawler/data/images:/seed-data/wrestlers:ro
     ports:
-      - "127.0.0.1:8088:8088"
+      - "127.0.0.1:${RR_API_PORT:-8088}:8088"
     command: >
       sh -c "
       composer install --no-interaction --prefer-dist &&
-      php artisan storage:link || true &&
+      (php artisan storage:link || true) &&
       php artisan migrate --force &&
-      php artisan db:seed --class=ProductiveSeeder --force || true &&
+      php artisan db:seed --class=ProductiveSeeder --force &&
       php artisan serve --host=0.0.0.0 --port=8088
       "
+    healthcheck:
+      test: ["CMD", "php", "-r", "exit(@file_get_contents('http://127.0.0.1:8088/api/health') === false ? 1 : 0);"]
+      interval: 2s
+      timeout: 3s
+      retries: 60
 
   frontend:
     build:
@@ -80,23 +91,29 @@ services:
       target: dev
     depends_on:
       api:
-        condition: service_started
+        condition: service_healthy
       soketi:
-        condition: service_started
+        condition: service_healthy
     working_dir: /app
     environment:
       CHOKIDAR_USEPOLLING: "true"
-      VITE_BACKEND_URL: http://localhost:8088
+      VITE_BACKEND_URL: http://localhost:${RR_API_PORT:-8088}
       VITE_PUSHER_HOST: localhost
-      VITE_PUSHER_PORT: 6001
+      VITE_PUSHER_PORT: ${RR_WS_PORT:-6001}
       VITE_PUSHER_SCHEME: http
       VITE_PUSHER_APP_KEY: app-key
+      RR_HMR_PORT: ${RR_HMR_PORT:-4784}
     volumes:
       - ./frontend:/app
       - frontend_node_modules:/app/node_modules
     ports:
-      - "127.0.0.1:5173:5173"
-      - "127.0.0.1:4784:4784"
+      - "127.0.0.1:${RR_FRONTEND_PORT:-5173}:5173"
+      - "127.0.0.1:${RR_HMR_PORT:-4784}:4784"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://127.0.0.1:5173/ >/dev/null"]
+      interval: 2s
+      timeout: 3s
+      retries: 60
 
 volumes:
   db:

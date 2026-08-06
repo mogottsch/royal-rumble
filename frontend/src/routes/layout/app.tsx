@@ -25,7 +25,8 @@ export function App({
       <Container
         maxWidth={maxWidth}
         sx={{
-          overflow: "hidden",
+          overflowX: "hidden",
+          overflowY: "auto",
           display: "flex",
           flexDirection: "column",
           minHeight: 0,

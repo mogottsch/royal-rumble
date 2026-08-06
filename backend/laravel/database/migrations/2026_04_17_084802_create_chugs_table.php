@@ -8,19 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create("chugs", function (Blueprint $table) {
+        Schema::create('chugs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("lobby_id")->constrained("lobbies")->cascadeOnDelete();
-            $table->foreignId("participant_id")->constrained("participants")->cascadeOnDelete();
-            $table->foreignId("elimination_id")->constrained("eliminations")->cascadeOnDelete();
+            $table->foreignId('lobby_id')->constrained('lobbies')->cascadeOnDelete();
+            $table->foreignId('participant_id')->constrained('participants')->cascadeOnDelete();
+            $table->foreignId('elimination_id')->constrained('eliminations')->cascadeOnDelete();
             $table->timestamps();
 
-            $table->index(["lobby_id", "participant_id"]);
+            $table->index(['lobby_id', 'participant_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists("chugs");
+        Schema::dropIfExists('chugs');
     }
 };

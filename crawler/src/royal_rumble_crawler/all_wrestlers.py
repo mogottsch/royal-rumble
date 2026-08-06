@@ -1,6 +1,7 @@
-import os
 import asyncio
 import re
+from pathlib import Path
+
 import aiohttp
 
 from bs4 import BeautifulSoup
@@ -39,17 +40,18 @@ def save_wrestlers_to_file(wrestlers, filename):
             file.write(wrestler + "\n")
 
 
-DATA_DIR = "all_wrestlers"
+DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "all_wrestlers"
 
 
-def get_page_filepath(page: int) -> str:
-    return os.path.join(DATA_DIR, f"page_{page}.txt")
+def get_page_filepath(page: int) -> Path:
+    return DATA_DIR / f"page_{page}.txt"
 
 
 async def process_page(session, page: int):
     filepath = get_page_filepath(page)
-    if os.path.exists(filepath):
+    if filepath.exists():
         return
+    filepath.parent.mkdir(parents=True, exist_ok=True)
     print(f"Processing page {page}")
     content = await fetch(session, page)
     rows = extract_rows_from_page(content)

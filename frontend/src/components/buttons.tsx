@@ -26,21 +26,25 @@ export function SecondaryButton(props: ButtonProps) {
   );
 }
 
-export function CopyToClipboardButton({ text }: { text: string }) {
+export function CopyToClipboardButton({ text, label }: { text: string; label: string }) {
   const { t } = useI18n();
-  const handleClick = () => {
+  const handleClick = async () => {
     if (!navigator.clipboard) {
       notify(t("bar.copyUnsupported"), "error");
       return;
     }
-    navigator.clipboard.writeText(text);
-    notify(t("bar.copied"), "success");
+    try {
+      await navigator.clipboard.writeText(text);
+      notify(t("bar.copied"), "success");
+    } catch (error) {
+      notify((error as Error).message || t("bar.copyUnsupported"), "error");
+    }
   };
   const { notify } = useNotificationContext();
 
   return (
     <>
-      <Button onClick={handleClick}>
+      <Button onClick={handleClick} aria-label={label}>
         <ContentPasteIcon />
       </Button>
     </>

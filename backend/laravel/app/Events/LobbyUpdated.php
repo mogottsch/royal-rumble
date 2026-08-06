@@ -6,17 +6,19 @@ use App\Http\Resources\LobbyResource;
 use App\Models\Lobby;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class LobbyUpdated implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public LobbyResource $lobby;
+
     /**
      * Create a new event instance.
      *
@@ -27,10 +29,24 @@ class LobbyUpdated implements ShouldBroadcastNow
         $this->lobby = new LobbyResource($this->lobbyModel);
     }
 
+    public static function dispatchAfterCommit(Lobby $lobby): void
+    {
+        DB::afterCommit(function () use ($lobby): void {
+            try {
+                self::dispatch($lobby->fresh());
+            } catch (Throwable $exception) {
+                Log::error('Failed to broadcast lobby update after commit.', [
+                    'exception' => $exception,
+                    'lobby_id' => $lobby->id,
+                ]);
+            }
+        });
+    }
+
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return \Illuminate\Broadcasting\Channel|array
+     * @return Channel|array
      */
     public function broadcastOn()
     {
@@ -40,6 +56,6 @@ class LobbyUpdated implements ShouldBroadcastNow
 
     public function broadcastAs()
     {
-        return "lobby-updated";
+        return 'lobby-updated';
     }
 }

@@ -29,7 +29,7 @@ class LobbyTest extends TestCase
     public function test_find_lobby_by_code()
     {
         $lobby = Lobby::factory()->create();
-        $foundLobby = Lobby::where("code", $lobby->code)->first();
+        $foundLobby = Lobby::where('code', $lobby->code)->first();
         $this->assertEquals($lobby->id, $foundLobby->id);
     }
 

@@ -59,19 +59,63 @@ To stop the stack:
 docker compose -f docker-compose.dev.yaml down
 ```
 
-## Frontend checks
+## Verification
+
+Frontend:
 
 ```bash
 cd frontend
 corepack yarn install --frozen-lockfile
-corepack yarn typecheck
-corepack yarn build
+yarn lint
+yarn typecheck
+yarn test --run
+yarn build
 ```
+
+Backend (the Compose image supplies the required PHP extensions and PostgreSQL):
+
+```bash
+docker compose -f docker-compose.dev.yaml exec -T api composer validate --strict
+docker compose -f docker-compose.dev.yaml exec -T api composer audit --locked
+docker compose -f docker-compose.dev.yaml exec -T api vendor/bin/pint --test
+docker compose -f docker-compose.dev.yaml exec -T api vendor/bin/pest
+```
+
+Crawler and production-data integrity checks:
+
+```bash
+cd crawler
+poetry check --strict
+poetry install
+poetry run pytest
+```
+
+Exact production image build and runtime smoke (FrankenPHP API liveness/readiness, non-root frontend deep link and headers, browser-enforced CSP, wrestler image and generated thumbnail):
+
+```bash
+./scripts/smoke-production-images.sh
+```
+
+## End-to-end tests
+
+The browser suite starts a fresh, isolated Compose project on dedicated loopback ports,
+waits for all service health checks, runs Chromium tests, and removes its database volume:
+
+```bash
+cd frontend
+corepack yarn install --frozen-lockfile
+corepack yarn playwright install chromium
+corepack yarn e2e:stack
+```
+
+Set `E2E_KEEP_STACK=1` to keep the isolated stack running for debugging.
 
 ## API surface
 
 Core routes include:
 
+- `GET /api/health` (process liveness)
+- `GET /api/readiness` (database/schema readiness)
 - `POST /api/lobbies`
 - `PATCH /api/lobbies/{code}/settings`
 - `POST /api/lobbies/{code}/entrance-numbers`
@@ -82,4 +126,8 @@ Core routes include:
 
 ## Notes
 
-This repo contains the app code. Deployment and infrastructure are managed separately.
+This repo contains the app code. Deployment and infrastructure are managed separately. Production migrations and productive seeding are performed by the Argo CD PreSync migration job; web replicas do not mutate schema or seed data during startup.
+
+The production API uses FrankenPHP in classic Laravel mode and the frontend uses unprivileged nginx; both listen on unprivileged port 8080 and run as non-root users. Operational work remains separated from web startup.
+
+Historical #1/#30 statistics use only the Wikimedia-verified annual entrance-order records. Six explicitly marked legacy years still contribute to appearance totals but never to edge-position counts. See `crawler/data/MATCH_DATA.md` for sources and limitations.

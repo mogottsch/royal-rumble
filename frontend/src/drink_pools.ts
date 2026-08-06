@@ -160,7 +160,9 @@ export function getPendingDrinkPools(
     if (eliminationId !== undefined && elimination.id !== eliminationId) continue;
 
     for (const offender of elimination.rumbler_offenders) {
-      if (offender.participant?.id !== claimedParticipantId) continue;
+      const earningParticipantId =
+        offender.pivot?.participant_id ?? offender.participant?.id ?? null;
+      if (earningParticipantId !== claimedParticipantId) continue;
 
       for (const victim of elimination.rumbler_victims) {
         const done = lobby.drink_distributions.some(

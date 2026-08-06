@@ -1,55 +1,62 @@
-FROM composer:2 AS composer
+FROM dunglas/frankenphp:1-php8.5-alpine AS php-base
 
-FROM php:8.5-cli-alpine AS base
-
-RUN apk add --no-cache \
-        postgresql-libs \
-        postgresql-dev \
-        libpng-dev \
-        libwebp-dev \
-        libzip-dev \
-        oniguruma-dev \
-        icu-dev \
-        $PHPIZE_DEPS \
-    && docker-php-ext-configure gd --with-webp \
-    && docker-php-ext-install \
+RUN install-php-extensions \
         pdo_pgsql \
         pgsql \
         bcmath \
         gd \
         zip \
         intl \
-        mbstring \
-    && apk del $PHPIZE_DEPS postgresql-dev \
-    && rm -rf /var/cache/apk/*
-
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+        mbstring
 
 WORKDIR /var/www/html
 
+FROM php-base AS build
+
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 COPY backend/laravel/composer.json backend/laravel/composer.lock ./
 RUN composer install \
         --no-dev \
         --no-scripts \
         --no-autoloader \
         --prefer-dist \
-        --no-interaction
+        --no-interaction \
+        --no-progress
 
 COPY backend/laravel/ ./
-COPY backend/laravel/docker/prod/entrypoint.sh /usr/local/bin/royal-api-entrypoint
-
-COPY crawler/data/saved_superstars.json storage/app/saved_superstars.json
 COPY crawler/data/saved_superstars.json seed-data/saved_superstars.json
 COPY crawler/data/matches/ seed-data/royal_rumble_matches/
-COPY crawler/data/images/ storage/app/public/wrestlers/
 COPY crawler/data/images/ seed-data/wrestlers/
 
-RUN composer dump-autoload --optimize --no-dev \
+RUN composer dump-autoload --classmap-authoritative --no-dev \
+    && rm -rf /root/.composer /tmp/*
+
+FROM php-base AS runtime
+
+ENV XDG_CONFIG_HOME=/tmp/caddy/config \
+    XDG_DATA_HOME=/tmp/caddy/data \
+    HOME=/tmp
+
+COPY --from=build --chown=www-data:www-data /var/www/html /var/www/html
+COPY backend/laravel/docker/prod/Caddyfile /etc/frankenphp/Caddyfile
+
+RUN mkdir -p \
+        storage/app/public \
+        storage/framework/cache/data \
+        storage/framework/sessions \
+        storage/framework/views \
+        storage/logs \
+        bootstrap/cache \
+        /tmp/caddy/config \
+        /tmp/caddy/data \
     && php artisan storage:link \
-    && chmod +x /usr/local/bin/royal-api-entrypoint \
-    && chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R ug+rwX storage bootstrap/cache
+    && chown -R www-data:www-data storage bootstrap/cache /tmp/caddy
 
-EXPOSE 80
+USER www-data
 
-CMD ["royal-api-entrypoint"]
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD php -r 'exit(@file_get_contents("http://127.0.0.1:8080/api/health") === false ? 1 : 0);'
+
+ENTRYPOINT ["frankenphp", "run", "--config", "/etc/frankenphp/Caddyfile"]

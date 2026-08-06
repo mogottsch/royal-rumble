@@ -9,7 +9,7 @@ class StoreRumblerRequest extends FormRequest
     public function rules()
     {
         return [
-            "wrestler_id" => ["required", "integer", "exists:wrestlers,id"],
+            'wrestler_id' => ['required', 'integer', 'exists:wrestlers,id'],
         ];
     }
 }

@@ -3,15 +3,18 @@ import { Box, Divider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLobbyContext } from "../contexts/lobby_context";
 import { useNavigate } from "react-router-dom";
-import { fetchApi } from "../api/fetcher";
-import { useLoadingAndErrorStates } from "../hooks/use_loading_and_error_states";
+import { apiJson } from "../api/fetcher";
+import { useLoadingAndErrorStateContext } from "../contexts/loading_and_error_states";
 import { useI18n } from "../i18n";
 import { buildTestEntranceNumbers } from "../test_lobby_seed";
+import { useNotificationContext } from "../contexts/notification_context";
 
 export function AssignEntranceNumbers() {
   const navigate = useNavigate();
   const { lobby, lobbyQuery } = useLobbyContext();
   const { t } = useI18n();
+  const { notify } = useNotificationContext();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (!lobby) {
@@ -64,7 +67,7 @@ export function AssignEntranceNumbers() {
     }
   };
 
-  const { setKeyLoading } = useLoadingAndErrorStates();
+  const { setIsLoading: setKeyLoading } = useLoadingAndErrorStateContext();
 
   const [participantEntranceNumber, setParticipantEntranceNumber] = useState<
     Record<number, number>
@@ -93,22 +96,15 @@ export function AssignEntranceNumbers() {
     }
   };
 
-  function updateParticipantEntranceNumbers() {
-    if (selectedParticipantId === undefined) return null;
-    if (selectedEntranceNumber === undefined) return null;
-    setParticipantEntranceNumber({
-      ...participantEntranceNumber,
-      [selectedParticipantId]: selectedEntranceNumber,
-    });
-  }
-
   useEffect(() => {
     if (
       selectedParticipantId === undefined ||
       selectedEntranceNumber === undefined
-    )
-      return;
-    updateParticipantEntranceNumbers();
+    ) return;
+    setParticipantEntranceNumber((current) => ({
+      ...current,
+      [selectedParticipantId]: selectedEntranceNumber,
+    }));
     setSelectedParticipantId(undefined);
     setSelectedEntranceNumber(undefined);
   }, [selectedParticipantId, selectedEntranceNumber]);
@@ -148,15 +144,19 @@ export function AssignEntranceNumbers() {
       alert(t("assignEntrance.errorIncomplete"));
       return;
     }
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setKeyLoading("assignEntranceNumbers", true);
-    await putEntranceNumbers(
-      lobby.code,
-      participantEntranceNumber,
-      t("assignEntrance.errorFailedPrefix"),
-    );
-    setKeyLoading("assignEntranceNumbers", false);
-    await lobbyQuery?.refetch();
-    navigate(`/lobbies/${lobby.code}/view-game`);
+    try {
+      await putEntranceNumbers(lobby.code, participantEntranceNumber);
+      await lobbyQuery?.refetch();
+      navigate(`/lobbies/${lobby.code}/view-game`);
+    } catch (error) {
+      notify(`${t("assignEntrance.errorFailedPrefix")}: ${(error as Error).message}`, "error");
+    } finally {
+      setIsSubmitting(false);
+      setKeyLoading("assignEntranceNumbers", false);
+    }
   };
 
   return (
@@ -251,6 +251,7 @@ export function AssignEntranceNumbers() {
           sx={{ width: "100%" }}
           size="large"
           onClick={assignEntranceNumbers}
+          disabled={!allAssigned || isSubmitting}
         >
           {t("assignEntrance.start")}
         </Button>
@@ -262,21 +263,10 @@ export function AssignEntranceNumbers() {
 async function putEntranceNumbers(
   lobbyCode: string,
   entranceNumbers: Record<number, number>,
-  errorPrefix: string,
 ) {
-  const body = JSON.stringify({ participantEntranceNumbers: entranceNumbers });
-  const response = await fetchApi(`lobbies/${lobbyCode}/entrance-numbers`, {
+  return apiJson(`lobbies/${lobbyCode}/entrance-numbers`, {
     method: "POST",
-    body,
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
+    body: JSON.stringify({ participantEntranceNumbers: entranceNumbers }),
+    headers: { "content-type": "application/json" },
   });
-
-  if (!response.ok) {
-    throw new Error(`${errorPrefix}: ${response.statusText}`);
-  }
-  const data = await response.json();
-  return data.data.lobby;
 }

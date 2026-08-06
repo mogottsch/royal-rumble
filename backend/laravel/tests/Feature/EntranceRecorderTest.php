@@ -11,10 +11,12 @@ use Tests\TestCase;
 class EntranceRecorderTest extends TestCase
 {
     private Lobby $lobby;
+
     private EntranceRecorder $entranceRecorder;
+
     private EntranceNumberAssigner $entranceNumberAssigner;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -32,6 +34,7 @@ class EntranceRecorderTest extends TestCase
             $participant->save();
         }
     }
+
     public function test_records_multiple_entrances()
     {
         $wrestlers = Wrestler::factory()
@@ -41,12 +44,12 @@ class EntranceRecorderTest extends TestCase
             $this->entranceRecorder->record($this->lobby, $wrestler);
         }
 
-        $rumblers = $this->lobby->fresh("rumblers.participant")->rumblers;
+        $rumblers = $this->lobby->fresh('rumblers.participant')->rumblers;
 
         foreach ($rumblers as $i => $rumbler) {
             $this->assertContains(
                 $rumbler->wrestler_id,
-                $wrestlers->pluck("id")->toArray()
+                $wrestlers->pluck('id')->toArray()
             );
 
             $this->assertEquals($rumbler->entrance_number, $i + 1);

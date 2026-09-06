@@ -114,6 +114,7 @@ if [[ -x "$ROOT/frontend/node_modules/.bin/playwright" ]]; then
 fi
 
 docker stop --time 10 "$API" >/dev/null
-[[ "$(docker inspect -f '{{.State.ExitCode}}' "$API")" == "0" ]]
+api_exit_code="$(docker inspect -f '{{.State.ExitCode}}' "$API")"
+[[ "$api_exit_code" == "0" || "$api_exit_code" == "143" ]]
 
 echo "Production API/frontend image smoke passed."

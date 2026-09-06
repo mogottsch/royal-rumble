@@ -7,7 +7,7 @@ on:
 
 jobs:
   backend:
-    runs-on: moket-labs-arc
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     defaults:
       run:
         working-directory: backend/laravel
@@ -30,7 +30,7 @@ jobs:
         run: vendor/bin/pest
 
   backend-postgres:
-    runs-on: moket-labs-arc
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     services:
       postgres:
         image: postgres:17-alpine
@@ -76,7 +76,7 @@ jobs:
         run: vendor/bin/pest
 
   frontend:
-    runs-on: moket-labs-arc
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     defaults:
       run:
         working-directory: frontend
@@ -107,7 +107,7 @@ jobs:
           VITE_PUSHER_SCHEME: https
 
   crawler:
-    runs-on: moket-labs-arc
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     env:
       PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
     steps:
@@ -128,7 +128,7 @@ jobs:
         working-directory: crawler
 
   e2e:
-    runs-on: moket-labs-arc
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -153,7 +153,7 @@ jobs:
             frontend/test-results
 
   production-images:
-    runs-on: moket-labs-arc
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     needs: [backend, backend-postgres, frontend, crawler]
     steps:
       - uses: actions/checkout@v4

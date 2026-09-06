@@ -24,7 +24,7 @@ jobs:
 
   api:
     needs: test
-    runs-on: moket-labs-arc
+    runs-on: moket-public-arc
     permissions:
       contents: read
     steps:
@@ -51,7 +51,7 @@ jobs:
 
   frontend:
     needs: test
-    runs-on: moket-labs-arc
+    runs-on: moket-public-arc
     permissions:
       contents: read
     steps:
@@ -83,7 +83,7 @@ jobs:
   update-gitops:
     name: update GitOps image tags
     needs: [api, frontend]
-    runs-on: moket-labs-arc
+    runs-on: moket-public-arc
     permissions:
       contents: read
     steps:
@@ -138,7 +138,7 @@ jobs:
   verify-rollout:
     name: verify production rollout
     needs: update-gitops
-    runs-on: moket-labs-arc
+    runs-on: moket-public-arc
     permissions:
       contents: read
     steps:

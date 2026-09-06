@@ -88,12 +88,12 @@ jobs:
       VITE_PUSHER_APP_KEY: dummy
     steps:
       - uses: actions/checkout@v4
+      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: yarn
           cache-dependency-path: frontend/yarn.lock
-      - run: corepack enable
       - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn typecheck
@@ -123,7 +123,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: pipx install poetry==2.4.0
+      - run: python -m pip install poetry==2.4.0
       - run: poetry check --strict
         working-directory: crawler
       - run: poetry install --no-interaction
@@ -145,12 +145,12 @@ jobs:
           fi
           git lfs install --local
           git lfs pull
+      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: yarn
           cache-dependency-path: frontend/yarn.lock
-      - run: corepack enable
       - run: yarn install --frozen-lockfile
         working-directory: frontend
       - run: yarn playwright install --with-deps chromium
@@ -177,12 +177,12 @@ jobs:
           fi
           git lfs install --local
           git lfs pull
+      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: yarn
           cache-dependency-path: frontend/yarn.lock
-      - run: corepack enable
       - run: yarn install --frozen-lockfile
         working-directory: frontend
       - run: yarn playwright install --with-deps chromium

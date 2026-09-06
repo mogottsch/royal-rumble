@@ -88,12 +88,10 @@ jobs:
       VITE_PUSHER_APP_KEY: dummy
     steps:
       - uses: actions/checkout@v4
-      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: yarn
-          cache-dependency-path: frontend/yarn.lock
+      - run: corepack enable
       - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn typecheck
@@ -145,12 +143,10 @@ jobs:
           fi
           git lfs install --local
           git lfs pull
-      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: yarn
-          cache-dependency-path: frontend/yarn.lock
+      - run: corepack enable
       - run: yarn install --frozen-lockfile
         working-directory: frontend
       - run: yarn playwright install --with-deps chromium
@@ -177,12 +173,10 @@ jobs:
           fi
           git lfs install --local
           git lfs pull
-      - run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: yarn
-          cache-dependency-path: frontend/yarn.lock
+      - run: corepack enable
       - run: yarn install --frozen-lockfile
         working-directory: frontend
       - run: yarn playwright install --with-deps chromium

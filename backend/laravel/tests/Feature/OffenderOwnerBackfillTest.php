@@ -14,8 +14,8 @@ class OffenderOwnerBackfillTest extends TestCase
     public function test_backfill_sets_only_unambiguous_offender_owners(): void
     {
         $lobby = Lobby::factory()->create();
-        $ownedRumbler = Rumbler::factory()->for($lobby)->for(Wrestler::factory())->create();
-        $ambiguousRumbler = Rumbler::factory()->for($lobby)->for(Wrestler::factory())->create();
+        $ownedRumbler = Rumbler::factory()->for($lobby)->for(Wrestler::factory())->create(['entrance_number' => 1]);
+        $ambiguousRumbler = Rumbler::factory()->for($lobby)->for(Wrestler::factory())->create(['entrance_number' => 2]);
 
         $owner = Participant::factory()->for($lobby)->create(['rumbler_id' => $ownedRumbler->id]);
         Participant::factory()->count(2)->for($lobby)->create(['rumbler_id' => $ambiguousRumbler->id]);

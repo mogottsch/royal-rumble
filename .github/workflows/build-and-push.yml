@@ -5,9 +5,18 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: royal-rumble-deploy
+  cancel-in-progress: false
+
+permissions: {}
+
 env:
-  REGISTRY: ghcr.io
-  IMAGE_OWNER: ${{ github.repository_owner }}
+  REGISTRY: registry.moket-home.de
+  API_IMAGE: registry.moket-home.de/royal-api
+  FRONTEND_IMAGE: registry.moket-home.de/royal-frontend
+  INFRA_REPO: mogottsch/kubernetes-homeserver
+  PRODUCTION_URL: https://suffroyale.com
 
 jobs:
   test:
@@ -15,10 +24,9 @@ jobs:
 
   api:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: moket-labs-arc
     permissions:
       contents: read
-      packages: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,58 +35,128 @@ jobs:
       - uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/metadata-action@v5
-        id: meta
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/royal-api
-          tags: |
-            type=sha
-            type=raw,value=latest,enable={{is_default_branch}}
+          username: ${{ secrets.ZOT_USERNAME }}
+          password: ${{ secrets.ZOT_PASSWORD }}
       - uses: docker/build-push-action@v6
         with:
           context: .
           file: backend/laravel/docker/prod/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha,scope=api
-          cache-to: type=gha,mode=max,scope=api
+          tags: ${{ env.API_IMAGE }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+          cache-from: type=gha,scope=royal-api
+          cache-to: type=gha,mode=max,scope=royal-api
 
   frontend:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: moket-labs-arc
     permissions:
       contents: read
-      packages: write
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/metadata-action@v5
-        id: meta
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_OWNER }}/royal-frontend
-          tags: |
-            type=sha
-            type=raw,value=latest,enable={{is_default_branch}}
+          username: ${{ secrets.ZOT_USERNAME }}
+          password: ${{ secrets.ZOT_PASSWORD }}
       - uses: docker/build-push-action@v6
         with:
           context: .
           file: frontend/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ env.FRONTEND_IMAGE }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
           build-args: |
             VITE_BACKEND_URL=https://suffroyale.com
             VITE_PUSHER_HOST=ws.suffroyale.com
             VITE_PUSHER_PORT=443
             VITE_PUSHER_SCHEME=https
             VITE_PUSHER_PUBLIC_ID=${{ secrets.PUSHER_APP_KEY }}
-          cache-from: type=gha,scope=frontend
-          cache-to: type=gha,mode=max,scope=frontend
+          cache-from: type=gha,scope=royal-frontend
+          cache-to: type=gha,mode=max,scope=royal-frontend
+
+  update-gitops:
+    name: update GitOps image tags
+    needs: [api, frontend]
+    runs-on: moket-labs-arc
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout kubernetes-homeserver
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.INFRA_REPO }}
+          ref: main
+          path: kubernetes-homeserver
+          token: ${{ secrets.INFRA_REPO_TOKEN }}
+
+      - name: Update Royal Rumble repositories and tags
+        env:
+          TAG: sha-${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          path = Path("kubernetes-homeserver/apps/royal-rumble/values.yaml")
+          text = path.read_text()
+          tag = os.environ["TAG"]
+          replacements = [
+              ("api", "registry.moket-home.de/royal-api"),
+              ("frontend", "registry.moket-home.de/royal-frontend"),
+          ]
+          for component, repository in replacements:
+              pattern = rf"({component}:\n[ \t]+repository: ).*\n([ \t]+tag: ).*"
+              text, count = re.subn(pattern, rf"\g<1>{repository}\n\g<2>{tag}", text, count=1)
+              if count != 1:
+                  raise SystemExit(f"failed to update {component} image repository and tag")
+          path.write_text(text)
+          PY
+
+      - name: Commit and push image tag bump
+        env:
+          TAG: sha-${{ github.sha }}
+        run: |
+          cd kubernetes-homeserver
+          if git diff --quiet -- apps/royal-rumble/values.yaml; then
+            echo "No image change to commit."
+            exit 0
+          fi
+          git add apps/royal-rumble/values.yaml
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+            commit -m "chore(royal-rumble): bump images to ${TAG}" \
+                   -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+  verify-rollout:
+    name: verify production rollout
+    needs: update-gitops
+    runs-on: moket-labs-arc
+    permissions:
+      contents: read
+    steps:
+      - name: Wait for production health and readiness
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 60); do
+            health="$(curl -fsS "${{ env.PRODUCTION_URL }}/api/health" || true)"
+            readiness="$(curl -fsS "${{ env.PRODUCTION_URL }}/api/readiness" || true)"
+            code="$(curl -sS -o /dev/null -w '%{http_code}' "${{ env.PRODUCTION_URL }}" || true)"
+            if echo "$health" | grep -q '"status":"ok"' \
+              && echo "$readiness" | grep -q '"status":"ready"' \
+              && [ "$code" = "200" ]; then
+              echo "Royal Rumble is healthy and ready."
+              exit 0
+            fi
+            echo "Attempt $i: health=${health:-<none>} readiness=${readiness:-<none>} home=$code"
+            sleep 10
+          done
+          echo "::error::Royal Rumble did not become healthy and ready within 10 minutes."
+          exit 1

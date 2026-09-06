@@ -24,7 +24,7 @@ from bs4 import BeautifulSoup
 API_URL = "https://en.wikipedia.org/w/api.php"
 USER_AGENT = (
     "SuffRoyaleEntranceOrder/1.0 "
-    "(https://github.com/mogottsch/royal-rumble; contact: gottschling.moritz@gmail.com)"
+    "(https://github.com/moket-labs/royal-rumble; contact: gottschling.moritz@gmail.com)"
 )
 LICENSE = "CC BY-SA 4.0"
 LICENSE_URL = "https://creativecommons.org/licenses/by-sa/4.0/"

@@ -110,14 +110,8 @@ jobs:
       PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
     steps:
       - uses: actions/checkout@v4
-      - name: Install and fetch Git LFS assets
-        run: |
-          if ! command -v git-lfs >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y git-lfs
-          fi
-          git lfs install --local
-          git lfs pull
+        with:
+          lfs: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
@@ -135,14 +129,8 @@ jobs:
     runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'moket-public-arc' }}
     steps:
       - uses: actions/checkout@v4
-      - name: Install and fetch Git LFS assets
-        run: |
-          if ! command -v git-lfs >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y git-lfs
-          fi
-          git lfs install --local
-          git lfs pull
+        with:
+          lfs: true
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
@@ -165,14 +153,8 @@ jobs:
     needs: [backend, backend-postgres, frontend, crawler]
     steps:
       - uses: actions/checkout@v4
-      - name: Install and fetch Git LFS assets
-        run: |
-          if ! command -v git-lfs >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y git-lfs
-          fi
-          git lfs install --local
-          git lfs pull
+        with:
+          lfs: true
       - uses: actions/setup-node@v4
         with:
           node-version: "24"

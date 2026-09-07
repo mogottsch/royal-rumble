@@ -15,7 +15,7 @@ env:
   REGISTRY: registry.moket-home.de
   API_IMAGE: registry.moket-home.de/royal-api
   FRONTEND_IMAGE: registry.moket-home.de/royal-frontend
-  INFRA_REPO: mogottsch/kubernetes-homeserver
+  INFRA_REPO: moket-labs/kubernetes-homeserver
   PRODUCTION_URL: https://suffroyale.com
 
 jobs:
